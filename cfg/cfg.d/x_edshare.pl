@@ -9,6 +9,31 @@
 #	$repository->call("edshare_core_session_init", $repository, $offline);	
 #};
 
+$c->{edshare_core_set_eprint_automatic_fields} = $c->{set_eprint_automatic_fields}; 
+
+$c->{set_eprint_automatic_fields} = sub
+{
+	my ($eprint) = @_;
+	my $repo = $eprint->{session};
+
+	$repo->call('edshare_core_set_eprint_automatic_fields', $eprint);
+
+	# normalise the keywords (if any) for the browse views
+	my $k = $eprint->get_value( "keywords" ); 
+	unless( EPrints::Utils::is_set( $k ) )
+	{ 
+		$eprint->set_value( "normalised_keywords", undef ); 
+	} 
+	else
+	{
+		my @nk;
+		foreach(@$k)
+		{
+			push @nk, EPrints::Plugin::EdShareCoreUtils::normalise_keyword( $_ );
+		}
+		$eprint->set_value( "normalised_keywords", \@nk );
+	}
+};
 # mrt - removing this for a second
 #$c->{set_document_automatic_fields} = sub
 #{
@@ -150,7 +175,7 @@ $c->{fields}->{eprint} = [
                         ],
             'input_boxes' => 1,
 	    'input_ordered' => 0,
-	    'render_value' => 'EPrints::Plugin::RenderNames::render_creators_name'
+	    'render_value' => 'EPrints::Plugin::EdShareCoreUtils::render_creators_name'
           },
           
 
@@ -193,7 +218,7 @@ $c->{fields}->{eprint} = [
             'type' => 'text',
 	    'multiple' => 1,
 	    'text_index' => 1,
-	    'render_single_value' => 'EPrints::Extras::render_single_keyword',
+	    'render_single_value' => 'EPrints::Plugin::EdShareCoreUtils::render_single_keyword',
 #	    'input_advice_below' => sub { return shift->html_phrase( "Field/TagLite:keywords:advice_below" ); },
 
           },
@@ -202,7 +227,7 @@ $c->{fields}->{eprint} = [
             'type' => 'text',
 	    'multiple' => 1,
 	    'text_index' => 1,
-	    'render_single_value' => 'EPrints::Extras::render_single_keyword'
+	    'render_single_value' => 'EPrints::Plugins::EdShareCoreUtils::render_single_keyword'
           },
           {
             'name' => 'abstract',
@@ -229,7 +254,6 @@ $c->{fields}->{eprint} = [
                          ],
             'input_style' => 'radio',
             'allow_null' => 0,
-            'render_value' => 'EPrints::Extras::render_permissions',
           },
 
 	 # The following are core fields which arent used in EdShare Core but EPrints wont let us remove
@@ -271,6 +295,65 @@ $c->{fields}->{eprint} = [
 
 ];
 
+
+$c->{browse_views} = [
+        {
+                id => "year",
+                menus => [
+                        {
+                                fields => [ "datestamp;res=year" ],
+                                reverse_order => 1,
+                                allow_null => 1,
+                                new_column_at => [10,10],
+                        }
+                ],
+                order => "creators_name/title",
+                variations => [
+                        "creators_name;first_letter",
+                        "type",
+                        "DEFAULT" ],
+        },
+        {
+                id => "creators",
+                allow_null => 0,
+                hideempty => 1,
+                menus => [
+                        {
+#EdShare - order=fg added so that the browse view still orders family name first even though the names are rendered given first.
+                                fields => [ "creators_name;order=fg" ],
+                                new_column_at => [1, 1],
+                                mode => "sections",
+                                open_first_section => 1,
+                                group_range_function => "EPrints::Update::Views::cluster_ranges_30",
+                                grouping_function => "EPrints::Update::Views::group_by_a_to_z",
+                        },
+                ],
+                order => "-datestamp/title",
+                variations => [
+                        "type",
+                        "DEFAULT",
+                ],
+        },
+
+
+        {
+                id => "keywords",
+                allow_null => 0,
+                hideempty => 1,
+                menus => [
+                        {
+                                fields => [ "normalised_keywords" ],
+                                new_column_at => [1, 1],
+                                mode => "sections",
+                                open_first_section => 1,
+                                group_range_function => "EPrints::Update::Views::cluster_ranges_30",
+                                grouping_function => "EPrints::Update::Views::group_by_a_to_z",
+                        },
+                ],
+                order => "-datestamp/title",
+                citation => "result",
+        },
+];
 
 $c->{eprint_render} = sub
 {
@@ -352,110 +435,6 @@ $c->{eprint_render} = sub
 		print STDERR "\nWoops toolbox not defined..!";
 	}
 
-
-# Xapian - "Related Items"
-my $xapian_plugin = $session->plugin( "Export::Xapian" );
-my $xapian;
-
-# sf2/xapian can fail badly
-eval {
-	my $path = $session->get_repository->get_conf( "variables_path" ) . "/xapian";
-	$xapian = Search::Xapian::Database->new( $path );
-};
-
-if( defined $xapian_plugin && defined $xapian )
-{
-
-	my $key = "_id:/id/eprint/" . $eprint->get_id;
-
-	my $enq = $xapian->enquire( Search::Xapian::Query->new(
-		Search::Xapian::OP_AND(),
-		"_dataset:eprint",
-		$key,
-	) );
-
-	my $rset = Search::Xapian::RSet->new();
-	my( $match ) = $enq->matches(0, 1);
-
-	if( defined $match )
-	{
-		$rset->add_document( $match->get_docid );
-	#print STDERR "rset=".$rset->get_description."\n";
-
-		$enq = Search::Xapian::Enquire->new( $xapian );
-
-		my $stopper = Search::Xapian::SimpleStopper->new();
-		my $eset = $enq->get_eset( 40, $rset, sub {
-			my( $term ) = @_;
-
-			# Reject terms with a prefix
-			return 0 if $term =~ /^[A-Z]/;
-
-			# Don't suggest stopwords
-			return 0 if $stopper->stop_word( $term );
-
-			# Reject small numbers
-			return 0 if $term =~ /^[0-9]{1,3}$/;
-
-			# Reject terms containing a space
-			return 0 if $term =~ /\s/;
-
-			# Ignore terms that only occur once
-			return 0 if $xapian->get_termfreq( $term ) <= 1;
-
-			# Ignore the unique term used to retrieve the query
-			return 0 if $term eq $key;
-
-			return 1;
-		} );
-		my @terms = map { $_->get_termname() } $eset->items;
-
-		$enq = Search::Xapian::Enquire->new( $xapian );
-		$enq->set_query(
-			Search::Xapian::Query->new(
-				Search::Xapian::OP_AND(),
-				"eprint_status:archive",
-				Search::Xapian::Query->new(
-					Search::Xapian::OP_AND_NOT(),
-					"_dataset:eprint",
-					$key,
-				),
-				Search::Xapian::Query->new(
-					Search::Xapian::OP_OR(),
-					@terms
-				),
-		) );
-		my @docs = $enq->matches( 0, 5 );
-
-		my $ul = $session->make_element( "ul", class => "ep_act_list", style => "margin: 0.5em;list-style-image:none;list-style-position:outside;list-style-type:none;" );
-		for(@docs)
-		{
-			last if !defined;
-#			my $eprint = $session->get_eprint( $_->get_document->get_data );
-			my $eprint = EPrints::DataObj::EPrint->new( $session, $_->get_document->get_data );
-
-			next if !defined $eprint;
-			my $li = $session->make_element( "li", style=>"padding-bottom: 3px;" );
-			$ul->appendChild( $li );
-			$li->appendChild( $eprint->render_citation_link( "brief" ) );
-
-# Relevance of the match in %:
-#
-#			$li->appendChild( $session->make_text( "Relevance: ".$_->get_percent ) );
-		}
-		if( scalar(@docs) )
-		{
-			my $xapian_box = $session->make_element( "div", class=>"ep_block toolbox_".$eprint->get_value("type"));
-			$rightbar->appendChild( $xapian_box );
-			my $title = $session->make_element("h2", class => "ep_abstractpage_header");
-			$xapian_box->appendChild($title);
-			$title->appendChild($session->make_text("Related Items"));
-			$xapian_box->appendChild( $ul );
-		}
-	}
-	
-}
-
 	$page->appendChild($rightbar);
 	# Commentary
 
@@ -526,17 +505,26 @@ if( defined $xapian_plugin && defined $xapian )
 
 
 	# sf2/stats
-	$table->appendChild( $session->render_row( 
-		$session->make_text( "Downloads" ),
-		$session->make_javascript( "new RepoStats_SparkLine( {datasetid: 'eprint_downloads', objectid: '".$eprint->get_id."', tooltip: 'Download activity, click for more stats', link_to_dashboard: 'eprint' } );" ) ) );
-
+	if ($session->plugin("Stats::RepoStats"))
+	{
+		$table->appendChild( $session->render_row( 
+			$session->make_text( "Downloads" ),
+			$session->make_javascript( "new RepoStats_SparkLine( {datasetid: 'eprint_downloads', objectid: '".$eprint->get_id."', tooltip: 'Download activity, click for more stats', link_to_dashboard: 'eprint' } );" ) ) );
+	}
 
 	my $leftbar = $session->make_element("div", style=>"float:left;width: 625px;");
 	$page->appendChild( $leftbar );
 
 	if($eprint->get_value("type") ne "collection")
 	{
+		if ($session->can_call("make_preview_plus"))
+		{
 			$leftbar->appendChild($session->get_repository()->call("make_preview_plus", $session, $eprint, "horizontal"));
+		}
+		else
+		{
+			$leftbar->appendChild($session->make_text( 'hoooooo YEAAAAH'));
+		}
 	}
 	else
 	{
@@ -569,9 +557,8 @@ if( defined $xapian_plugin && defined $xapian )
 	}
 
 	# Comments and Notes
-
-	unless( $preview )
-	{	
+	if( !$preview and $session->plugin('Screen::EPMC::Sneep'))
+	{
 		my $sneep_container = $session->make_element( "div", style => "width: 625px;" );
 		$leftbar->appendChild( $sneep_container );
 
@@ -609,48 +596,52 @@ if( defined $xapian_plugin && defined $xapian )
 		$sneep_container->appendChild( $panels );
 	}
 
-	#generate parent collections
-	my $contained_ids = $eprint->get_parent_collections( $session );
-        my $parents = $session->make_element( "div", class=>"ep_block" );
-	my $h2 = $session->make_element( "h2", class=>"ep_abstractpage_header");
-	$h2->appendChild( $session->make_text( "Collection(s)" ) );
-	$parents->appendChild( $h2 );
 
-	my($parents_ul,$parents_li);
-	$parents_ul = $session->make_element( "ul", style=>"padding-left:5px;list-style-image:none;list-style-type:none;" );
-	$parents->appendChild( $parents_ul );
-
-	my $collections_count = 0;
-        if(defined $contained_ids && scalar @$contained_ids)
+	if ($session->plugin('Collection'))
 	{
-                my $contained_eprint;
-                foreach my $id (@$contained_ids)
-                {
-                        $contained_eprint = EPrints::DataObj::EPrint->new($session, $id);
-                        if(!defined $contained_eprint)
+		#generate parent collections
+		my $contained_ids = $eprint->get_parent_collections( $session );
+		my $parents = $session->make_element( "div", class=>"ep_block" );
+		my $h2 = $session->make_element( "h2", class=>"ep_abstractpage_header");
+		$h2->appendChild( $session->make_text( "Collection(s)" ) );
+		$parents->appendChild( $h2 );
+
+		my($parents_ul,$parents_li);
+		$parents_ul = $session->make_element( "ul", style=>"padding-left:5px;list-style-image:none;list-style-type:none;" );
+		$parents->appendChild( $parents_ul );
+
+		my $collections_count = 0;
+		if(defined $contained_ids && scalar @$contained_ids)
+		{
+			my $contained_eprint;
+			foreach my $id (@$contained_ids)
 			{
-                                next;
-                        }
-			if( $contained_eprint->get_value( "eprint_status" ) ne 'archive' )
-			{
-				next;
+				$contained_eprint = EPrints::DataObj::EPrint->new($session, $id);
+				if(!defined $contained_eprint)
+				{
+					next;
+				}
+				if( $contained_eprint->get_value( "eprint_status" ) ne 'archive' )
+				{
+					next;
+				}
+				if($contained_eprint->get_value("type") eq "collection")
+				{
+					$parents_li = $session->make_element( "li" );
+					$parents_ul->appendChild( $parents_li );
+
+					my $parent_link = $session->make_element( "a", href=>$contained_eprint->get_url );
+					$parent_link->appendChild( $contained_eprint->render_value( "title" ) );
+					$parents_li->appendChild( $parent_link );
+					$collections_count++;
+				}
 			}
-                        if($contained_eprint->get_value("type") eq "collection")
-			{
-				$parents_li = $session->make_element( "li" );
-				$parents_ul->appendChild( $parents_li );
+		}
 
-				my $parent_link = $session->make_element( "a", href=>$contained_eprint->get_url );
-				$parent_link->appendChild( $contained_eprint->render_value( "title" ) );
-				$parents_li->appendChild( $parent_link );
-                                $collections_count++;
-                        }
-                }
-        }
-
-	if( $collections_count )
-	{
-		$rightbar->appendChild( $parents );
+		if( $collections_count )
+		{
+			$rightbar->appendChild( $parents );
+		}
 	}
 
 #	my $access = $session->make_element( "p" );

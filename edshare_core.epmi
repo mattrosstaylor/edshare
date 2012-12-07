@@ -9,23 +9,23 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>7ab8c57c2c47dba78d01e46349a79e06</hash>
+          <hash>a711f23735dff4bd2b1df453f38a5dfc</hash>
           <hash_type>MD5</hash_type>
-          <filesize>32281</filesize>
+          <filesize>32376</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/lang/en/phrases/x_edshare_core.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>dc8ad886b4f7c67f9aedc569ab0f3b35</hash>
+          <hash>9ba26e96bd10e63ab237dd4634867f44</hash>
           <hash_type>MD5</hash_type>
-          <filesize>14433</filesize>
+          <filesize>14431</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/javascript/auto/taglite.js</filename>
           <mime_type>text/plain</mime_type>
-          <hash>930c46cf08d082e918ebba67a1a69bac</hash>
+          <hash>fee2854dbf2515dbb8c6704203dafc95</hash>
           <hash_type>MD5</hash_type>
-          <filesize>5596</filesize>
+          <filesize>5605</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/style/auto/taglite.css</filename>
@@ -35,6 +35,13 @@
           <filesize>205</filesize>
         </file>
         <file>
+          <filename>epm/edshare_core/cfg/static/style/images/xit.gif</filename>
+          <mime_type>image/gif</mime_type>
+          <hash>856d3bd537ec1900c48be6d342af4797</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>203</filesize>
+        </file>
+        <file>
           <filename>epm/edshare_core/cfg/workflows/eprint/edshare.xml</filename>
           <mime_type>application/xml</mime_type>
           <hash>2b9e22e359dfa2e471f8fcdfbdc3ca00</hash>
@@ -42,22 +49,29 @@
           <filesize>989</filesize>
         </file>
         <file>
+          <filename>plugins/EPrints/Plugin/EdShareCoreUtils.pm</filename>
+          <mime_type>inode/symlink</mime_type>
+          <hash>eda6be909990645a5a99c7fe9cf8a5a8</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>5338</filesize>
+        </file>
+        <file>
           <filename>plugins/EPrints/Plugin/InputForm/Component/Field/TagLite.pm</filename>
-          <mime_type>text/plain</mime_type>
+          <mime_type>inode/symlink</mime_type>
           <hash>63bf093e2725958029ead45f27b11d0e</hash>
           <hash_type>MD5</hash_type>
           <filesize>8950</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPrint/EdShareEdit.pm</filename>
-          <mime_type>text/plain</mime_type>
-          <hash>50c1bc77bd7357fd90cac55aa7de9ae7</hash>
+          <mime_type>inode/symlink</mime_type>
+          <hash>c8b2806f7fb25f7ae055a087536ce06b</hash>
           <hash_type>MD5</hash_type>
-          <filesize>353</filesize>
+          <filesize>1466</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/TagCloud.pm</filename>
-          <mime_type>text/plain</mime_type>
+          <mime_type>inode/symlink</mime_type>
           <hash>b1efaa52323085ccc9ed390bce56d573</hash>
           <hash_type>MD5</hash_type>
           <filesize>4372</filesize>
