@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<workflow xmlns="http://eprints.org/ep3/workflow" xmlns:epc="http://eprints.org/ep3/control">
+  <flow>
+    <stage ref="core"/>
+  </flow>
+
+  <stage name="core">
+    
+    <component type="Upload">
+        <upload-methods>
+          <method>file</method>
+          <method>sharelink</method>
+          <method>ziplocal</method>
+        </upload-methods>
+    </component>
+    <component type="Documents">
+  	<field ref="description"/>
+  	<field ref="license" />
+    </component>
+
+    <component type="Field::Multi">
+	<title>Resource Information</title>
+	<field ref="title" required="yes" />
+
+	<field ref="abstract"/>
+      
+	<field ref="creators" input_lookup_url="{$config{rel_cgipath}}/users/lookup/localname" />
+
+	<field ref="advice" />
+    </component>
+
+    <component type="Field::TagLite">
+	<field ref="keywords" show_pickup_list="1"/>
+    </component>
+
+    <component><field ref="viewperms" required="yes"/></component>
+
+</stage>
+
+</workflow>
+
+
+
