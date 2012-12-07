@@ -9,31 +9,31 @@
 #	$repository->call("edshare_core_session_init", $repository, $offline);	
 #};
 
-
-$c->{set_document_automatic_fields} = sub
-{
-	my( $doc ) = @_;
-
-        if( $doc->is_link() )
-        {
-                if( $doc->generate_link_frames() )
-                {
-                        my $use_local = $doc->get_value( "use_local_copy" );
-                        if( defined $use_local )
-                        {
-                                if( $use_local eq 'TRUE' )
-                                {
-                                        $doc->set_value( "main", "_edshare_main_local.html" );
-                                }
-                                else
-                                {
-                                        $doc->set_value( "main", "_edshare_main.html" );
-                                }
-                        }
-                }
-        }
-
-};
+# mrt - removing this for a second
+#$c->{set_document_automatic_fields} = sub
+#{
+#	my( $doc ) = @_;
+#
+#        if( $doc->is_link() )
+#        {
+#                if( $doc->generate_link_frames() )
+#                {
+#                        my $use_local = $doc->get_value( "use_local_copy" );
+#                        if( defined $use_local )
+#                        {
+#                                if( $use_local eq 'TRUE' )
+#                                {
+#                                        $doc->set_value( "main", "_edshare_main_local.html" );
+#                                }
+#                                else
+#                                {
+#                                        $doc->set_value( "main", "_edshare_main.html" );
+#                                }
+#                        }
+#                }
+#        }
+#
+#};
 
 $c->{fields}->{document} = [
 # EdShare - This field adds a description to a document which outlines what it is intended to be used for.
