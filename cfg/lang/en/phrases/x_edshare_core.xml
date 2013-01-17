@@ -1,214 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE phrases SYSTEM "entities.dtd">
 <epp:phrases xmlns="http://www.w3.org/1999/xhtml" xmlns:epp="http://eprints.org/ep3/phrase" xmlns:epc="http://eprints.org/ep3/control">
-
-	<!-- EPrint::Remove -->
-	<epp:phrase id="Plugin/Screen/EPrint/Remove:title">Delete item</epp:phrase>
-	<epp:phrase id="lib/submissionform:action_remove">Delete</epp:phrase>
-
-	<!-- Browse view -->
-	<epp:phrase id="viewname_eprint_divisions">University structure</epp:phrase>
-	<epp:phrase id="viewtitle_eprint_divisions_menu_1">Browse by University structure and Year</epp:phrase>
-	<epp:phrase id="viewtitle_eprint_divisions_menu_2">Browse: <epc:pin name="value1" /></epp:phrase>
-	<epp:phrase id="viewtitle_eprint_divisions_list">Browse: <epc:pin name="value1" /></epp:phrase>
-
-	<epp:phrase id="eprint_fieldname_normalised_keywords">Normalised Keywords</epp:phrase>
-	<epp:phrase id="viewname_eprint_rawkeywords">Tags (raw)</epp:phrase>
-
-	<epp:phrase id="Plugin/Screen/EPrint/Summary:item_private"><b>This is a preview of this resource</b><br/><br/>This item is not currently online. To start sharing this resource, change its <epc:pin name="link">viewing permissions</epc:pin>.</epp:phrase>
-
-	<epp:phrase id="Plugin/Screen/EPrint/Summary:item_online"><b>This is a preview of this resource</b><br/><br/>This item is online at <epc:pin name="link"/></epp:phrase>
-
-
-	<epp:phrase id="Plugin/InputForm/Component/Upload:title">Files &amp; Links</epp:phrase>
-	<!-- an "Item" is called a "Resource" on edshare -->
+	<epp:phrase id="eprint_typename_resource">Resource</epp:phrase>
 	<epp:phrase id="Plugin/Screen/NewEPrint:action:create:title">New Resource</epp:phrase>
 
-	<!-- My Tag Cloud MePrints Widget -->
-	<epp:phrase id="Plugin/MePrints/Widget/MyTagCloud:title">My Tag Cloud</epp:phrase>
-
-	<!-- Uploader -->
-	<epp:phrase id="Plugin/InputForm/Component/Upload:title">Files &amp; Links</epp:phrase>
-
-	<!-- Link pseudo MIME type -->
-	<epp:phrase id="document_typename_application/vnd.edshare-link">Internet Link</epp:phrase>
-
-	<epp:phrase id="Plugin/InputForm/Component/Upload:invalid_url">The link you entered is invalid. Links are in the following form: <strong>http://domain.com</strong> or <strong>https://domain.com/file.html</strong>.</epp:phrase>
-
-	<!-- Share a link upload method -->
-	<epp:phrase id="Plugin/InputForm/Component/Upload:sharelink">Link</epp:phrase>
-	<epp:phrase id="Plugin/InputForm/Component/Upload:ziplocal">Zip File</epp:phrase>
-	<epp:phrase id="Plugin/InputForm/Component/Upload:action_share_link">Submit</epp:phrase>
-	<epp:phrase id="Plugin/InputForm/Component/Upload:new_link">Enter URL: </epp:phrase>
-
-	<!-- Local UseAsTemplate -->
-	<epp:phrase id="Plugin/Screen/EPrint/UseAsTemplate:success">New item successfully created using the previous item as a template. You are now editing the new item.
-
-	</epp:phrase>
-
-	<!-- Tag Cloud -->
-	<epp:phrase id="Plugin/TagCloud:no_tags">No tags were found.</epp:phrase>
-
-	<!-- 403 -->
-	<epp:phrase id="cgi/handle_http_error:403_title">403 Not Authorised</epp:phrase>
-	<epp:phrase id="cgi/handle_http_error:403_blurb_plain"><p>You are not authorised to view the following address: <code><pin name="url"/></code></p></epp:phrase>
-	<epp:phrase id="cgi/handle_http_error:403_blurb_eprint"><p>You are not authorised to view this resource. </p><br/><p><pin name="link"/></p></epp:phrase>
-	<epp:phrase id="cgi/handle_http_error:403_blurb_document"><p>You are not authorised to view this document.</p><br/><p><pin name="link"/></p></epp:phrase>
-
-
-	<epp:phrase id="eprint_typename_resource">Resource</epp:phrase>
-
-	<!-- locally defined fields -->
-
-	<epp:phrase id="eprint_fieldname_normalised_keywords">Tags (normalised)</epp:phrase>
-
-	<epp:phrase id="eprint_fieldname_title">Title</epp:phrase>
-	<epp:phrase id="eprint_fieldhelp_title">Try to make your title concise, but also helpful and explanatory to other users. Avoid being too vague or too general. The title will be the first impression you give other users about your resource.
-	</epp:phrase>
-
-	<epp:phrase id="eprint_fieldname_abstract">Description</epp:phrase>
-	<epp:phrase id="eprint_fieldhelp_abstract">Enter a brief description of this resource.</epp:phrase>
-	<epp:phrase id="eprint_fieldname_creators">Creators</epp:phrase>
-	<epp:phrase id="eprint_fieldhelp_creators">The person or people who  made this resource. (Email address will not be shared)</epp:phrase>
-	<epp:phrase id="eprint_fieldname_creators_id">Email address</epp:phrase>
-	<epp:phrase id="eprint_fieldname_creators_name">Name</epp:phrase>
 	<epp:phrase id="eprint_fieldname_advice">Advice for reuse</epp:phrase>
 	<epp:phrase id="eprint_fieldhelp_advice">Do you have any suggestions for how another user might reuse this resource in thier teaching?</epp:phrase>
+
 	<epp:phrase id="eprint_fieldname_keywords">Tags</epp:phrase>
-	<epp:phrase id="eprint_fieldname_divisions">Divisions</epp:phrase>
-	<epp:phrase id="eprint_fieldhelp_divisions">The divisions with which this item should be associated.</epp:phrase>
+	<epp:phrase id="eprint_fieldhelp_keywords">Individual words which describe the content of the resource. These help users understand what your resource is about at a glance.</epp:phrase>
+
+	<epp:phrase id="eprint_fieldname_normalised_keywords">Tags (normalised)</epp:phrase>
+	<epp:phrase id="eprint_fieldhelp_normalised_keywords">Individual words which describe the content of the resource. These help users understand what your resource is about at a glance.</epp:phrase>
 
 	<epp:phrase id="Field/TagLite:keywords:blurb">Tags: </epp:phrase>
 	<epp:phrase id="Field/TagLite:keywords:pickuplist_blurb">Choose from your own tags</epp:phrase>
 	<epp:phrase id="Field/TagLite:keywords:advice_below"><p>Separate each tag with a comma: <span style="font-style: italic;">social networks, lecture, slides</span>. Hit enter to add your tags.</p></epp:phrase>
-	<epp:phrase id="eprint_fieldhelp_keywords">Individual words which describe the content of the resource. These help users understand what your resource is about at a glance.</epp:phrase>
-
-	<epp:phrase id="Field/TagLite:courses:pickuplist_blurb">Choose from your own course codes</epp:phrase>
-
-	<epp:phrase id="eprint_fieldname_full_text_status">Full text status</epp:phrase>
-	<epp:phrase id="eprint_fieldname_contact_email">Contact email</epp:phrase>
 
 	<epp:phrase id="document_fieldname_description">Description</epp:phrase>
 	<epp:phrase id="document_fieldhelp_description">A short explanation of what this file is about.</epp:phrase>
-
-	<epp:phrase id="document_fieldname_source_url">Link</epp:phrase>
-	<epp:phrase id="document_fieldhelp_source_url">The URL of this link.</epp:phrase>
-
-
-	<epp:phrase id="Plugin/Screen/EPrint/UseAsTemplate:title">Use as template</epp:phrase>
-	<epp:phrase id="Plugin/Screen/RedirectEPrint:title">View item</epp:phrase>
-
 	<epp:phrase id="viewname_eprint_keywords">Tags</epp:phrase>
-	<epp:phrase id="Field/TagLite:keywords:pickuplist_blurb">Choose from your own tags</epp:phrase>
 
-	<!-- Missing SWORD phrases -->
-
-	<epp:phrase id="Plugin/Sword/Import/EPrintsXML:unexpected_element">Unexpected element: &lt;<epc:pin name="name"/>&gt;</epp:phrase>
-	<epp:phrase id="Plugin/Sword/Import/EPrintsXML:unexpected_type">&lt;<epc:pin name="type"/>&gt; where &lt;<epc:pin name="expected"/>&gt; was expected inside &lt;<epc:pin name="fieldname"/>&gt;</epp:phrase>
-	<epp:phrase id="Plugin/Sword/Import/EPrintsXML:unknown_virtual">&lt;<epc:pin name="type"/>&gt; is an unknown virtual field inside &lt;<epc:pin name="fieldname"/>&gt;</epp:phrase>
-	<epp:phrase id="Plugin/Sword/Import/EPrintsXML:dup_element">&lt;<epc:pin name="name"/>&gt; appears twice in one parent.</epp:phrase>
-	<epp:phrase id="Plugin/Sword/Import/EPrintsXML:expected_file">&lt;<epc:pin name="type"/>&gt; where &lt;file&gt; was expected inside &lt;<epc:pin name="fieldname"/>&gt;</epp:phrase>
-	<epp:phrase id="Plugin/Sword/Import/EPrintsXML:expected_item">&lt;<epc:pin name="type"/>&gt; where &lt;item&gt; was expected inside &lt;<epc:pin name="fieldname"/>&gt;</epp:phrase>
-	<epp:phrase id="Plugin/Sword/Import/EPrintsXML:expected">Expected <epc:pin name="elements"/></epp:phrase>
-	<epp:phrase id="Plugin/Sword/Import/EPrintsXML:unexpected_xml">Expected only text, found: <epc:pin name="xml" /></epp:phrase>
-
-	<epp:phrase id="viewtitle_eprint_keywords_list">Browse by Tags: <epc:pin name="value1"/></epp:phrase>
-	<epp:phrase id="viewtitle_eprint_courses_list">Browse by Course code: <epc:pin name="value1"/></epp:phrase>
-	<epp:phrase id="viewtitle_eprint_courses_menu_2">Browse by Course code: <epc:pin name="value1"/></epp:phrase>
-
-	<epp:phrase id="Plugin/Screen/Admin/SharesWithIssues:title">View problematic resources</epp:phrase>
-	<epp:phrase id="Plugin/Screen/Admin/SharesWithIssues:description">This lists resources without a title or without documents (or links).</epp:phrase>
-	<epp:phrase id="Plugin/Screen/Admin/SharesWithIssues:bounce_ok">Item sent back to depositor.</epp:phrase>
-	<epp:phrase id="Plugin/Screen/Admin/SharesWithIssues:bounce_button">Send back to depositor</epp:phrase>
-	<epp:phrase id="Plugin/Screen/Admin/SharesWithIssues:bounce_all_button">Send ALL ITEMS back to depositor</epp:phrase>
-
-
-	<epp:phrase id="lib/submissionform:action_save">Save</epp:phrase>
-
-	<epp:phrase id="dynamic:logged_in">
-	<epc:pin name="tools" /> <div class="key_tools_extras"><a href="{$config{http_cgiurl}}/logout">Logout</a></div>
-	</epp:phrase>
-	<epp:phrase id="dynamic:not_logged_in"><div class="key_tools_extras" ><a href="{$config{userhome}}">Login</a></div></epp:phrase>
-
-	<epp:phrase id="Plugin/Screen/Bookmarks:action:add:title">Bookmark this item</epp:phrase>
-	<epp:phrase id="Plugin/Screen/Bookmarks:action:remove:title">Remove bookmark</epp:phrase>
-	<epp:phrase id="Plugin/Screen/Bookmarks:title">Bookmarks</epp:phrase>
-	<epp:phrase id="Plugin/Screen/User/Homepage:title">Profile</epp:phrase>
-	<epp:phrase id="Plugin/Screen/EPrint/ExportZip:title">Download as zip</epp:phrase>
-	<epp:phrase id="eprint_fieldname_courses">Course codes</epp:phrase>
-	<epp:phrase id="eprint_fieldhelp_courses">What courses does this item belong to?</epp:phrase>
-	<epp:phrase id="Field/TagLite:courses:blurb">Course codes: </epp:phrase>
-
-	<epp:phrase id="Plugin/MePrints/Widget/MyTagCloud:title">My Tag Cloud</epp:phrase>
-
-	<epp:phrase id="Plugin/Screen/ResourceManagerTab:no_resources">You currently have no items of this type.</epp:phrase>
-	<epp:phrase id="Plugin/Screen/ResourceManagerTab:select_all">Select all items</epp:phrase>
-	<epp:phrase id="Plugin/Screen/ResourceManagerTab:with_selected_resources">With selected items:</epp:phrase>
-	<epp:phrase id="Plugin/Screen/BulkAction/Collection:no_eprints">Items must be public to be added to a collection. No public items were selected.</epp:phrase>
-	<epp:phrase id="Plugin/Screen/BulkAction/Collection:blurb">You have selected the following items to be added to a collection. Items shared "Just Me" may not be added to collections.</epp:phrase>
-
-	<epp:phrase id="collection_items_header">Collection items</epp:phrase>
-	<epp:phrase id="document_typename_text/x-tex">L<sup>a</sup>T<sub>e</sub>X</epp:phrase>
-
-	<epp:phrase id="Plugin/MePrints/Widget/LatestInbox:title">Private Items</epp:phrase>
-	<epp:phrase id="Plugin/MePrints/Widget/LatestInbox:noitems">You have no private items.</epp:phrase>
-
-	<!-- Sophos AV -->
-
-	<epp:phrase id="Plugin/Screen/Admin/SophosStatus:title">Sophos AV Status</epp:phrase>
-	<epp:phrase id="Plugin/Screen/Admin/SophosStatus:description">View the output of the latest antivirus scan</epp:phrase>
-	<epp:phrase id="Plugin/Screen/Admin/SophosStatus:blurb">This is the output of the latest scan performed by Sophos on the server:<br /><epc:pin name="output" /></epp:phrase>
-
-	<epp:phrase id="viewname_eprint_courses">Course code</epp:phrase>
-	<epp:phrase id="page:deposited_by">Added By</epp:phrase>
-	<epp:phrase id="page:deposited_on">Added On</epp:phrase>
-
-	<!-- fields -->
-
-	<epp:phrase id="eprint_fieldhelp_viewperms">Set the initial permissions for this share.</epp:phrase>
 	<epp:phrase id="eprint_fieldname_viewperms">Viewing permissions</epp:phrase>
-	<epp:phrase id="eprint_fieldopt_viewperms_world_public">World</epp:phrase>
-	<epp:phrase id="eprint_fieldopt_viewperms_uni_public">University</epp:phrase>
 	<epp:phrase id="eprint_fieldopt_viewperms_private">Just me</epp:phrase>
-	<epp:phrase id="eprint_fieldopt_viewperms_selected_users">Selected users</epp:phrase>
-	<epp:phrase id="eprint_fieldopt_viewperms_selected_depts">School/Unit</epp:phrase>
-	<epp:phrase id="eprint_fieldname_viewperms_users_userid">User ID</epp:phrase>
-	<epp:phrase id="eprint_fieldname_viewperms_users">Selected users</epp:phrase>
-	<epp:phrase id="eprint_fieldhelp_viewperms_users">Select users who can access this share (only applicable when sharing with "Selected users").</epp:phrase>
-	<epp:phrase id="eprint_fieldname_viewperms_divisions">Selected divisions</epp:phrase>
-	<epp:phrase id="eprint_fieldhelp_viewperms_users"></epp:phrase>
-	<epp:phrase id="eprint_fieldname_viewperms_staffonly">Staff only</epp:phrase>
-
-	<epp:phrase id="eprint_fieldhelp_editperms">Set the initial permissions for this share.</epp:phrase>
-	<epp:phrase id="eprint_fieldname_editperms">Editing permissions</epp:phrase>
-	<epp:phrase id="eprint_fieldopt_editperms_world_public">World</epp:phrase>
-	<epp:phrase id="eprint_fieldopt_editperms_uni_public">University</epp:phrase>
-	<epp:phrase id="eprint_fieldopt_editperms_private">Just me</epp:phrase>
-	<epp:phrase id="eprint_fieldopt_editperms_selected_users">Selected users</epp:phrase>
-	<epp:phrase id="eprint_fieldopt_editperms_selected_depts">School/Unit</epp:phrase>
-	<epp:phrase id="eprint_fieldname_editperms_users_userid">User ID</epp:phrase>
-	<epp:phrase id="eprint_fieldname_editperms_users">Selected users</epp:phrase>
-	<epp:phrase id="eprint_fieldhelp_editperms_users">Select users who can access this share (only applicable when sharing with "Selected users").</epp:phrase>
-	<epp:phrase id="eprint_fieldname_editperms_divisions">Selected divisions</epp:phrase>
-	<epp:phrase id="eprint_fieldhelp_editperms_divisions"></epp:phrase>
-	<epp:phrase id="eprint_fieldname_editperms_staffonly">Staff only</epp:phrase>
-
-	<!-- common phrases -->
-
-	<epp:phrase id="Plugin/InputForm/Component/Field/Perms:name_name_family">Name:</epp:phrase>
-	<epp:phrase id="Plugin/InputForm/Component/Field/Perms:name_id">-or- Email:</epp:phrase>
-	<epp:phrase id="Plugin/InputForm/Component/Field/Perms:dept_name">School/Unit:</epp:phrase>
-
-	<!-- viewing permissions -->
-
-	<epp:phrase id="Plugin/InputForm/Component/Field/Perms:viewperms:blurb">
-	<p style="margin:5px 0px;">
-	You need to choose one of the options below. It is not possible to combine these options.
-	</p>
-	</epp:phrase>
-
-	<epp:phrase id="Plugin/InputForm/Component/Field/Perms:viewperms:private">
-	<span style="color: #333;font-weight: bold;">This item will not be online and will not appear in search results until you change its viewing permission.</span>
-	</epp:phrase>
+	<epp:phrase id="eprint_fieldopt_viewperms_uni_public">Registered users</epp:phrase>
+	<epp:phrase id="eprint_fieldopt_viewperms_world_public">World</epp:phrase>
 
 </epp:phrases>

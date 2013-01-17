@@ -16,9 +16,9 @@
         <file>
           <filename>epm/edshare_core/cfg/lang/en/phrases/x_edshare_core.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>9ba26e96bd10e63ab237dd4634867f44</hash>
+          <hash>6dec3eef9dda53eefb204718b8ce635b</hash>
           <hash_type>MD5</hash_type>
-          <filesize>14431</filesize>
+          <filesize>2091</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/javascript/auto/taglite.js</filename>
@@ -30,9 +30,9 @@
         <file>
           <filename>epm/edshare_core/cfg/static/style/auto/taglite.css</filename>
           <mime_type>text/plain</mime_type>
-          <hash>0f1880eda2e57b303b2f8efa1e1793d4</hash>
+          <hash>a35d176f8fc19c02b20d60a7e32af4a8</hash>
           <hash_type>MD5</hash_type>
-          <filesize>205</filesize>
+          <filesize>204</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/style/images/xit.gif</filename>
@@ -44,9 +44,16 @@
         <file>
           <filename>epm/edshare_core/cfg/workflows/eprint/edshare.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>2b9e22e359dfa2e471f8fcdfbdc3ca00</hash>
+          <hash>c9939f420b34a8b13c1026414dc200fd</hash>
           <hash_type>MD5</hash_type>
-          <filesize>989</filesize>
+          <filesize>986</filesize>
+        </file>
+        <file>
+          <filename>epm/edshare_core/cgi/users/lookup/taglite_picklist</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>e8c0cf3e30b456f63008bf60dd3a6f08</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>1344</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/EdShareCoreUtils.pm</filename>
@@ -122,16 +129,16 @@
     </item>
     <item>
       <name>
-        <family>Borthwick</family>
-        <given>Kate</given>
-      </name>
-    </item>
-    <item>
-      <name>
         <family>Taylor</family>
         <given>Matt R</given>
       </name>
       <id>mrt@ecs.soton.ac.uk</id>
+    </item>
+    <item>
+      <name>
+        <family>Borthwick</family>
+        <given>Kate</given>
+      </name>
     </item>
   </creators>
   <datestamp>2012-08-03 11:30:00</datestamp>
