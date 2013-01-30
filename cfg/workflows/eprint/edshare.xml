@@ -11,7 +11,6 @@
         <upload-methods>
           <method>file</method>
           <method>sharelink</method>
-          <method>ziplocal</method>
         </upload-methods>
     </component>
     <component type="Documents">

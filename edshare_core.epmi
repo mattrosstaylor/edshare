@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
-<epm xmlns='http://eprints.org/ep2/data/2.0' id='http://eprints.ubuntu/id/epm/edshare_core'>
+<epm xmlns='http://eprints.org/ep2/data/2.0' id='http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/edshare_core'>
   <epmid>edshare_core</epmid>
   <eprintid>234</eprintid>
-  <uri>http://eprints.ubuntu/id/epm/edshare_core</uri>
+  <uri>http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/edshare_core</uri>
   <documents>
     <document>
       <files>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>a711f23735dff4bd2b1df453f38a5dfc</hash>
+          <hash>0146876752401ea3cad46488089f7762</hash>
           <hash_type>MD5</hash_type>
-          <filesize>32376</filesize>
+          <filesize>32905</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/lang/en/phrases/x_edshare_core.xml</filename>
@@ -44,9 +44,23 @@
         <file>
           <filename>epm/edshare_core/cfg/workflows/eprint/edshare.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>c9939f420b34a8b13c1026414dc200fd</hash>
+          <hash>950d242b2adb5a471bc27d81b6520785</hash>
           <hash_type>MD5</hash_type>
-          <filesize>986</filesize>
+          <filesize>950</filesize>
+        </file>
+        <file>
+          <filename>epm/edshare_core/cgi/users/edshare_toolbox</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>cbb1df1085a145d56aae4f27a61bb1c3</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>944</filesize>
+        </file>
+        <file>
+          <filename>epm/edshare_core/cgi/users/lookup/localname</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>5c1b75d8c60387380665cebef8f31d68</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>2921</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cgi/users/lookup/taglite_picklist</filename>
@@ -85,14 +99,14 @@
         </file>
         <file>
           <filename>static/images/epm/edshare_core.png</filename>
-          <mime_type>image/png</mime_type>
+          <mime_type>inode/symlink</mime_type>
           <hash>64510a9452c0f8960a6ee4ff58792f4e</hash>
           <hash_type>MD5</hash_type>
           <filesize>114298</filesize>
         </file>
       </files>
-      <mime_type>image/png</mime_type>
-      <format>image</format>
+      <mime_type>inode/symlink</mime_type>
+      <format>other</format>
       <main>static/images/epm/edshare_core.png</main>
       <content>install</content>
     </document>
@@ -100,7 +114,7 @@
       <files>
         <file>
           <filename>static/images/epm/edshare_core.png</filename>
-          <mime_type>image/png</mime_type>
+          <mime_type>inode/symlink</mime_type>
           <hash>64510a9452c0f8960a6ee4ff58792f4e</hash>
           <hash_type>MD5</hash_type>
           <filesize>114298</filesize>

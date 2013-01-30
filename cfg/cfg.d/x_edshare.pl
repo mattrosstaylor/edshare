@@ -82,6 +82,9 @@ $c->{fields}->{document} = [
 
 ];
 
+
+=pod
+
 $c->{validate_document} = sub
 {
 	my( $document, $session, $for_archive ) = @_;
@@ -120,6 +123,8 @@ $c->{validate_document} = sub
 	return( @problems );
 };
 
+=cut
+
 $c->{set_eprint_defaults} = sub
 {
 	my( $data, $session ) = @_;
@@ -142,6 +147,8 @@ $c->{set_eprint_defaults} = sub
                 $data->{creators} = \@creators;
         }
 
+
+#mrt - need to change viewperms to be less stupid
         if(!defined $data->{viewperms})
         {
                 $data->{viewperms} = "uni_public";
@@ -192,26 +199,29 @@ $c->{fields}->{eprint} = [
 					return $value;
 				}
           },
-	
-          {
-            'name' => 'divisions',
-            'type' => 'subject',
-            'multiple' => 1,
-            'top' => 'divisions',
-            'browse_link' => 'divisions',
-	    'input_rows' => 4,
-          },
 
-          {
-            'name' => 'full_text_status',
-            'type' => 'set',
-            'options' => [
-                           'public',
-                           'restricted',
-                           'none',
-                         ],
-            'input_style' => 'medium',
-          },
+# mrt - removing divisions from edshare core	
+#          {
+#            'name' => 'divisions',
+#            'type' => 'subject',
+#            'multiple' => 1,
+#            'top' => 'divisions',
+#            'browse_link' => 'divisions',
+#	    'input_rows' => 4,
+#          },
+
+# mrt - removing full_text_status - this is unused in edshare
+#          {
+#            'name' => 'full_text_status',
+#            'type' => 'set',
+#            'options' => [
+#                           'public',
+#                           'restricted',
+#                           'none',
+#                         ],
+#            'input_style' => 'medium',
+#          },
+
 # Edshare - Keywords changed to be a multiple field so that browse views can be made.
           {
             'name' => 'keywords',
@@ -222,13 +232,17 @@ $c->{fields}->{eprint} = [
 #	    'input_advice_below' => sub { return shift->html_phrase( "Field/TagLite:keywords:advice_below" ); },
 
           },
-          {
-            'name' => 'courses',
-            'type' => 'text',
-	    'multiple' => 1,
-	    'text_index' => 1,
-	    'render_single_value' => 'EPrints::Plugins::EdShareCoreUtils::render_single_keyword'
-          },
+
+
+# mrt - ain't no courses in basic edshare boyo - yup YUUUP!
+#          {
+#            'name' => 'courses',
+#            'type' => 'text',
+#	    'multiple' => 1,
+#	    'text_index' => 1,
+#	    'render_single_value' => 'EPrints::Plugins::EdShareCoreUtils::render_single_keyword'
+#          },
+
           {
             'name' => 'abstract',
             'type' => 'longtext',
@@ -240,7 +254,7 @@ $c->{fields}->{eprint} = [
         {
           'name' => 'advice',
           'type' => 'longtext',
-           'input_rows' => 3,
+          'input_rows' => 3,
         },
 
 # EdShare - Viewing Permissions ("Sharing with")
@@ -262,29 +276,39 @@ $c->{fields}->{eprint} = [
             'type' => 'date',
             'min_resolution' => 'year',
           },
-          {
-            'name' => 'publisher',
-            'type' => 'text',
-          },
-          {
-            'name' => 'subjects',
-            'type' => 'subject',
-            'multiple' => 1,
-            'top' => 'subjects',
-            'browse_link' => 'subjects',
-          },
 
-          {
-            'name' => 'ispublished',
-            'type' => 'set',
-            'options' => [
-                           'pub',
-                           'inpress',
-                           'submitted',
-                           'unpub',
-                         ],
-            'input_style' => 'medium',
-          },
+
+
+# mrt - no-one publishes ANYTHING in EdShare
+#          {
+#            'name' => 'publisher',
+#            'type' => 'text',
+#          },
+
+
+# mrt - subjects are overrated anyway - who needs them?
+#          {
+#            'name' => 'subjects',
+#            'type' => 'subject',
+#            'multiple' => 1,
+#            'top' => 'subjects',
+#            'browse_link' => 'subjects',
+#          },
+
+
+
+# mrt - anaother useless field
+#          {
+#            'name' => 'ispublished',
+#            'type' => 'set',
+#            'options' => [
+#                           'pub',
+#                           'inpress',
+#                           'submitted',
+#                           'unpub',
+#                         ],
+#            'input_style' => 'medium',
+#          },
 
         {
             'name' => 'normalised_keywords',
@@ -354,6 +378,11 @@ $c->{browse_views} = [
                 citation => "result",
         },
 ];
+
+
+=pod
+
+mrt - I have wanted to kill this function my entire time working on EdShare - it is megashit
 
 $c->{eprint_render} = sub
 {
@@ -660,7 +689,7 @@ $c->{eprint_render} = sub
 
 	return( $page, $title, $links );
 };
-
+=cut
 
 $c->{search}->{advanced} = 
 {
@@ -955,12 +984,12 @@ $c->{plugin_alias_map}->{"Screen::EPrint::EdShareEdit"} = undef;
 $c->{plugins}->{"Screen::EPrint::EdShareEdit"}->{params}->{disable} = 0;
 
 # Custom summary screen
-$c->{plugin_alias_map}->{"Screen::EPrint::Summary"} = "Screen::EPrint::LocalSummary";
-$c->{plugin_alias_map}->{"Screen::EPrint::LocalSummary"} = undef;
+#$c->{plugin_alias_map}->{"Screen::EPrint::Summary"} = "Screen::EPrint::LocalSummary";
+#$c->{plugin_alias_map}->{"Screen::EPrint::LocalSummary"} = undef;
 
 # UseAsTemplate -> redirects to edit page after cloning
-$c->{plugin_alias_map}->{"Screen::EPrint::UseAsTemplate"} = "Screen::EPrint::LocalUseAsTemplate";
-$c->{plugin_alias_map}->{"Screen::EPrint::LocalUseAsTemplate"} = undef;
+#$c->{plugin_alias_map}->{"Screen::EPrint::UseAsTemplate"} = "Screen::EPrint::LocalUseAsTemplate";
+#$c->{plugin_alias_map}->{"Screen::EPrint::LocalUseAsTemplate"} = undef;
 
 # The 'Manage Records' screen:
 $c->{plugins}->{"Screen::DataSets"}->{appears}->{admin_actions_system} = 1600;
