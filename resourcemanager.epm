@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<epm xmlns='http://eprints.org/ep2/data/2.0' id='http://edshare.com/id/epm/resource_manager'>
+<epm xmlns='http://eprints.org/ep2/data/2.0' id='http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/resource_manager'>
   <epmid>resource_manager</epmid>
-  <uri>http://edshare.com/id/epm/resource_manager</uri>
+  <uri>http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/resource_manager</uri>
   <documents>
     <document>
       <files>
@@ -276,7 +276,7 @@ VGFiOm5vX3Jlc291cmNlcyIvPjwvZXBwOnBocmFzZT4KCjwvZXBwOnBocmFzZXM+Cg==
         </file>
         <file>
           <filename>epm/resource_manager/cfg/static/javascript/resourcemanager.js</filename>
-          <mime_type>text/x-c</mime_type>
+          <mime_type>text/plain</mime_type>
           <hash>4f8aa16d106e22a5d523f95d597b1733</hash>
           <hash_type>MD5</hash_type>
           <filesize>5568</filesize>
@@ -421,7 +421,7 @@ b250LXNpemU6IDEuNmVtOwp9Cg==
         </file>
         <file>
           <filename>epm/resource_manager/cgi/users/resourcemanager/load_item_list</filename>
-          <mime_type>text/x-perl</mime_type>
+          <mime_type>text/plain</mime_type>
           <hash>9cfd3a63178f7fade4b7699168c6070b</hash>
           <hash_type>MD5</hash_type>
           <filesize>1198</filesize>
@@ -451,7 +451,7 @@ Cg==
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/ResourceManagerFilter.pm</filename>
-          <mime_type>text/plain</mime_type>
+          <mime_type>inode/symlink</mime_type>
           <hash>11db6f43b89fdf3751ded20d85139288</hash>
           <hash_type>MD5</hash_type>
           <filesize>6729</filesize>
@@ -578,7 +578,7 @@ MTsK
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Screen/BulkAction.pm</filename>
-          <mime_type>text/x-c++</mime_type>
+          <mime_type>inode/symlink</mime_type>
           <hash>069eb79f7f307664b8abe55fc9469d3a</hash>
           <hash_type>MD5</hash_type>
           <filesize>3755</filesize>
@@ -651,102 +651,8 @@ b2Nlc3Nvcn0tPnt1cmx9Lic/c2NyZWVuPVJlc291cmNlTWFuYWdlcic7Cn0KCgoxOwo=
 </data>
         </file>
         <file>
-          <filename>plugins/EPrints/Plugin/Screen/BulkAction/Collection.pm</filename>
-          <mime_type>text/plain</mime_type>
-          <hash>a6fb80967934da84767c169d3c83f787</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>4848</filesize>
-          <data encoding='base64'>cGFja2FnZSBFUHJpbnRzOjpQbHVnaW46OlNjcmVlbjo6QnVsa0FjdGlvbjo6Q29sbGVjdGlvbjsK
-CkBJU0EgPSAoICdFUHJpbnRzOjpQbHVnaW46OlNjcmVlbjo6QnVsa0FjdGlvbicgKTsKCnVzZSBz
-dHJpY3Q7CgpzdWIgbmV3CnsKCW15KCAkY2xhc3MsICVwYXJhbXMgKSA9IEBfOwoKCW15ICRzZWxm
-ID0gJGNsYXNzLT5TVVBFUjo6bmV3KCAlcGFyYW1zICk7CgoJJHNlbGYtPnthcHBlYXJzfSA9IFsK
-CQl7CgkJCXBsYWNlID0+ICJlZHNoYXJlX2J1bGtfYWN0aW9ucyIsCgkJCXBvc2l0aW9uID0+IDEw
-MCwKCQl9CgldOwoKCSRzZWxmLT57YWN0aW9uc30gPSBbIHF3LyBjcmVhdGUgdXBkYXRlIC8gXTsK
-CglyZXR1cm4gJHNlbGY7Cn0KCnN1YiBhbGxvd19jcmVhdGUKewoJcmV0dXJuIDE7Cn0KCnN1YiBh
-Y3Rpb25fY3JlYXRlCnsKCW15KCAkc2VsZiApID0gQF87CgkKCW15ICRzZXNzaW9uID0gJHNlbGYt
-PntzZXNzaW9ufTsKCQoJbXkgJGRzID0gJHNlc3Npb24tPmdldF9yZXBvc2l0b3J5LT5nZXRfZGF0
-YXNldCggJ2luYm94JyApOwoJbXkgJHVzZXIgPSAkc2Vzc2lvbi0+Y3VycmVudF91c2VyOwoKCSRz
-ZWxmLT57cHJvY2Vzc29yfS0+e2VwcmludH0gPSAkZHMtPmNyZWF0ZV9vYmplY3QoICRzZWxmLT57
-c2Vzc2lvbn0sIHsKCQl1c2VyaWQgPT4gJHVzZXItPmdldF9pZCwKCQl0eXBlID0+ICdjb2xsZWN0
-aW9uJwoJfSApOwoJCglpZiggIWRlZmluZWQgJHNlbGYtPntwcm9jZXNzb3J9LT57ZXByaW50fSAp
-Cgl7CgkJbXkgJGRiX2Vycm9yID0gJHNlc3Npb24tPmdldF9kYXRhYmFzZS0+ZXJyb3I7CgkJJHNl
-c3Npb24tPmdldF9yZXBvc2l0b3J5LT5sb2coICJEYXRhYmFzZSBFcnJvcjogJGRiX2Vycm9yIiAp
-OwoJCSRzZWxmLT57cHJvY2Vzc29yfS0+YWRkX21lc3NhZ2UoCgkJCSJlcnJvciIsCgkJCSRzZWxm
-LT5odG1sX3BocmFzZSggImRiX2Vycm9yIiApICk7CgkJcmV0dXJuOwoJfQkKCglmb3JlYWNoIG15
-ICRlcGlkICggc3BsaXQoICcsJywgJHNlc3Npb24tPnBhcmFtKCAnZXByaW50aWRzJyApICkgKQoJ
-ewoJCSRzZWxmLT57cHJvY2Vzc29yfS0+e2VwcmludH0tPmFkZF90b19jb2xsZWN0aW9uKCAkZXBp
-ZCApOwoJfQoKCSRzZWxmLT57cHJvY2Vzc29yfS0+e2VwcmludH0tPmNvbW1pdDsKCgkkc2VsZi0+
-e3Byb2Nlc3Nvcn0tPntlcHJpbnRpZH0gPSAkc2VsZi0+e3Byb2Nlc3Nvcn0tPntlcHJpbnR9LT5n
-ZXRfaWQ7Cgkkc2VsZi0+e3Byb2Nlc3Nvcn0tPntzY3JlZW5pZH0gPSAiRVByaW50OjpFZGl0IjsK
-fQoKc3ViIGFsbG93X3VwZGF0ZQp7CglyZXR1cm4gMTsKfQoKc3ViIGFjdGlvbl91cGRhdGUKewoJ
-bXkoICRzZWxmICkgPSBAXzsKCglteSAkc2Vzc2lvbiA9ICRzZWxmLT57c2Vzc2lvbn07CgoJbXkg
-JGNvbGxlY3Rpb24gPSBuZXcgRVByaW50czo6RGF0YU9iajo6RVByaW50KCAkc2Vzc2lvbiwgJHNl
-c3Npb24tPnBhcmFtKCAnZXByaW50aWQnICkgKTsKCWlmKCBkZWZpbmVkICRjb2xsZWN0aW9uICkK
-CXsKCQlmb3JlYWNoIG15ICRlcGlkICggc3BsaXQoICcsJywgJHNlc3Npb24tPnBhcmFtKCAnZXBy
-aW50aWRzJyApICkgKQoJCXsKCQkJJGNvbGxlY3Rpb24tPmFkZF90b19jb2xsZWN0aW9uKCAkZXBp
-ZCApOwoJCX0KCgkJJGNvbGxlY3Rpb24tPmNvbW1pdDsKCgkJJHNlbGYtPntwcm9jZXNzb3J9LT57
-ZXByaW50fSA9ICRjb2xsZWN0aW9uOwoJCSRzZWxmLT57cHJvY2Vzc29yfS0+e2VwcmludGlkfSA9
-ICRjb2xsZWN0aW9uLT5nZXRfaWQ7CgkJJHNlbGYtPntwcm9jZXNzb3J9LT57c2NyZWVuaWR9ID0g
-IkVQcmludDo6RWRpdCI7Cgl9Cn0KCnN1YiByZW5kZXIKewoJbXkoICRzZWxmICkgPSBAXzsKCglt
-eSAkc2Vzc2lvbiA9ICRzZWxmLT57c2Vzc2lvbn07CglteSAkdXNlciA9ICRzZXNzaW9uLT5jdXJy
-ZW50X3VzZXI7CglteSAkcGFnZSA9ICRzZXNzaW9uLT5tYWtlX2RvY19mcmFnbWVudDsKCglteSAk
-ZXByaW50cyA9ICRzZWxmLT5nZXRfZXByaW50czsKCgl1bmxlc3MoIHNjYWxhciBAJGVwcmludHMg
-KQoJewoJCXJldHVybiAkc2VsZi0+cmVuZGVyX25vX2VwcmludHM7Cgl9CgoJbXkgJGJsdXJiID0g
-JHNlc3Npb24tPm1ha2VfZWxlbWVudCggJ3AnICk7CgkkYmx1cmItPmFwcGVuZENoaWxkKCAkc2Vs
-Zi0+aHRtbF9waHJhc2UoICdibHVyYicgKSApOwoJJHBhZ2UtPmFwcGVuZENoaWxkKCAkYmx1cmIg
-KTsKCgkkcGFnZS0+YXBwZW5kQ2hpbGQoICRzZWxmLT5yZW5kZXJfc3VtbWFyeV9saXN0KCAkZXBy
-aW50cyApICk7CgoJbXkgJG5ld19mb3JtID0gJHNlc3Npb24tPnJlbmRlcl9mb3JtOwoJJHBhZ2Ut
-PmFwcGVuZENoaWxkKCAkbmV3X2Zvcm0gKTsKCglteSAkaWRzX3N0cmluZyA9ICIiOwoJbXkgJGlz
-X2ZpcnN0ID0gMTsKCWZvcmVhY2ggKCBAJGVwcmludHMgKQoJewoJCSRpZHNfc3RyaW5nIC49ICRp
-c19maXJzdCA/ICRfLT5nZXRfaWQgOiAnLCcuJF8tPmdldF9pZDsKCQkkaXNfZmlyc3QgPSAwOwoJ
-fQoKCW15ICRuZXdfdGl0bGUgPSAkc2Vzc2lvbi0+bWFrZV9lbGVtZW50KCAnaDMnICk7CgkkbmV3
-X3RpdGxlLT5hcHBlbmRDaGlsZCggJHNlbGYtPmh0bWxfcGhyYXNlKCAnbmV3Y29sbGVjdGlvbjp0
-aXRsZScgKSApOwoJJG5ld19mb3JtLT5hcHBlbmRDaGlsZCggJG5ld190aXRsZSApOwoKCW15ICRu
-ZXdfZGVzY3JpcHRpb24gPSAkc2Vzc2lvbi0+bWFrZV9lbGVtZW50KCAncCcgKTsKCSRuZXdfZGVz
-Y3JpcHRpb24tPmFwcGVuZENoaWxkKCAkc2VsZi0+aHRtbF9waHJhc2UoICduZXdjb2xsZWN0aW9u
-OmRlc2NyaXB0aW9uJyApICk7CgkkbmV3X2Zvcm0tPmFwcGVuZENoaWxkKCAkbmV3X2Rlc2NyaXB0
-aW9uICk7CgoJJG5ld19mb3JtLT5hcHBlbmRDaGlsZCggJHNlc3Npb24tPm1ha2VfZWxlbWVudCgg
-J2lucHV0JywgdHlwZSA9PiAnaGlkZGVuJywgbmFtZSA9PiAnc2NyZWVuJywgdmFsdWUgPT4gJ0J1
-bGtBY3Rpb246OkNvbGxlY3Rpb24nICkgKTsKCSRuZXdfZm9ybS0+YXBwZW5kQ2hpbGQoICRzZXNz
-aW9uLT5tYWtlX2VsZW1lbnQoICdpbnB1dCcsIHR5cGUgPT4gJ2hpZGRlbicsIG5hbWUgPT4gJ2Vw
-cmludGlkcycsIHZhbHVlID0+ICRpZHNfc3RyaW5nICkgKTsKCSRuZXdfZm9ybS0+YXBwZW5kQ2hp
-bGQoICRzZXNzaW9uLT5yZW5kZXJfYWN0aW9uX2J1dHRvbnMoCgkJY3JlYXRlID0+ICRzZWxmLT5w
-aHJhc2UoICduZXdjb2xsZWN0aW9uOmNyZWF0ZScgKSwKCSkgKTsKCglteSAkZXhpc3RpbmdfZm9y
-bSA9ICRzZXNzaW9uLT5yZW5kZXJfZm9ybTsKCSRwYWdlLT5hcHBlbmRDaGlsZCggJGV4aXN0aW5n
-X2Zvcm0gKTsKCQoJbXkgJGV4aXN0aW5nX3RpdGxlID0gJHNlc3Npb24tPm1ha2VfZWxlbWVudCgg
-J2gzJyApOwoJJGV4aXN0aW5nX3RpdGxlLT5hcHBlbmRDaGlsZCggJHNlbGYtPmh0bWxfcGhyYXNl
-KCAnZXhpc3Rpbmdjb2xsZWN0aW9uOnRpdGxlJyApICk7CgkkZXhpc3RpbmdfZm9ybS0+YXBwZW5k
-Q2hpbGQoICRleGlzdGluZ190aXRsZSApOwoKCW15ICRleGlzdGluZ19kZXNjcmlwdGlvbiA9ICRz
-ZXNzaW9uLT5tYWtlX2VsZW1lbnQoICdwJyApOwoJJGV4aXN0aW5nX2Rlc2NyaXB0aW9uLT5hcHBl
-bmRDaGlsZCggJHNlbGYtPmh0bWxfcGhyYXNlKCAnZXhpc3Rpbmdjb2xsZWN0aW9uOmRlc2NyaXB0
-aW9uJyApICk7CgkkZXhpc3RpbmdfZm9ybS0+YXBwZW5kQ2hpbGQoICRleGlzdGluZ19kZXNjcmlw
-dGlvbiApOwoKCW15ICRleGlzdGluZ19jb2xsZWN0aW9ucyA9ICRzZXNzaW9uLT5tYWtlX2VsZW1l
-bnQoICdzZWxlY3QnLCBuYW1lID0+ICdlcHJpbnRpZCcgKTsKCSRleGlzdGluZ19mb3JtLT5hcHBl
-bmRDaGlsZCggJGV4aXN0aW5nX2NvbGxlY3Rpb25zICk7CgoJbXkgJGNvbGxlY3Rpb25fZHMgPSAk
-c2Vzc2lvbi0+Z2V0X3JlcG9zaXRvcnktPmdldF9kYXRhc2V0KCAnZXByaW50JyApOwoJbXkgJHNl
-YXJjaCA9IEVQcmludHM6OlNlYXJjaC0+bmV3KAoJCXNhdGlzZnlfYWxsID0+IDEsCgkJc2Vzc2lv
-biA9PiAkc2Vzc2lvbiwKCQlkYXRhc2V0ID0+ICRjb2xsZWN0aW9uX2RzCgkpOwoJJHNlYXJjaC0+
-YWRkX2ZpZWxkKCAkY29sbGVjdGlvbl9kcy0+Z2V0X2ZpZWxkKCAndHlwZScgKSwgJ2NvbGxlY3Rp
-b24nICk7Cgkkc2VhcmNoLT5hZGRfZmllbGQoICRjb2xsZWN0aW9uX2RzLT5nZXRfZmllbGQoICd1
-c2VyaWQnICksICRzZXNzaW9uLT5jdXJyZW50X3VzZXItPmdldF9pZCApOwoJbXkgJGxpc3QgPSAk
-c2VhcmNoLT5wZXJmb3JtX3NlYXJjaDsKCWZvcmVhY2ggbXkgJGNvbGxlY3Rpb24gKCAkbGlzdC0+
-Z2V0X3JlY29yZHMgKQoJewoJCW15ICRvcHRpb24gPSAkc2Vzc2lvbi0+bWFrZV9lbGVtZW50KCAn
-b3B0aW9uJywgdmFsdWUgPT4gJGNvbGxlY3Rpb24tPmdldF9pZCApOwoJCSRvcHRpb24tPmFwcGVu
-ZENoaWxkKCAkY29sbGVjdGlvbi0+cmVuZGVyX3ZhbHVlKCAndGl0bGUnICkgKTsKCQkkZXhpc3Rp
-bmdfY29sbGVjdGlvbnMtPmFwcGVuZENoaWxkKCAkb3B0aW9uICk7Cgl9CQoKCSRleGlzdGluZ19m
-b3JtLT5hcHBlbmRDaGlsZCggJHNlc3Npb24tPm1ha2VfZWxlbWVudCggJ2lucHV0JywgdHlwZSA9
-PiAnaGlkZGVuJywgbmFtZSA9PiAnc2NyZWVuJywgdmFsdWUgPT4gJ0J1bGtBY3Rpb246OkNvbGxl
-Y3Rpb24nICkgKTsKCSRleGlzdGluZ19mb3JtLT5hcHBlbmRDaGlsZCggJHNlc3Npb24tPm1ha2Vf
-ZWxlbWVudCggJ2lucHV0JywgdHlwZSA9PiAnaGlkZGVuJywgbmFtZSA9PiAnZXByaW50aWRzJywg
-dmFsdWUgPT4gJGlkc19zdHJpbmcgKSApOwoJJGV4aXN0aW5nX2Zvcm0tPmFwcGVuZENoaWxkKCAk
-c2Vzc2lvbi0+cmVuZGVyX2FjdGlvbl9idXR0b25zKAoJCXVwZGF0ZSA9PiAkc2VsZi0+cGhyYXNl
-KCAnZXhpc3Rpbmdjb2xsZWN0aW9uOnVwZGF0ZScgKSwKCSkgKTsKCglyZXR1cm4gJHBhZ2U7Cn0K
-MTsK
-</data>
-        </file>
-        <file>
           <filename>plugins/EPrints/Plugin/Screen/BulkAction/Remove.pm</filename>
-          <mime_type>text/x-c++</mime_type>
+          <mime_type>inode/symlink</mime_type>
           <hash>a1dfc767604dd021692c08ac359222cd</hash>
           <hash_type>MD5</hash_type>
           <filesize>2643</filesize>
@@ -801,7 +707,7 @@ Y2VNYW5hZ2VyIjsKfQoKCgoKMTsK
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Screen/ResourceManager.pm</filename>
-          <mime_type>text/x-c++</mime_type>
+          <mime_type>inode/symlink</mime_type>
           <hash>e3433075b63a01e6773bd9e7e5a999aa</hash>
           <hash_type>MD5</hash_type>
           <filesize>2777</filesize>
@@ -858,7 +764,7 @@ dG1sX3BocmFzZSggJGJhc2UuJzonLiRpZCwgJWJpdHMgKTsKfQoxOwo=
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Screen/ResourceManagerTab.pm</filename>
-          <mime_type>text/plain</mime_type>
+          <mime_type>inode/symlink</mime_type>
           <hash>f33bdf54cee43664e49cc84b1fd4e39e</hash>
           <hash_type>MD5</hash_type>
           <filesize>7834</filesize>
@@ -1002,12 +908,109 @@ aW5kQXNFdmVudExpc3RlbmVyKHt9LCAnJHR5cGUnKSk7Cn0pOwpJTklUX0NPTlRST0wKCQkpICk7
 Cgl9CgoJcmV0dXJuICRmcmFnOwp9CjE7Cg==
 </data>
         </file>
+        <file>
+          <filename>static/images/resource_manager/resmgr_edit.png</filename>
+          <mime_type>inode/symlink</mime_type>
+          <hash>36fb60c4ea30bf0f1fed62b70ce7bfca</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>526</filesize>
+          <data encoding='base64'>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A
+/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9oLCBAlGCqsZ9YAAAGOSURBVDjL
+pZNBSJNhGMd/7+vat6yNHWzpGo4gdCCR8IFISGCdKiq6BJ52CK+jQ6CHrh70pCl1K+gSJsEILdRL
+UGxBtMAYtOVG0OZifYf0E3Nu+94Oo10m7QWf8//35/k/PH+hlOIo49IVKqfC9+VxZf3YxanV8fdU
+OXfj2ZLQ3SC7eFupepDwSBQhJRuvJjhxahAtg+L6oPIHJ3F5exHSAMDZ32bj9TxSB+4yF3D5BMVP
+z6laGapWppH/mOf/GzRh4zeV4grOnkEuVcbrC2JtbTIUiwupBf98iapvYoTDBE67qBU+MBSLC+Dw
+CC3wQQF39zWsxGfsb3n67r0X/7QtBm/nItpwi8HaTL8y7zzWhoHGEW2roJJPrhC5PEMp/4bzZkUL
+bhosxMIqev8FHvdx1h/dxReq0zMwgv01x36pzPCDj6LtKxuyg513s5hnTpJNpUklF+kMBLg+/UW0
+7UIivcvo6kPOmlf5QwfKfkrnr0JbuBlhbLRLuaXkUr+fbq9B6OJNLtyaEjodEUet818nr87mudpl
+4gAAAABJRU5ErkJggg==
+</data>
+        </file>
+        <file>
+          <filename>static/images/resource_manager/resmgr_more.png</filename>
+          <mime_type>inode/symlink</mime_type>
+          <hash>b5ed61c1ba9c42ddedeb70aabf6be35f</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>401</filesize>
+          <data encoding='base64'>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A
+/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9oLCBAiBp/izHIAAAERSURBVDjL
+pZKxSkNBEEXvGl+RVBKN2BiIHxAslVR+gZ2I+ANWqQQRkiaNjRDsFewFUfAfLARNpWUglZhOg29n
+dmYsHoJoEvLW2+7u4dzZcWaG/2R+0sHh/YGZGSQoJAjOts7duHtzkwCqio1yA5uVBpg4v4GwIGiA
+qoIp5AcwhwxgCkopAuAzgKiC0ogK5BksAjWBjzEgT2BhqElcBUopqxBr4D8ZLAyJMXh5fbZiUgRr
+gKrATxmi+73KrZsje+w/oLa6huXKCtQET70eBv0B6tV1XDQv3dRN7GyfuIVkEW/DIYJmX8nMKJeW
+/jwea/Cdve6OfeAdIoLCKMFt+87NVOFn9k93LfUeV8fXbuYZ5M0XA0uyKTS50SYAAAAASUVORK5C
+YII=
+</data>
+        </file>
+        <file>
+          <filename>static/images/resource_manager/resmgr_remove.png</filename>
+          <mime_type>inode/symlink</mime_type>
+          <hash>d4f0ea2f8edb60488e419fdbfa7fd09b</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>680</filesize>
+          <data encoding='base64'>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A
+/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9oLCBAmCBw2JHEAAAIoSURBVDjL
+nZJNaxNRFIafO01mkjSTpFChhnaX6lJcC6LgzoI/QVwLBZFqUSqCICi6EfwJ0oWCopQuFAqi7loU
+Bd3UFjqTz9rWYptJ7p17XNiGjtGFHriLe+55XrjnfZWI8E/V7YLr9q5O4nFz8wyNxl8VJaxKvLAg
+9vOX3kwqAd+591JEUJcmhZERlYRD6c7cRHkutlLBzefFGRtVzkEYz4NMBnv3PlKrSQK+foOB/CDu
+8DDq4yf04iKI7H3B91+J1ogxqGwWMhniW7eRsCoShtK9NoPj50n5BaK1NaJGA2/irEIpVG+J2hBf
+nhLleTiFIvH3LczmBqINA75PulggCkKiZpPi86dK7S1SJVzQmu7FSXEyGVJDJYgtWAs2JgpDomaL
+4otnPbjfhXQa9+EDpTc2QMewugorKxDHRPVGH9wvANhGUxQCsQGtwRgwBuUobBj2WZwQsEEgnavT
+DGRzYDSUy1A+DMbgFYtsn7+AWV5OiPR2YINAOlemSeUGSRcKtGtVolYLqzWZYonB8gi7tTq71Sql
+2UekKhXVE7BBIJ2paVK5HOlCnna1TrTeojQ/pwBaJ05KdqiEPzbKTrXGThgy9OQx6SPjv4IkW1uI
+jUEs7bBGu9WkND+nlOuiXJdDb16rH/Ua28tfcRwH5TjY9fW9lIkgIuj3H2R74px8O3VabKfT6+8f
+G0UE40eleey4RG/fyX4/MdRdWvojfFDkICwivwXpP+onHRpgV4ZypZ4AAAAASUVORK5CYII=
+</data>
+        </file>
+        <file>
+          <filename>static/images/resource_manager/resmgr_view.png</filename>
+          <mime_type>inode/symlink</mime_type>
+          <hash>aa7010cb427b11cabbd24876dfd8ff37</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>588</filesize>
+          <data encoding='base64'>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A
+/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9oLCBAkKvtgBxcAAAHMSURBVDjL
+pZM9a1RREIafcz+ybMxuNJpNYSBKKi0iEgiIjdiI/0BsrC3yG7QX7EWwtraysNBGMdGIoHETVIxr
+Pi77oWZvbu7ee86MhTEfsFeFvDAM5xx45p1hjlFVDqNg/2G56TTqCts9i3WCb5TRIY/zE4PGFADM
+HwdvVq2qCMcGDYGnoJBapdFKyXLHlakR04/iASw1nYo4akOGNHe0YkcUO5JMODVaRlR5ttju26sH
+EP20jJQN3Z4jyRQrinPKVqZ0th0nj5dZXu1SCIhTi+9BkilOFCf8hoiy1RMGQp/OZlo8xCy3iIZY
+UUTA6V5WAafQy22xAx8hzYXAMzuV2c1hYEjSnJKnxYBaxedLlFApeQz4BrfjpBQYjpZ93n1qUf2+
+QNL+pn0BM5NV08ty3q/8IPShVgmoDQcMeMrc4gZxe4NLY2s8vz9L3PyqffdAFZ68jbTe6NKJU2zu
+KIceJ/KPTJsXjJ+ZYW1pnpUPc1yefUB17LQ5ACiSOMvrh7c170ZMnL1Ao/6Sz/V5rt9dMLst/E2e
+HzB97ZZx4RHqrx5TG59ks7N+cAb/hoRcvHHHSGmYp4/uce7qzb1HVf3vEGeJO+u6/84c9jv/AsAm
+Khyz8WCCAAAAAElFTkSuQmCC
+</data>
+        </file>
       </files>
-      <mime_type>text/plain</mime_type>
-      <format>text</format>
-      <main>plugins/EPrints/Plugin/Screen/ResourceManagerTab.pm</main>
+      <mime_type>inode/symlink</mime_type>
+      <format>other</format>
+      <main>static/images/resource_manager/resmgr_view.png</main>
       <content>install</content>
     </document>
   </documents>
   <version>1.0.2</version>
+  <creators>
+    <item>
+      <name>
+        <family>McSweeney</family>
+        <given>Patrick</given>
+      </name>
+      <id>pm5@ecs.soton.ac.uk</id>
+    </item>
+    <item>
+      <name>
+        <family>Francois</family>
+        <given>Sebastian</given>
+      </name>
+      <id>sf2@ecs.soton.ac.uk</id>
+    </item>
+    <item>
+      <name>
+        <family>Taylor</family>
+        <given>Matt R</given>
+      </name>
+      <id>mrt@ecs.soton.ac.uk</id>
+    </item>
+  </creators>
+  <title>Resource Manager</title>
 </epm>
