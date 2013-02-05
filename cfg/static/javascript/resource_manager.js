@@ -6,7 +6,7 @@ document.observe( 'dom:loaded', function() {
 window.addRemovalButtons = function() {
 	$$('.ep_resourcemanager_tag_active').each(function(tag) {
 
-		var image_uri = rel_path + '/style/images/xit.gif';
+		var image_uri = eprints_http_root + '/style/images/xit.gif';
 
 		var remtag = new Element('button');
 		remtag.setStyle({
@@ -182,7 +182,7 @@ window.ignoreElement = function(element) {
 
 function refreshShare(eprintid,citation)
 {
-	new Ajax.Request( rel_path+'/cgi/users/ajax/render_share', 
+	new Ajax.Request( eprints_http_cgiroot+'/users/ajax/render_share', 
 		{ 
 			parameters:'eprintid='+eprintid+"&citation="+citation,
 			method:'GET',

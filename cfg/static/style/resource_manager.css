@@ -87,7 +87,7 @@
 
 .ep_manageable_data {
 	float: left;
-	width: 650px;
+	width: 500px;
 	white-space: nowrap;
 	overflow: hidden;
 }
@@ -103,11 +103,13 @@
 
 .ep_manageable_controls {
 	float: right;
-	width: 150px;
+	margin: 2px;
 }
 
 .ep_manageable_controls ul {
 	text-align: right;
+	padding:0px;
+	margin:0px;
 }
 
 .ep_manageable_controls ul li {
@@ -115,9 +117,8 @@
 	list-style: none;
 }
 
-.ep_manageable_controls
-{
-	margin: 2px;
+.ep_manageable_controls a {
+	text-decoration: none;
 }
 
 .ep_resourcemanager_filter {

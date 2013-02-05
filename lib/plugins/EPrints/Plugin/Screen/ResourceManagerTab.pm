@@ -97,7 +97,7 @@ sub render
 		$current_filter_values{$filter_field} = $filter->get_current_filter_values( $filter_field ); 
 	} @{$filter_fields};
 	my $loader_image_url = $session->get_repository->get_conf( 'rel_path' ).'/images/ajax-loader.gif';
-	my $load_item_list_url = $session->get_repository->get_conf( 'rel_path' ).'/cgi/users/resourcemanager/load_item_list';
+	my $load_item_list_url = $session->get_repository->get_conf( 'rel_path' ).'/cgi/users/resource_manager/load_item_list';
 	my $manageable_list_id = $type.'_manageable_list';
 	my %params = ( 'type' => $type, 't' => time );
 	map {
@@ -144,6 +144,9 @@ sub _render_bulk_action_form
 sub _render_list
 {
 	my( $self, $type, $eprints, $bulk_action_form ) = @_;
+
+	
+	print STDERR "\n\nWTF IS THE POINT OF THIS FUCKING FUNCTION?? eprints=".$eprints."\n\n";
 
 	my $session = $self->{session};
 
@@ -197,21 +200,26 @@ sub _get_list
 		session => $session,
 		dataset => $ds,
 	);
+
+#	$type = "seriously, fuck this shit";
+
 	$search->add_field( $ds->get_field( 'userid' ), $user->get_id );
 	$search->add_field( $ds->get_field( 'type' ), $type );
+	#$search->add_field( $ds->get_field( 'normalised_keywords'));
 
 	if( defined $filter )
 	{
 		foreach my $field ( @{$session->get_repository->get_conf( 'resourcemanager_filter_fields' ) } )
 		{
-			my @current_tags = @{$filter->get_current_filter_values( $field )};
-			if( scalar @current_tags )
+			print STDERR "\nfield: ".$field;
+			my @values = @{$filter->get_current_filter_values( $field )};
+			if( scalar @values )
 			{
-				$search->add_field( $ds->get_field( $field ), join( ' ', @current_tags ), "IN", "ALL" );
+				print STDERR "\n".join(' ', @values);
+				$search->add_field( $ds->get_field( $field ), @values );
 			}
 		}
 	}
-	
 	return $search->perform_search;
 }
 

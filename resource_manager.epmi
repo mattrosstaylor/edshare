@@ -6,18 +6,18 @@
     <document>
       <files>
         <file>
-          <filename>epm/resource_manager/cfg/cfg.d/resourcemanager.pl</filename>
+          <filename>epm/resource_manager/cfg/cfg.d/resource_manager.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>ece58b242a63dcec73d43b93cbf51595</hash>
+          <hash>8b928abefdc325dd3e7daf74550e9596</hash>
           <hash_type>MD5</hash_type>
-          <filesize>4442</filesize>
+          <filesize>4453</filesize>
         </file>
         <file>
           <filename>epm/resource_manager/cfg/citations/eprint/manageable.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>1389aa2080163b852de58f66703e2ef3</hash>
+          <hash>6b298f5c3c50e358d9d0ca6cd24fa4de</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2406</filesize>
+          <filesize>2312</filesize>
         </file>
         <file>
           <filename>epm/resource_manager/cfg/citations/eprint/manageable_no_controls.xml</filename>
@@ -27,39 +27,39 @@
           <filesize>523</filesize>
         </file>
         <file>
-          <filename>epm/resource_manager/cfg/lang/en/phrases/bulkactions.xml</filename>
+          <filename>epm/resource_manager/cfg/lang/en/phrases/bulk_actions.xml</filename>
           <mime_type>application/xml</mime_type>
           <hash>cca0a545d0133b010cd4bac33813b225</hash>
           <hash_type>MD5</hash_type>
           <filesize>2105</filesize>
         </file>
         <file>
-          <filename>epm/resource_manager/cfg/lang/en/phrases/resourcemanager.xml</filename>
+          <filename>epm/resource_manager/cfg/lang/en/phrases/resource_manager.xml</filename>
           <mime_type>application/xml</mime_type>
           <hash>1bbfac878f0f3164d747c46d46476ad0</hash>
           <hash_type>MD5</hash_type>
           <filesize>3469</filesize>
         </file>
         <file>
-          <filename>epm/resource_manager/cfg/static/javascript/resourcemanager.js</filename>
+          <filename>epm/resource_manager/cfg/static/javascript/resource_manager.js</filename>
           <mime_type>text/plain</mime_type>
-          <hash>4f8aa16d106e22a5d523f95d597b1733</hash>
+          <hash>b3b7bb2ca557bfcf1b1cef9e04202ef9</hash>
           <hash_type>MD5</hash_type>
-          <filesize>5568</filesize>
+          <filesize>5585</filesize>
         </file>
         <file>
-          <filename>epm/resource_manager/cfg/static/style/resourcemanager.css</filename>
+          <filename>epm/resource_manager/cfg/static/style/resource_manager.css</filename>
           <mime_type>text/plain</mime_type>
-          <hash>6fc8a5edf9649d6c4bf60d995bd0e1b8</hash>
+          <hash>b0a749fb661afad6aa9e044fdacde226</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1729</filesize>
+          <filesize>1767</filesize>
         </file>
         <file>
-          <filename>epm/resource_manager/cgi/users/resourcemanager/load_item_list</filename>
+          <filename>epm/resource_manager/cgi/users/resource_manager/load_item_list</filename>
           <mime_type>text/plain</mime_type>
-          <hash>9cfd3a63178f7fade4b7699168c6070b</hash>
+          <hash>f3d938080ed6321a7fcc19594cfb464c</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1198</filesize>
+          <filesize>1065</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/ResourceManagerFilter.pm</filename>
@@ -85,40 +85,40 @@
         <file>
           <filename>plugins/EPrints/Plugin/Screen/ResourceManager.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>e3433075b63a01e6773bd9e7e5a999aa</hash>
+          <hash>65bd354f88382868bf413b3bc392b5f5</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2777</filesize>
+          <filesize>2779</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Screen/ResourceManagerTab.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>f33bdf54cee43664e49cc84b1fd4e39e</hash>
+          <hash>165747d8ae63edb5544c2bb73c1c47d2</hash>
           <hash_type>MD5</hash_type>
-          <filesize>7834</filesize>
+          <filesize>8064</filesize>
         </file>
         <file>
-          <filename>static/images/resource_manager/resmgr_edit.png</filename>
+          <filename>static/images/resource_manager/edit.png</filename>
           <mime_type>inode/symlink</mime_type>
           <hash>36fb60c4ea30bf0f1fed62b70ce7bfca</hash>
           <hash_type>MD5</hash_type>
           <filesize>526</filesize>
         </file>
         <file>
-          <filename>static/images/resource_manager/resmgr_more.png</filename>
+          <filename>static/images/resource_manager/more.png</filename>
           <mime_type>inode/symlink</mime_type>
           <hash>b5ed61c1ba9c42ddedeb70aabf6be35f</hash>
           <hash_type>MD5</hash_type>
           <filesize>401</filesize>
         </file>
         <file>
-          <filename>static/images/resource_manager/resmgr_remove.png</filename>
+          <filename>static/images/resource_manager/remove.png</filename>
           <mime_type>inode/symlink</mime_type>
           <hash>d4f0ea2f8edb60488e419fdbfa7fd09b</hash>
           <hash_type>MD5</hash_type>
           <filesize>680</filesize>
         </file>
         <file>
-          <filename>static/images/resource_manager/resmgr_view.png</filename>
+          <filename>static/images/resource_manager/view.png</filename>
           <mime_type>inode/symlink</mime_type>
           <hash>aa7010cb427b11cabbd24876dfd8ff37</hash>
           <hash_type>MD5</hash_type>
@@ -127,7 +127,7 @@
       </files>
       <mime_type>inode/symlink</mime_type>
       <format>other</format>
-      <main>static/images/resource_manager/resmgr_view.png</main>
+      <main>static/images/resource_manager/view.png</main>
       <content>install</content>
     </document>
   </documents>

@@ -25,27 +25,25 @@
 	<ul>
 		<li>
 			<a href="#" title="More details" onclick="return refreshShare({eprintid},'manageable_extra');" class="ep_manageable_action_button">
-				<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resourcemanager/resmgr_more.png" border="0"/>
+				<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/more.png" border="0"/>
 			</a>
 		</li>
 		<li>
-			<span title="View" class="ep_manageable_action_button">
 			<cite:linkhere>
 				<!--<epc:phrase ref="Plugin/Screen/ResourceManager:view"/>-->
-				<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resourcemanager/resmgr_view.png" alt="{phrase('Plugin/Screen/ResourceManager:view')}" border="0"/>
+				<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/view.png" alt="{phrase('Plugin/Screen/ResourceManager:view')}" border="0"/>
 			</cite:linkhere>
-			</span>
 		</li>
 		<li>
 			<a href="{$config{userhome}}?screen=EPrint::Edit&amp;eprintid={eprintid}" title="Edit" class="ep_manageable_action_button">
 				<!--	<epc:phrase ref="Plugin/Screen/ResourceManager:edit"/>	-->
-				<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resourcemanager/resmgr_edit.png" alt="{phrase('Plugin/Screen/ResourceManager:edit')}" border="0"/>
+				<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/edit.png" alt="{phrase('Plugin/Screen/ResourceManager:edit')}" border="0"/>
 			</a>
 		</li>
 		<li>
 			<a href="{$config{userhome}}?screen=EPrint::Remove&amp;eprintid={eprintid}" title="Delete" class="ep_manageable_action_button">
 				<!--	<epc:phrase ref="Plugin/Screen/ResourceManager:remove"/>  -->
-				<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resourcemanager/resmgr_remove.png" alt="{phrase('Plugin/Screen/ResourceManager:remove')}" border="0"/>
+				<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/remove.png" alt="{phrase('Plugin/Screen/ResourceManager:remove')}" border="0"/>
 			</a>
 		</li>
 	</ul>

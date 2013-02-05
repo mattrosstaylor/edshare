@@ -32,11 +32,5 @@ if( $session->get_repository->can_call( 'resourcemanager_item_list_render' ) )
 	$response->appendChild( $session->get_repository->call( 'resourcemanager_item_list_render', $session, $type, $filter ) );
 }
 
-my $js = $session->make_javascript(<<INIT_SCRIPT
-window.initialiseMetadataRollover();
-INIT_SCRIPT
-);
-$response->appendChild( $js );
-
 $session->terminate;
 print EPrints::XML::to_string( $response, undef, 1 );
