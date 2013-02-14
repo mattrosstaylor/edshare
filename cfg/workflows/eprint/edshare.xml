@@ -30,7 +30,7 @@
     </component>
 
     <component type="Field::TagLite">
-	<field ref="keywords" show_pickup_list="1"/>
+	<field ref="raw_keywords" show_pickup_list="1"/>
     </component>
 
     <component><field ref="viewperms" required="yes"/></component>

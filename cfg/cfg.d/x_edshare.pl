@@ -19,10 +19,10 @@ $c->{set_eprint_automatic_fields} = sub
 	$repo->call('edshare_core_set_eprint_automatic_fields', $eprint);
 
 	# normalise the keywords (if any) for the browse views
-	my $k = $eprint->get_value( "keywords" ); 
+	my $k = $eprint->get_value( "raw_keywords" ); 
 	unless( EPrints::Utils::is_set( $k ) )
 	{ 
-		$eprint->set_value( "normalised_keywords", undef ); 
+		$eprint->set_value( "keywords", undef ); 
 	} 
 	else
 	{
@@ -31,8 +31,10 @@ $c->{set_eprint_automatic_fields} = sub
 		{
 			push @nk, EPrints::Plugin::EdShareCoreUtils::normalise_keyword( $_ );
 		}
-		$eprint->set_value( "normalised_keywords", \@nk );
+		$eprint->set_value( "keywords", \@nk );
 	}
+
+	$eprint->set_value( "eprint_status", "archive");
 };
 # mrt - removing this for a second
 #$c->{set_document_automatic_fields} = sub
@@ -230,7 +232,6 @@ $c->{fields}->{eprint} = [
 	    'text_index' => 1,
 	    'render_single_value' => 'EPrints::Plugin::EdShareCoreUtils::render_single_keyword',
 #	    'input_advice_below' => sub { return shift->html_phrase( "Field/TagLite:keywords:advice_below" ); },
-
           },
 
 
@@ -311,7 +312,7 @@ $c->{fields}->{eprint} = [
 #          },
 
         {
-            'name' => 'normalised_keywords',
+            'name' => 'raw_keywords',
             'type' => 'text',
             'multiple' => 1,
             'text_index' => 1,
@@ -366,7 +367,7 @@ $c->{browse_views} = [
                 hideempty => 1,
                 menus => [
                         {
-                                fields => [ "normalised_keywords" ],
+                                fields => [ "keywords" ],
                                 new_column_at => [1, 1],
                                 mode => "sections",
                                 open_first_section => 1,

@@ -163,7 +163,7 @@ function createTagDiv( tag, id, varname, prefix, field )
 {
 	var tagid = prefix+"_"+id;
 	var tagdiv = new Element( 'div', { 'id': "container_"+tagid } );
-	if( field != 'keywords' )
+	if( field != 'raw_keywords' )
 	{
 		tag = tag.toUpperCase();
 	}

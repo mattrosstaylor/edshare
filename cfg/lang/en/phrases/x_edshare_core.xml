@@ -7,19 +7,19 @@
 	<epp:phrase id="eprint_fieldname_advice">Advice for reuse</epp:phrase>
 	<epp:phrase id="eprint_fieldhelp_advice">Do you have any suggestions for how another user might reuse this resource in thier teaching?</epp:phrase>
 
-	<epp:phrase id="eprint_fieldname_keywords">Tags</epp:phrase>
+	<epp:phrase id="eprint_fieldname_raw_keywords">Keywords</epp:phrase>
+	<epp:phrase id="eprint_fieldhelp_raw_keywords">Individual words which describe the content of the resource. These help users understand what your resource is about at a glance.</epp:phrase>
+
+	<epp:phrase id="eprint_fieldname_keywords">Keywords (Normalised)</epp:phrase>
 	<epp:phrase id="eprint_fieldhelp_keywords">Individual words which describe the content of the resource. These help users understand what your resource is about at a glance.</epp:phrase>
 
-	<epp:phrase id="eprint_fieldname_normalised_keywords">Tags (normalised)</epp:phrase>
-	<epp:phrase id="eprint_fieldhelp_normalised_keywords">Individual words which describe the content of the resource. These help users understand what your resource is about at a glance.</epp:phrase>
-
-	<epp:phrase id="Field/TagLite:keywords:blurb">Tags: </epp:phrase>
-	<epp:phrase id="Field/TagLite:keywords:pickuplist_blurb">Choose from your own tags</epp:phrase>
-	<epp:phrase id="Field/TagLite:keywords:advice_below"><p>Separate each tag with a comma: <span style="font-style: italic;">social networks, lecture, slides</span>. Hit enter to add your tags.</p></epp:phrase>
+	<epp:phrase id="Field/TagLite:raw_keywords:blurb">Keywords:</epp:phrase>
+	<epp:phrase id="Field/TagLite:raw_keywords:pickuplist_blurb">Choose from your own keywords</epp:phrase>
+	<epp:phrase id="Field/TagLite:raw_keywords:advice_below"><p>Separate each keyword with a comma: <span style="font-style: italic;">social networks, lecture, slides</span>. Hit enter to add your keywords.</p></epp:phrase>
 
 	<epp:phrase id="document_fieldname_description">Description</epp:phrase>
 	<epp:phrase id="document_fieldhelp_description">A short explanation of what this file is about.</epp:phrase>
-	<epp:phrase id="viewname_eprint_keywords">Tags</epp:phrase>
+	<epp:phrase id="viewname_eprint_keywords">Keywords</epp:phrase>
 
 	<epp:phrase id="eprint_fieldname_viewperms">Viewing permissions</epp:phrase>
 	<epp:phrase id="eprint_fieldopt_viewperms_private">Just me</epp:phrase>
