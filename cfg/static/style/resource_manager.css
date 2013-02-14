@@ -124,3 +124,10 @@
 .ep_resourcemanager_filter_text {
 	font-size: 1.6em;
 }
+
+.ep_manageable_controls > ul > li.ep_manageable_less_arrow { display:none;}
+.ep_manageable_more { display:none;}
+
+.ep_manageable_showing_more > .ep_manageable_controls > ul > li.ep_manageable_more_arrow { display:none; }
+.ep_manageable_showing_more > .ep_manageable_more { display:inline; }
+.ep_manageable_showing_more > .ep_manageable_controls > ul > li.ep_manageable_less_arrow { display:inline; }

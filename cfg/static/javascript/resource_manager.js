@@ -192,3 +192,6 @@ function refreshShare(eprintid,citation)
 
 	return false;
 } */
+
+function ep_manageable_toggle_detail(event) {
+}

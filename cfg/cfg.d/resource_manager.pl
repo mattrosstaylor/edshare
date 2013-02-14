@@ -26,7 +26,7 @@ $c->{resourcemanager_items_screen_enabled} = 0;
 # The fields must be multiple value text fields in order to be used. If they
 # aren't then they will be ignored.
 $c->{resourcemanager_filter_fields} = [
-	'normalised_keywords'
+	'keywords'
 ];
 
 if( $c->{resourcemanager_items_screen_enabled} == 0 )

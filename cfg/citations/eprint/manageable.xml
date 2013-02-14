@@ -24,9 +24,14 @@
 </div>
 <div class="ep_manageable_controls">
 	<ul>
-		<li>
-			<a href="#" title="More details" onclick="return refreshShare({eprintid},'manageable_extra');" class="ep_manageable_action_button">
+		<li class="ep_manageable_more_arrow">
+			<a href="#" title="More detail" onclick="return ep_manageable_toggle_detail(this);" class="ep_manageable_action_button">
 				<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/more.png" border="0"/>
+			</a>
+		</li>
+		<li class="ep_manageable_less_arrow">
+			<a href="#" title="Less detail" onclick="return ep_manageable_toggle_detail(this);" class="ep_manageable_action_button">
+				<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/less.png" border="0"/>
 			</a>
 		</li>
 		<li>
@@ -49,7 +54,6 @@
 		</li>
 	</ul>
 </div>
-<div style="clear:both;">
-</div>
-
+<div style="clear:both;"/>
+<div class="ep_manageable_more"><epc:print expr="$item.citation('manageable_more')"/></div>
 </cite:citation>

@@ -8,9 +8,9 @@
         <file>
           <filename>epm/resource_manager/cfg/cfg.d/resource_manager.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>de869df70db14e695bf32691864dae76</hash>
+          <hash>9621dea77db798dfa7ec23b5e916a180</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1650</filesize>
+          <filesize>1639</filesize>
           <data encoding='base64'>IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCiMgUmVzb3VyY2VN
 YW5hZ2VyIFNldHRpbmdzIEZpbGUKIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj
 IyMjIyMjIyMjCgojIHJlc291cmNlbWFuYWdlcl9pdGVtc19zY3JlZW5fZW5hYmxlZAojCiMgV2hl
@@ -28,26 +28,26 @@ ZXNvdXJjZW1hbmFnZXJfZmlsdGVyX2ZpZWxkcwojCiMgVGhlc2UgYXJlIHRoZSBmaWVsZHMgdGhh
 dCB5b3Ugd2FudCB0byB1c2Ugd2l0aCB0aGUgcmVzb3VyY2VtYW5hZ2VyIGZpbHRlci4KIyBUaGUg
 ZmllbGRzIG11c3QgYmUgbXVsdGlwbGUgdmFsdWUgdGV4dCBmaWVsZHMgaW4gb3JkZXIgdG8gYmUg
 dXNlZC4gSWYgdGhleQojIGFyZW4ndCB0aGVuIHRoZXkgd2lsbCBiZSBpZ25vcmVkLgokYy0+e3Jl
-c291cmNlbWFuYWdlcl9maWx0ZXJfZmllbGRzfSA9IFsKCSdub3JtYWxpc2VkX2tleXdvcmRzJwpd
-OwoKaWYoICRjLT57cmVzb3VyY2VtYW5hZ2VyX2l0ZW1zX3NjcmVlbl9lbmFibGVkfSA9PSAwICkK
-ewoJJGMtPntwbHVnaW5zfS0+eyJTY3JlZW46Okl0ZW1zIn0tPnthcHBlYXJzfS0+e2tleV90b29s
-c30gPSB1bmRlZjsKCSRjLT57cGx1Z2luX2FsaWFzX21hcH0tPnsiU2NyZWVuOjpJdGVtcyJ9ID0g
-IlNjcmVlbjo6UmVzb3VyY2VNYW5hZ2VyIjsKCSRjLT57cGx1Z2luc30tPnsiU2NyZWVuOjpSZXNv
-dXJjZU1hbmFnZXIifS0+e2FwcGVhcnN9LT57a2V5X3Rvb2xzfSA9IDEwMDsKfQoKJGMtPntwbHVn
-aW5zfS0+eyJSZXNvdXJjZU1hbmFnZXJGaWx0ZXIifS0+e3BhcmFtc30tPntkaXNhYmxlfSA9IDA7
-CiRjLT57cGx1Z2luc30tPnsiU2NyZWVuOjpCdWxrQWN0aW9uIn0tPntwYXJhbXN9LT57ZGlzYWJs
-ZX0gPSAwOwokYy0+e3BsdWdpbnN9LT57IlNjcmVlbjo6QnVsa0FjdGlvbjo6Q29sbGVjdGlvbiJ9
-LT57cGFyYW1zfS0+e2Rpc2FibGV9ID0gMDsKJGMtPntwbHVnaW5zfS0+eyJTY3JlZW46OkJ1bGtB
-Y3Rpb246OlJlbW92ZSJ9LT57cGFyYW1zfS0+e2Rpc2FibGV9ID0gMDsKJGMtPntwbHVnaW5zfS0+
-eyJTY3JlZW46OlJlc291cmNlTWFuYWdlciJ9LT57cGFyYW1zfS0+e2Rpc2FibGV9ID0gMDsK
+c291cmNlbWFuYWdlcl9maWx0ZXJfZmllbGRzfSA9IFsKCSdrZXl3b3JkcycKXTsKCmlmKCAkYy0+
+e3Jlc291cmNlbWFuYWdlcl9pdGVtc19zY3JlZW5fZW5hYmxlZH0gPT0gMCApCnsKCSRjLT57cGx1
+Z2luc30tPnsiU2NyZWVuOjpJdGVtcyJ9LT57YXBwZWFyc30tPntrZXlfdG9vbHN9ID0gdW5kZWY7
+CgkkYy0+e3BsdWdpbl9hbGlhc19tYXB9LT57IlNjcmVlbjo6SXRlbXMifSA9ICJTY3JlZW46OlJl
+c291cmNlTWFuYWdlciI7CgkkYy0+e3BsdWdpbnN9LT57IlNjcmVlbjo6UmVzb3VyY2VNYW5hZ2Vy
+In0tPnthcHBlYXJzfS0+e2tleV90b29sc30gPSAxMDA7Cn0KCiRjLT57cGx1Z2luc30tPnsiUmVz
+b3VyY2VNYW5hZ2VyRmlsdGVyIn0tPntwYXJhbXN9LT57ZGlzYWJsZX0gPSAwOwokYy0+e3BsdWdp
+bnN9LT57IlNjcmVlbjo6QnVsa0FjdGlvbiJ9LT57cGFyYW1zfS0+e2Rpc2FibGV9ID0gMDsKJGMt
+PntwbHVnaW5zfS0+eyJTY3JlZW46OkJ1bGtBY3Rpb246OkNvbGxlY3Rpb24ifS0+e3BhcmFtc30t
+PntkaXNhYmxlfSA9IDA7CiRjLT57cGx1Z2luc30tPnsiU2NyZWVuOjpCdWxrQWN0aW9uOjpSZW1v
+dmUifS0+e3BhcmFtc30tPntkaXNhYmxlfSA9IDA7CiRjLT57cGx1Z2luc30tPnsiU2NyZWVuOjpS
+ZXNvdXJjZU1hbmFnZXIifS0+e3BhcmFtc30tPntkaXNhYmxlfSA9IDA7Cg==
 </data>
         </file>
         <file>
           <filename>epm/resource_manager/cfg/citations/eprint/manageable.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>fe8c6f00e9f8d05fd2d8105d65f9959c</hash>
+          <hash>2eaeaf7b68c538ceaab7e2b91d1e348a</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2339</filesize>
+          <filesize>2769</filesize>
           <data encoding='base64'>PD94bWwgdmVyc2lvbj0iMS4wIj8+CjwhLS0KCUEgUmVzb3VyY2UgTWFuYWdlciBNYW5hZ2VhYmxl
 IFJlc291cmNlCi0tPgo8Y2l0ZTpjaXRhdGlvbiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5
 OS94aHRtbCIKCXhtbG5zOmVwYz0iaHR0cDovL2VwcmludHMub3JnL2VwMy9jb250cm9sIgoJeG1s
@@ -62,34 +62,55 @@ a2hlcmU+PHNwYW4gY2xhc3M9ImVwX21hbmFnZWFibGVfZGF0YV90aXRsZSI+PHByaW50IGV4cHI9
 InRpdGxlIi8+PC9zcGFuPjwvY2l0ZTpsaW5raGVyZT4KCTwvdGQ+Cgk8dGQgd2lkdGg9IjE1JSIg
 dmFsaWduPSJtaWRkbGUiIGFsaWduPSJyaWdodCI+CiAgICAJCTxwcmludCBleHByPSJ0eXBlIi8+
 Cgk8L3RkPgoJPC90cj4KCTwvdGFibGU+CgkKPC9kaXY+CjxkaXYgY2xhc3M9ImVwX21hbmFnZWFi
-bGVfY29udHJvbHMiPgoJPHVsPgoJCTxsaT4KCQkJPGEgaHJlZj0iIyIgdGl0bGU9Ik1vcmUgZGV0
-YWlscyIgb25jbGljaz0icmV0dXJuIHJlZnJlc2hTaGFyZSh7ZXByaW50aWR9LCdtYW5hZ2VhYmxl
-X2V4dHJhJyk7IiBjbGFzcz0iZXBfbWFuYWdlYWJsZV9hY3Rpb25fYnV0dG9uIj4KCQkJCTxpbWcg
-Y2xhc3M9ImVwX21hbmFnZWFibGVfYWN0aW9uX2J1dHRvbiBlcF9tYW5hZ2VhYmxlX2FjdGlvbl9p
-Y29uIiBzcmM9InskY29uZmlne3JlbF9wYXRofX0vaW1hZ2VzL3Jlc291cmNlX21hbmFnZXIvbW9y
-ZS5wbmciIGJvcmRlcj0iMCIvPgoJCQk8L2E+CgkJPC9saT4KCQk8bGk+CgkJCTxjaXRlOmxpbmto
-ZXJlPgoJCQkJPCEtLTxlcGM6cGhyYXNlIHJlZj0iUGx1Z2luL1NjcmVlbi9SZXNvdXJjZU1hbmFn
-ZXI6dmlldyIvPi0tPgoJCQkJPGltZyBjbGFzcz0iZXBfbWFuYWdlYWJsZV9hY3Rpb25fYnV0dG9u
-IGVwX21hbmFnZWFibGVfYWN0aW9uX2ljb24iIHNyYz0ieyRjb25maWd7cmVsX3BhdGh9fS9pbWFn
-ZXMvcmVzb3VyY2VfbWFuYWdlci92aWV3LnBuZyIgYWx0PSJ7cGhyYXNlKCdQbHVnaW4vU2NyZWVu
-L1Jlc291cmNlTWFuYWdlcjp2aWV3Jyl9IiBib3JkZXI9IjAiLz4KCQkJPC9jaXRlOmxpbmtoZXJl
-PgoJCTwvbGk+CgkJPGxpPgoJCQk8YSBocmVmPSJ7JGNvbmZpZ3t1c2VyaG9tZX19P3NjcmVlbj1F
-UHJpbnQ6OkVkaXQmYW1wO2VwcmludGlkPXtlcHJpbnRpZH0iIHRpdGxlPSJFZGl0IiBjbGFzcz0i
-ZXBfbWFuYWdlYWJsZV9hY3Rpb25fYnV0dG9uIj4KCQkJCTwhLS0JPGVwYzpwaHJhc2UgcmVmPSJQ
-bHVnaW4vU2NyZWVuL1Jlc291cmNlTWFuYWdlcjplZGl0Ii8+CS0tPgoJCQkJPGltZyBjbGFzcz0i
-ZXBfbWFuYWdlYWJsZV9hY3Rpb25fYnV0dG9uIGVwX21hbmFnZWFibGVfYWN0aW9uX2ljb24iIHNy
-Yz0ieyRjb25maWd7cmVsX3BhdGh9fS9pbWFnZXMvcmVzb3VyY2VfbWFuYWdlci9lZGl0LnBuZyIg
-YWx0PSJ7cGhyYXNlKCdQbHVnaW4vU2NyZWVuL1Jlc291cmNlTWFuYWdlcjplZGl0Jyl9IiBib3Jk
-ZXI9IjAiLz4KCQkJPC9hPgoJCTwvbGk+CgkJPGxpPgoJCQk8YSBocmVmPSJ7JGNvbmZpZ3t1c2Vy
-aG9tZX19P3NjcmVlbj1FUHJpbnQ6OlJlbW92ZSZhbXA7ZXByaW50aWQ9e2VwcmludGlkfSIgdGl0
-bGU9IkRlbGV0ZSIgY2xhc3M9ImVwX21hbmFnZWFibGVfYWN0aW9uX2J1dHRvbiI+CgkJCQk8IS0t
-CTxlcGM6cGhyYXNlIHJlZj0iUGx1Z2luL1NjcmVlbi9SZXNvdXJjZU1hbmFnZXI6cmVtb3ZlIi8+
-ICAtLT4KCQkJCTxpbWcgY2xhc3M9ImVwX21hbmFnZWFibGVfYWN0aW9uX2J1dHRvbiBlcF9tYW5h
-Z2VhYmxlX2FjdGlvbl9pY29uIiBzcmM9InskY29uZmlne3JlbF9wYXRofX0vaW1hZ2VzL3Jlc291
-cmNlX21hbmFnZXIvcmVtb3ZlLnBuZyIgYWx0PSJ7cGhyYXNlKCdQbHVnaW4vU2NyZWVuL1Jlc291
-cmNlTWFuYWdlcjpyZW1vdmUnKX0iIGJvcmRlcj0iMCIvPgoJCQk8L2E+CgkJPC9saT4KCTwvdWw+
-CjwvZGl2Pgo8ZGl2IHN0eWxlPSJjbGVhcjpib3RoOyI+CjwvZGl2PgoKPC9jaXRlOmNpdGF0aW9u
-Pgo=
+bGVfY29udHJvbHMiPgoJPHVsPgoJCTxsaSBjbGFzcz0iZXBfbWFuYWdlYWJsZV9tb3JlX2Fycm93
+Ij4KCQkJPGEgaHJlZj0iIyIgdGl0bGU9Ik1vcmUgZGV0YWlsIiBvbmNsaWNrPSJyZXR1cm4gZXBf
+bWFuYWdlYWJsZV90b2dnbGVfZGV0YWlsKHRoaXMpOyIgY2xhc3M9ImVwX21hbmFnZWFibGVfYWN0
+aW9uX2J1dHRvbiI+CgkJCQk8aW1nIGNsYXNzPSJlcF9tYW5hZ2VhYmxlX2FjdGlvbl9idXR0b24g
+ZXBfbWFuYWdlYWJsZV9hY3Rpb25faWNvbiIgc3JjPSJ7JGNvbmZpZ3tyZWxfcGF0aH19L2ltYWdl
+cy9yZXNvdXJjZV9tYW5hZ2VyL21vcmUucG5nIiBib3JkZXI9IjAiLz4KCQkJPC9hPgoJCTwvbGk+
+CgkJPGxpIGNsYXNzPSJlcF9tYW5hZ2VhYmxlX2xlc3NfYXJyb3ciPgoJCQk8YSBocmVmPSIjIiB0
+aXRsZT0iTGVzcyBkZXRhaWwiIG9uY2xpY2s9InJldHVybiBlcF9tYW5hZ2VhYmxlX3RvZ2dsZV9k
+ZXRhaWwodGhpcyk7IiBjbGFzcz0iZXBfbWFuYWdlYWJsZV9hY3Rpb25fYnV0dG9uIj4KCQkJCTxp
+bWcgY2xhc3M9ImVwX21hbmFnZWFibGVfYWN0aW9uX2J1dHRvbiBlcF9tYW5hZ2VhYmxlX2FjdGlv
+bl9pY29uIiBzcmM9InskY29uZmlne3JlbF9wYXRofX0vaW1hZ2VzL3Jlc291cmNlX21hbmFnZXIv
+bGVzcy5wbmciIGJvcmRlcj0iMCIvPgoJCQk8L2E+CgkJPC9saT4KCQk8bGk+CgkJCTxjaXRlOmxp
+bmtoZXJlPgoJCQkJPCEtLTxlcGM6cGhyYXNlIHJlZj0iUGx1Z2luL1NjcmVlbi9SZXNvdXJjZU1h
+bmFnZXI6dmlldyIvPi0tPgoJCQkJPGltZyBjbGFzcz0iZXBfbWFuYWdlYWJsZV9hY3Rpb25fYnV0
+dG9uIGVwX21hbmFnZWFibGVfYWN0aW9uX2ljb24iIHNyYz0ieyRjb25maWd7cmVsX3BhdGh9fS9p
+bWFnZXMvcmVzb3VyY2VfbWFuYWdlci92aWV3LnBuZyIgYWx0PSJ7cGhyYXNlKCdQbHVnaW4vU2Ny
+ZWVuL1Jlc291cmNlTWFuYWdlcjp2aWV3Jyl9IiBib3JkZXI9IjAiLz4KCQkJPC9jaXRlOmxpbmto
+ZXJlPgoJCTwvbGk+CgkJPGxpPgoJCQk8YSBocmVmPSJ7JGNvbmZpZ3t1c2VyaG9tZX19P3NjcmVl
+bj1FUHJpbnQ6OkVkaXQmYW1wO2VwcmludGlkPXtlcHJpbnRpZH0iIHRpdGxlPSJFZGl0IiBjbGFz
+cz0iZXBfbWFuYWdlYWJsZV9hY3Rpb25fYnV0dG9uIj4KCQkJCTwhLS0JPGVwYzpwaHJhc2UgcmVm
+PSJQbHVnaW4vU2NyZWVuL1Jlc291cmNlTWFuYWdlcjplZGl0Ii8+CS0tPgoJCQkJPGltZyBjbGFz
+cz0iZXBfbWFuYWdlYWJsZV9hY3Rpb25fYnV0dG9uIGVwX21hbmFnZWFibGVfYWN0aW9uX2ljb24i
+IHNyYz0ieyRjb25maWd7cmVsX3BhdGh9fS9pbWFnZXMvcmVzb3VyY2VfbWFuYWdlci9lZGl0LnBu
+ZyIgYWx0PSJ7cGhyYXNlKCdQbHVnaW4vU2NyZWVuL1Jlc291cmNlTWFuYWdlcjplZGl0Jyl9IiBi
+b3JkZXI9IjAiLz4KCQkJPC9hPgoJCTwvbGk+CgkJPGxpPgoJCQk8YSBocmVmPSJ7JGNvbmZpZ3t1
+c2VyaG9tZX19P3NjcmVlbj1FUHJpbnQ6OlJlbW92ZSZhbXA7ZXByaW50aWQ9e2VwcmludGlkfSIg
+dGl0bGU9IkRlbGV0ZSIgY2xhc3M9ImVwX21hbmFnZWFibGVfYWN0aW9uX2J1dHRvbiI+CgkJCQk8
+IS0tCTxlcGM6cGhyYXNlIHJlZj0iUGx1Z2luL1NjcmVlbi9SZXNvdXJjZU1hbmFnZXI6cmVtb3Zl
+Ii8+ICAtLT4KCQkJCTxpbWcgY2xhc3M9ImVwX21hbmFnZWFibGVfYWN0aW9uX2J1dHRvbiBlcF9t
+YW5hZ2VhYmxlX2FjdGlvbl9pY29uIiBzcmM9InskY29uZmlne3JlbF9wYXRofX0vaW1hZ2VzL3Jl
+c291cmNlX21hbmFnZXIvcmVtb3ZlLnBuZyIgYWx0PSJ7cGhyYXNlKCdQbHVnaW4vU2NyZWVuL1Jl
+c291cmNlTWFuYWdlcjpyZW1vdmUnKX0iIGJvcmRlcj0iMCIvPgoJCQk8L2E+CgkJPC9saT4KCTwv
+dWw+CjwvZGl2Pgo8ZGl2IHN0eWxlPSJjbGVhcjpib3RoOyIvPgo8ZGl2IGNsYXNzPSJlcF9tYW5h
+Z2VhYmxlX21vcmUiPjxlcGM6cHJpbnQgZXhwcj0iJGl0ZW0uY2l0YXRpb24oJ21hbmFnZWFibGVf
+bW9yZScpIi8+PC9kaXY+CjwvY2l0ZTpjaXRhdGlvbj4K
+</data>
+        </file>
+        <file>
+          <filename>epm/resource_manager/cfg/citations/eprint/manageable_more.xml</filename>
+          <mime_type>application/xml</mime_type>
+          <hash>10fa90205342f2a79a97c843013f88e7</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>328</filesize>
+          <data encoding='base64'>PD94bWwgdmVyc2lvbj0iMS4wIiA/PgoKPGNpdGU6Y2l0YXRpb24geG1sbnM9Imh0dHA6Ly93d3cu
+dzMub3JnLzE5OTkveGh0bWwiIHhtbG5zOmNpdGU9Imh0dHA6Ly9lcHJpbnRzLm9yZy9lcDMvY2l0
+YXRpb24iIHhtbG5zOmVwYz0iaHR0cDovL2VwcmludHMub3JnL2VwMy9jb250cm9sIj4KCjxlcGM6
+Y2hvb3NlPgogIDxlcGM6d2hlbiB0ZXN0PSJhYnN0cmFjdCI+PGVwYzpwcmludCBleHByPSJhYnN0
+cmFjdCIvPjwvZXBjOndoZW4+CiAgPGVwYzpvdGhlcndpc2U+Tm8gZGVzY3JpcHRpb24uPC9lcGM6
+b3RoZXJ3aXNlPgo8L2VwYzpjaG9vc2U+Cgo8L2NpdGU6Y2l0YXRpb24+Cg==
 </data>
         </file>
         <file>
@@ -219,9 +240,9 @@ c2VzPgo=
         <file>
           <filename>epm/resource_manager/cfg/static/javascript/resource_manager.js</filename>
           <mime_type>text/x-c</mime_type>
-          <hash>6fbf4165c79bc1ad2871eda487dc8698</hash>
+          <hash>927fecb269308244db818df2aedc37e9</hash>
           <hash_type>MD5</hash_type>
-          <filesize>5572</filesize>
+          <filesize>5621</filesize>
           <data encoding='base64'>ZG9jdW1lbnQub2JzZXJ2ZSggJ2RvbTpsb2FkZWQnLCBmdW5jdGlvbigpIHsKCWRvY3VtZW50Lm9i
 c2VydmUoJ2NsaWNrJywgdXBkYXRlUmVzb3VyY2VTZWxlY3Rpb24pOwp9KTsKCndpbmRvdy5hZGRS
 ZW1vdmFsQnV0dG9ucyA9IGZ1bmN0aW9uKCkgewoJJCQoJy5lcF9yZXNvdXJjZW1hbmFnZXJfdGFn
@@ -319,15 +340,16 @@ CW5ldyBBamF4LlJlcXVlc3QoIGVwcmludHNfaHR0cF9jZ2lyb290KycvdXNlcnMvYWpheC9yZW5k
 ZXJfc2hhcmUnLCAKCQl7IAoJCQlwYXJhbWV0ZXJzOidlcHJpbnRpZD0nK2VwcmludGlkKyImY2l0
 YXRpb249IitjaXRhdGlvbiwKCQkJbWV0aG9kOidHRVQnLAoJCQlvblN1Y2Nlc3M6ZnVuY3Rpb24o
 dHJhbnMpeyAkKCdtYW5hZ2VhYmxlX2lkXycrZXByaW50aWQpLmlubmVySFRNTCA9IHRyYW5zLnJl
-c3BvbnNlVGV4dDsgfSAKCQl9ICk7CgoJcmV0dXJuIGZhbHNlOwp9ICovCg==
+c3BvbnNlVGV4dDsgfSAKCQl9ICk7CgoJcmV0dXJuIGZhbHNlOwp9ICovCgpmdW5jdGlvbiBlcF9t
+YW5hZ2VhYmxlX3RvZ2dsZV9kZXRhaWwoZXZlbnQpIHsKfQo=
 </data>
         </file>
         <file>
           <filename>epm/resource_manager/cfg/static/style/resource_manager.css</filename>
           <mime_type>text/plain</mime_type>
-          <hash>70fe02d29554de2568f94e8598117f05</hash>
+          <hash>cfccd90267092b58b2fa407608d09aea</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1704</filesize>
+          <filesize>2105</filesize>
           <data encoding='base64'>LmVkX3Jlc291cmNlbWFuYWdlcl9maWx0ZXJfYm94X3RpdGxlCnsKCWZvbnQtc2l6ZToxNHB4OwoJ
 Zm9udC13ZWlnaHQ6Ym9sZDsKfQoKLmVwX3RhYl9wYW5lbAp7CgloZWlnaHQ6IGF1dG87Cn0KCi8q
 LmVkX3Jlc291cmNlbWFuYWdlcl9jb250ZW50Ki8KLmVwX2J1bGthY3Rpb25fZm9ybQp7CglkaXNw
@@ -357,7 +379,14 @@ YWxpZ246IHJpZ2h0OwoJcGFkZGluZzowcHg7CgltYXJnaW46MHB4Owp9CgouZXBfbWFuYWdlYWJs
 ZV9jb250cm9scyB1bCBsaSB7CglkaXNwbGF5OiBpbmxpbmU7CglsaXN0LXN0eWxlOiBub25lOwp9
 CgouZXBfbWFuYWdlYWJsZV9jb250cm9scyBhIHsKCXRleHQtZGVjb3JhdGlvbjogbm9uZTsKfQoK
 LmVwX3Jlc291cmNlbWFuYWdlcl9maWx0ZXIgewoJdGV4dC1hbGlnbjogY2VudGVyOwp9CgouZXBf
-cmVzb3VyY2VtYW5hZ2VyX2ZpbHRlcl90ZXh0IHsKCWZvbnQtc2l6ZTogMS42ZW07Cn0K
+cmVzb3VyY2VtYW5hZ2VyX2ZpbHRlcl90ZXh0IHsKCWZvbnQtc2l6ZTogMS42ZW07Cn0KCi5lcF9t
+YW5hZ2VhYmxlX2NvbnRyb2xzID4gdWwgPiBsaS5lcF9tYW5hZ2VhYmxlX2xlc3NfYXJyb3cgeyBk
+aXNwbGF5Om5vbmU7fQouZXBfbWFuYWdlYWJsZV9tb3JlIHsgZGlzcGxheTpub25lO30KCi5lcF9t
+YW5hZ2VhYmxlX3Nob3dpbmdfbW9yZSA+IC5lcF9tYW5hZ2VhYmxlX2NvbnRyb2xzID4gdWwgPiBs
+aS5lcF9tYW5hZ2VhYmxlX21vcmVfYXJyb3cgeyBkaXNwbGF5Om5vbmU7IH0KLmVwX21hbmFnZWFi
+bGVfc2hvd2luZ19tb3JlID4gLmVwX21hbmFnZWFibGVfbW9yZSB7IGRpc3BsYXk6aW5saW5lOyB9
+Ci5lcF9tYW5hZ2VhYmxlX3Nob3dpbmdfbW9yZSA+IC5lcF9tYW5hZ2VhYmxlX2NvbnRyb2xzID4g
+dWwgPiBsaS5lcF9tYW5hZ2VhYmxlX2xlc3NfYXJyb3cgeyBkaXNwbGF5OmlubGluZTsgfQo=
 </data>
         </file>
         <file>
@@ -804,6 +833,21 @@ CC3wQQF39zWsxGfsb3n67r0X/7QtBm/nItpwi8HaTL8y7zzWhoHGEW2roJJPrhC5PEMp/4bzZkUL
 bhosxMIqev8FHvdx1h/dxReq0zMwgv01x36pzPCDj6LtKxuyg513s5hnTpJNpUklF+kMBLg+/UW0
 7UIivcvo6kPOmlf5QwfKfkrnr0JbuBlhbLRLuaXkUr+fbq9B6OJNLtyaEjodEUet818nr87mudpl
 4gAAAABJRU5ErkJggg==
+</data>
+        </file>
+        <file>
+          <filename>static/images/resource_manager/less.png</filename>
+          <mime_type>image/png</mime_type>
+          <hash>1a7a27f67c3e0a7389a60c92e4aa7de4</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>376</filesize>
+          <data encoding='base64'>iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A
+/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9oLCBAnMsMhzIIAAAD4SURBVDjL
+pZOxLkRhEIXPRUO2VrIa8Qwr3kSt1UgkRCEkNqJapVeQiEIh8QJbSIjo9FvcoBL3/+ecGQ/A3b3u
+nXYy35xzJlNEBLrU3LTm6GUYo+fzqRuKOgUXTychI+RCCDgcnBaNFCiIs8ejoGWs9vro99aQrML+
+/W7QORtw9XoZ718lSIFOMIjF+SVMPicYPhxHYws7d9sxWNmE3DF+G2Nv6wDryxu/bCzUhZOTwSR4
+COVH+efwDECGyeAh5CrXXqEeUGXQCYWQ2gDSt8FkUBcF5oS7kCproaDKMLF7Bh6CJWsJkMHhsMwW
+gGS4ub4FjRD1/2dqWj8kDbZvD1ZSeAAAAABJRU5ErkJggg==
 </data>
         </file>
         <file>

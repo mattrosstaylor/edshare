@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+
+<cite:citation xmlns="http://www.w3.org/1999/xhtml" xmlns:cite="http://eprints.org/ep3/citation" xmlns:epc="http://eprints.org/ep3/control">
+
+<epc:choose>
+  <epc:when test="abstract"><epc:print expr="abstract"/></epc:when>
+  <epc:otherwise>No description.</epc:otherwise>
+</epc:choose>
+
+</cite:citation>
