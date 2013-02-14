@@ -19,19 +19,17 @@
 	<!-- EPrints::Plugin::Screen::ResourceManager -->
 	<epp:phrase id="Plugin/Screen/ResourceManager:title">Resource Manager</epp:phrase>
 	<epp:phrase id="Plugin/Screen/ResourceManager:view_unavailable">This view is not available.</epp:phrase>
-	<epp:phrase id="Plugin/Screen/ResourceManagerTab:no_render_subclass"><epc:phrase ref="Plugin/Screen:no_render_subclass"/></epp:phrase>
 
-	<!-- EPrints::Plugin::Screen::ResourceManagerTab -->
-	<epp:phrase id="Plugin/Screen/ResourceManagerTab:article_title"><epc:phrase ref="eprint_typename_article"/></epp:phrase>
-	<epp:phrase id="Plugin/Screen/ResourceManagerTab:conference_item_title"><epc:phrase ref="eprint_typename_conference_item"/></epp:phrase>
-	<epp:phrase id="Plugin/Screen/ResourceManagerTab:monograph_title"><epc:phrase ref="eprint_typename_monograph"/></epp:phrase>
-	<epp:phrase id="Plugin/Screen/ResourceManagerTab:no_resources">You currently have no resources of this type.</epp:phrase>
-	<epp:phrase id="Plugin/Screen/ResourceManagerTab:select_all">Select All Resources</epp:phrase>
-	<epp:phrase id="Plugin/Screen/ResourceManagerTab:reset_text_filter">Reset Text Filter</epp:phrase>
-	<epp:phrase id="Plugin/Screen/ResourceManagerTab:with_selected_resources">With Selected Resources:</epp:phrase>
-	<epp:phrase id="Plugin/Screen/ResourceManagerTab:select_bulk_action">Choose an action</epp:phrase>
-	<epp:phrase id="Plugin/Screen/ResourceManagerTab:current_tags">Current Filters</epp:phrase>
-	<epp:phrase id="Plugin/Screen/ResourceManagerTab:available_tags">Available Filters</epp:phrase>
+	<epp:phrase id="Plugin/Screen/ResourceManager:article_title"><epc:phrase ref="eprint_typename_article"/></epp:phrase>
+	<epp:phrase id="Plugin/Screen/ResourceManager:conference_item_title"><epc:phrase ref="eprint_typename_conference_item"/></epp:phrase>
+	<epp:phrase id="Plugin/Screen/ResourceManager:monograph_title"><epc:phrase ref="eprint_typename_monograph"/></epp:phrase>
+	<epp:phrase id="Plugin/Screen/ResourceManager:no_resources">You currently have no resources of this type.</epp:phrase>
+	<epp:phrase id="Plugin/Screen/ResourceManager:select_all">Select All Resources</epp:phrase>
+	<epp:phrase id="Plugin/Screen/ResourceManager:reset_text_filter">Reset Text Filter</epp:phrase>
+	<epp:phrase id="Plugin/Screen/ResourceManager:with_selected_resources">With Selected Resources:</epp:phrase>
+	<epp:phrase id="Plugin/Screen/ResourceManager:select_bulk_action">Choose an action</epp:phrase>
+	<epp:phrase id="Plugin/Screen/ResourceManager:current_tags">Current Filters</epp:phrase>
+	<epp:phrase id="Plugin/Screen/ResourceManager:available_tags">Available Filters</epp:phrase>
 
 	<!-- Manageable Citation -->
 	<epp:phrase id="Plugin/Screen/ResourceManager:view">View</epp:phrase>
@@ -42,13 +40,9 @@
 	<!-- Manageable Metadata -->
 	<epp:phrase id="eprint_fieldname_status">Status</epp:phrase>
 
-	<!-- EdShare Core -->
-	<epp:phrase id="Plugin/Screen/ResourceManagerTab:resource_title"><epc:phrase ref="eprint_typename_resource"/></epp:phrase>
-	<epp:phrase id="Plugin/Screen/ResourceManagerTab:collection_title"><epc:phrase ref="eprint_typename_collection"/></epp:phrase>	
-
 	<!-- CGI Scripts -->
 	<epp:phrase id="cgi/resourcemanager:must_be_logged_in">You must be logged in to view this list.</epp:phrase>
 	<epp:phrase id="cgi/resourcemanager:no_type_defined">The 'type' parameter must be defined.</epp:phrase>
-	<epp:phrase id="cgi/resourcemanager:no_resources"><epc:phrase ref="Plugin/Screen/ResourceManagerTab:no_resources"/></epp:phrase>
+	<epp:phrase id="cgi/resourcemanager:no_resources"><epc:phrase ref="Plugin/Screen/ResourceManager:no_resources"/></epp:phrase>
 
 </epp:phrases>

@@ -16,6 +16,7 @@
 		<cite:linkhere><span class="ep_manageable_data_title"><print expr="title"/></span></cite:linkhere>
 	</td>
 	<td width="15%" valign="middle" align="right">
+    		<print expr="type"/>
 	</td>
 	</tr>
 	</table>

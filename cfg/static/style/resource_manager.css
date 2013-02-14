@@ -81,10 +81,6 @@
 	overflow: auto;
 }
 
-.ep_bulkaction_summary_list .ep_manageable {
-	cursor: none;
-}
-
 .ep_manageable_data {
 	float: left;
 	width: 500px;

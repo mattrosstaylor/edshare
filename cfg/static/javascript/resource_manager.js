@@ -1,6 +1,5 @@
 document.observe( 'dom:loaded', function() {
 	document.observe('click', updateResourceSelection);
-	window.addRemovalButtons();
 });
 
 window.addRemovalButtons = function() {
@@ -45,6 +44,8 @@ window.addRemovalButtons = function() {
 	});
 }
 
+
+/* mrt - currently deactivated
 window.selectAll = function(event) {
 	var element = event.element();
 	var type = arguments[1];
@@ -65,13 +66,9 @@ window.selectAll = function(event) {
 		});
 	}
 }
+*/
 
 window.updateResourceSelection = function(event) {
-	/* 
-	 * The left click detection is not required under IE.
-	 * But this test needs to be done to preserve right clicks
-	 * in other browsers.
-	 */
 	if (!Prototype.Browser.IE && !event.isLeftClick()) return;
 	var element = event.element();
 	if (ignoreElement(element)) {
@@ -93,11 +90,30 @@ window.updateResourceSelection = function(event) {
 	}
 }
 
+window.ignoreElement = function(element) {
+	if (element.hasClassName('ep_manageable_action_button')) {
+		return true;
+	}
+	if (element.hasClassName('ep_form_action_button')) {
+		return true;
+	}
+	if (element.hasClassName('ep_manageable_data_title')) {
+		return true;
+	}
+	if (element.tagName.toLowerCase() == 'a') {
+		return true;
+	}
+
+	return false;
+}
+
 window.inBulkSelection = function(element) {
 	var checkbox = $$('#'+element.readAttribute('id')+' .ep_resource_manager_select_check')[0];
 	return checkbox.readAttribute('checked') || element.hasClassName('ep_manageable_selected');
 }
 
+
+/* mrt - this is currently deactivated since there is no search at the moment
 window.enableSearch = function(event) {
 	var element = event.element();
 	var type = arguments[1];
@@ -145,6 +161,7 @@ window.resetFilter = function(filter) {
 		filterItemList(type, '');
 	}
 }
+*/
 
 window.executeBulkAction = function(event) {
 	var type = arguments[1];
@@ -163,23 +180,7 @@ window.executeBulkAction = function(event) {
 	}*/
 }
 
-window.ignoreElement = function(element) {
-	if (element.hasClassName('ep_manageable_action_button')) {
-		return true;
-	}
-	if (element.hasClassName('ep_form_action_button')) {
-		return true;
-	}
-	if (element.hasClassName('ep_manageable_data_title')) {
-		return true;
-	}
-	if (element.tagName.toLowerCase() == 'a') {
-		return true;
-	}
-
-	return false;
-}
-
+/* mrt - this seems like a really bad thing
 function refreshShare(eprintid,citation)
 {
 	new Ajax.Request( eprints_http_cgiroot+'/users/ajax/render_share', 
@@ -190,4 +191,4 @@ function refreshShare(eprintid,citation)
 		} );
 
 	return false;
-}
+} */
