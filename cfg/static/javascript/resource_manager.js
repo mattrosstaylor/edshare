@@ -180,18 +180,6 @@ window.executeBulkAction = function(event) {
 	}*/
 }
 
-/* mrt - this seems like a really bad thing
-function refreshShare(eprintid,citation)
-{
-	new Ajax.Request( eprints_http_cgiroot+'/users/ajax/render_share', 
-		{ 
-			parameters:'eprintid='+eprintid+"&citation="+citation,
-			method:'GET',
-			onSuccess:function(trans){ $('manageable_id_'+eprintid).innerHTML = trans.responseText; } 
-		} );
-
-	return false;
-} */
-
-function ep_manageable_toggle_detail(event) {
+function ep_manageable_toggle_detail(eprintid) {
+	$('manageable_id_'+eprintid).toggleClassName('ep_manageable_showing_more');
 }

@@ -82,35 +82,33 @@
 }
 
 .ep_manageable_data {
-	float: left;
-	width: 500px;
+	width: 80%;
+	display: inline-block;
 	white-space: nowrap;
 	overflow: hidden;
+	margin: 0;
+	padding: 0;
 }
 
 .ep_manageable_data .ep_manageable_data_title {
 	font-size: 14px;
 }
 
-
 .ep_manageable_metadata {
 	list-style: none;
 }
 
-.ep_manageable_controls {
-	float: right;
-	margin: 2px;
-}
-
-.ep_manageable_controls ul {
-	text-align: right;
+ul.ep_manageable_controls {
+	display: inline-block;
+	width: 15%;
 	padding:0px;
 	margin:0px;
+	list-style: none;
 }
 
-.ep_manageable_controls ul li {
+ul.ep_manageable_controls li, .ep_manageable_selected_checkbox {
 	display: inline;
-	list-style: none;
+	width: 4%;
 }
 
 .ep_manageable_controls a {
@@ -125,9 +123,9 @@
 	font-size: 1.6em;
 }
 
-.ep_manageable_controls > ul > li.ep_manageable_less_arrow { display:none;}
+ul.ep_manageable_controls > li.ep_manageable_less_arrow { display:none;}
 .ep_manageable_more { display:none;}
 
-.ep_manageable_showing_more > .ep_manageable_controls > ul > li.ep_manageable_more_arrow { display:none; }
-.ep_manageable_showing_more > .ep_manageable_more { display:inline; }
-.ep_manageable_showing_more > .ep_manageable_controls > ul > li.ep_manageable_less_arrow { display:inline; }
+div.ep_manageable_showing_more > ul.ep_manageable_controls > li.ep_manageable_more_arrow { display:none; }
+div.ep_manageable_showing_more > div.ep_manageable_more { display:inline; }
+div.ep_manageable_showing_more > ul.ep_manageable_controls > li.ep_manageable_less_arrow { display:inline; }

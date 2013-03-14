@@ -6,54 +6,43 @@
 	xmlns:epc="http://eprints.org/ep3/control"
 	xmlns:cite="http://eprints.org/ep3/citation">
 
+<div class="ep_manageable_selected_checkbox">
+	<input type="checkbox" name="bulkaction_eprintids" value="{eprintid}" id="select-{eprintid}" class="ep_resource_manager_select_check"/>
+</div>
+
 <div class="ep_manageable_data">
-	<table width="100%" border="0" cellpadding="0" cellspacing="0">
-	<tr>
-	<td width="5%" valign="middle" align="center">
-		<input type="checkbox" name="bulkaction_eprintids" value="{eprintid}" id="select-{eprintid}" class="ep_resource_manager_select_check"/>
-	</td>
-	<td width="80%" valign="middle" align="left">
-		<cite:linkhere><span class="ep_manageable_data_title"><print expr="title"/></span></cite:linkhere>
-	</td>
-	<td width="15%" valign="middle" align="right">
-    		<print expr="type"/>
-	</td>
-	</tr>
-	</table>
-	
+<epc:print expr="$item.citation('manageable_data')"/>
 </div>
-<div class="ep_manageable_controls">
-	<ul>
-		<li class="ep_manageable_more_arrow">
-			<a href="#" title="More detail" onclick="return ep_manageable_toggle_detail(this);" class="ep_manageable_action_button">
-				<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/more.png" border="0"/>
-			</a>
-		</li>
-		<li class="ep_manageable_less_arrow">
-			<a href="#" title="Less detail" onclick="return ep_manageable_toggle_detail(this);" class="ep_manageable_action_button">
-				<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/less.png" border="0"/>
-			</a>
-		</li>
-		<li>
-			<cite:linkhere>
-				<!--<epc:phrase ref="Plugin/Screen/ResourceManager:view"/>-->
-				<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/view.png" alt="{phrase('Plugin/Screen/ResourceManager:view')}" border="0"/>
-			</cite:linkhere>
-		</li>
-		<li>
-			<a href="{$config{userhome}}?screen=EPrint::Edit&amp;eprintid={eprintid}" title="Edit" class="ep_manageable_action_button">
-				<!--	<epc:phrase ref="Plugin/Screen/ResourceManager:edit"/>	-->
-				<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/edit.png" alt="{phrase('Plugin/Screen/ResourceManager:edit')}" border="0"/>
-			</a>
-		</li>
-		<li>
-			<a href="{$config{userhome}}?screen=EPrint::Remove&amp;eprintid={eprintid}" title="Delete" class="ep_manageable_action_button">
-				<!--	<epc:phrase ref="Plugin/Screen/ResourceManager:remove"/>  -->
-				<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/remove.png" alt="{phrase('Plugin/Screen/ResourceManager:remove')}" border="0"/>
-			</a>
-		</li>
-	</ul>
-</div>
+
+<ul class="ep_manageable_controls">
+	<li class="ep_manageable_more_arrow">
+		<a href="#" title="More detail" onclick="ep_manageable_toggle_detail({eprintid})" class="ep_manageable_action_button">
+			<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/more.png" border="0"/>
+		</a>
+	</li>
+	<li class="ep_manageable_less_arrow">
+		<a href="#" title="Less detail" onclick="ep_manageable_toggle_detail({eprintid})" class="ep_manageable_action_button">
+			<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/less.png" border="0"/>
+		</a>
+	</li>
+	<li>
+		<cite:linkhere>
+			<!--<epc:phrase ref="Plugin/Screen/ResourceManager:view"/>-->
+			<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/view.png" alt="{phrase('Plugin/Screen/ResourceManager:view')}" border="0"/>
+		</cite:linkhere>
+	</li>
+	<li>
+		<a href="{$config{userhome}}?screen=EPrint::Edit&amp;eprintid={eprintid}" title="Edit" class="ep_manageable_action_button">
+			<!--	<epc:phrase ref="Plugin/Screen/ResourceManager:edit"/>	-->
+			<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/edit.png" alt="{phrase('Plugin/Screen/ResourceManager:edit')}" border="0"/>			</a>
+	</li>
+	<li>
+		<a href="{$config{userhome}}?screen=EPrint::Remove&amp;eprintid={eprintid}" title="Delete" class="ep_manageable_action_button">
+			<!--	<epc:phrase ref="Plugin/Screen/ResourceManager:remove"/>  -->
+			<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/remove.png" alt="{phrase('Plugin/Screen/ResourceManager:remove')}" border="0"/>
+		</a>
+	</li>
+</ul>
 <div style="clear:both;"/>
 <div class="ep_manageable_more"><epc:print expr="$item.citation('manageable_more')"/></div>
 </cite:citation>
