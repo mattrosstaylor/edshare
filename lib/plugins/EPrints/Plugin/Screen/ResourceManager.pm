@@ -43,7 +43,7 @@ sub render
 
 	my( $table, $tr, $td );
 	$table = $session->make_element( "table", width=>"100%" );
-	$frag->appendChild( $table );
+	$main->appendChild( $table );
 	$tr = $session->make_element( "tr" );
 	$table->appendChild( $tr );
 	$td = $session->make_element( "td", valign=>"top" );
@@ -60,7 +60,7 @@ sub render
 
 	my( $bulk_action_form_frag, $bulk_action_form ) = $self->_render_bulk_action_form();
 	
-	$td = $session->make_element( "td", valign=>"top", align=>"left" );
+	$td = $session->make_element( "td", valign=>"top", align=>"left", style=>"width:100%;" );
 	$tr->appendChild( $td );
 
 	$td->appendChild( $bulk_action_form_frag );

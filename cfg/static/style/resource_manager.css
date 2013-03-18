@@ -54,9 +54,9 @@
 .ep_manageable, .ep_resourcemanager_block {
 	background-color: #ececec;
 	border-style: solid;
-	border-width: 2px;
-	margin: 3px;
-	padding: 5px;
+	border-width: 1px;
+	margin: 1px 1%;
+	padding: 1px 1%;
 	text-align: left;
 }
 
@@ -70,6 +70,8 @@
 
 .ep_manageable {
 	border-color: #c4caf2;
+	float: left;
+	width: 96%;
 }
 
 .ep_manageable.ep_manageable_selected {
@@ -80,14 +82,17 @@
 	height: 300px;
 	overflow: auto;
 }
+.ep_manageable_data_wrapper {
+	float: left;
+	width: 100%;
+	margin-right: -120px;
+}
 
 .ep_manageable_data {
-	width: 80%;
-	display: inline-block;
-	white-space: nowrap;
-	overflow: hidden;
 	margin: 0;
 	padding: 0;
+	margin-right: 120px;
+	vertical-align: middle;
 }
 
 .ep_manageable_data .ep_manageable_data_title {
@@ -98,17 +103,22 @@
 	list-style: none;
 }
 
-ul.ep_manageable_controls {
-	display: inline-block;
-	width: 15%;
-	padding:0px;
-	margin:0px;
-	list-style: none;
+div.ep_manageable_controls {
+	display: block;
+	float: right;
+	width: 120px;
+	padding: 0px;
+	margin: 0px;
 }
 
-ul.ep_manageable_controls li, .ep_manageable_selected_checkbox {
+.ep_manageable_controls ul {
+	padding: 0px;
+	margin: 0px;
+}
+
+div.ep_manageable_controls li {
+	list-style: none;
 	display: inline;
-	width: 4%;
 }
 
 .ep_manageable_controls a {
@@ -123,9 +133,13 @@ ul.ep_manageable_controls li, .ep_manageable_selected_checkbox {
 	font-size: 1.6em;
 }
 
-ul.ep_manageable_controls > li.ep_manageable_less_arrow { display:none;}
+div.ep_manageable_controls > ul > li.ep_manageable_less_arrow { display:none;}
 .ep_manageable_more { display:none;}
 
-div.ep_manageable_showing_more > ul.ep_manageable_controls > li.ep_manageable_more_arrow { display:none; }
+div.ep_manageable_showing_more > div.ep_manageable_controls > ul >li.ep_manageable_more_arrow { display:none; }
 div.ep_manageable_showing_more > div.ep_manageable_more { display:inline; }
-div.ep_manageable_showing_more > ul.ep_manageable_controls > li.ep_manageable_less_arrow { display:inline; }
+div.ep_manageable_showing_more > div.ep_manageable_controls > ul > li.ep_manageable_less_arrow { display:inline; }
+
+#ed_resourcemanager {
+	background: #999;
+}

@@ -3,9 +3,10 @@
 <cite:citation xmlns="http://www.w3.org/1999/xhtml" xmlns:cite="http://eprints.org/ep3/citation" xmlns:epc="http://eprints.org/ep3/control">
 
 <div style="display:inline-block; overflow:hidden; text-overflow:ellipsis; width:80%">
+	<input type="checkbox" name="bulkaction_eprintids" value="{eprintid}" id="select-{eprintid}" class="ep_resource_manager_select_check"/>
 	<cite:linkhere><span title="{title}" class="ep_manageable_data_title"><print expr="title"/></span></cite:linkhere>
 </div>
-<div style="display:inline-block; width:20%">
+<div style="display:inline-block; width: 19%">
     	<print expr="type"/>
 </div>
 

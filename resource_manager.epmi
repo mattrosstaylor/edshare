@@ -15,16 +15,16 @@
         <file>
           <filename>epm/resource_manager/cfg/citations/eprint/manageable.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>57d2ae9d159e840e847ba2beca46683e</hash>
+          <hash>b8869f2e62ed492198fc0d02223134f0</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2448</filesize>
+          <filesize>2316</filesize>
         </file>
         <file>
           <filename>epm/resource_manager/cfg/citations/eprint/manageable_data.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>f26f4ab6827f96f23501a1828c354328</hash>
+          <hash>c440ca10c27a62f8d7a0338e0ba2a96c</hash>
           <hash_type>MD5</hash_type>
-          <filesize>473</filesize>
+          <filesize>611</filesize>
         </file>
         <file>
           <filename>epm/resource_manager/cfg/citations/eprint/manageable_more.xml</filename>
@@ -64,9 +64,9 @@
         <file>
           <filename>epm/resource_manager/cfg/static/style/resource_manager.css</filename>
           <mime_type>text/plain</mime_type>
-          <hash>b74955443cddfb9b060c00dfbb2b0a4c</hash>
+          <hash>34062c21526074aeccfa491d1b3f3a3b</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2143</filesize>
+          <filesize>2293</filesize>
         </file>
         <file>
           <filename>epm/resource_manager/cgi/users/resource_manager</filename>
@@ -99,9 +99,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/Screen/ResourceManager.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>fc10325a20435bf380fc4a867335b0ad</hash>
+          <hash>ab136716f0b560f4dbe129969a633c28</hash>
           <hash_type>MD5</hash_type>
-          <filesize>5950</filesize>
+          <filesize>5972</filesize>
         </file>
         <file>
           <filename>static/images/resource_manager/edit.png</filename>

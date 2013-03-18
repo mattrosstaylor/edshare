@@ -6,15 +6,13 @@
 	xmlns:epc="http://eprints.org/ep3/control"
 	xmlns:cite="http://eprints.org/ep3/citation">
 
-<div class="ep_manageable_selected_checkbox">
-	<input type="checkbox" name="bulkaction_eprintids" value="{eprintid}" id="select-{eprintid}" class="ep_resource_manager_select_check"/>
-</div>
-
+<div class="ep_manageable_data_wrapper">
 <div class="ep_manageable_data">
 <epc:print expr="$item.citation('manageable_data')"/>
 </div>
+</div>
 
-<ul class="ep_manageable_controls">
+<div class="ep_manageable_controls"><ul>
 	<li class="ep_manageable_more_arrow">
 		<a href="#" title="More detail" onclick="ep_manageable_toggle_detail({eprintid})" class="ep_manageable_action_button">
 			<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/more.png" border="0"/>
@@ -42,7 +40,7 @@
 			<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/remove.png" alt="{phrase('Plugin/Screen/ResourceManager:remove')}" border="0"/>
 		</a>
 	</li>
-</ul>
+</ul></div>
 <div style="clear:both;"/>
 <div class="ep_manageable_more"><epc:print expr="$item.citation('manageable_more')"/></div>
 </cite:citation>
