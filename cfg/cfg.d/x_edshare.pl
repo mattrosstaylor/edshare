@@ -8,7 +8,6 @@
 #	
 #	$repository->call("edshare_core_session_init", $repository, $offline);	
 #};
-
 $c->{edshare_core_set_eprint_automatic_fields} = $c->{set_eprint_automatic_fields}; 
 
 $c->{set_eprint_automatic_fields} = sub
@@ -33,9 +32,8 @@ $c->{set_eprint_automatic_fields} = sub
 		}
 		$eprint->set_value( "keywords", \@nk );
 	}
-
-	$eprint->set_value( "eprint_status", "archive");
 };
+
 # mrt - removing this for a second
 #$c->{set_document_automatic_fields} = sub
 #{
@@ -264,8 +262,8 @@ $c->{fields}->{eprint} = [
             'type' => 'set',
             'options' => [
                            'private',
-                           'uni_public',
-                           'world_public',
+                           'registered_only',
+                           'public',
                          ],
             'input_style' => 'radio',
             'allow_null' => 0,

@@ -9,16 +9,16 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>006ab3e5923bcfba1400579743638007</hash>
+          <hash>9e790f6322f5ffb182271f09d156d5a3</hash>
           <hash_type>MD5</hash_type>
-          <filesize>32919</filesize>
+          <filesize>32867</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/lang/en/phrases/x_edshare_core.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>844acdebeed0094307418d24c3dde9d6</hash>
+          <hash>cf4efaaefed7a503a283eba34e8f1d4b</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2116</filesize>
+          <filesize>2331</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/javascript/auto/taglite.js</filename>
@@ -86,9 +86,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPrint/EdShareEdit.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>c8b2806f7fb25f7ae055a087536ce06b</hash>
+          <hash>cbfac541e9a617aec4b2b0b36e514971</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1466</filesize>
+          <filesize>4249</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/TagCloud.pm</filename>
