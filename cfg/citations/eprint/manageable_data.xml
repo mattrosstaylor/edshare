@@ -6,7 +6,7 @@
 	<input type="checkbox" name="bulkaction_eprintids" value="{eprintid}" id="select-{eprintid}" class="ep_resource_manager_select_check"/>
 	<cite:linkhere><span title="{title}" class="ep_manageable_data_title"><print expr="title"/></span></cite:linkhere>
 </div>
-<div style="display:inline-block; width: 19%">
+<div style="display:inline-block; width: 19%; vertical-align: top;">
     	<print expr="type"/>
 </div>
 

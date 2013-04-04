@@ -28,7 +28,7 @@
 .ep_manageable_action_icon
 {
 	vertical-align: middle;
-	padding: 5px;
+	padding: 0 5px;
 }
 
 .ep_resource_manager_filter {
@@ -139,7 +139,3 @@ div.ep_manageable_controls > ul > li.ep_manageable_less_arrow { display:none;}
 div.ep_manageable_showing_more > div.ep_manageable_controls > ul >li.ep_manageable_more_arrow { display:none; }
 div.ep_manageable_showing_more > div.ep_manageable_more { display:inline; }
 div.ep_manageable_showing_more > div.ep_manageable_controls > ul > li.ep_manageable_less_arrow { display:inline; }
-
-#ed_resourcemanager {
-	background: #999;
-}
