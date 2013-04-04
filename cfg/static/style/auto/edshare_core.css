@@ -1,0 +1,37 @@
+/* edshare core styles */
+#edshare_summary_above {
+	
+}
+
+#edshare_summary_left {
+	float: left;
+	width: 66.5%
+}
+
+#edshare_summary_right {
+	float: right;
+	width: 33.2%
+}
+
+#edshare_summary_below {
+	clear:both;
+}
+
+.edshare_summary_abstract {
+	text-align: justify;
+}
+
+/* taglite styles */
+.ed_taglite_maintable{
+        text-align:center;
+}
+
+.ep_taglite_pickup_container{
+        text-align:center;
+}
+.ed_taglite_bottom{
+        padding: 10px;
+}
+.ed_taglite_input{
+        margin: 10px 2px;
+}
