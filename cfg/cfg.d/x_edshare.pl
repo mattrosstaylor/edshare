@@ -977,6 +977,8 @@ $c->{"edshare_choose_workflow"} = sub {
 	
 };
 
+$c->{edshare_screen_after_edit} = "Items";
+
 $c->{plugin_alias_map}->{"Screen::EPrint::Edit"} = "Screen::EPrint::EdShareEdit";
 $c->{plugin_alias_map}->{"Screen::EPrint::CollectionEdit"} = "Screen::EPrint::EdShareEdit";
 $c->{plugin_alias_map}->{"Screen::EPrint::EdShareEdit"} = undef;

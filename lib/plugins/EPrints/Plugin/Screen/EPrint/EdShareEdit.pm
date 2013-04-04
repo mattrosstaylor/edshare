@@ -95,7 +95,7 @@ sub action_deposit
 
 	print STDERR "\nfrom_ok=$from_ok\n";
 	
-	$self->{processor}->{screenid} = "EPrint::View";	
+	$self->{processor}->{screenid} = $self->{repository}->config("edshare_screen_after_edit") || "EPrint::View";	
 
 	if (not $from_ok)
 	{

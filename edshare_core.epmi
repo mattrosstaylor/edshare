@@ -9,9 +9,9 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>9e790f6322f5ffb182271f09d156d5a3</hash>
+          <hash>dfc09a2bf78c29a48db618dd5e48483e</hash>
           <hash_type>MD5</hash_type>
-          <filesize>32867</filesize>
+          <filesize>32911</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/lang/en/phrases/x_edshare_core.xml</filename>
@@ -86,9 +86,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPrint/EdShareEdit.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>cbfac541e9a617aec4b2b0b36e514971</hash>
+          <hash>8637a3a1df44364b834480c33d1e6bae</hash>
           <hash_type>MD5</hash_type>
-          <filesize>4249</filesize>
+          <filesize>4309</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/TagCloud.pm</filename>
