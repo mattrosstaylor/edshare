@@ -104,6 +104,13 @@
           <filesize>5972</filesize>
         </file>
         <file>
+          <filename>static/images/epm/resource_manager.png</filename>
+          <mime_type>inode/symlink</mime_type>
+          <hash>babef97523967c6755c98b8db4cd4a2a</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>157073</filesize>
+        </file>
+        <file>
           <filename>static/images/resource_manager/edit.png</filename>
           <mime_type>inode/symlink</mime_type>
           <hash>36fb60c4ea30bf0f1fed62b70ce7bfca</hash>
@@ -144,9 +151,30 @@
       <main>static/images/resource_manager/view.png</main>
       <content>install</content>
     </document>
+    <document>
+      <files>
+        <file>
+          <filename>static/images/epm/resource_manager.png</filename>
+          <mime_type>inode/symlink</mime_type>
+          <hash>babef97523967c6755c98b8db4cd4a2a</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>157073</filesize>
+        </file>
+      </files>
+      <format>image</format>
+      <main>static/images/epm/resource_manager.png</main>
+      <content>coverimage</content>
+    </document>
   </documents>
-  <version>1.0.2</version>
+  <version>1.1.0</version>
   <creators>
+    <item>
+      <name>
+        <family>Taylor</family>
+        <given>Matt R</given>
+      </name>
+      <id>mrt@ecs.soton.ac.uk</id>
+    </item>
     <item>
       <name>
         <family>McSweeney</family>
@@ -161,13 +189,8 @@
       </name>
       <id>sf2@ecs.soton.ac.uk</id>
     </item>
-    <item>
-      <name>
-        <family>Taylor</family>
-        <given>Matt R</given>
-      </name>
-      <id>mrt@ecs.soton.ac.uk</id>
-    </item>
   </creators>
   <title>Resource Manager</title>
+  <description>The Resource Manager from EdShare. Gives a fresh and dynamic alternative to the Manage Deposits screen or can be used along side it if you prefer.</description>
+  <icon>images/epm/resource_manager.png</icon>
 </epm>
