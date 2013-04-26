@@ -1,4 +1,4 @@
-/* edshare core styles */
+/* edshare summary */
 #edshare_summary_above {
 	
 }
@@ -21,7 +21,13 @@
 	text-align: justify;
 }
 
-/* taglite styles */
+/*edshare summary toolbox */
+.edshare_toolbox_edshare_toolbox {
+	list-style: none;
+	padding-left: 10px;
+}
+
+/* taglite */
 .ed_taglite_maintable{
         text-align:center;
 }

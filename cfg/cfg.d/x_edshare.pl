@@ -910,6 +910,9 @@ $c->{plugin_alias_map}->{"Screen::EPrint::View::Editor"} = "Screen::RedirectToIt
 # EdShare - Adds use as template to the manage deposits screen.
 $c->{plugins}->{"Screen::EPrint::UseAsTemplate"}->{actions}->{use_as_template}->{appears}->{eprint_item_actions} = 20;
 
+# Assemble EdShare Toolbox
+$c->{plugins}->{"Screen::EPrint::Edit"}->{appears}->{edshare_toolbox} = 10;
+
 $c->{can_request_view_document} = sub
 {
 	my( $doc, $r ) = @_;

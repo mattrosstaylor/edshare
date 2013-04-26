@@ -9,9 +9,9 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>dfc09a2bf78c29a48db618dd5e48483e</hash>
+          <hash>b97b46aaa6958d129c0a59d0a2744f90</hash>
           <hash_type>MD5</hash_type>
-          <filesize>32911</filesize>
+          <filesize>33015</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_render.pl</filename>
@@ -37,9 +37,9 @@
         <file>
           <filename>epm/edshare_core/cfg/citations/eprint/edshare_summary_metadata.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>285db875926f186c34430039d7fa90b8</hash>
+          <hash>598d456c486ae9a3fcfc29b8b5987605</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1250</filesize>
+          <filesize>1538</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/lang/en/phrases/x_edshare_core.xml</filename>
@@ -49,18 +49,18 @@
           <filesize>2331</filesize>
         </file>
         <file>
-          <filename>epm/edshare_core/cfg/static/javascript/auto/taglite.js</filename>
-          <mime_type>text/plain</mime_type>
-          <hash>338325034519ec5159e2ec9bce7055f7</hash>
+          <filename>epm/edshare_core/cfg/static/javascript/auto/edshare_core.js</filename>
+          <mime_type>text/x-c</mime_type>
+          <hash>827ceafdb922ff70675d4430df17fa5e</hash>
           <hash_type>MD5</hash_type>
-          <filesize>5609</filesize>
+          <filesize>5977</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/style/auto/edshare_core.css</filename>
           <mime_type>text/x-c</mime_type>
-          <hash>c2972e224dbe415c1964e9429d839648</hash>
+          <hash>d9598c8679b3aa52959354401ead4de4</hash>
           <hash_type>MD5</hash_type>
-          <filesize>487</filesize>
+          <filesize>583</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/style/images/xit.gif</filename>
@@ -77,11 +77,11 @@
           <filesize>954</filesize>
         </file>
         <file>
-          <filename>epm/edshare_core/cgi/users/edshare_toolbox</filename>
+          <filename>epm/edshare_core/cgi/edshare_toolbox</filename>
           <mime_type>text/plain</mime_type>
-          <hash>cbb1df1085a145d56aae4f27a61bb1c3</hash>
+          <hash>ec887e9d4dabc6c31f2bcbd6e06866de</hash>
           <hash_type>MD5</hash_type>
-          <filesize>944</filesize>
+          <filesize>1197</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cgi/users/lookup/localname</filename>

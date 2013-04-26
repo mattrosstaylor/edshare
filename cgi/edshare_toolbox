@@ -1,6 +1,5 @@
 #!/usr/bin/perl
 use EPrints;
-
 use strict;
 my $repository = EPrints->new->current_repository;
 exit( 0 ) unless( defined $repository );
@@ -21,9 +20,16 @@ if($repository->param("eprintid")){
 	$params->{eprintid} = $eprint->get_id;
 }
 
+my $xml = undef;
 my $list_name = $repository->param("listname");
-my $xml = $screen->render_action_list($list_name, $params);
 
+if($repository->param("listtype") eq "list")
+{
+	$params->{class} = "edshare_toolbox_$list_name";
+	$xml = $processor->render_item_list( [
+                $processor->list_items( $list_name )], %{$params}
+        );
+}
 if($repository->param("listtype") eq "bar")
 {
 	$xml = $screen->render_action_list_bar($list_name, $params);
@@ -32,6 +38,10 @@ if($repository->param("listtype") eq "bar")
 if($repository->param("listtype") eq "icons")
 {
 	 $xml = $screen->render_action_list_icons($list_name, $params);
+}
+if(!defined($xml))
+{
+	$xml = $screen->render_action_list($list_name, $params);
 }
 
 print $repository->xml->to_string($xml);

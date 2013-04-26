@@ -1,3 +1,15 @@
+/* edshare core javascript */
+function edshare_core_render_toolbox(targetId, eprintid, listName, listType) {
+	new Ajax.Request( eprints_http_cgiroot +"/edshare_toolbox", {
+	  method: "get",
+	  parameters:{'eprintid':eprintid, "listtype":listType, "listname":listName},
+	  onSuccess: function(response) {
+		$(targetId).innerHTML = response.responseText;
+	  }
+	});	
+
+}
+
 
 /* 
  * This javascript file will be loaded after all the system files.
