@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+
+<!-- 
+	Full "abstract page" (or splash page or summary page, depending on your jargon) for an eprint. 
+-->
+
+<cite:citation xmlns="http://www.w3.org/1999/xhtml" xmlns:epc="http://eprints.org/ep3/control" xmlns:cite="http://eprints.org/ep3/citation" >
+	<div id="edshare_summary_above"><epc:print expr="$above"/></div>
+	
+	<div id="edshare_summary_left">
+		<div id="edshare_summary_top_left"><epc:print expr="$top_left"/></div>
+		<div id="edshare_summary_bottom_left"><epc:print expr="$bottom_left"/></div>
+	</div>
+	<div id="edshare_summary_right">
+		<div id="edshare_summary_top_right"><epc:print expr="$top_right"/></div>
+		<div id="edshare_summary_bottom_right"><epc:print expr="$bottom_right"/></div>
+	</div>
+
+	<div id="edshare_summary_below"><epc:print expr="$below"/></div>
+</cite:citation>
+
