@@ -1,0 +1,7 @@
+.premiere_preview_selector {
+	cursor: pointer;
+}
+
+#premiere_preview_area {
+	overflow: hidden;
+}

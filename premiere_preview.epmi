@@ -8,9 +8,9 @@
         <file>
           <filename>epm/premiere_preview/cfg/cfg.d/x_premiere_preview.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>9b12561b657313f9504a7f4bbe58a37c</hash>
+          <hash>5563142d6815716d097e9cfa489cb7f7</hash>
           <hash_type>MD5</hash_type>
-          <filesize>582</filesize>
+          <filesize>768</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/citations/document/premiere_preview_selector.xml</filename>
@@ -54,10 +54,17 @@
           <hash_type>MD5</hash_type>
           <filesize>1124</filesize>
         </file>
+        <file>
+          <filename>epm/premiere_preview/lib/plugins/EPrints/Plugin/Convert/OfficeToPDF.pm</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>1aff9032f0231054e2bd95b6fcb09f40</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>4036</filesize>
+        </file>
       </files>
       <mime_type>text/plain</mime_type>
       <format>text</format>
-      <main>epm/premiere_preview/cgi/preview</main>
+      <main>epm/premiere_preview/lib/plugins/EPrints/Plugin/Convert/OfficeToPDF.pm</main>
       <content>install</content>
     </document>
   </documents>
