@@ -4,7 +4,60 @@
   <uri>http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/premiere_preview</uri>
   <documents>
     <document>
-      <format>other</format>
+      <files>
+        <file>
+          <filename>epm/premiere_preview/cfg/cfg.d/x_premiere_preview.pl</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>9b12561b657313f9504a7f4bbe58a37c</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>582</filesize>
+        </file>
+        <file>
+          <filename>epm/premiere_preview/cfg/citations/document/premiere_preview_selector.xml</filename>
+          <mime_type>application/xml</mime_type>
+          <hash>b8535c5a065d7e09c56d190b213009e8</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>463</filesize>
+        </file>
+        <file>
+          <filename>epm/premiere_preview/cfg/citations/eprint/premiere_preview_documents.xml</filename>
+          <mime_type>application/xml</mime_type>
+          <hash>fa7844bb6c1f45c081bff75e374a6442</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>871</filesize>
+        </file>
+        <file>
+          <filename>epm/premiere_preview/cfg/static/javascript/auto/premiere_preview.js</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>7703944a3bc4b8356eecc2e84d22b719</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>106</filesize>
+        </file>
+        <file>
+          <filename>epm/premiere_preview/cfg/static/javascript/jquery.media.0.92.js</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>02fc2c4f03973eab7d206b5d0f3b1ce4</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>16048</filesize>
+        </file>
+        <file>
+          <filename>epm/premiere_preview/cfg/static/style/auto/premiere_preview.css</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>1e0c7fa9685d01528cfc2f5c0c600425</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>96</filesize>
+        </file>
+        <file>
+          <filename>epm/premiere_preview/cgi/preview</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>9629f196aafac0c77f4da71784a41f38</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>1124</filesize>
+        </file>
+      </files>
+      <mime_type>text/plain</mime_type>
+      <format>text</format>
+      <main>epm/premiere_preview/cgi/preview</main>
       <content>install</content>
     </document>
   </documents>
