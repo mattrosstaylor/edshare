@@ -66,7 +66,7 @@ $c->{fields}->{document} = [
 		'name' => 'description',
 		'type' => 'text',
 		'input_cols' => '45',
-		'render_value' => 'EPrints::Extras::render_document_description'
+#		'render_value' => 'EPrints::Extras::render_document_description'
 	},
 # EdShare - "Share a link" features
           {
@@ -908,42 +908,16 @@ $c->{plugins}->{"Screen::Review"}->{params}->{disable} = 1;
 $c->{plugin_alias_map}->{"Screen::EPrint::View::Owner"} = "Screen::RedirectToItems";
 $c->{plugin_alias_map}->{"Screen::EPrint::View::Editor"} = "Screen::RedirectToItems";
 # EdShare - Adds use as template to the manage deposits screen.
-$c->{plugins}->{"Screen::EPrint::UseAsTemplate"}->{actions}->{use_as_template}->{appears}->{eprint_item_actions} = 20;
+
+# mrt - this plugin doesn't even exist yet
+#$c->{plugins}->{"Screen::EPrint::UseAsTemplate"}->{actions}->{use_as_template}->{appears}->{eprint_item_actions} = 20;
 
 # Assemble EdShare Toolbox
 $c->{plugins}->{"Screen::EPrint::Edit"}->{appears}->{edshare_toolbox} = 10;
 
 $c->{can_request_view_document} = sub
 {
-	my( $doc, $r ) = @_;
-
-	# all 'document' security relies on the parent 'eprint' security
-	my $eprint = $doc->get_eprint();
-
-	# return ALLOW only if:
-	# 	- viewperms = 'world'
-	# 	- on_campus (watch out on edshare-soton there's an "advanced_perms" field)
-	# return USER otherwise
-
-	my $perms = $eprint->get_value( "viewperms" );
-
-	if( defined $perms )
-	{
-		if( $perms eq 'world_public' )
-		{
-			return( "ALLOW" );
-		}
-		elsif( $perms eq "uni_public" )
-		{
-			# edshare-soton specific:
-			#return( "USER" ) if( defined $adv_perms && $adv_perms ne 'any' );
-			my $uri = $r->uri;
-			my $ip = $r->connection()->remote_ip();
-                        return( "ALLOW" ) if( $ip =~ /^152\.78\.\d+\.\d+$/ );
-		}
-	}
-
-	return( "USER" );
+	return "ALLOW";
 };
 
 # Return "ALLOW" if the given user can view the given document,
@@ -1001,11 +975,6 @@ $c->{plugins}->{"Screen::DataSets"}->{appears}->{key_tools} = undef;
 
 $c->{plugins}->{"Screen::EPrint::Box::BookmarkTools"}->{params}->{disable} = 1;
 $c->{plugins}->{"Screen::EPrint::Box::CollectionMembership"}->{params}->{disable} = 1;
-
-$c->{plugins}->{"Screen::EPrint::UseAsTemplate"}->{actions}->{use_as_template}->{appears}->{edshare_toolbox} = 30;
-$c->{plugins}->{"Screen::Bookmarks"}->{actions}->{add}->{appears}->{edshare_toolbox} = 25;
-$c->{plugins}->{"Screen::Bookmarks"}->{actions}->{remove}->{appears}->{edshare_toolbox} = 26;
-$c->{plugins}->{"Screen::EPrint::EdShareToolbox"}->{appears}->{summary_right} = undef;
 
 $c->{plugins}->{"Screen::EPrint::Edit"}->{appears}->{edshare_toolbox} = 20;
 $c->{plugins}->{"Screen::EPrint::ExportZip"}->{appears}->{edshare_toolbox} = 29;

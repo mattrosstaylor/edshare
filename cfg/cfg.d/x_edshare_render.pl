@@ -37,8 +37,12 @@ $c->{render_fragments} = sub
 	
 	my $xml = $repository->xml;	
 
-	$fragments->{above} = $xml->create_document_fragment;
-	$fragments->{top_left} = $eprint->render_citation( "edshare_summary_documents" );
+	# mrt - add premiere_preview to the top
+	#$fragments->{above} = $xml->create_document_fragment;
+
+	$fragments->{above} = $repository->call('render_premiere_preview', $eprint, $repository);	
+
+	$fragments->{top_left} = $eprint->render_citation( "premiere_preview_documents" );
 	$fragments->{bottom_left} = $xml->create_document_fragment;
 	$fragments->{top_right} = $eprint->render_citation( "edshare_summary_metadata" );
 	$fragments->{bottom_right} = $xml->create_document_fragment;
@@ -66,13 +70,14 @@ $c->{eprint_render} = sub
 	
 	my $page = $eprint->render_citation( "edshare_summary", %fragments, flags=>$flags );
 
-	my $title = $eprint->render_citation("brief");
+	# mrt - find a way to supress this later
+	my $title = $repository->xml->create_document_fragment; #$eprint->render_citation("brief");
 
 	my $links = $repository->xml()->create_document_fragment();
 	if( !$preview )
 	{
-		$links->appendChild( $repository->plugin( "Export::Simple" )->dataobj_to_html_header( $eprint ) );
-		$links->appendChild( $repository->plugin( "Export::DC" )->dataobj_to_html_header( $eprint ) );
+#		$links->appendChild( $repository->plugin( "Export::Simple" )->dataobj_to_html_header( $eprint ) );
+#		$links->appendChild( $repository->plugin( "Export::DC" )->dataobj_to_html_header( $eprint ) );
 	}
 
 	return( $page, $title, $links );

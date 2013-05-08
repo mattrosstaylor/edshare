@@ -9,16 +9,23 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>b97b46aaa6958d129c0a59d0a2744f90</hash>
+          <hash>57691987291fac0efba3e029320cdb78</hash>
           <hash_type>MD5</hash_type>
-          <filesize>33015</filesize>
+          <filesize>31966</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_render.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>c99792c35014dab42fce2df52ca3d48d</hash>
+          <hash>5cb46a3ba6f51886f97d2c0ebafa1015</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2570</filesize>
+          <filesize>2796</filesize>
+        </file>
+        <file>
+          <filename>epm/edshare_core/cfg/citations/eprint/default.xml</filename>
+          <mime_type>application/xml</mime_type>
+          <hash>f2848415162dc21eaef3de36f0bab7ec</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>482</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/citations/eprint/edshare_summary.xml</filename>
@@ -49,6 +56,13 @@
           <filesize>2331</filesize>
         </file>
         <file>
+          <filename>epm/edshare_core/cfg/namedsets/eprint</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>c8a237c5c966bf37c93e1247e77d8066</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>34</filesize>
+        </file>
+        <file>
           <filename>epm/edshare_core/cfg/static/javascript/auto/edshare_core.js</filename>
           <mime_type>text/x-c</mime_type>
           <hash>827ceafdb922ff70675d4430df17fa5e</hash>
@@ -58,9 +72,9 @@
         <file>
           <filename>epm/edshare_core/cfg/static/style/auto/edshare_core.css</filename>
           <mime_type>text/x-c</mime_type>
-          <hash>d9598c8679b3aa52959354401ead4de4</hash>
+          <hash>03dc2c10c06b8a96dc0053ff96c9327c</hash>
           <hash_type>MD5</hash_type>
-          <filesize>583</filesize>
+          <filesize>642</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/style/images/xit.gif</filename>
@@ -154,6 +168,7 @@
     </document>
   </documents>
   <version>1.0.1</version>
+  <controller>EPMC::EdShareCore</controller>
   <creators>
     <item>
       <name>
