@@ -5,3 +5,7 @@
 #premiere_preview_area {
 	overflow: hidden;
 }
+
+.premiere_preview_selected {
+	background: #999;
+}

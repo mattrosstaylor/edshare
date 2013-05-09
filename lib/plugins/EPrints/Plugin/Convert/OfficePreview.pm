@@ -1,4 +1,4 @@
-package EPrints::Plugin::Convert::OfficeToPDF;
+package EPrints::Plugin::Convert::OfficePreview;
 
 =pod
 
@@ -42,34 +42,7 @@ sub new
 
 	my $self = $class->SUPER::new( %opts );
 
-	$self->{name} = "Thumbnail MSOffice Documents";
-
-	unless( EPrints::Utils::require_if_exists('EPrints::OpenOfficeService') )
-	{
-		$self->{disable} = 1;
-		return $self;
-	}
-
-	if( defined $self->{session} && $self->{session}->{plugins} )
-	{
-		my $plugin = $self->{session}->plugin( 'OpenOffice' );
-		if( !defined $plugin || $plugin->status != 1 )
-		{
-			$self->{disable} = 1;
-			return $self;
-		}
-		if( defined $plugin )
-		{
-			$self->{oosrv} = $plugin->get_daemon;
-		}
-
-		if( !defined $self->{oosrv} )
-		{
-			$self->{disable} = 1;
-			return $self;
-		}
-	}
-
+	$self->{name} = "OfficePreview document";
 	$self->{visible} = "all";
 
 	return $self;
@@ -110,10 +83,7 @@ sub export
 	my ( $plugin, $dir, $doc, $type ) = @_;
 
 	my $soffice = "/usr/lib/libreoffice/program/soffice";
-	#my @args = ("--headless", "--invisible", "--nosplash", "--nofirststartwizard", "--convert-to", "pdf", "--outdir", $dir ,"--outputfile", $outputfile, "'".$doc->local_path().'/'.$doc->get_main()."'");
 	my @args = ("--headless", "--invisible", "--nosplash", "--nofirststartwizard", "--convert-to", "pdf", "--outdir", $dir , $doc->local_path().'/'.$doc->get_main());
-
-	$ENV{LD_LIBRARY_PATH}=$ENV{LD_LIBRARY_PATH}.':/usr/lib/libreoffice/ure-link/lib:/usr/lib/libreoffice/program';
 
 	system($soffice, @args);
 	my $command = $soffice." ".join(" ", @args);

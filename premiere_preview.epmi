@@ -8,16 +8,16 @@
         <file>
           <filename>epm/premiere_preview/cfg/cfg.d/x_premiere_preview.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>5563142d6815716d097e9cfa489cb7f7</hash>
+          <hash>3c9583f2014d94f6c30d3699bbd52dad</hash>
           <hash_type>MD5</hash_type>
-          <filesize>768</filesize>
+          <filesize>1125</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/citations/document/premiere_preview_selector.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>b8535c5a065d7e09c56d190b213009e8</hash>
+          <hash>e5881e8691c1b34306ded5bee9ce3874</hash>
           <hash_type>MD5</hash_type>
-          <filesize>463</filesize>
+          <filesize>496</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/citations/eprint/premiere_preview_documents.xml</filename>
@@ -29,9 +29,9 @@
         <file>
           <filename>epm/premiere_preview/cfg/static/javascript/auto/premiere_preview.js</filename>
           <mime_type>text/plain</mime_type>
-          <hash>7703944a3bc4b8356eecc2e84d22b719</hash>
+          <hash>a2856f89cbf38414f67826a3f9b565d1</hash>
           <hash_type>MD5</hash_type>
-          <filesize>106</filesize>
+          <filesize>299</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/static/javascript/jquery.media.0.92.js</filename>
@@ -43,28 +43,35 @@
         <file>
           <filename>epm/premiere_preview/cfg/static/style/auto/premiere_preview.css</filename>
           <mime_type>text/plain</mime_type>
-          <hash>1e0c7fa9685d01528cfc2f5c0c600425</hash>
+          <hash>ca383b2d14a29f16fe8c947465a59f5c</hash>
           <hash_type>MD5</hash_type>
-          <filesize>96</filesize>
+          <filesize>147</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cgi/preview</filename>
           <mime_type>text/plain</mime_type>
-          <hash>9629f196aafac0c77f4da71784a41f38</hash>
+          <hash>a8c21b4219355bae06937b5b58d2f9f0</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1124</filesize>
+          <filesize>1315</filesize>
         </file>
         <file>
-          <filename>epm/premiere_preview/lib/plugins/EPrints/Plugin/Convert/OfficeToPDF.pm</filename>
-          <mime_type>text/plain</mime_type>
-          <hash>1aff9032f0231054e2bd95b6fcb09f40</hash>
+          <filename>plugins/EPrints/Plugin/Convert/OfficePreview.pm</filename>
+          <mime_type>inode/symlink</mime_type>
+          <hash>24f00b2ab787ff6927ae674bcc8ac865</hash>
           <hash_type>MD5</hash_type>
-          <filesize>4036</filesize>
+          <filesize>3213</filesize>
+        </file>
+        <file>
+          <filename>plugins/EPrints/Plugin/PremierePreviewScripts.pm</filename>
+          <mime_type>inode/symlink</mime_type>
+          <hash>b31e4d1838fc4c56a80086012ae6b23e</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>1053</filesize>
         </file>
       </files>
-      <mime_type>text/plain</mime_type>
-      <format>text</format>
-      <main>epm/premiere_preview/lib/plugins/EPrints/Plugin/Convert/OfficeToPDF.pm</main>
+      <mime_type>inode/symlink</mime_type>
+      <format>other</format>
+      <main>plugins/EPrints/Plugin/PremierePreviewScripts.pm</main>
       <content>install</content>
     </document>
   </documents>

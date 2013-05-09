@@ -7,9 +7,19 @@ exit( 0 ) unless( defined $repository );
 
 my $width = $repository->get_conf("premiere_preview_width");
 my $height = $repository->get_conf("premiere_preview_height");
-my $docid = $repository->param("d");
+my $docid = $repository->param("doc");
 
 my $doc = EPrints::DataObj::Document->new($repository, $docid);
+
+exit( 0 ) unless( defined $doc );
+
+# check for pdf preview
+my $related = $doc->search_related("ispdfThumbnailVersionOf");
+my $pdf = $related->item(0);
+if (defined $pdf)
+{
+	$doc = $pdf;
+} 
 
 $repository->send_http_header( content_type=>"text/html; charset=UTF-8" );
 
