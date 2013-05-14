@@ -8,30 +8,44 @@
         <file>
           <filename>epm/premiere_preview/cfg/cfg.d/x_premiere_preview.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>3c9583f2014d94f6c30d3699bbd52dad</hash>
+          <hash>93b50991177a43808a4c7895b36625a2</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1125</filesize>
+          <filesize>2239</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/citations/document/premiere_preview_selector.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>e5881e8691c1b34306ded5bee9ce3874</hash>
+          <hash>e4354f7999d9bcd371270b03fef48711</hash>
           <hash_type>MD5</hash_type>
-          <filesize>496</filesize>
+          <filesize>574</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/citations/eprint/premiere_preview_documents.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>fa7844bb6c1f45c081bff75e374a6442</hash>
+          <hash>684f32b2f6bbb5b612f4bcf35d5ef5c4</hash>
           <hash_type>MD5</hash_type>
-          <filesize>871</filesize>
+          <filesize>884</filesize>
+        </file>
+        <file>
+          <filename>epm/premiere_preview/cfg/citations/eprint/premiere_preview_info.xml</filename>
+          <mime_type>application/xml</mime_type>
+          <hash>b20b5e7df8641bf77805cba0b3d82406</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>659</filesize>
+        </file>
+        <file>
+          <filename>epm/premiere_preview/cfg/lang/en/phrases/premiere_preview.xml</filename>
+          <mime_type>application/xml</mime_type>
+          <hash>bec8b000e36ada84bf70f7de62afdd5e</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>689</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/static/javascript/auto/premiere_preview.js</filename>
           <mime_type>text/plain</mime_type>
-          <hash>a2856f89cbf38414f67826a3f9b565d1</hash>
+          <hash>43f8603dbc91f0ab307991f11ddd9b28</hash>
           <hash_type>MD5</hash_type>
-          <filesize>299</filesize>
+          <filesize>298</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/static/javascript/jquery.media.0.92.js</filename>
@@ -43,9 +57,9 @@
         <file>
           <filename>epm/premiere_preview/cfg/static/style/auto/premiere_preview.css</filename>
           <mime_type>text/plain</mime_type>
-          <hash>ca383b2d14a29f16fe8c947465a59f5c</hash>
+          <hash>f7d94593694aa14fb59e5243c3ee166e</hash>
           <hash_type>MD5</hash_type>
-          <filesize>147</filesize>
+          <filesize>869</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cgi/preview</filename>
@@ -64,9 +78,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/PremierePreviewScripts.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>b31e4d1838fc4c56a80086012ae6b23e</hash>
+          <hash>1bf80adf0a139ff2b5feabc774204147</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1053</filesize>
+          <filesize>1586</filesize>
         </file>
       </files>
       <mime_type>inode/symlink</mime_type>

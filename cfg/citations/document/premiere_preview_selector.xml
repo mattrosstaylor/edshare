@@ -1,8 +1,7 @@
 <?xml version="1.0" ?>
 <cite:citation xmlns="http://www.w3.org/1999/xhtml" xmlns:cite="http://eprints.org/ep3/citation" xmlns:epc="http://eprints.org/ep3/control">
-<div id="premiere_preview_selector_{docid}" title="{$item.premierepreview_document_description()}" class="premiere_preview_selector" onclick="setPremierePreview({docid});">
-	<img src="{$item.premierepreview_document_icon()}"/>
-	<span><epc:print expr="$item.premierepreview_document_description()"/></span>
- 
-</div>
+<li id="premiere_preview_selector_{docid}" title="{$item.premiere_preview_document_description()}" class="premiere_preview_selector" onclick="setPremierePreview({docid});">
+	<img class="premiere_preview_document_icon" src="{$item.premiere_preview_document_icon()}"/>
+	<span class="premiere_preview_document_title"><epc:print expr="$item.premiere_preview_document_description()"/></span>
+</li>
 </cite:citation>

@@ -5,24 +5,23 @@
 -->
 
 <cite:citation xmlns="http://www.w3.org/1999/xhtml" xmlns:epc="http://eprints.org/ep3/control" xmlns:cite="http://eprints.org/ep3/citation" >
-  <epc:set name='docs' expr='$item.documents()'>
+  <div id="premiere_preview_documents">
+    <epc:set name="docs" expr="$item.documents()">
 
-    <epc:if test="length($docs) = 0">
-      <epc:phrase ref="page:nofulltext" />
-      <epc:if test="$item.contact_email().is_set() and eprint_status = 'archive'">
-        (<a href="{$config{http_cgiurl}}/request_doc?eprintid={eprintid}"><epc:phrase ref="request:button" /></a>)
+      <epc:if test="length($docs) = 0">
+        <epc:phrase ref="page:nofulltext" />
       </epc:if>
-    </epc:if>
   
-    <epc:if test="length($docs) gt 0">
-      <epc:foreach expr="$docs" iterator="doc">
-        <epc:print expr="$doc.citation('premiere_preview_selector')" /><br />
-      </epc:foreach>
-    </epc:if>
+      <epc:if test="length($docs) gt 0">
+	<span class="premiere_preview_document_count"><epc:print expr="$item.premiere_preview_document_count()" /></span>
+	<ol class="premiere_preview_document_list">
+        <epc:foreach expr="$docs" iterator="doc">
+          <epc:print expr="$doc.citation('premiere_preview_selector')" />
+        </epc:foreach>
+	</ol>
+      </epc:if>
 
-  </epc:set>
-
-
-
+    </epc:set>
+  </div>
 </cite:citation>
 

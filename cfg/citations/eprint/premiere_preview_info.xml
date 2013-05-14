@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+
+<!-- 
+	Full "abstract page" (or splash page or summary page, depending on your jargon) for an eprint. 
+-->
+
+<cite:citation xmlns="http://www.w3.org/1999/xhtml" xmlns:epc="http://eprints.org/ep3/control" xmlns:cite="http://eprints.org/ep3/citation" >
+<div id="premiere_preview_info">
+  <img class="profile_picture" src="http://userserve-ak.last.fm/serve/64/76307084.png"/>
+  <h1><epc:print expr="title"/></h1>
+  <epc:phrase ref="premiere_preview_upload_info"><epc:pin name="uploader"><a href="#">Matt R Taylor</a></epc:pin><epc:pin name="date"><epc:print expr="lastmod" opts="res=day;"/></epc:pin></epc:phrase>
+</div>
+</cite:citation>
+

@@ -17,8 +17,6 @@ $c->{render_premiere_preview} = sub
 	my $div = $xml->create_document_fragment;
 	my $w = $repository->get_conf("premiere_preview_width");
 	my $h = $repository->get_conf("premiere_preview_height");
-#	my $doc = $eprint->documents->[0];
-#	my $docid = $doc->id;
 
 	my $first_document = ($eprint->get_all_documents())[0];
 	my $docid = $first_document->id;
@@ -36,4 +34,41 @@ EOF
 	$div->appendChild($preview_area);
 	$div->appendChild($js);
 	return $div;
-}
+};
+
+$c->{eprint_render} = sub
+{
+	my ( $eprint, $repository, $preview ) = @_;
+
+	my $xml = $repository->xml;
+	my $title = $eprint->render_citation("brief");
+	#my $title = $xml->create_document_fragment;
+
+	my $page = $xml->create_element("div");
+
+	# replace this if they every 
+	my $naughty_css_hack = $xml->create_element("style", type=>"text/css");
+	$naughty_css_hack->appendChild( $xml->create_text_node(".ep_tm_pagetitle { display: none; }"));
+	$page->appendChild($naughty_css_hack);
+
+	my $p = $repository->call("render_premiere_preview", $eprint, $repository);
+	my $d = $eprint->render_citation("premiere_preview_documents");
+	
+	# hmmmm, try and find a way to make these divs the correct way around later...
+	$page->appendChild($d);
+	$page->appendChild($p);
+
+	my $links = $repository->xml->create_document_fragment();
+	if( !$preview )
+	{
+		$links->appendChild( $repository->plugin( "Export::Simple" )->dataobj_to_html_header( $eprint ) );
+		$links->appendChild( $repository->plugin( "Export::DC" )->dataobj_to_html_header( $eprint ) );
+	}
+
+	# add the main info
+	$page->appendChild($eprint->render_citation( "premiere_preview_info" ));
+
+	return( $page, $title, $links );
+};
+
+
