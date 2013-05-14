@@ -9,16 +9,16 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>57691987291fac0efba3e029320cdb78</hash>
+          <hash>e023c7d61875337504257fd36a1350af</hash>
           <hash_type>MD5</hash_type>
-          <filesize>31966</filesize>
+          <filesize>32056</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_render.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>5cb46a3ba6f51886f97d2c0ebafa1015</hash>
+          <hash>c99792c35014dab42fce2df52ca3d48d</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2796</filesize>
+          <filesize>2570</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/citations/eprint/default.xml</filename>
@@ -51,9 +51,9 @@
         <file>
           <filename>epm/edshare_core/cfg/lang/en/phrases/x_edshare_core.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>cf4efaaefed7a503a283eba34e8f1d4b</hash>
+          <hash>3872820c3fcaccf7d719843013dd5325</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2331</filesize>
+          <filesize>2622</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/namedsets/eprint</filename>
@@ -86,9 +86,9 @@
         <file>
           <filename>epm/edshare_core/cfg/workflows/eprint/edshare.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>9b98990e936c1b90917a2d1d7ad2a5db</hash>
+          <hash>2936fd25e71a71236ffbe54bd114a036</hash>
           <hash_type>MD5</hash_type>
-          <filesize>954</filesize>
+          <filesize>958</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cgi/edshare_toolbox</filename>
@@ -172,6 +172,13 @@
   <creators>
     <item>
       <name>
+        <family>Taylor</family>
+        <given>Matt R</given>
+      </name>
+      <id>mrt@ecs.soton.ac.uk</id>
+    </item>
+    <item>
+      <name>
         <family>McSweeney</family>
         <given>Patrick</given>
       </name>
@@ -183,13 +190,6 @@
         <given>Sebastian</given>
       </name>
       <id>sf2@ecs.soton.ac.uk</id>
-    </item>
-    <item>
-      <name>
-        <family>Taylor</family>
-        <given>Matt R</given>
-      </name>
-      <id>mrt@ecs.soton.ac.uk</id>
     </item>
     <item>
       <name>

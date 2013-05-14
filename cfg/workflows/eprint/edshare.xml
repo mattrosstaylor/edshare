@@ -15,17 +15,14 @@
     </component>
     <component type="Documents">
   	<field ref="description"/>
-  	<field ref="license" />
     </component>
 
     <component type="Field::Multi">
 	<title>Resource Information</title>
 	<field ref="title" required="yes" />
-
 	<field ref="abstract"/>
-      
+	<field ref="license" required="yes" />
 	<field ref="creators" input_lookup_url="{$config{rel_cgipath}}/users/lookup/localname" />
-
 	<field ref="advice" />
     </component>
 

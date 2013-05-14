@@ -40,12 +40,11 @@ sub action_enable
 	my $cfg_dir = $repo->config( "config_path" );
 	foreach (@replaced_files)
 	{
-		print STDERR "\n".$cfg_dir.$_ .' '.$cfg_dir.$_.$replaced."\n";
+		print STDERR "  moving $_\n";
 		move( $cfg_dir.$_, $cfg_dir.$_.$replaced );		
 	}
 
 	$self->SUPER::action_enable( $skip_reload );
-	$self->reload_config if !$skip_reload;
 }
 
 sub action_disable
@@ -61,7 +60,7 @@ sub action_disable
 	foreach (@replaced_files)
 	{
 	
-		print STDERR "\n".$cfg_dir.$_.$replaced .' '.$cfg_dir.$_."\n";	
+		print STDERR "  restoring $_\n";	
 		move( $cfg_dir.$_.$replaced, $cfg_dir.$_ );		
 	}
 

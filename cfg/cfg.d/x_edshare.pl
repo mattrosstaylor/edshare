@@ -316,8 +316,12 @@ $c->{fields}->{eprint} = [
             'text_index' => 1,
         },
 
+	{
+	    'name' => 'license',
+	    'type' => 'namedset',
+	    'set_name' => 'licenses',
+	},
 ];
-
 
 $c->{browse_views} = [
         {
