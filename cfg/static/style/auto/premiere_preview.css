@@ -18,27 +18,16 @@
 */
 
 .premiere_preview_right_header {
-	height: 15px;
-	padding: 5px;
+	height: 40px;
 }
 .premiere_preview_document_area {
-	height: 430px;
+	height: 400px;
 }
 .premiere_preview_right_footer {
-	height: 15px;
-	padding: 5px;
+	height: 40px;
 }
 
 /* end dimensions */
-
-.premiere_preview_document_area {
-	overflow-w:scroll;
-	overflow: auto
-}
-.premiere_preview_right_footer {
-	position: relative;
-	bottom: 0;
-}
 
 .ep_tm_page_content {
 	width: 950px !important;
@@ -48,6 +37,10 @@
 	border: 1px solid black;
 }
 
+#premiere_preview_left {
+	float:left;
+}
+
 #premiere_preview_area {
 	overflow: hidden;
 	padding: 0;
@@ -55,10 +48,7 @@
 	border: 0;
 }
 
-
-#premiere_preview_left {
-	float:left;
-}
+/* document selector */
 
 #premiere_preview_right {
 	border-left: 1px solid black;
@@ -71,9 +61,21 @@
 	text-align: center;
 }
 
-.premiere_preview_document_count {
-	padding:5px;
-	display: block;
+.premiere_preview_right_bar > span {
+	display:inline-block;
+	position:relative;
+	top:50%;
+	margin-top: -0.5em
+}
+
+.premiere_preview_right_footer {
+	position: relative;
+	bottom: 0;
+}
+
+.premiere_preview_document_area {
+	overflow-w:scroll;
+	overflow: auto
 }
 
 .premiere_preview_document_list {
@@ -82,31 +84,67 @@
 	list-style-position: inside;
 }
 
+.premiere_preview_selector {
+	cursor: pointer;
+	padding: 5px;
+}
+.premiere_preview_selected {
+	background: #CCC;
+}
+
 .premiere_preview_document_icon {
 	vertical-align: middle;
 }
 .premiere_preview_document_title {
 	font-weight: bold;	
 }
+.premiere_preview_document_hidden {
+	display: none;
+}
 
-.premiere_preview_selector {
-	cursor: pointer;
-	padding:5px;
+.premiere_preview_button {
+	float: right;
+	background: darkgreen;
+	border: 1px solid silver;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	margin: 5px 4px 4px 5px;
+	padding: 3px;
+	display: inline-block;
+	font-size: 160%;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow: 1px 1px 3px black;
 }
-.premiere_preview_selected {
-	background: #CCC;
+
+.premiere_preview_button:hover {
+	background: green;
 }
+
+.premiere_preview_button:active {
+	margin-top: 6px;
+}
+
+a.premiere_preview_button, a.premiere_preview_button:link, a.premiere_preview:visited, a.premiere_preview:hover, a.premiere_preview:active {
+	color: white;
+}
+
+/* main information */
 
 #premiere_preview_info {
 	margin: 5px 0;
 }
+
 #premiere_preview_info h1 {
 	text-align: left;
 	font-size: 160%;
 }
+
 .premiere_preview_lighter {
 	opacity: 0.6;
 }
+
 .profile_picture {
 	height: 64px;
 	float:left;

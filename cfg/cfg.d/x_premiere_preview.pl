@@ -42,17 +42,21 @@ $c->{render_premiere_preview_documents} = sub
 	my $panel = $xml->create_document_fragment();
 
 	# document count
-	my $document_count_div = $xml->create_element("div", class=>"premiere_preview_right_bar premiere_preview_right_header");
-	$panel->appendChild($document_count_div);
+	my $header_div = $xml->create_element("div", class=>"premiere_preview_right_bar premiere_preview_right_header");
+	my $header_span = $xml->create_element("span");
+	$header_div->appendChild($header_span);
+	$panel->appendChild($header_div);
+
 	my $document_count = scalar($eprint->get_all_documents());
 	
+
 	if ($document_count eq 1)
 	{
-		$document_count_div->appendChild($repository->html_phrase("premiere_preview_document_count_one"));
+		$header_span->appendChild($repository->html_phrase("premiere_preview_document_count_one"));
 	}
 	else
 	{
-		$document_count_div->appendChild(
+		$header_span->appendChild(
 			$xml->create_text_node(
 				$repository->phrase("premiere_preview_document_count", count=>$document_count)
 			)
@@ -71,9 +75,14 @@ $c->{render_premiere_preview_documents} = sub
 	}
 
 	# footer
-	my $footer = $xml->create_element("div", class=>"premiere_preview_right_bar premiere_preview_right_footer");
-	$footer->appendChild( $xml->create_text_node("DOWNLOAD BUTTON GOES HERE"));
-	$panel->appendChild($footer);
+	my $footer_div = $xml->create_element("div", class=>"premiere_preview_right_bar premiere_preview_right_footer");
+	$footer_div->appendChild( $xml->create_element("span", id=>"premiere_preview_document_info"));
+	$panel->appendChild($footer_div);
+
+	#download button, yo
+	my $button = $xml->create_element("a", id=>"premiere_preview_download_button", class=>"premiere_preview_button");
+	$button->appendChild($xml->create_text_node("Download"));
+	$footer_div->appendChild($button);
 
 	return $panel;
 };
@@ -112,9 +121,7 @@ $c->{eprint_render} = sub
 	}
 
 	# add the main info
-	#$left->appendChild($eprint->render_citation( "premiere_preview_info" ));
+	$left->appendChild($eprint->render_citation( "premiere_preview_info" ));
 
 	return( $page, $title, $links );
 };
-
-
