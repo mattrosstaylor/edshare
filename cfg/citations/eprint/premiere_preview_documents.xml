@@ -13,7 +13,16 @@
       </epc:if>
   
       <epc:if test="length($docs) gt 0">
-	<span class="premiere_preview_document_count"><epc:print expr="$item.premiere_preview_document_count()" /></span>
+	<span class="premiere_preview_document_count">
+          <epc:choose>
+            <epc:when test="length($docs) gt 1">
+              <epc:phrase ref="premiere_preview_document_count"><epc:pin name="count"><epc:print expr="$docs.length()"/></epc:pin></epc:phrase>
+            </epc:when>
+            <epc:otherwise>
+              <epc:phrase ref="premiere_preview_document_count_one"/>
+            </epc:otherwise>
+          </epc:choose>
+        </span>
 	<ol class="premiere_preview_document_list">
         <epc:foreach expr="$docs" iterator="doc">
           <epc:print expr="$doc.citation('premiere_preview_selector')" />

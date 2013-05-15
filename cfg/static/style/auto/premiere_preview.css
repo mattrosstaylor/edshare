@@ -1,17 +1,36 @@
+/* this section deals only with dimensions */
+
+#premiere_preview_area {
+	width: 640px;
+	height: 480px;
+}
+
+/* end dimensions */
+
+
 .ep_tm_page_content {
 	width: 950px !important;
 }
 
+#premiere_preview_container {
+	border: 1px solid black;
+}
+
 #premiere_preview_area {
 	overflow: hidden;
-	border: 2px silver solid !important;
+	padding: 0;
 	margin: 0;
 	border: 0;
 }
-#premiere_preview_documents {
-	float: right;
-	width: 295px;
-	border: 1px solid silver;
+
+#premiere_preview_right {
+	border-left: 1px solid black;
+}
+
+.premiere_preview_right_header {
+	background: black;
+	color: white;
+	text-align: center;
 }
 
 .premiere_preview_document_count {
@@ -50,9 +69,15 @@
 .premiere_preview_lighter {
 	opacity: 0.6;
 }
-
 .profile_picture {
 	height: 64px;
-	margin-right: 5px;
 	float:left;
+}
+
+.premiere_preview_title_uploader {
+	margin-left: 64px;
+	padding-left: 5px;
+}
+.premiere_preview_license_icon {
+	width: 96px;
 }
