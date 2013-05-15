@@ -16,8 +16,6 @@ $c->{render_premiere_preview_area} = sub
 	my $xml = $repository->xml;
 
 	my $div = $xml->create_document_fragment;
-	my $w = $repository->get_conf("premiere_preview_width");
-	my $h = $repository->get_conf("premiere_preview_height");
 
 	my $first_document = ($eprint->get_all_documents())[0];
 	my $docid = $first_document->id;
@@ -28,8 +26,7 @@ document.observe('dom:loaded', function(){
 });
 EOF
 
-
-	my $preview_area = $xml->create_element("iframe", id=>"premiere_preview_area", style=>"width:".$w."px;height:".$h."px;", "scrolling"=>"no");
+	my $preview_area = $xml->create_element("iframe", id=>"premiere_preview_area", "scrolling"=>"no");
 	my $js = $xml->create_element("script", type=>"text/javascript");
 	$js->appendChild($xml->create_text_node($script));
 	$div->appendChild($preview_area);
@@ -45,7 +42,7 @@ $c->{render_premiere_preview_documents} = sub
 	my $panel = $xml->create_document_fragment();
 
 	# document count
-	my $document_count_div = $xml->create_element("div", class=>"premiere_preview_right_header", style=>"height:15px;padding:5px;");
+	my $document_count_div = $xml->create_element("div", class=>"premiere_preview_right_bar premiere_preview_right_header");
 	$panel->appendChild($document_count_div);
 	my $document_count = scalar($eprint->get_all_documents());
 	
@@ -63,7 +60,7 @@ $c->{render_premiere_preview_documents} = sub
 	}
 	
 	# document list
-	my $document_list_div = $xml->create_element("div", style=>"overflow-y:scroll;overflow:auto;height:430px;");
+	my $document_list_div = $xml->create_element("div", class=>"premiere_preview_document_area");
 	my $document_list = $xml->create_element("ol", class=>"premiere_preview_document_list");
 	$document_list_div->appendChild($document_list);
 	$panel->appendChild($document_list_div);
@@ -72,25 +69,9 @@ $c->{render_premiere_preview_documents} = sub
 	{
 		$document_list->appendChild($_->render_citation("premiere_preview_selector"));
 	}
-	foreach ($eprint->get_all_documents())
-	{
-		$document_list->appendChild($_->render_citation("premiere_preview_selector"));
-	}
-	foreach ($eprint->get_all_documents())
-	{
-		$document_list->appendChild($_->render_citation("premiere_preview_selector"));
-	}
-	foreach ($eprint->get_all_documents())
-	{
-		$document_list->appendChild($_->render_citation("premiere_preview_selector"));
-	}
-	foreach ($eprint->get_all_documents())
-	{
-		$document_list->appendChild($_->render_citation("premiere_preview_selector"));
-	}
 
 	# footer
-	my $footer = $xml->create_element("div", class=>"premiere_preview_right_header", style=>"position: relative; bottom:0; height:15px; padding: 5px;");
+	my $footer = $xml->create_element("div", class=>"premiere_preview_right_bar premiere_preview_right_footer");
 	$footer->appendChild( $xml->create_text_node("DOWNLOAD BUTTON GOES HERE"));
 	$panel->appendChild($footer);
 
@@ -103,9 +84,6 @@ $c->{eprint_render} = sub
 	my ( $eprint, $repository, $preview ) = @_;
 
 	my $xml = $repository->xml;
-	my $w = $repository->get_conf("premiere_preview_width");
-	my $h = $repository->get_conf("premiere_preview_height");
-
 
 	my $title = $eprint->render_citation("brief");
 	#my $title = $xml->create_document_fragment;
@@ -117,8 +95,8 @@ $c->{eprint_render} = sub
 	$naughty_css_hack->appendChild( $xml->create_text_node(".ep_tm_pagetitle { display: none; }"));
 	$page->appendChild($naughty_css_hack);
 
-	my $left = $xml->create_element("div", id=>"premiere_preview_left", style=>"float:left;width:".$w."px");
-	my $right = $xml->create_element("div", id=>"premiere_preview_right", style=>"margin-left:".$w."px; height:".$h."px;position:relative;");
+	my $left = $xml->create_element("div", id=>"premiere_preview_left");
+	my $right = $xml->create_element("div", id=>"premiere_preview_right");
 	# hmmmm, try and find a way to make these divs the correct way around later...
 	$page->appendChild($left);
 	$page->appendChild($right);

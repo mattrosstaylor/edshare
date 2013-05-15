@@ -8,9 +8,9 @@
         <file>
           <filename>epm/premiere_preview/cfg/cfg.d/x_premiere_preview.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>622a4f91cbf7e047bae8f11bc2e24e2a</hash>
+          <hash>8dd21e0a5429880268c96d866085d802</hash>
           <hash_type>MD5</hash_type>
-          <filesize>4655</filesize>
+          <filesize>3703</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/citations/document/premiere_preview_selector.xml</filename>
@@ -56,10 +56,10 @@
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/static/style/auto/premiere_preview.css</filename>
-          <mime_type>text/plain</mime_type>
-          <hash>9d4b28bee12205a1b19b3fdbc0b0daf8</hash>
+          <mime_type>text/x-c</mime_type>
+          <hash>137ba204932303ff696b1294e971f7c5</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1072</filesize>
+          <filesize>1885</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/static/style/images/license_icons/cc_by.png</filename>
