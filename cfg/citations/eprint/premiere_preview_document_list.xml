@@ -1,0 +1,39 @@
+<cite:citation xmlns="http://www.w3.org/1999/xhtml" xmlns:epc="http://eprints.org/ep3/control" xmlns:cite="http://eprints.org/ep3/citation" >
+<epc:set name="docs" expr="$item.documents()">
+  <div id="premiere_preview_documents"> 
+    <epc:choose>
+      <epc:when test="length($docs) = 0">
+        <epc:phrase ref="page:nofulltext" />
+      </epc:when>
+
+      <epc:when test="length($docs) = 1">
+        <div id="premiere_preview_download_area">
+          <span><epc:phrase ref="premiere_preview_document_count_one"/></span>
+          <span id="premiere_preview_document_button"/>
+          <span id="premiere_preview_document_info"/>
+          <div style="clear:both"/>
+        </div>
+        <div style="display:none">
+          <epc:foreach expr="$docs" iterator="doc">
+            <epc:print expr="$doc.citation('premiere_preview_selector')" />
+          </epc:foreach>
+        </div>
+      </epc:when>
+
+      <epc:otherwise>
+        <div id="premiere_preview_download_area">        
+          <span><epc:phrase ref="premiere_preview_document_count"><epc:pin name="count"><epc:print expr="$docs.length()"/></epc:pin></epc:phrase></span>
+          <span id="premiere_preview_document_button"/>
+          <span id="premiere_preview_document_info"/>
+          <div style="clear:both"/>
+        </div>
+        <ol class="premiere_preview_document_list">
+          <epc:foreach expr="$docs" iterator="doc">
+            <epc:print expr="$doc.citation('premiere_preview_selector')" />
+          </epc:foreach>
+        </ol>
+      </epc:otherwise>
+    </epc:choose>
+  </div>
+</epc:set>
+</cite:citation>

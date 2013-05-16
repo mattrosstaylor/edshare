@@ -42,7 +42,7 @@ $c->{render_premiere_preview_documents} = sub
 	my $panel = $xml->create_document_fragment();
 
 	# document count
-	my $header_div = $xml->create_element("div", class=>"premiere_preview_right_bar premiere_preview_right_header");
+	my $header_div = $xml->create_element("div", class=>"premiere_preview_document_area_header");
 	my $header_span = $xml->create_element("span");
 	$header_div->appendChild($header_span);
 	$panel->appendChild($header_div);
@@ -74,19 +74,9 @@ $c->{render_premiere_preview_documents} = sub
 		$document_list->appendChild($_->render_citation("premiere_preview_selector"));
 	}
 
-	# footer
-	my $footer_div = $xml->create_element("div", class=>"premiere_preview_right_bar premiere_preview_right_footer");
-	$footer_div->appendChild( $xml->create_element("span", id=>"premiere_preview_document_info"));
-	$panel->appendChild($footer_div);
-
-	#download button, yo
-	my $button = $xml->create_element("a", id=>"premiere_preview_download_button", class=>"premiere_preview_button");
-	$button->appendChild($xml->create_text_node("Download"));
-	$footer_div->appendChild($button);
 
 	return $panel;
 };
-
 
 $c->{eprint_render} = sub
 {
@@ -99,11 +89,6 @@ $c->{eprint_render} = sub
 
 	my $page = $xml->create_element("div", id=>"premiere_preview_container");
 
-	# replace this if they every 
-	my $naughty_css_hack = $xml->create_element("style", type=>"text/css");
-	$naughty_css_hack->appendChild( $xml->create_text_node(".ep_tm_pagetitle { display: none; }"));
-	$page->appendChild($naughty_css_hack);
-
 	my $left = $xml->create_element("div", id=>"premiere_preview_left");
 	my $right = $xml->create_element("div", id=>"premiere_preview_right");
 	# hmmmm, try and find a way to make these divs the correct way around later...
@@ -111,8 +96,8 @@ $c->{eprint_render} = sub
 	$page->appendChild($right);
 
 	$left->appendChild( $repository->call("render_premiere_preview_area", $eprint, $repository));
-	$right->appendChild( $repository->call("render_premiere_preview_documents", $eprint, $repository));
-		
+	#$left->appendChild( $repository->call("render_premiere_preview_documents", $eprint, $repository));
+	$left->appendChild( $eprint->render_citation("premiere_preview_document_list"));	
 	my $links = $repository->xml->create_document_fragment();
 	if( !$preview )
 	{
@@ -121,7 +106,8 @@ $c->{eprint_render} = sub
 	}
 
 	# add the main info
-	$left->appendChild($eprint->render_citation( "premiere_preview_info" ));
+		$right->appendChild($eprint->render_citation( "premiere_preview_info" ));
 
 	return( $page, $title, $links );
 };
+
