@@ -1,8 +1,8 @@
 /* this section deals only with dimensions */
 
 #premiere_preview_area {
-	width: 640px;
-	height: 480px;
+	width: 700px;
+	height: 525px;
 	overflow: hidden;
 	padding: 0;
 	margin: 0;
@@ -10,12 +10,12 @@
 }
 
 #premiere_preview_left {
-	width: 642px;
+	width: 702px;
 	float:left;
 }
 
 #premiere_preview_right {
-	margin-left: 642px;
+	margin-left: 712px;
 }
 
 /* end dimensions */

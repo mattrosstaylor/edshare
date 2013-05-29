@@ -8,9 +8,9 @@
         <file>
           <filename>epm/premiere_preview/cfg/cfg.d/x_premiere_preview.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>d871adf13e99c01439e430f4149e0e21</hash>
+          <hash>ca91c60dd7415f4e23fd72771b58d00a</hash>
           <hash_type>MD5</hash_type>
-          <filesize>3355</filesize>
+          <filesize>2056</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/citations/document/premiere_preview_selector.xml</filename>
@@ -43,9 +43,9 @@
         <file>
           <filename>epm/premiere_preview/cfg/static/javascript/auto/premiere_preview.js</filename>
           <mime_type>text/plain</mime_type>
-          <hash>df1d1c359dbe728445a5b2e51f5a3237</hash>
+          <hash>68473a9611b3c8e0ffbb845dc218407f</hash>
           <hash_type>MD5</hash_type>
-          <filesize>510</filesize>
+          <filesize>519</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/static/javascript/jquery.media.0.92.js</filename>
@@ -57,7 +57,7 @@
         <file>
           <filename>epm/premiere_preview/cfg/static/style/auto/premiere_preview.css</filename>
           <mime_type>text/x-c</mime_type>
-          <hash>53f59912f9f6da15ca92e01d2e3ca76b</hash>
+          <hash>8614a9a75f97b4f6fa5d51d81713802d</hash>
           <hash_type>MD5</hash_type>
           <filesize>2164</filesize>
         </file>
@@ -111,7 +111,7 @@
           <filesize>6592</filesize>
         </file>
         <file>
-          <filename>epm/premiere_preview/cgi/preview</filename>
+          <filename>epm/premiere_preview/cgi/premiere_preview</filename>
           <mime_type>text/plain</mime_type>
           <hash>a8c21b4219355bae06937b5b58d2f9f0</hash>
           <hash_type>MD5</hash_type>
