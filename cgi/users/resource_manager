@@ -60,15 +60,12 @@ sub get_filtered_item_list
 			my @values = @{$filter->get_current_filter_values( $field )};
 			if( scalar @values )
 			{
-				print STDERR "\nvalue ".join(' ', @values);
 				$search->add_field( $ds->get_field( $field ), join( ' ', @values ), "IN", "ALL");
 			}
 		}
 	}
 
 	my $filtered_eprint_list = $search->perform_search;
-
-	return $filtered_eprint_list;
 
 # mrt - cut since there are no shared edit permissions yet
 #	$filtered_eprint_list = $filtered_eprint_list->intersect( $user_owned_eprints, "title" );

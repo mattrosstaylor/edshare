@@ -86,7 +86,6 @@ sub render
 		"'$_': '".$params{$_}."'";
 	} keys %params );
 
-	print STDERR $params_json;
 	$frag->appendChild( $session->make_javascript("
 document.observe('dom:loaded', function() {
 	\$('$manageable_list_id').update('<img src=\\'$loader_image_url\\'/>');

@@ -71,9 +71,9 @@
         <file>
           <filename>epm/resource_manager/cgi/users/resource_manager</filename>
           <mime_type>text/x-c++</mime_type>
-          <hash>98bc06847620391fb7a111a11119be82</hash>
+          <hash>9861702522e7839e592afe38aeb05635</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2882</filesize>
+          <filesize>2802</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/ResourceManagerFilter.pm</filename>
@@ -99,9 +99,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/Screen/ResourceManager.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>ab136716f0b560f4dbe129969a633c28</hash>
+          <hash>0edbdb3e3385ca42203bed4a313ee62f</hash>
           <hash_type>MD5</hash_type>
-          <filesize>5972</filesize>
+          <filesize>5944</filesize>
         </file>
         <file>
           <filename>static/images/epm/resource_manager.png</filename>
