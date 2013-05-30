@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
-<epm xmlns='http://eprints.org/ep2/data/2.0' id='http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/edshare_core'>
+<epm xmlns='http://eprints.org/ep2/data/2.0' id='http://edshare.com/id/epm/edshare_core'>
   <epmid>edshare_core</epmid>
   <eprintid>234</eprintid>
-  <uri>http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/edshare_core</uri>
+  <uri>http://edshare.com/id/epm/edshare_core</uri>
   <documents>
     <document>
       <files>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>b97b46aaa6958d129c0a59d0a2744f90</hash>
+          <hash>c1f723bc51af74bf95fb100a0828211b</hash>
           <hash_type>MD5</hash_type>
-          <filesize>33015</filesize>
+          <filesize>33384</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_render.pl</filename>
@@ -49,6 +49,13 @@
           <filesize>2331</filesize>
         </file>
         <file>
+          <filename>epm/edshare_core/cfg/namedsets/view_permissions_type</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>21804d7235b255844378919d1b9eb5e2</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>22</filesize>
+        </file>
+        <file>
           <filename>epm/edshare_core/cfg/static/javascript/auto/edshare_core.js</filename>
           <mime_type>text/x-c</mime_type>
           <hash>827ceafdb922ff70675d4430df17fa5e</hash>
@@ -72,9 +79,9 @@
         <file>
           <filename>epm/edshare_core/cfg/workflows/eprint/edshare.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>9b98990e936c1b90917a2d1d7ad2a5db</hash>
+          <hash>a30d96bcc2c2347e323ebf9be17850cd</hash>
           <hash_type>MD5</hash_type>
-          <filesize>954</filesize>
+          <filesize>961</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cgi/edshare_toolbox</filename>

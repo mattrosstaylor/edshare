@@ -258,15 +258,22 @@ $c->{fields}->{eprint} = [
 
 # EdShare - Viewing Permissions ("Sharing with")
           {
-            'name' => 'viewperms',
-            'type' => 'set',
-            'options' => [
-                           'private',
-                           'registered_only',
-                           'public',
-                         ],
-            'input_style' => 'radio',
-            'allow_null' => 0,
+            'name' => 'view_permissions',
+	    'type' => 'compound',
+            'multiple' => 1,
+            'fields' => [
+                          {
+                            'sub_name' => 'type',
+                            'type' => 'namedset',
+			    'set_name' => 'view_permissions_type',
+                          },
+                          {
+                            'sub_name' => 'value',
+                            'type' => 'text',
+                            'input_cols' => 20,
+                          }
+		],
+
           },
 
 	 # The following are core fields which arent used in EdShare Core but EPrints wont let us remove
@@ -377,6 +384,13 @@ $c->{browse_views} = [
                 citation => "result",
         },
 ];
+
+sub  render_view_permissions_input
+{
+	my ( $field, $session, $current_value, $dataset, $staff, $hidden_fields, $object, $basename ) = @_;
+	
+
+}
 
 
 =pod
