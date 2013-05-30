@@ -9,9 +9,9 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>c1f723bc51af74bf95fb100a0828211b</hash>
+          <hash>e023c7d61875337504257fd36a1350af</hash>
           <hash_type>MD5</hash_type>
-          <filesize>33384</filesize>
+          <filesize>32056</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_render.pl</filename>
@@ -19,6 +19,13 @@
           <hash>c99792c35014dab42fce2df52ca3d48d</hash>
           <hash_type>MD5</hash_type>
           <filesize>2570</filesize>
+        </file>
+        <file>
+          <filename>epm/edshare_core/cfg/citations/eprint/default.xml</filename>
+          <mime_type>application/xml</mime_type>
+          <hash>f2848415162dc21eaef3de36f0bab7ec</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>482</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/citations/eprint/edshare_summary.xml</filename>
@@ -44,9 +51,16 @@
         <file>
           <filename>epm/edshare_core/cfg/lang/en/phrases/x_edshare_core.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>cf4efaaefed7a503a283eba34e8f1d4b</hash>
+          <hash>3872820c3fcaccf7d719843013dd5325</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2331</filesize>
+          <filesize>2622</filesize>
+        </file>
+        <file>
+          <filename>epm/edshare_core/cfg/namedsets/eprint</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>c8a237c5c966bf37c93e1247e77d8066</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>34</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/namedsets/view_permissions_type</filename>
@@ -65,9 +79,9 @@
         <file>
           <filename>epm/edshare_core/cfg/static/style/auto/edshare_core.css</filename>
           <mime_type>text/x-c</mime_type>
-          <hash>d9598c8679b3aa52959354401ead4de4</hash>
+          <hash>03dc2c10c06b8a96dc0053ff96c9327c</hash>
           <hash_type>MD5</hash_type>
-          <filesize>583</filesize>
+          <filesize>642</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/style/images/xit.gif</filename>
@@ -79,9 +93,15 @@
         <file>
           <filename>epm/edshare_core/cfg/workflows/eprint/edshare.xml</filename>
           <mime_type>application/xml</mime_type>
+<<<<<<< HEAD
           <hash>a30d96bcc2c2347e323ebf9be17850cd</hash>
           <hash_type>MD5</hash_type>
           <filesize>961</filesize>
+=======
+          <hash>2936fd25e71a71236ffbe54bd114a036</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>958</filesize>
+>>>>>>> 33a21843a5431fd11a640f8e9893830db132ac3c
         </file>
         <file>
           <filename>epm/edshare_core/cgi/edshare_toolbox</filename>
@@ -161,7 +181,15 @@
     </document>
   </documents>
   <version>1.0.1</version>
+  <controller>EPMC::EdShareCore</controller>
   <creators>
+    <item>
+      <name>
+        <family>Taylor</family>
+        <given>Matt R</given>
+      </name>
+      <id>mrt@ecs.soton.ac.uk</id>
+    </item>
     <item>
       <name>
         <family>McSweeney</family>
@@ -175,13 +203,6 @@
         <given>Sebastian</given>
       </name>
       <id>sf2@ecs.soton.ac.uk</id>
-    </item>
-    <item>
-      <name>
-        <family>Taylor</family>
-        <given>Matt R</given>
-      </name>
-      <id>mrt@ecs.soton.ac.uk</id>
     </item>
     <item>
       <name>
