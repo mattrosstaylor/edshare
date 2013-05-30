@@ -1,3 +1,17 @@
+# override citations
+$c->{edshare_core_session_init} = $c->{session_init};
+$c->{session_init} = sub {
+    my ( $repo, $offline ) = @_;
+
+    $repo->call("edshare_core_session_init");
+    
+    $repo->{citations}->{eprint}->{default} = $repo->{citations}->{eprint}->{edshare_default};
+};
+
+
+
+
+
 $c->{edshare_core_set_eprint_automatic_fields} = $c->{set_eprint_automatic_fields}; 
 
 $c->{set_eprint_automatic_fields} = sub

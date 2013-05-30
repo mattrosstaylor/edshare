@@ -9,12 +9,7 @@ use strict;
 
 our @replaced_files = (
 	"/namedsets/eprint",
-	"/citations/eprint/default.xml"
-
 );
-
-our $replaced = ".edshare_replaced";
-
 
 sub new
 {
@@ -25,23 +20,23 @@ sub new
 	$self->{actions} = [qw( enable disable )];
 	$self->{disable} = 0;
 	$self->{package_name} = "edshare_core";
+	$self->{replace_suffix} = ".edshare_core_replaced";
 
 	return $self;
 }
-
 
 sub action_enable
 {
 	my ($self, $skip_reload ) = @_;
 	my $repo = $self->{repository};
 
-	print STDERR "\nENABLING EDSHARE_CORE\n";
+	print STDERR "\nENABLING ".$self->{package_name}."\n";
 
 	my $cfg_dir = $repo->config( "config_path" );
 	foreach (@replaced_files)
 	{
 		print STDERR "  moving $_\n";
-		move( $cfg_dir.$_, $cfg_dir.$_.$replaced );		
+		move( $cfg_dir.$_, $cfg_dir.$_.$self->{replace_suffix} );		
 	}
 
 	$self->SUPER::action_enable( $skip_reload );
@@ -51,7 +46,7 @@ sub action_disable
 {
 	my( $self, $skip_reload ) = @_;
 
-	print STDERR "\nDISABLING EDSHARE_CORE\n";
+	print STDERR "\nDISABLING ".$self->{package_name}."\n";
 
 	$self->SUPER::action_disable( $skip_reload );
 	my $repo = $self->{repository};
@@ -61,7 +56,7 @@ sub action_disable
 	{
 	
 		print STDERR "  restoring $_\n";	
-		move( $cfg_dir.$_.$replaced, $cfg_dir.$_ );		
+		move( $cfg_dir.$_.$self->{replace_suffix}, $cfg_dir.$_ );		
 	}
 
 	$self->reload_config if !$skip_reload;
