@@ -1,7 +1,6 @@
 $c->{premiere_preview_width} = 700;
 $c->{premiere_preview_height} = 525;
 
-
 $c->{plugins}{"Convert::OfficePreview"}{params}{disable} = 0;
 
 # enable audio_*/video_* previews
@@ -26,43 +25,21 @@ document.observe('dom:loaded', function(){
 });
 EOF
 
-	my $preview_area = $xml->create_element("iframe", id=>"premiere_preview_area", "scrolling"=>"no");
-	my $js = $xml->create_element("script", type=>"text/javascript");
-	$js->appendChild($xml->create_text_node($script));
-	$div->appendChild($preview_area);
-	$div->appendChild($js);
+	my $preview_area = $xml->create_element( "iframe", id=>"premiere_preview_area", "scrolling"=>"no" );
+	my $js = $xml->create_element( "script", type=>"text/javascript" );
+	$js->appendChild( $xml->create_text_node($script) );
+	$div->appendChild( $preview_area );
+	$div->appendChild( $eprint->render_citation("premiere_preview_document_list") );
+	$div->appendChild( $js );
 	return $div;
 };
 
-$c->{eprint_render} = sub
+# replace top_left fragment with premiere_preview area
+$c->{premiere_preview_render_fragments} = $c->{render_fragments};
+$c->{render_fragments} = sub
 {
-	my ( $eprint, $repository, $preview ) = @_;
-
-	my $xml = $repository->xml;
-
-	my $title = $eprint->render_citation("brief");
-	#my $title = $xml->create_document_fragment;
-
-	my $page = $xml->create_element("div", id=>"premiere_preview_container");
-
-	my $left = $xml->create_element("div", id=>"premiere_preview_left");
-	my $right = $xml->create_element("div", id=>"premiere_preview_right");
-	# hmmmm, try and find a way to make these divs the correct way around later...
-	$page->appendChild($left);
-	$page->appendChild($right);
-
-	$left->appendChild( $repository->call("render_premiere_preview_area", $eprint, $repository));
-	$left->appendChild( $eprint->render_citation("premiere_preview_document_list"));	
-	my $links = $repository->xml->create_document_fragment();
-	if( !$preview )
-	{
-		$links->appendChild( $repository->plugin( "Export::Simple" )->dataobj_to_html_header( $eprint ) );
-		$links->appendChild( $repository->plugin( "Export::DC" )->dataobj_to_html_header( $eprint ) );
-	}
-
-	# add the main info
-		$right->appendChild($eprint->render_citation( "premiere_preview_info" ));
-
-	return( $page, $title, $links );
+	my ( $eprint, $repository, $preview, $fragments ) = @_;
+	$repository->call("premiere_preview_render_fragments", $eprint, $repository, $preview, $fragments);
+	$fragments->{top_left} = $repository->call("render_premiere_preview_area", $eprint, $repository);
+	return $fragments;
 };
-

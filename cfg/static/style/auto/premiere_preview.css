@@ -9,12 +9,12 @@
 	border: 1px solid black;
 }
 
-#premiere_preview_left {
+#edshare_summary_left {
 	width: 702px;
 	float:left;
 }
 
-#premiere_preview_right {
+#edshare_summary_right {
 	margin-left: 712px;
 }
 

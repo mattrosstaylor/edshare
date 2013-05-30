@@ -8,9 +8,9 @@
         <file>
           <filename>epm/premiere_preview/cfg/cfg.d/x_premiere_preview.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>ca91c60dd7415f4e23fd72771b58d00a</hash>
+          <hash>02bda910222034fd485d8313036bccd5</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2056</filesize>
+          <filesize>1429</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/citations/document/premiere_preview_selector.xml</filename>
@@ -57,9 +57,9 @@
         <file>
           <filename>epm/premiere_preview/cfg/static/style/auto/premiere_preview.css</filename>
           <mime_type>text/x-c</mime_type>
-          <hash>8614a9a75f97b4f6fa5d51d81713802d</hash>
+          <hash>9606e1bf32e63284e6b8bf65df58949a</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2164</filesize>
+          <filesize>2162</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/static/style/images/license_icons/cc_by.png</filename>
