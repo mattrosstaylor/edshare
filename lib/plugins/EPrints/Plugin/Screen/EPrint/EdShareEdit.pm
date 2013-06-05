@@ -88,13 +88,10 @@ sub action_deposit
 {
 	my( $self ) = @_;
 
-	print STDERR "\niamdepositing\n";
 	# save eprint data
 	my $from_ok = $self->workflow->update_from_form( $self->{processor} );
 	$self->uncache_workflow;
 
-	print STDERR "\nfrom_ok=$from_ok\n";
-	
 	$self->{processor}->{screenid} = $self->{repository}->config("edshare_screen_after_edit") || "EPrint::View";	
 
 	if (not $from_ok)
@@ -112,7 +109,6 @@ sub action_deposit
 	my $problems = $self->{processor}->{eprint}->validate( $self->{processor}->{for_archive} );
 	if( scalar @{$problems} > 0)
 	{
-		print STDERR "\niamproblems\n";
 		if(exists $self->{processor}->{eprint}->{viewperms})
 		{
 			$self->{processor}->{eprint}->value("viewperms", "private");
@@ -171,6 +167,3 @@ sub action_deposit
 		$self->{processor}->add_message( "error", $self->html_phrase( "item_not_deposited" ) );
 	}
 }
-
-
-

@@ -7,18 +7,18 @@
     <document>
       <files>
         <file>
-          <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
-          <mime_type>text/plain</mime_type>
-          <hash>41df2e3fb51ddfab0e8dcdcab9f03f77</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>15759</filesize>
-        </file>
-        <file>
-          <filename>epm/edshare_core/cfg/cfg.d/x_edshare_render.pl</filename>
+          <filename>epm/edshare_core/cfg/cfg.d/eprint_render.pl</filename>
           <mime_type>text/plain</mime_type>
           <hash>af102257031c37cee6c0d75cda298b48</hash>
           <hash_type>MD5</hash_type>
           <filesize>2591</filesize>
+        </file>
+        <file>
+          <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>4017f7dcfee0e7e43fbfe083eeaf6aa9</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>15417</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/citations/eprint/default.xml</filename>
@@ -51,9 +51,9 @@
         <file>
           <filename>epm/edshare_core/cfg/lang/en/phrases/x_edshare_core.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>e740a6cdfaaa6e799d51c5b98b17963f</hash>
+          <hash>9d1863031a2ab81ad2e2a1225ccef374</hash>
           <hash_type>MD5</hash_type>
-          <filesize>3313</filesize>
+          <filesize>3488</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/namedsets/eprint</filename>
@@ -84,7 +84,7 @@
           <filesize>203</filesize>
         </file>
         <file>
-          <filename>epm/edshare_core/cfg/workflows/eprint/edshare.xml</filename>
+          <filename>epm/edshare_core/cfg/workflows/eprint/resource.xml</filename>
           <mime_type>application/xml</mime_type>
           <hash>2936fd25e71a71236ffbe54bd114a036</hash>
           <hash_type>MD5</hash_type>
@@ -128,16 +128,16 @@
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPMC/EdShareCore.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>9e0f44fe0acdd35fe3a5032f6b3bbd13</hash>
+          <hash>b5805afefdeea580be53271ca4b54f85</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1301</filesize>
+          <filesize>1329</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPrint/EdShareEdit.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>8637a3a1df44364b834480c33d1e6bae</hash>
+          <hash>3f0f9ed7c09e3c46aa7215dec1146756</hash>
           <hash_type>MD5</hash_type>
-          <filesize>4309</filesize>
+          <filesize>4197</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/TagCloud.pm</filename>

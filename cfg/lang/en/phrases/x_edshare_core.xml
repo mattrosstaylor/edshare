@@ -3,8 +3,8 @@
 <epp:phrases xmlns="http://www.w3.org/1999/xhtml" xmlns:epp="http://eprints.org/ep3/phrase" xmlns:epc="http://eprints.org/ep3/control">
 	<epp:phrase id="eprint_typename_resource">Resource</epp:phrase>
 	<epp:phrase id="Plugin/Screen/NewEPrint:action:create:title">New Resource</epp:phrase>
-	<epp:phrase id="Plugin/Screen/EPrint/Edit:item_deposited">Item saved</epp:phrase>
-	<epp:phrase id="Plugin/Screen/EPrint/Edit:validation_errors">Your item has been set to private because it has errors</epp:phrase>
+	<epp:phrase id="Plugin/Screen/EPrint/Edit:item_deposited">Resource saved.</epp:phrase>
+	<epp:phrase id="Plugin/Screen/EPrint/Edit:validation_errors">Your resource has been set to private because it contains errors.</epp:phrase>
 
 <!-- workflow phrases -->
 	<epp:phrase id="eprint_fieldhelp_title">Try to make your title concise, but also helpful and explanatory to other users. Avoid being too vague or too general. The title will be the first impression you give other users about your resource.</epp:phrase>
@@ -30,7 +30,7 @@
 	<epp:phrase id="Field/TagLite:raw_keywords:pickuplist_blurb">Choose from your own keywords</epp:phrase>
 	<epp:phrase id="Field/TagLite:raw_keywords:advice_below"><p>Separate each keyword with a comma: <span style="font-style: italic;">social networks, lecture, slides</span>. Hit enter to add your keywords.</p></epp:phrase>
 	
-	<epp:phrase id="eprint_fieldname_viewperms">Viewing permissions</epp:phrase>
+	<epp:phrase id="eprint_fieldname_viewperms">Permissions</epp:phrase>
 	<epp:phrase id="eprint_fieldhelp_viewperms">Who is allowed to view this resource? </epp:phrase>
 	<epp:phrase id="eprint_fieldopt_viewperms_private">Just me</epp:phrase>
 	<epp:phrase id="eprint_fieldopt_viewperms_registered_only">Registered users</epp:phrase>
@@ -38,6 +38,10 @@
 
 	<epp:phrase id="document_fieldname_description">Description</epp:phrase>
 	<epp:phrase id="document_fieldhelp_description">A short explanation of what this file is about.</epp:phrase>
+
+<!-- invisible workflow phrases -->
+	<epp:phrase id="eprint_fieldname_userid">Added By</epp:phrase>
+	<epp:phrase id="eprint_fieldname_datestamp">Added On</epp:phrase>
 
 <!-- views -->
 	<epp:phrase id="viewname_eprint_keywords">Keywords</epp:phrase>

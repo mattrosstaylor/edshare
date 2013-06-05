@@ -7,12 +7,8 @@ $c->{session_init} = sub {
 #	$repo->{citations}->{eprint}->{default} = $repo->{citations}->{eprint}->{edshare_default};
 };
 
-
-
-
-
+# extra actions for eprint_automatic_fields
 $c->{edshare_core_set_eprint_automatic_fields} = $c->{set_eprint_automatic_fields}; 
-
 $c->{set_eprint_automatic_fields} = sub
 {
 	my ($eprint) = @_;
@@ -67,20 +63,6 @@ $c->{set_eprint_defaults} = sub
 	{
 		$data->{type} = "resource";	
 	}
-
-# add the depositor as first creator:
-
-	my $user = $session->current_user;
-        if(defined $user)
-	{
-                my %creator;
-                $creator{name} = $user->get_value("name");
-                $creator{id} = $user->get_value("email");
-                my @creators;
-                $creators[0] = \%creator;
-                $data->{creators} = \@creators;
-        }
-
 
 #mrt - need to change viewperms to be less stupid
         if(!defined $data->{viewperms})
@@ -506,7 +488,7 @@ $c->{"edshare_choose_workflow"} = sub {
 	
 	if($type eq "resource")
 	{
-		return "edshare";
+		return "resource";
 	}
 	
 	return "default";
