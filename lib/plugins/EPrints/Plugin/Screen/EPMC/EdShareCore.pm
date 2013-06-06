@@ -8,7 +8,6 @@ use File::Copy;
 use strict;
 
 our @replaced_files = (
-	"/cfg.d/eprint_render.pl",
 	"/citations/eprint/default.xml",
 	"/namedsets/eprint",
 );

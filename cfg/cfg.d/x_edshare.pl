@@ -96,7 +96,9 @@ $c->{fields}->{eprint} = [
 	}],
 	'input_boxes' => 1,
 	'input_ordered' => 0,
-	'render_value' => 'EPrints::Plugin::EdShareCoreUtils::render_creators_name'
+	'render_value' => 'EPrints::Plugin::EdShareCoreUtils::render_creators_name',
+
+	'allow_null' => 1,
 },
 
 {

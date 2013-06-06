@@ -106,7 +106,7 @@ sub action_deposit
 		return;
 	}
 
-	my $problems = $self->{processor}->{eprint}->validate( $self->{processor}->{for_archive} );
+	my $problems = $self->{processor}->{eprint}->validate( $self->{processor}->{for_archive}, $self->workflow_id );
 	if( scalar @{$problems} > 0)
 	{
 		if(exists $self->{processor}->{eprint}->{viewperms})
@@ -134,7 +134,6 @@ sub action_deposit
 
 
 	# OK, no problems, submit it to the archive
-
 	$self->{processor}->{eprint}->set_value( "edit_lock_until", 0 );
 	my $ok = 0;
 
