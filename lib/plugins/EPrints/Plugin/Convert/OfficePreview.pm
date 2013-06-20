@@ -83,13 +83,12 @@ sub export
 	my ( $plugin, $dir, $doc, $type ) = @_;
 
 	my $soffice = "/usr/lib/libreoffice/program/soffice";
-	my @args = ("--headless", "--invisible", "--nosplash", "--nofirststartwizard", "--convert-to", "pdf", "--outdir", $dir , $doc->local_path().'/'.$doc->get_main());
+	my $filepath = $doc->stored_file($doc->get_main)->get_local_copy;
+	my @args = ("--headless", "--invisible", "--nosplash", "--nofirststartwizard", "--convert-to", "pdf", "--outdir", $dir , $filepath);
 
 	system($soffice, @args);
 	my $command = $soffice." ".join(" ", @args);
 	print STDERR $command."\n\n";
-#	print STDERR `$command`;
-
 
 	my $pdf = $doc->get_main;
 	$pdf =~ s/\..{3,4}$/.pdf/;
