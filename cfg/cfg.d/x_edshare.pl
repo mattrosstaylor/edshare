@@ -7,32 +7,6 @@ $c->{session_init} = sub {
 #	$repo->{citations}->{eprint}->{default} = $repo->{citations}->{eprint}->{edshare_default};
 };
 
-# extra actions for eprint_automatic_fields
-$c->{edshare_core_set_eprint_automatic_fields} = $c->{set_eprint_automatic_fields}; 
-$c->{set_eprint_automatic_fields} = sub
-{
-	my ($eprint) = @_;
-	my $repo = $eprint->{session};
-
-	$repo->call('edshare_core_set_eprint_automatic_fields', $eprint);
-
-	# normalise the keywords (if any) for the browse views
-	my $k = $eprint->get_value( "raw_keywords" ); 
-	unless( EPrints::Utils::is_set( $k ) )
-	{ 
-		$eprint->set_value( "keywords", undef ); 
-	} 
-	else
-	{
-		my @nk;
-		foreach(@$k)
-		{
-			push @nk, EPrints::Plugin::EdShareCoreUtils::normalise_keyword( $_ );
-		}
-		$eprint->set_value( "keywords", \@nk );
-	}
-};
-
 $c->{fields}->{document} = [
 # EdShare - This field adds a description to a document which outlines what it is intended to be used for.
 	{
@@ -519,7 +493,6 @@ $c->{plugins}->{"Screen::DataSets"}->{appears}->{key_tools} = undef;
 $c->{plugins}->{"Screen::EPrint::Box::BookmarkTools"}->{params}->{disable} = 1;
 $c->{plugins}->{"Screen::EPrint::Box::CollectionMembership"}->{params}->{disable} = 1;
 
-$c->{plugins}->{"Screen::EPrint::Edit"}->{appears}->{edshare_toolbox} = 20;
 $c->{plugins}->{"Screen::EPrint::ExportZip"}->{appears}->{edshare_toolbox} = 29;
 $c->{plugins}->{"Screen::EPrint::Public::RequestCopy"}->{action}->{request}->{appears}->{edshare_toolbox} = 40;
 $c->{plugins}->{"MePrints::Widget::EPrintsIssues"}->{params}->{disable} = 1;

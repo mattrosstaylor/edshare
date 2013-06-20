@@ -9,6 +9,7 @@ use strict;
 
 our @replaced_files = (
 	"/citations/eprint/default.xml",
+	"/citations/eprint/result.xml",
 	"/namedsets/eprint",
 );
 

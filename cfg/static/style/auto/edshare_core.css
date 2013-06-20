@@ -24,6 +24,12 @@
 }
 */
 
+.ed_creatorsname {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
 
 /*edshare summary toolbox */
 .edshare_toolbox_edshare_toolbox {
