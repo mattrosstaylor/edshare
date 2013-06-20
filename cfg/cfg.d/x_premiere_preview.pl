@@ -17,7 +17,7 @@ $c->{render_premiere_preview_area} = sub
 	my $div = $xml->create_document_fragment;
 
 	my $first_document = ($eprint->get_all_documents())[0];
-	my $docid = $first_document->id;
+	my $docid = $first_document->id if (defined $first_document);
 
 	my $script = <<EOF;
 document.observe('dom:loaded', function(){
