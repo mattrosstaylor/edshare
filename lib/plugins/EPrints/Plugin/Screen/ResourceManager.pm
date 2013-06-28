@@ -73,7 +73,7 @@ sub render
 		my $metafield = $session->get_repository->get_dataset( 'eprint' )->get_field( $filter_field );
 		$current_filter_values{$filter_field} = $filter->get_current_filter_values( $filter_field ); 
 	} @{$filter_fields};
-	my $loader_image_url = $session->get_repository->get_conf( 'rel_path' ).'/images/ajax-loader.gif';
+	my $loader_image_url = $session->get_repository->get_conf( 'rel_path' ).'/images/resource_manager/ajax-loader.gif';
 	my $cgi_url = $session->get_repository->get_conf( 'rel_path' ).'/cgi/users/resource_manager';
 
 	my $filterbox_id = 'ed_resourcemanager_filter_box_content';
