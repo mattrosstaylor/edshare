@@ -94,7 +94,6 @@ document.observe('dom:loaded', function() {
 		parameters: { $params_json },
 		onSuccess: function(response) {
 			\$('$filterbox_id').update(response.responseJSON[0]);
-			window.addRemovalButtons();
 			\$('$manageable_list_id').update(response.responseJSON[1]);
 		}
 	});

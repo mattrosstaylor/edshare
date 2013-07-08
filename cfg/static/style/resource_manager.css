@@ -4,6 +4,13 @@
 	font-weight:bold;
 }
 
+.ed_resourcemanager_filter_box_field_title
+{
+	font-size:12px;
+	margin-top:10px;
+	font-weight:bold;
+}
+
 .ep_tab_panel
 {
 	height: auto;
@@ -43,6 +50,8 @@
 
 .ep_resourcemanager_tag {
 	padding: 2px;
+	text-decoration: none;
+	vertical-align: bottom;
 }
 
 .ep_manageable_data

@@ -2,6 +2,7 @@ document.observe( 'dom:loaded', function() {
 	document.observe('click', updateResourceSelection);
 });
 
+/*
 window.addRemovalButtons = function() {
 	$$('.ep_resourcemanager_tag_active').each(function(tag) {
 
@@ -43,7 +44,7 @@ window.addRemovalButtons = function() {
 		}
 	});
 }
-
+*/
 
 /* mrt - currently deactivated
 window.selectAll = function(event) {

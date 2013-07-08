@@ -63,7 +63,11 @@ sub render_filter_control
 	my( @possible_filter_links, @current_filter_links );
 	map {
 		my $field = $_;
-		
+		my @links;
+
+		my $ds = $session->get_dataset( 'eprint' );
+		my $metafield = $ds->get_field( $field );
+
 		$current_filter_values{$field} = $self->get_current_filter_values( $field );
 		$possible_filter_values{$field} = $self->_get_possible_filter_values( $field, $eprint_list, $current_filter_values{$field} );
 	
@@ -72,8 +76,9 @@ sub render_filter_control
 			my @filter_values = grep { not $current_filter eq $_ } @{$current_filter_values{$field}};
 			my $filter_link_url = $session->get_repository->get_conf( 'rel_path' ).'/cgi/users/home?screen=ResourceManager&'.EPrints::Utils::url_escape( $self->create_remove_filter_query_string( $field, $current_filter ) );
 			my $filter_link = $session->make_element( 'a', href => $filter_link_url, class => 'ep_resourcemanager_tag ep_resourcemanager_tag_active' );
+			$filter_link->appendChild( $session->make_element('img', src => '/images/resource_manager/checkbox_yes.png') );
 			$filter_link->appendChild( $session->make_text( $current_filter ) );
-			push @current_filter_links, $filter_link;
+			push @links, $filter_link;
 		} @{$current_filter_values{$field}};
 		
 		map {
@@ -82,28 +87,37 @@ sub render_filter_control
 				.'/cgi/users/home?screen=ResourceManager&'
 				.EPrints::Utils::url_escape( $self->create_add_filter_query_string( $field, $current_filter ) );
 			my $filter_link = $session->make_element( 'a', href => $filter_link_url, class => 'ep_resourcemanager_tag' );
+			$filter_link->appendChild( $session->make_element('img', src => '/images/resource_manager/checkbox_no.png') );
 			$filter_link->appendChild( $session->make_text( $current_filter ) );
-			push @possible_filter_links, $filter_link;
+			push @links, $filter_link;
 		} @{$possible_filter_values{$field}};
+
+		if( scalar @links )
+		{
+			my $field_title = $session->make_element("div", class=>"ed_resourcemanager_filter_box_field_title");
+			$field_title->appendChild( $metafield->render_name );
+			$frag->appendChild( $field_title );
+			map { $frag->appendChild( $_ );$frag->appendChild( $session->make_element( "br" ) ); } @links;
+		}
 
 	} @{$fields};
 
-	if( scalar @current_filter_links )
-	{
-		$frag->appendChild( $self->html_phrase( 'current_filters' ) );
-		map { $frag->appendChild( $_ );$frag->appendChild( $session->make_element( "br" ) ); } @current_filter_links;
-		$frag->appendChild( $session->make_element( 'br' ) );
-	}
+#	if( scalar @current_filter_links )
+#	{
+#		$frag->appendChild( $self->html_phrase( 'current_filters' ) );
+#		map { $frag->appendChild( $_ );$frag->appendChild( $session->make_element( "br" ) ); } @current_filter_links;
+#		$frag->appendChild( $session->make_element( 'br' ) );
+#	}
 
-	if( scalar @possible_filter_links )
-	{
-		$frag->appendChild( $self->html_phrase( 'available_filters' ) );
-		map { $frag->appendChild( $_ );$frag->appendChild( $session->make_element( "br" ) ); } @possible_filter_links;
-	}
-	else
-	{
-		$frag->appendChild( $self->html_phrase( 'no_available_filters' ) );
-	}
+#	if( scalar @possible_filter_links )
+#	{
+#		$frag->appendChild( $self->html_phrase( 'available_filters' ) );
+#		map { $frag->appendChild( $_ );$frag->appendChild( $session->make_element( "br" ) ); } @possible_filter_links;
+#	}
+#	else
+#	{
+#		$frag->appendChild( $self->html_phrase( 'no_available_filters' ) );
+#	}
 
 	return $frag;
 }

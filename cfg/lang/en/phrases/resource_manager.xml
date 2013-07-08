@@ -9,12 +9,6 @@
 	<epp:phrase id="Plugin/ResourceManagerFilter:no_available_filters">
 		<div style="font-size:12px;margin-bottom:5px;margin-top:10px;">No filters available.</div>
 	</epp:phrase>
-	<epp:phrase id="Plugin/ResourceManagerFilter:available_filters">
-		<div style="font-size:12px;font-weight:bold;margin-bottom:5px;margin-top:10px;">Available filters</div>
-	</epp:phrase>
-	<epp:phrase id="Plugin/ResourceManagerFilter:current_filters">
-		<div style="font-size:12px;font-weight:bold;margin-bottom:5px;margin-top:10px;">Current filters</div>
-	</epp:phrase>
 
 	<!-- EPrints::Plugin::Screen::ResourceManager -->
 	<epp:phrase id="Plugin/Screen/ResourceManager:title">Resource Manager</epp:phrase>
