@@ -32,12 +32,7 @@ sub get_filter_fields
 	my( $self, $fields ) = @_;
 
 	my @filter_fields = ( defined $fields ? @{$fields} : @{$self->{session}->get_repository->get_conf( 'resourcemanager_filter_fields' )} );
-
-	@filter_fields = grep {
-		my $metafield = $self->{session}->get_repository->get_dataset( 'eprint' )->get_field( $_ );
-		defined $metafield && $metafield->get_type eq 'text' && $metafield->get_property( 'multiple' );
-	} @filter_fields;
-
+	
 	return \@filter_fields;
 }
 
@@ -171,7 +166,6 @@ sub _get_possible_filter_values
 {
 	my( $self, $field, $eprint_list, $current_filter_values ) = @_;
 
-	#sf2 - fixing bug which displays all the tags in the eprint table; $eprint_list empty => no results after filter by tag => no more "possible" filters 
 	return () unless( defined $eprint_list && $eprint_list->count );
 
 	my $session = $self->{session};
@@ -179,7 +173,19 @@ sub _get_possible_filter_values
 
 	my $Q_fieldname = $session->get_database->quote_identifier( $field );
 	my $Q_eprintid = $session->get_database->quote_identifier( 'eprintid' );
-	my $Q_eprint_fieldname_table = $session->get_database->quote_identifier( 'eprint_'.$field );
+	my $Q_eprint_fieldname_table;
+
+	my $ds = $session->get_dataset( 'eprint' );
+	my $metafield = $ds->get_field( $field );
+
+	if ( $metafield->get_property( 'multiple' ) )
+	{
+		$Q_eprint_fieldname_table = $session->get_database->quote_identifier( 'eprint_'.$field );
+	}
+	else
+	{
+		$Q_eprint_fieldname_table = $session->get_database->quote_identifier( 'eprint' );
+	}
 
 	my $sql = "SELECT $Q_fieldname FROM $Q_eprint_fieldname_table WHERE ";
 	
@@ -200,5 +206,6 @@ sub _get_possible_filter_values
 	}
 
 	return \@possible_filter_values;
-} 
+}
+
 1;
