@@ -9,9 +9,9 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>e023c7d61875337504257fd36a1350af</hash>
+          <hash>736ee2030ab25a30a32decdb410d61f9</hash>
           <hash_type>MD5</hash_type>
-          <filesize>32056</filesize>
+          <filesize>16064</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_render.pl</filename>
@@ -71,10 +71,10 @@
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/javascript/auto/edshare_core.js</filename>
-          <mime_type>text/x-c</mime_type>
-          <hash>827ceafdb922ff70675d4430df17fa5e</hash>
+          <mime_type>text/x-c++</mime_type>
+          <hash>32c2b1657855100c632a030ce8333b26</hash>
           <hash_type>MD5</hash_type>
-          <filesize>5977</filesize>
+          <filesize>7136</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/style/auto/edshare_core.css</filename>
@@ -93,15 +93,9 @@
         <file>
           <filename>epm/edshare_core/cfg/workflows/eprint/edshare.xml</filename>
           <mime_type>application/xml</mime_type>
-<<<<<<< HEAD
-          <hash>a30d96bcc2c2347e323ebf9be17850cd</hash>
+          <hash>dcf3c52f03fd7367de8dc466fc090b74</hash>
           <hash_type>MD5</hash_type>
-          <filesize>961</filesize>
-=======
-          <hash>2936fd25e71a71236ffbe54bd114a036</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>958</filesize>
->>>>>>> 33a21843a5431fd11a640f8e9893830db132ac3c
+          <filesize>965</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cgi/edshare_toolbox</filename>

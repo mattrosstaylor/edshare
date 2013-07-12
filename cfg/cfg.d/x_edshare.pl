@@ -160,19 +160,8 @@ $c->{fields}->{eprint} = [
       	    'input_cols' => 20,
       	  }
       ],
-
+  'render_input'=>'render_view_permissions_input',
 },
-
- The following are core fields which arent used in EdShare Core but EPrints wont let us remove
-{
-  'name' => 'date',
-  'type' => 'date',
-  'min_resolution' => 'year',
-},
-
-
-
-
 
 # The following are core fields which arent used in EdShare Core but EPrints wont let us remove
 {
@@ -196,7 +185,6 @@ $c->{fields}->{eprint} = [
 ];
 
 $c->{browse_views} = [
-<<<<<<< HEAD
         {
                 id => "year",
                 menus => [
@@ -255,79 +243,46 @@ $c->{browse_views} = [
         },
 ];
 
-sub  render_view_permissions_input
+$c->{render_view_permissions_input} = sub
 {
-	my ( $field, $session, $current_value, $dataset, $staff, $hidden_fields, $object, $basename ) = @_;
+	my ( $field, $repo, $current_value, $dataset, $staff, $hidden_fields, $object, $base_name ) = @_;
 	
+	my $temp_doc = $repo->xml->parse_string('<div>
+	<input name="privacy" type="radio" value="private" onchange="hideAdvancedCheckbox(\'private\')"/>Private
+	<input name="privacy" type="radio" value="public" onchange="hideAdvancedCheckbox(\'public\')"/>Public
+	<input name="privacy" type="radio" value="restricted" onchange="showAdvancedCheckbox(\'\')"/>Restricted to University
+	<span id="advanced" style="display:none;"><input type="checkbox" id="advanced-checkbox" name="advanced" onchange="showAdvancedOptions()"/> Show advanced options</span>
+	<div id="advanced-options" style="display:none;">
+		<select id="type" name="type">
+			<option value="user">User</option>
+			<option value="department">Department</option>
+			<option value="group">Group</option>
+		</select>
+		<input id="type-value" type="text" name="typevalue" onkeydown="if(event.keyCode == 13){addPermissionType(\''.$base_name.'\');}" />
+		<input type="button" value="Add" onclick="addPermissionType(\''.$base_name.'\')" />
 
-}
 
+		<div id="submit-values">
+		
+		</div>
+		<script type="text/javascript">
+			document.'.$base_name.'_count = 0;
+		</script>
+	</div>
+</div>'	);
 
-=pod
-
-mrt - I have wanted to kill this function my entire time working on EdShare - it is megashit
-
-$c->{eprint_render} = sub
-=======
->>>>>>> 33a21843a5431fd11a640f8e9893830db132ac3c
-{
-	id => "year",
-	menus => [
+	foreach my $div ($temp_doc->getChildNodes())
 	{
-		fields => [ "datestamp;res=year" ],
-		reverse_order => 1,
-		allow_null => 1,
-		new_column_at => [10,10],
+		print STDERR $repo->xml->to_string($div);
+		print STDERR $base_name, "\n"; 
+		use Data::Dumper;
+		print STDERR Dumper($current_value);
+
+		return $div;
 	}
-	],
-	order => "creators_name/title",
-	variations => [
-		"creators_name;first_letter",
-		"type",
-		"DEFAULT"
-	],
-},
 
-{
-	id => "creators",
-	allow_null => 0,
-	hideempty => 1,
-	menus => [
-	{
-		#EdShare - order=fg added so that the browse view still orders family name first even though the names are rendered given first.
-		fields => [ "creators_name;order=fg" ],
-		new_column_at => [1, 1],
-		mode => "sections",
-		open_first_section => 1,
-		group_range_function => "EPrints::Update::Views::cluster_ranges_30",
-		grouping_function => "EPrints::Update::Views::group_by_a_to_z",
-	},
-	],
-	order => "-datestamp/title",
-	variations => [
-		"type",
-		"DEFAULT",
-	],
-},
+};
 
-{
-	id => "keywords",
-	allow_null => 0,
-	hideempty => 1,
-	menus => [
-	{
-		fields => [ "keywords" ],
-		new_column_at => [1, 1],
-		mode => "sections",
-		open_first_section => 1,
-		group_range_function => "EPrints::Update::Views::cluster_ranges_30",
-		grouping_function => "EPrints::Update::Views::group_by_a_to_z",
-	},
-	],
-	order => "-datestamp/title",
-	citation => "result",
-},
-];
 
 $c->{search}->{advanced} = 
 {
@@ -474,64 +429,6 @@ $c->{cache_timeout} = 10;
 $c->{cache_maxlife} = 12;
 
 
-# Generic Plugin Options
-
-# To disable the plugin "Export::BibTeX":
-# $c->{plugins}->{"Export::BibTeX"}->{params}->{disable} = 1;
-
-# To enable the plugin "Export::LocalThing":
-# $c->{plugins}->{"Export::LocalThing"}->{params}->{disable} = 0;
-
-# Screen Plugin Configuration
-# (Disabling a screen will also remove it and it's actions from all lists)
-
-# To add the screen Screen::Items to the key_tools list at postion 200:
-# $c->{plugins}->{"Screen::Items"}->{appears}->{key_tools} = 200;
-
-# To remove the screen Screen::Items from the key_tools list:
-# $c->{plugins}->{"Screen::Items"}->{appears}->{key_tools} = undef;
-#$c->{plugins}->{"Screen::EPrint::UseAsTemplate"}->{icon} = "action_edit.png";
-
-# Screen Actions Configuration
-
-# To disable action "blah" of Screen::Items 
-# (Disabling an action will also remove it from all lists)
-# $c->{plugins}->{"Screen::Items"}->{actions}->{blah}->{disable} = 1;
-
-# To add action "blah" of Screen::Items to the key_tools list at postion 200: 
-# $c->{plugins}->{"Screen::Items"}->{actions}->{blah}->{appears}->{key_tools} = 200;
-
-# To remove action "blah" of Screen::Items from the key_tools list
-# $c->{plugins}->{"Screen::Items"}->{actions}->{blah}->{appears}->{key_tools} = undef;
-
-
-# Import/export plugins
-
-# to make a plugin only available to staff
-# $c->{plugins}->{"Export::Text"}->{params}->{visible} = "staff";
-
-# to only command line tools
-# $c->{plugins}->{"Export::Text"}->{params}->{visible} = "api";
-
-# to prevent a import/export plugin from being shown as an option, but
-# not actually disable it.
-# $c->{plugins}->{"Export::BibTeX"}->{params}->{advertise} = 0;
-
-
-# Plugin Mapping
-
-# The following would make the repository use the LocalDC export plugin
-# anytime anything asks for the DC plugin - this is a handy way to override
-# the behaviour without hacking the existing plugin. 
-# $c->{plugin_alias_map}->{"Export::DC"} = "Export::LocalDC";
-# This line just means that the LocalDC plugin doesn't appear in addition
-# as that would be confusing. 
-# $c->{plugin_alias_map}->{"Export::LocalDC"} = undef;
-       
-#$c->{plugin_alias_map}->{"Screen::View::Owner"} = undef;
-# CrossRef registration
-
-# You should replace this with your own CrossRef account username and password.
 
 $c->{plugins}->{"Import::DOI"}->{params}->{pid} = "ourl_eprintsorg:eprintsorg";
 

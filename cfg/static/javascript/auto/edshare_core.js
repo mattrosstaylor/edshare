@@ -10,19 +10,7 @@ function edshare_core_render_toolbox(targetId, eprintid, listName, listType) {
 
 }
 
-
-/* 
- * This javascript file will be loaded after all the system files.
- * (so other javascript functions will already be loaded)
- * 
- * Javascript files are loaded in alphabetic order, hence the "90" 
- * in the filename to force it to load after the other files!
- * 
- * To totally replace a system js file, create a file of the same 
- * name in this directory. eg. 50_preview.js
- * 
-*/
-
+/*javascript for taglite*/
 
 // what if we don't want to have a max || max == 0?
 
@@ -245,3 +233,51 @@ function addInlineTag( inputid, tag )
 	return false;
 } 
 
+
+/* javascript for view permissions render */
+
+function showAdvancedCheckbox() {
+		$('submit-values').innerHTML = "<input type='hidden' value='restricted' />";
+		$('advanced').show();
+}
+function hideAdvancedCheckbox(value) {
+
+		$('advanced').hide();
+		$('advanced-options').hide();
+		$('advanced-checkbox').checked = false;
+		if(value == 'public')
+		{
+			$('submit-values').innerHTML = "<input type='hidden' value='public' />";
+		}
+		if(value == 'private')
+		{
+			$('submit-values').innerHTML = "<input type='hidden' value='private' />";
+		}
+
+}
+function showAdvancedOptions() {
+	if($('advanced-checkbox').checked)
+	{
+		$('submit-values').innerHTML = "";
+		$('advanced-options').show();
+	}
+	else
+	{
+		$('submit-values').innerHTML = "<input type='hidden' value='restricted' />";
+		$('advanced-options').hide();
+	}			
+}
+function addPermissionType(basename) {
+	$('submit-values').innerHTML += "<div id='"+basename+"_"+document[basename+"_count"]+"_container'>"+
+		$('type').value + ": " + $('type-value').value + "<a href='#' onclick='deletePermissionType(\""+basename+"_"+document[basename+"_count"]+"_container\"); return false'>X</a>" + 
+		"<input type='hidden' name='"+basename+"_"+document[basename+"_count"]+"_type' value='"+$('type').value+"' />" + 
+
+
+		"<input type='hidden' name='"+basename+"_"+document[basename+"_count"]+"_value' value='"+$('type-value').value+"' />" +
+		"</div>";
+	$('type-value').value = "";
+	document[basename+"_count"]++;
+}
+function deletePermissionType(container){
+	$(container).remove();
+}
