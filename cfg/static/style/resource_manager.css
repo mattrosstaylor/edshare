@@ -1,39 +1,31 @@
-.ed_resourcemanager_filter_box_title
-{
+.ed_resourcemanager_filter_box_title {
 	font-size:14px;
 	font-weight:bold;
 }
 
-.ed_resourcemanager_filter_box_field_title
-{
+.ed_resourcemanager_filter_box_field_title {
 	font-size:12px;
 	margin-top:10px;
 	font-weight:bold;
 }
 
-.ep_tab_panel
-{
+.ep_tab_panel {
 	height: auto;
 }
 
 /*.ed_resourcemanager_content*/
-.ep_bulkaction_form
-{
+.ep_bulkaction_form {
 	display: inline;
 }
 
-.ed_resourcemanager_filter_box, .ed_resourcemanager_filter_box_content
-{
-	width: 200px;
-	display: inline;
+.ed_resourcemanager_filter_box, .ed_resourcemanager_filter_box_content {
+	width: 150px;
 }
 
-.ep_manageable_action_button
-{
+.ep_manageable_action_button {
 }
 
-.ep_manageable_action_icon
-{
+.ep_manageable_action_icon {
 	vertical-align: middle;
 	padding: 0 5px;
 }
@@ -52,10 +44,10 @@
 	padding: 2px;
 	text-decoration: none;
 	vertical-align: bottom;
+	font-size: 12px;
 }
 
-.ep_manageable_data
-{
+.ep_manageable_data {
 	vertical-align:center;
 	margin: 2px;
 }
@@ -91,6 +83,7 @@
 	height: 300px;
 	overflow: auto;
 }
+
 .ep_manageable_data_wrapper {
 	float: left;
 	width: 100%;

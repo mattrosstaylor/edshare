@@ -50,9 +50,9 @@
         <file>
           <filename>epm/resource_manager/cfg/lang/en/phrases/resource_manager.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>fba9a5c6a17d3ca84a2723b87c38bdf2</hash>
+          <hash>60fcfbea705ffd4ab63605aaea2de764</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2599</filesize>
+          <filesize>2626</filesize>
         </file>
         <file>
           <filename>epm/resource_manager/cfg/static/javascript/resource_manager.js</filename>
@@ -64,9 +64,9 @@
         <file>
           <filename>epm/resource_manager/cfg/static/style/resource_manager.css</filename>
           <mime_type>text/plain</mime_type>
-          <hash>42f3f73180188e753b9b71de7704fa7f</hash>
+          <hash>365da84e86551691ad14025b6dbc1474</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2427</filesize>
+          <filesize>2428</filesize>
         </file>
         <file>
           <filename>epm/resource_manager/cgi/users/resource_manager</filename>
@@ -78,9 +78,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/ResourceManagerFilter.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>3607255039e18fc14ffb8d4a09bd0afb</hash>
+          <hash>cee763327365c50a2b72e5a7eb56ac5e</hash>
           <hash_type>MD5</hash_type>
-          <filesize>7253</filesize>
+          <filesize>7206</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Screen/BulkAction.pm</filename>

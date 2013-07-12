@@ -7,9 +7,12 @@
 
 	<!-- EPrints::Plugin::ResourceManagerFilter -->
 	<epp:phrase id="Plugin/ResourceManagerFilter:no_available_filters">
-		<div style="font-size:12px;margin-bottom:5px;margin-top:10px;">No filters available.</div>
+		<div style="font-weight:bold;font-size:12px;">No filters available.</div>
 	</epp:phrase>
 
+	<epp:phrase id="Plugin/Screen/ResourceManager:no_resources">
+		<div style="font-weight:bold;font-size:12px;">You currently have no resources.</div>
+	</epp:phrase>
 	<!-- EPrints::Plugin::Screen::ResourceManager -->
 	<epp:phrase id="Plugin/Screen/ResourceManager:title">Resource Manager</epp:phrase>
 	<epp:phrase id="Plugin/Screen/ResourceManager:view_unavailable">This view is not available.</epp:phrase>
@@ -17,7 +20,6 @@
 	<epp:phrase id="Plugin/Screen/ResourceManager:article_title"><epc:phrase ref="eprint_typename_article"/></epp:phrase>
 	<epp:phrase id="Plugin/Screen/ResourceManager:conference_item_title"><epc:phrase ref="eprint_typename_conference_item"/></epp:phrase>
 	<epp:phrase id="Plugin/Screen/ResourceManager:monograph_title"><epc:phrase ref="eprint_typename_monograph"/></epp:phrase>
-	<epp:phrase id="Plugin/Screen/ResourceManager:no_resources">You currently have no resources of this type.</epp:phrase>
 	<epp:phrase id="Plugin/Screen/ResourceManager:select_all">Select All Resources</epp:phrase>
 	<epp:phrase id="Plugin/Screen/ResourceManager:reset_text_filter">Reset Text Filter</epp:phrase>
 	<epp:phrase id="Plugin/Screen/ResourceManager:with_selected_resources">With Selected Resources:</epp:phrase>
