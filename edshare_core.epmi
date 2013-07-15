@@ -9,9 +9,9 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>04faf2cbb80396ba655ca19c82ec8afc</hash>
+          <hash>4776fb29ca613b3c6f228a3faf6be665</hash>
           <hash_type>MD5</hash_type>
-          <filesize>14711</filesize>
+          <filesize>14517</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_eprint_automatic_fields.pl</filename>
@@ -149,9 +149,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPMC/EdShareCore.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>cc2853ef1225b2204a549ae2c5ed3347</hash>
+          <hash>ff622d3c74518a4d3c6ad300b4005f1c</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1334</filesize>
+          <filesize>1869</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPrint/EdShareEdit.pm</filename>

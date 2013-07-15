@@ -32,6 +32,8 @@ sub action_enable
 	my ($self, $skip_reload ) = @_;
 	my $repo = $self->{repository};
 
+	if ( not EPrints::DataObj::EPM->can('check_epm_dataset_update_supression_activated' )) { $self->{processor}->add_message( "error", $repo->make_text( "Aborted: dataset update supression has not been activated in EPrints::DataObj::EPM" ) ); return; }
+
 	print STDERR "\nENABLING ".$self->{package_name}."\n";
 
 	my $cfg_dir = $repo->config( "config_path" );
@@ -47,6 +49,9 @@ sub action_enable
 sub action_disable
 {
 	my( $self, $skip_reload ) = @_;
+	my $repo = $self->{repository};
+
+	if ( not EPrints::DataObj::EPM->can('check_epm_dataset_update_supression_activated' )) { $self->{processor}->add_message( "error", $repo->make_text( "Aborted: dataset update supression has not been activated in EPrints::DataObj::EPM" ) ); return; }
 
 	print STDERR "\nDISABLING ".$self->{package_name}."\n";
 

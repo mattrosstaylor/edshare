@@ -80,14 +80,7 @@ $c->{fields}->{eprint} = [
 	'type' => 'longtext',
 	# EdShare - Input rows reduced to encourage sensible length titles
 	'input_rows' => 1,
-	'make_value_orderkey' => sub 
-	{
-		my( $field, $value ) = @_;
-		return $value unless( $value =~ /^Lecture/ );
-		$value =~ s/(\d+)/sprintf("%08d",$1)/ge;
-		return $value;
-		}
-	},
+},
 
 # Edshare - Keywords changed to be a multiple field so that browse views can be made.
 {
@@ -246,7 +239,6 @@ $c->{search}->{simple} =
 				"title",
 				"abstract",
 				"creators_name",
-				"datestamp", 
 				"keywords",
 				"advice",
 			]
