@@ -11,6 +11,7 @@ our @replaced_files = (
 	"/citations/eprint/default.xml",
 	"/citations/eprint/result.xml",
 	"/namedsets/eprint",
+	"/namedsets/user",
 );
 
 sub new
@@ -37,11 +38,13 @@ sub action_enable
 	print STDERR "\nENABLING ".$self->{package_name}."\n";
 
 	my $cfg_dir = $repo->config( "config_path" );
+	print STDERR "  moving";
 	foreach (@replaced_files)
 	{
-		print STDERR "  moving $_\n";
+		print STDERR " $_";
 		move( $cfg_dir.$_, $cfg_dir.$_.$self->{replace_suffix} );		
 	}
+	print STDERR "\n";
 
 	$self->SUPER::action_enable( $skip_reload );
 }
@@ -56,15 +59,15 @@ sub action_disable
 	print STDERR "\nDISABLING ".$self->{package_name}."\n";
 
 	$self->SUPER::action_disable( $skip_reload );
-	my $repo = $self->{repository};
 
 	my $cfg_dir = $repo->config( "config_path" );
+	print STDERR "  restoring";
 	foreach (@replaced_files)
 	{
-	
-		print STDERR "  restoring $_\n";	
+		print STDERR " $_";
 		move( $cfg_dir.$_.$self->{replace_suffix}, $cfg_dir.$_ );		
 	}
+	print STDERR "\n";
 
 	$self->reload_config if !$skip_reload;
 }
