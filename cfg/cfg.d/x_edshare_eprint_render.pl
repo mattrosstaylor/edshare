@@ -1,8 +1,9 @@
-
 $c->{summary_page_metadata} = [qw/
 	userid
 	datestamp
+	creators
 	keywords
+	license
 	viewperms
 /];
 
@@ -38,7 +39,7 @@ $c->{render_fragments} = sub
 	my $xml = $repository->xml;	
 
 	$fragments->{above} = $xml->create_document_fragment;
-	$fragments->{top_left} = $eprint->render_citation( "edshare_summary_documents" );
+	$fragments->{top_left} = $eprint->render_citation( "edshare_summary_preview" );
 	$fragments->{bottom_left} = $xml->create_document_fragment;
 	$fragments->{top_right} = $eprint->render_citation( "edshare_summary_metadata" );
 	$fragments->{bottom_right} = $xml->create_document_fragment;
@@ -64,7 +65,7 @@ $c->{eprint_render} = sub
 
 	foreach my $key ( keys %fragments ) { $fragments{$key} = [ $fragments{$key}, "XHTML" ]; }
 	
-	my $page = $eprint->render_citation( "edshare_summary", %fragments, flags=>$flags );
+	my $page = $eprint->render_citation( "edshare_summary_page", %fragments, flags=>$flags );
 
 	my $title = $eprint->render_citation("brief");
 

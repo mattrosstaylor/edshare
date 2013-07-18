@@ -1,27 +1,10 @@
-$c->{edshare_core_set_eprint_automatic_fields} = $c->{set_eprint_automatic_fields}; 
+# override citations
+$c->{edshare_core_session_init} = $c->{session_init};
+$c->{session_init} = sub {
+	my ( $repo, $offline ) = @_;
 
-$c->{set_eprint_automatic_fields} = sub
-{
-	my ($eprint) = @_;
-	my $repo = $eprint->{session};
-
-	$repo->call('edshare_core_set_eprint_automatic_fields', $eprint);
-
-	# normalise the keywords (if any) for the browse views
-	my $k = $eprint->get_value( "raw_keywords" ); 
-	unless( EPrints::Utils::is_set( $k ) )
-	{ 
-		$eprint->set_value( "keywords", undef ); 
-	} 
-	else
-	{
-		my @nk;
-		foreach(@$k)
-		{
-			push @nk, EPrints::Plugin::EdShareCoreUtils::normalise_keyword( $_ );
-		}
-		$eprint->set_value( "keywords", \@nk );
-	}
+	$repo->call("edshare_core_session_init");
+#	$repo->{citations}->{eprint}->{default} = $repo->{citations}->{eprint}->{edshare_default};
 };
 
 $c->{fields}->{document} = [
@@ -55,20 +38,6 @@ $c->{set_eprint_defaults} = sub
 		$data->{type} = "resource";	
 	}
 
-# add the depositor as first creator:
-
-	my $user = $session->current_user;
-        if(defined $user)
-	{
-                my %creator;
-                $creator{name} = $user->get_value("name");
-                $creator{id} = $user->get_value("email");
-                my @creators;
-                $creators[0] = \%creator;
-                $data->{creators} = \@creators;
-        }
-
-
 #mrt - need to change viewperms to be less stupid
         if(!defined $data->{viewperms})
         {
@@ -101,7 +70,9 @@ $c->{fields}->{eprint} = [
 	}],
 	'input_boxes' => 1,
 	'input_ordered' => 0,
-	'render_value' => 'EPrints::Plugin::EdShareCoreUtils::render_creators_name'
+	'render_value' => 'EPrints::Plugin::EdShareCoreUtils::render_creators_name',
+
+	'allow_null' => 1,
 },
 
 {
@@ -109,14 +80,7 @@ $c->{fields}->{eprint} = [
 	'type' => 'longtext',
 	# EdShare - Input rows reduced to encourage sensible length titles
 	'input_rows' => 1,
-	'make_value_orderkey' => sub 
-	{
-		my( $field, $value ) = @_;
-		return $value unless( $value =~ /^Lecture/ );
-		$value =~ s/(\d+)/sprintf("%08d",$1)/ge;
-		return $value;
-		}
-	},
+},
 
 # Edshare - Keywords changed to be a multiple field so that browse views can be made.
 {
@@ -358,7 +322,6 @@ $c->{search}->{simple} =
 				"title",
 				"abstract",
 				"creators_name",
-				"datestamp", 
 				"keywords",
 				"advice",
 			]
@@ -504,7 +467,7 @@ $c->{"edshare_choose_workflow"} = sub {
 	
 	if($type eq "resource")
 	{
-		return "edshare";
+		return "resource";
 	}
 	
 	return "default";
@@ -533,7 +496,6 @@ $c->{plugins}->{"Screen::DataSets"}->{appears}->{key_tools} = undef;
 $c->{plugins}->{"Screen::EPrint::Box::BookmarkTools"}->{params}->{disable} = 1;
 $c->{plugins}->{"Screen::EPrint::Box::CollectionMembership"}->{params}->{disable} = 1;
 
-$c->{plugins}->{"Screen::EPrint::Edit"}->{appears}->{edshare_toolbox} = 20;
 $c->{plugins}->{"Screen::EPrint::ExportZip"}->{appears}->{edshare_toolbox} = 29;
 $c->{plugins}->{"Screen::EPrint::Public::RequestCopy"}->{action}->{request}->{appears}->{edshare_toolbox} = 40;
 $c->{plugins}->{"MePrints::Widget::EPrintsIssues"}->{params}->{disable} = 1;

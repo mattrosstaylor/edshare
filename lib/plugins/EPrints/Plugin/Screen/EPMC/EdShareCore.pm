@@ -8,13 +8,11 @@ use File::Copy;
 use strict;
 
 our @replaced_files = (
+	"/citations/eprint/default.xml",
+	"/citations/eprint/result.xml",
 	"/namedsets/eprint",
-	"/citations/eprint/default.xml"
-
+	"/namedsets/user",
 );
-
-our $replaced = ".edshare_replaced";
-
 
 sub new
 {
@@ -25,24 +23,28 @@ sub new
 	$self->{actions} = [qw( enable disable )];
 	$self->{disable} = 0;
 	$self->{package_name} = "edshare_core";
+	$self->{replace_suffix} = ".edshare_core_replaced";
 
 	return $self;
 }
-
 
 sub action_enable
 {
 	my ($self, $skip_reload ) = @_;
 	my $repo = $self->{repository};
 
-	print STDERR "\nENABLING EDSHARE_CORE\n";
+	if ( not EPrints::DataObj::EPM->can('check_epm_dataset_update_supression_activated' )) { $self->{processor}->add_message( "error", $repo->make_text( "Aborted: dataset update supression has not been activated in EPrints::DataObj::EPM" ) ); return; }
+
+	print STDERR "\nENABLING ".$self->{package_name}."\n";
 
 	my $cfg_dir = $repo->config( "config_path" );
+	print STDERR "  moving";
 	foreach (@replaced_files)
 	{
-		print STDERR "  moving $_\n";
-		move( $cfg_dir.$_, $cfg_dir.$_.$replaced );		
+		print STDERR " $_";
+		move( $cfg_dir.$_, $cfg_dir.$_.$self->{replace_suffix} );		
 	}
+	print STDERR "\n";
 
 	$self->SUPER::action_enable( $skip_reload );
 }
@@ -50,19 +52,22 @@ sub action_enable
 sub action_disable
 {
 	my( $self, $skip_reload ) = @_;
-
-	print STDERR "\nDISABLING EDSHARE_CORE\n";
-
-	$self->SUPER::action_disable( $skip_reload );
 	my $repo = $self->{repository};
 
+	if ( not EPrints::DataObj::EPM->can('check_epm_dataset_update_supression_activated' )) { $self->{processor}->add_message( "error", $repo->make_text( "Aborted: dataset update supression has not been activated in EPrints::DataObj::EPM" ) ); return; }
+
+	print STDERR "\nDISABLING ".$self->{package_name}."\n";
+
+	$self->SUPER::action_disable( $skip_reload );
+
 	my $cfg_dir = $repo->config( "config_path" );
+	print STDERR "  restoring";
 	foreach (@replaced_files)
 	{
-	
-		print STDERR "  restoring $_\n";	
-		move( $cfg_dir.$_.$replaced, $cfg_dir.$_ );		
+		print STDERR " $_";
+		move( $cfg_dir.$_.$self->{replace_suffix}, $cfg_dir.$_ );		
 	}
+	print STDERR "\n";
 
 	$self->reload_config if !$skip_reload;
 }
