@@ -160,7 +160,7 @@ $c->{fields}->{eprint} = [
       	    'input_cols' => 20,
       	  }
       ],
-  'render_input'=>'render_view_permissions_input',
+   'render_input'=>'render_view_permissions_input',
 },
 
 # The following are core fields which arent used in EdShare Core but EPrints wont let us remove
@@ -247,37 +247,72 @@ $c->{render_view_permissions_input} = sub
 {
 	my ( $field, $repo, $current_value, $dataset, $staff, $hidden_fields, $object, $base_name ) = @_;
 	
-	my $temp_doc = $repo->xml->parse_string('<div>
-	<input name="privacy" type="radio" value="private" onchange="hideAdvancedCheckbox(\'private\')"/>Private
-	<input name="privacy" type="radio" value="public" onchange="hideAdvancedCheckbox(\'public\')"/>Public
-	<input name="privacy" type="radio" value="restricted" onchange="showAdvancedCheckbox(\'\')"/>Restricted to University
-	<span id="advanced" style="display:none;"><input type="checkbox" id="advanced-checkbox" name="advanced" onchange="showAdvancedOptions()"/> Show advanced options</span>
-	<div id="advanced-options" style="display:none;">
-		<select id="type" name="type">
-			<option value="user">User</option>
-			<option value="department">Department</option>
-			<option value="group">Group</option>
-		</select>
-		<input id="type-value" type="text" name="typevalue" onkeydown="if(event.keyCode == 13){addPermissionType(\''.$base_name.'\');}" />
-		<input type="button" value="Add" onclick="addPermissionType(\''.$base_name.'\')" />
+	my $xml_string = '<div>
+	<input name="privacy" type="radio" value="private" onchange="hideAdvancedCheckbox(\''.$base_name.'\',\'private\')" ';
+	if(scalar @{$current_value} == 0)
+	{
+		$xml_string .= 'checked="checked"';
+	}
+	$xml_string .= '/>Private
+	<input name="privacy" type="radio" value="public" onchange="hideAdvancedCheckbox(\''.$base_name.'\',\'public\')" ';
+	if(scalar @{$current_value} == 1)
+	{
+		$xml_string .= 'checked="checked"';
+	}
+	
+	$xml_string .= '/>Public
+	<input name="privacy" type="radio" value="restricted" onchange="showAdvancedCheckbox(\''.$base_name.'\')" id="'.$base_name.'_restricted" ';
+	if(scalar @{$current_value} > 1)
+	{
+		$xml_string .= 'checked="checked"';
+	}
+	$xml_string .= '/>Restricted to University
+	<span id="'.$base_name.'_advanced" style="display:none;"><input type="checkbox" name="advanced" id="'.$base_name.'_advanced_checkbox" onchange="showAdvancedOptions(\''.$base_name.'\')" ';
+	if(scalar @{$current_value} > 1)
+	{
+		$xml_string .= 'checked="checked"';
+	}
+	$xml_string .= '/> Show advanced options</span>
+	<div id="'.$base_name.'_advanced_options" style="display:none;">
+		<select id="'.$base_name.'_type" name="type">';
+	my $namedset_name = $dataset->field($field->{name}."_type")->{set_name};
+	my @values = $repo->get_types($namedset_name);
+	foreach my $value (@values)
+	{
+		#licenses_typename_odc_dbcl
+		$xml_string .= '<option value="'.$value.'">'.$repo->phrase($namedset_name."_typename_".$value).'</option>';
+	}
+	$xml_string .='</select>
+		<input id="'.$base_name.'_type_value" type="text" name="typevalue" onkeydown="if(event.keyCode == 13){addPermissionType(\''.$base_name.'\');}else{doAutoComplete(\''.$base_name.'\');} return false" autocomplete="off"/>
+		<input type="button" value="Add" onclick="addPermissionType(\''.$base_name.'\'); return false;" />
+		<div id="'.$base_name.'_autocomplete_choices" class="autocomplete" style="display:none;"> </div>
 
 
-		<div id="submit-values">
-		
-		</div>
+		<div id="submit-values">';
+	
+	my $value_count = 0;
+	foreach my $value (@{$current_value})
+	{
+		$xml_string .= "<div id='".$base_name."_".$value_count."_container'>";
+		$xml_string .= $value->{type}.": ".$value->{value};
+
+		$xml_string .= "<a onclick='deletePermissionType(\"${base_name}_${value_count}_container\"); return false' href='#'>X</a>";
+		$xml_string .= "<input type='hidden' value='".$value->{type}."' name='${base_name}_${value_count}_type' />";
+		$xml_string .= "<input type='hidden' value='".$value->{value}."_' name='${base_name}_${value_count}_type' />";
+		$xml_string .= "</div>";
+	}
+
+	$xml_string .= '</div>
 		<script type="text/javascript">
 			document.'.$base_name.'_count = 0;
+			initPermsField("'.$base_name.'");
 		</script>
+		<input type="hidden" name="'.$base_name.'_spaces" id="'.$base_name.'_spaces" value="'.$value_count.'"/>
 	</div>
-</div>'	);
-
+</div>';
+	my $temp_doc = $repo->xml->parse_string($xml_string);
 	foreach my $div ($temp_doc->getChildNodes())
 	{
-		print STDERR $repo->xml->to_string($div);
-		print STDERR $base_name, "\n"; 
-		use Data::Dumper;
-		print STDERR Dumper($current_value);
-
 		return $div;
 	}
 
@@ -456,20 +491,6 @@ $c->{can_request_view_document} = sub
 	return "ALLOW";
 };
 
-# Return "ALLOW" if the given user can view the given document,
-# otherwise return "DENY".
-$c->{can_user_view_document} = sub
-{
-	my( $doc, $user ) = @_;
-
-	my $eprint = $doc->get_eprint();
-
-	# TODO
-	# probably something like:
-	return "ALLOW" if( $eprint->can_be_viewed( $user ) );
-	return "DENY";
-
-};
 
 $c->{"edshare_choose_workflow"} = sub {
 	my ( $eprint ) = @_;
@@ -528,3 +549,50 @@ $c->{mimemap}->{css}  = "text/css";
 $c->{mimemap}->{js}  = "text/javascript";
 
 
+$c->{can_request_view_document} = sub
+{
+	my( $doc, $r ) = @_;
+
+	my $eprint = $doc->get_eprint();
+	my $status = $eprint->value( "eprint_status" );
+	my $user = $eprint->repository->current_user();
+
+	if( $status ne "archive" )
+	{
+		return( "DENY" );
+	}
+
+	foreach my $permission (@{$eprint->value("view_permissions")})
+	{
+		if($permission->{type} eq 'public'){ return "ALLOW"; }
+		if($permission->{type} eq 'restricted' && defined $user){ return "USER"; }  
+		if($permission->{type} eq 'user' && defined $user && $user->value("username") eq $permission->{value} ){ return "USER"; } 
+		if($permission->{type} eq 'department' && defined $user && $user->value("department") eq $permission->{value} ){ return "USER"; } 
+	}
+
+	return "DENY";
+};
+
+$c->{can_user_view_document} = sub
+{
+	my( $doc, $user ) = @_;
+
+	my $eprint = $doc->get_eprint();
+	my $status = $eprint->value( "eprint_status" );
+
+	if( $status ne "archive" )
+	{
+		return( "DENY" );
+	}
+
+	foreach my $permission (@{$eprint->value("view_permissions")})
+	{
+		if($permission->{type} eq 'public'){ return "ALLOW"; }
+		if($permission->{type} eq 'restricted' && defined $user){ return "ALLOW"; }  
+		if($permission->{type} eq 'user' && defined $user && $user->value("username") eq $permission->{value} ){ return "ALLOW"; } 
+		if($permission->{type} eq 'department' && defined $user && $user->value("department") eq $permission->{value} ){ return "ALLOW"; } 
+	}
+
+	return "DENY";
+
+}

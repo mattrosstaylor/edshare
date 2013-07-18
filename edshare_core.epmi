@@ -9,9 +9,9 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>736ee2030ab25a30a32decdb410d61f9</hash>
+          <hash>63a3805f5eb9d3b3a3fb20c31b4aec6c</hash>
           <hash_type>MD5</hash_type>
-          <filesize>16064</filesize>
+          <filesize>18760</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_render.pl</filename>
@@ -65,23 +65,23 @@
         <file>
           <filename>epm/edshare_core/cfg/namedsets/view_permissions_type</filename>
           <mime_type>text/plain</mime_type>
-          <hash>21804d7235b255844378919d1b9eb5e2</hash>
+          <hash>57f3a642c939ae294d2fd51e3534f42b</hash>
           <hash_type>MD5</hash_type>
-          <filesize>22</filesize>
+          <filesize>16</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/javascript/auto/edshare_core.js</filename>
           <mime_type>text/x-c++</mime_type>
-          <hash>32c2b1657855100c632a030ce8333b26</hash>
+          <hash>78bfc6755aefe942b54e5d04a7f6d525</hash>
           <hash_type>MD5</hash_type>
-          <filesize>7136</filesize>
+          <filesize>7902</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/style/auto/edshare_core.css</filename>
           <mime_type>text/x-c</mime_type>
-          <hash>03dc2c10c06b8a96dc0053ff96c9327c</hash>
+          <hash>0a1e169ff1ac4ffad82689b6efa483c6</hash>
           <hash_type>MD5</hash_type>
-          <filesize>642</filesize>
+          <filesize>1052</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/style/images/xit.gif</filename>
@@ -117,6 +117,13 @@
           <hash>e8c0cf3e30b456f63008bf60dd3a6f08</hash>
           <hash_type>MD5</hash_type>
           <filesize>1344</filesize>
+        </file>
+        <file>
+          <filename>epm/edshare_core/cgi/users/lookup/view_permissions</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>44a063632ed60c167fcc4f822cc98850</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>1095</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/EdShareCoreUtils.pm</filename>

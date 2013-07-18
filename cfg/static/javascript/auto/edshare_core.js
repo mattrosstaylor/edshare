@@ -236,15 +236,15 @@ function addInlineTag( inputid, tag )
 
 /* javascript for view permissions render */
 
-function showAdvancedCheckbox() {
+function showAdvancedCheckbox(basename) {
 		$('submit-values').innerHTML = "<input type='hidden' value='restricted' />";
-		$('advanced').show();
+		$(basename+'_advanced').show();
 }
-function hideAdvancedCheckbox(value) {
+function hideAdvancedCheckbox(basename,value) {
 
-		$('advanced').hide();
-		$('advanced-options').hide();
-		$('advanced-checkbox').checked = false;
+		$(basename+'_advanced').hide();
+		$(basename+'_advanced_options').hide();
+		$(basename+'_advanced_checkbox').checked = false;
 		if(value == 'public')
 		{
 			$('submit-values').innerHTML = "<input type='hidden' value='public' />";
@@ -255,29 +255,55 @@ function hideAdvancedCheckbox(value) {
 		}
 
 }
-function showAdvancedOptions() {
-	if($('advanced-checkbox').checked)
+function showAdvancedOptions(basename) {
+	if($(basename+'_advanced_checkbox').checked)
 	{
 		$('submit-values').innerHTML = "";
-		$('advanced-options').show();
+		$(basename+'_advanced_options').show();
 	}
 	else
 	{
 		$('submit-values').innerHTML = "<input type='hidden' value='restricted' />";
-		$('advanced-options').hide();
+		$(basename+'_advanced_options').hide();
 	}			
 }
 function addPermissionType(basename) {
-	$('submit-values').innerHTML += "<div id='"+basename+"_"+document[basename+"_count"]+"_container'>"+
-		$('type').value + ": " + $('type-value').value + "<a href='#' onclick='deletePermissionType(\""+basename+"_"+document[basename+"_count"]+"_container\"); return false'>X</a>" + 
-		"<input type='hidden' name='"+basename+"_"+document[basename+"_count"]+"_type' value='"+$('type').value+"' />" + 
-
-
-		"<input type='hidden' name='"+basename+"_"+document[basename+"_count"]+"_value' value='"+$('type-value').value+"' />" +
-		"</div>";
-	$('type-value').value = "";
 	document[basename+"_count"]++;
+	$('submit-values').innerHTML += "<div id='"+basename+"_"+document[basename+"_count"]+"_container'>"+
+		$(basename+'_type').value + ": " + $(basename+'_type_value').value + "<a href='#' onclick='deletePermissionType(\""+basename+"_"+document[basename+"_count"]+"_container\"); return false'>X</a>" + 
+		"<input type='hidden' name='"+basename+"_"+document[basename+"_count"]+"_type' value='"+$(basename+'_type').value+"' />" + 
+
+
+		"<input type='hidden' name='"+basename+"_"+document[basename+"_count"]+"_value' value='"+$(basename+'_type_value').value+"' />" +
+		"</div>";
+	$(basename+'_type_value').value = "";
+	$(basename+"_spaces").writeAttribute('value', document[basename+"_count"]);
 }
 function deletePermissionType(container){
 	$(container).remove();
+}
+
+function initPermsField(basename)
+{
+	if($(basename+"_restricted").checked)
+	{
+		$(basename+"_advanced").show();
+		if($(basename+"_advanced_checkbox").checked)
+		{
+			$(basename+"_advanced_options").show();
+		}
+
+	}
+}
+
+function doAutoComplete(basename)
+{
+
+	new Ajax.Autocompleter(basename+"_type_value", basename+"_autocomplete_choices", eprints_http_cgiroot +"/users/lookup/view_permissions", {
+	  paramName: "query", 
+	  minChars: 2, 
+	  parameters: "type="+$(basename+"_type").value+"&basename="+basename
+//	  indicator: 'indicator1'
+	});
+
 }
