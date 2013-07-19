@@ -241,17 +241,19 @@ function showAdvancedCheckbox(basename) {
 		$(basename+'_advanced').show();
 }
 function hideAdvancedCheckbox(basename,value) {
-
+		document[basename+"_count"] = 1;
 		$(basename+'_advanced').hide();
 		$(basename+'_advanced_options').hide();
 		$(basename+'_advanced_checkbox').checked = false;
 		if(value == 'public')
 		{
-			$('submit-values').innerHTML = "<input type='hidden' value='public' />";
+			$('submit-values').innerHTML = "<input name='"+basename+"_"+document[basename+"_count"]+"_value' type='hidden' value='public' />";
+			$('submit-values').innerHTML += "<input name='"+basename+"_"+document[basename+"_count"]+"_type' type='hidden' value='public' />";
 		}
 		if(value == 'private')
 		{
-			$('submit-values').innerHTML = "<input type='hidden' value='private' />";
+			$('submit-values').innerHTML = "<input name='"+basename+"_"+document[basename+"_count"]+"_value' type='hidden' value='private' />";
+			$('submit-values').innerHTML += "<input name='"+basename+"_"+document[basename+"_count"]+"_type' type='hidden' value='private' />";
 		}
 
 }
@@ -263,7 +265,8 @@ function showAdvancedOptions(basename) {
 	}
 	else
 	{
-		$('submit-values').innerHTML = "<input type='hidden' value='restricted' />";
+		$('submit-values').innerHTML = "<input name='"+basename+"_"+document[basename+"_count"]+"_value' type='hidden' value='restricted' />";
+		$('submit-values').innerHTML += "<input name='"+basename+"_"+document[basename+"_count"]+"_type' type='hidden' value='resticted' />";
 		$(basename+'_advanced_options').hide();
 	}			
 }
