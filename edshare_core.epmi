@@ -9,9 +9,9 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>6e69e7ab5137125114b7ec64cfab659b</hash>
+          <hash>59c9e4936a23626a374b629c373f8bbe</hash>
           <hash_type>MD5</hash_type>
-          <filesize>17795</filesize>
+          <filesize>18255</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_eprint_automatic_fields.pl</filename>
@@ -79,9 +79,9 @@
         <file>
           <filename>epm/edshare_core/cfg/lang/en/phrases/x_edshare_core.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>b712cb1fef67605915010eb4788406ea</hash>
+          <hash>689c89124a48f01579ce1f360503048a</hash>
           <hash_type>MD5</hash_type>
-          <filesize>3585</filesize>
+          <filesize>4213</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/namedsets/eprint</filename>
@@ -93,16 +93,16 @@
         <file>
           <filename>epm/edshare_core/cfg/namedsets/view_permissions_type</filename>
           <mime_type>text/plain</mime_type>
-          <hash>57f3a642c939ae294d2fd51e3534f42b</hash>
+          <hash>c311a90304dbf9ee8f941fb817f5e888</hash>
           <hash_type>MD5</hash_type>
-          <filesize>16</filesize>
+          <filesize>42</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/javascript/auto/edshare_core.js</filename>
           <mime_type>text/x-c++</mime_type>
-          <hash>91d29aaacd28a319e3379eeba49f392f</hash>
+          <hash>24381ec9b9e81e3f85b6ebe0d87ed6a5</hash>
           <hash_type>MD5</hash_type>
-          <filesize>7913</filesize>
+          <filesize>8756</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/style/auto/edshare_core.css</filename>

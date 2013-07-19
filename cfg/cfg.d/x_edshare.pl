@@ -210,51 +210,70 @@ $c->{browse_views} = [
 $c->{render_view_permissions_input} = sub
 {
 	my ( $field, $repo, $current_value, $dataset, $staff, $hidden_fields, $object, $base_name ) = @_;
+	my $namedset_name = $dataset->field($field->{name}."_type")->{set_name}; 
+	my @values = $repo->get_types($namedset_name);
+	my %nameset_hash = map { $_ => 1 } @values;
 	
-	my $xml_string = '<div>
-	<input name="privacy" type="radio" value="private" onchange="hideAdvancedCheckbox(\''.$base_name.'\',\'private\')" ';
-	if(scalar @{$current_value} == 0)
+
+	my $xml_string = '<div>';
+
+	if( defined $nameset_hash{private} )
 	{
-		$xml_string .= 'checked="checked"';
-	}
-	$xml_string .= '/>Private
-	<input name="privacy" type="radio" value="public" onchange="hideAdvancedCheckbox(\''.$base_name.'\',\'public\')" ';
-	if(scalar @{$current_value} == 1)
-	{
-		$xml_string .= 'checked="checked"';
+		$xml_string .= '<input name="privacy" type="radio" value="private" onchange="hideAdvancedCheckbox(\''.$base_name.'\',\'private\')" ';
+		if(scalar @{$current_value} == 0)
+		{
+			$xml_string .= 'checked="checked"';
+		}
+		$xml_string .= '/>'.$repo->phrase($namedset_name."_typename_private");
+		delete $nameset_hash{private};
 	}
 	
-	$xml_string .= '/>Public
-	<input name="privacy" type="radio" value="restricted" onchange="showAdvancedCheckbox(\''.$base_name.'\')" id="'.$base_name.'_restricted" ';
+	if( defined $nameset_hash{public} )
+	{
+		$xml_string .= '<input name="privacy" type="radio" value="public" onchange="hideAdvancedCheckbox(\''.$base_name.'\',\'public\')" ';
+		if(scalar @{$current_value} == 1)
+		{
+			$xml_string .= 'checked="checked"';
+		}
+		
+		$xml_string .= '/>'.$repo->phrase($namedset_name."_typename_public");
+		delete $nameset_hash{public};
+	}
+	
+	if( defined $nameset_hash{restricted} )
+	{
+		$xml_string .= '<input name="privacy" type="radio" value="restricted" onchange="showAdvancedCheckbox(\''.$base_name.'\')" id="'.$base_name.'_restricted" ';
+		if(scalar @{$current_value} > 1)
+		{
+			$xml_string .= 'checked="checked"';
+		}
+		$xml_string .= '/>'.$repo->phrase($namedset_name."_typename_restricted");
+		delete $nameset_hash{restricted};
+	}
+
+	$xml_string .= '<span id="'.$base_name.'_advanced" style="display:none;"><input type="checkbox" name="advanced" id="'.$base_name.'_advanced_checkbox" onchange="showAdvancedOptions(\''.$base_name.'\')" ';
 	if(scalar @{$current_value} > 1)
 	{
 		$xml_string .= 'checked="checked"';
 	}
-	$xml_string .= '/>Restricted to University
-	<span id="'.$base_name.'_advanced" style="display:none;"><input type="checkbox" name="advanced" id="'.$base_name.'_advanced_checkbox" onchange="showAdvancedOptions(\''.$base_name.'\')" ';
-	if(scalar @{$current_value} > 1)
-	{
-		$xml_string .= 'checked="checked"';
-	}
-	$xml_string .= '/> Show advanced options</span>
+	$xml_string .= '/> '.$repo->phrase($namedset_name."_typename_show_advanced").'</span>
 	<div id="'.$base_name.'_advanced_options" style="display:none;">
 		<select id="'.$base_name.'_type" name="type">';
-	my $namedset_name = $dataset->field($field->{name}."_type")->{set_name};
-	my @values = $repo->get_types($namedset_name);
-	foreach my $value (@values)
+	foreach my $value (keys %nameset_hash)
 	{
 		#licenses_typename_odc_dbcl
 		$xml_string .= '<option value="'.$value.'">'.$repo->phrase($namedset_name."_typename_".$value).'</option>';
 	}
 	$xml_string .='</select>
-		<input id="'.$base_name.'_type_value" type="text" name="typevalue" onkeydown="if(event.keyCode == 13){addPermissionType(\''.$base_name.'\');}else{doAutoComplete(\''.$base_name.'\');} return false" autocomplete="off"/>
+		<input id="'.$base_name.'_type_value" type="text" name="typevalue" onkeydown="doAutoComplete(\''.$base_name.'\')" autocomplete="off"/>
 		<input type="button" value="Add" onclick="addPermissionType(\''.$base_name.'\'); return false;" />
 		<div id="'.$base_name.'_autocomplete_choices" class="autocomplete" style="display:none;"> </div>
 
 
+	</div>
 		<div id="submit-values">';
 	
-	my $value_count = 0;
+	my $value_count = 1;
 	foreach my $value (@{$current_value})
 	{
 		$xml_string .= "<div id='".$base_name."_".$value_count."_container'>";
@@ -272,7 +291,6 @@ $c->{render_view_permissions_input} = sub
 			initPermsField("'.$base_name.'");
 		</script>
 		<input type="hidden" name="'.$base_name.'_spaces" id="'.$base_name.'_spaces" value="'.$value_count.'"/>
-	</div>
 </div>';
 	my $temp_doc = $repo->xml->parse_string($xml_string);
 	foreach my $div ($temp_doc->getChildNodes())

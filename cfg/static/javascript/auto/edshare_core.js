@@ -237,7 +237,9 @@ function addInlineTag( inputid, tag )
 /* javascript for view permissions render */
 
 function showAdvancedCheckbox(basename) {
-		$('submit-values').innerHTML = "<input type='hidden' value='restricted' />";
+		document[basename+"_count"] = 1;
+		$('submit-values').innerHTML = "<input name='"+basename+"_"+document[basename+"_count"]+"_value' type='hidden' value='restricted' />";
+		$('submit-values').innerHTML += "<input name='"+basename+"_"+document[basename+"_count"]+"_type' type='hidden' value='restricted' />";
 		$(basename+'_advanced').show();
 }
 function hideAdvancedCheckbox(basename,value) {
