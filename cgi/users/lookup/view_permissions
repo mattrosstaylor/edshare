@@ -24,7 +24,6 @@ if($repo->param("type") eq "user")
 		print "<li><span class='informal'>$given $family (</span>$username<span class='informal'>)</span></li>";
 	}
 	print "</ul>";
-
 }
 
 if($repo->param("type") eq "department")
@@ -41,6 +40,4 @@ if($repo->param("type") eq "department")
 		print "<li>$dept</li>";
 	}
 	print "</ul>";
-
 }
-

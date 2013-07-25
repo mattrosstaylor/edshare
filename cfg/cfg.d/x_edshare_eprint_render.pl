@@ -4,7 +4,6 @@ $c->{summary_page_metadata} = [qw/
 	creators
 	keywords
 	license
-	viewperms
 /];
 
 # IMPORTANT NOTE ABOUT SUMMARY PAGES

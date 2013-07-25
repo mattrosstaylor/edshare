@@ -96,11 +96,9 @@ sub action_deposit
 
 	if (not $from_ok)
 	{
-		if(exists $self->{processor}->{eprint}->{viewperms})
-		{
-			$self->{processor}->{eprint}->value("viewperms", "private");
-			$self->{processor}->{eprint}->commit;
-		}
+		$self->{processor}->{eprint}->set_value( "validation_status", "error" );
+		$self->{processor}->{eprint}->commit;
+
 		$self->{processor}->{eprint}->move_to_inbox;
 		$self->{processor}->add_message( "error", $self->html_phrase( "validation_errors" ) ); 
 		return;
@@ -109,11 +107,9 @@ sub action_deposit
 	my $problems = $self->{processor}->{eprint}->validate( $self->{processor}->{for_archive}, $self->workflow_id );
 	if( scalar @{$problems} > 0)
 	{
-		if(exists $self->{processor}->{eprint}->{viewperms})
-		{
-			$self->{processor}->{eprint}->value("viewperms", "private");
-			$self->{processor}->{eprint}->commit;
-		}
+		$self->{processor}->{eprint}->set_value( "validation_status", "error" );
+		$self->{processor}->{eprint}->commit;
+
 		$self->{processor}->{eprint}->move_to_inbox;
 	
 		$self->{processor}->add_message( "error", $self->html_phrase( "validation_errors" ) ); 
@@ -130,14 +126,14 @@ sub action_deposit
 	}
 
 	$self->{processor}->{eprint}->set_value( "edit_lock_until", 0 );
+	$self->{processor}->{eprint}->set_value( "validation_status", "ok" );
 	$self->{processor}->{eprint}->commit;
 
 
 	# OK, no problems, submit it to the archive
-	$self->{processor}->{eprint}->set_value( "edit_lock_until", 0 );
 	my $ok = 0;
 
-	if ($self->{processor}->{eprint}->exists_and_set("viewperms") && $self->{processor}->{eprint}->value("viewperms") eq "private")
+	if ($self->{processor}->{eprint}->exists_and_set("view_permissions") && @{$self->{processor}->{eprint}->value("view_permissions")}[0]->{type} eq "private")
 	{
 		$ok = $self->{processor}->{eprint}->move_to_inbox;
 	}
