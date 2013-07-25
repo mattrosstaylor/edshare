@@ -94,9 +94,9 @@ bGVfbW9yZScpIi8+PC9kaXY+CjwvY2l0ZTpjaXRhdGlvbj4K
         <file>
           <filename>epm/resource_manager/cfg/citations/eprint/manageable_data.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>9e649d68bc547403788ea35f381c6a36</hash>
+          <hash>f0dfc470ee98d275c4215b982d569a90</hash>
           <hash_type>MD5</hash_type>
-          <filesize>633</filesize>
+          <filesize>904</filesize>
           <data encoding='base64'>PD94bWwgdmVyc2lvbj0iMS4wIiA/PgoKPGNpdGU6Y2l0YXRpb24geG1sbnM9Imh0dHA6Ly93d3cu
 dzMub3JnLzE5OTkveGh0bWwiIHhtbG5zOmNpdGU9Imh0dHA6Ly9lcHJpbnRzLm9yZy9lcDMvY2l0
 YXRpb24iIHhtbG5zOmVwYz0iaHR0cDovL2VwcmludHMub3JnL2VwMy9jb250cm9sIj4KCjxkaXYg
@@ -105,10 +105,14 @@ b3c6ZWxsaXBzaXM7IHdpZHRoOjgwJSI+Cgk8aW5wdXQgdHlwZT0iY2hlY2tib3giIG5hbWU9ImJ1
 bGthY3Rpb25fZXByaW50aWRzIiB2YWx1ZT0ie2VwcmludGlkfSIgaWQ9InNlbGVjdC17ZXByaW50
 aWR9IiBjbGFzcz0iZXBfcmVzb3VyY2VfbWFuYWdlcl9zZWxlY3RfY2hlY2siLz4KCTxjaXRlOmxp
 bmtoZXJlPjxzcGFuIHRpdGxlPSJ7dGl0bGV9IiBjbGFzcz0iZXBfbWFuYWdlYWJsZV9kYXRhX3Rp
-dGxlIj48cHJpbnQgZXhwcj0idGl0bGUiLz48L3NwYW4+PC9jaXRlOmxpbmtoZXJlPgo8L2Rpdj4K
-PGRpdiBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7IHdpZHRoOiAxOSU7IHZlcnRpY2FsLWFs
-aWduOiB0b3A7Ij4KICAgIAk8cHJpbnQgZXhwcj0idHlwZSIvPgo8L2Rpdj4KCjwvY2l0ZTpjaXRh
-dGlvbj4K
+dGxlIj48cHJpbnQgZXhwcj0idGl0bGUiLz48L3NwYW4+PC9jaXRlOmxpbmtoZXJlPgoJPGVwYzpp
+ZiB0ZXN0PSJ2YWxpZGF0aW9uX3N0YXR1cyA9ICdlcnJvciciPgoJCTxpbWcgdGl0bGU9IlRoaXMg
+cmVzb3VyY2UgZmFpbGVkIHZhbGlkYXRpb24gYW5kIGlzIGN1cnJlbnRseSBpbmFjY2Vzc2libGUi
+IGNsYXNzPSJlcF9tYW5hZ2VhYmxlX2FjdGlvbl9idXR0b24gZXBfbWFuYWdlYWJsZV9hY3Rpb25f
+aWNvbiIgc3JjPSJ7JGNvbmZpZ3tyZWxfcGF0aH19L2ltYWdlcy9yZXNvdXJjZV9tYW5hZ2VyL3dh
+cm5pbmcucG5nIiBib3JkZXI9IjAiLz4KCTwvZXBjOmlmPgoKPC9kaXY+CjxkaXYgc3R5bGU9ImRp
+c3BsYXk6aW5saW5lLWJsb2NrOyB3aWR0aDogMTklOyB2ZXJ0aWNhbC1hbGlnbjogdG9wOyI+CiAg
+ICAJPHByaW50IGV4cHI9InR5cGUiLz4KPC9kaXY+Cgo8L2NpdGU6Y2l0YXRpb24+Cg==
 </data>
         </file>
         <file>

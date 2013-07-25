@@ -5,6 +5,10 @@
 <div style="display:inline-block; overflow:hidden; text-overflow:ellipsis; width:80%">
 	<input type="checkbox" name="bulkaction_eprintids" value="{eprintid}" id="select-{eprintid}" class="ep_resource_manager_select_check"/>
 	<cite:linkhere><span title="{title}" class="ep_manageable_data_title"><print expr="title"/></span></cite:linkhere>
+	<epc:if test="validation_status = 'error'">
+		<img title="This resource failed validation and is currently inaccessible" class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/warning.png" border="0"/>
+	</epc:if>
+
 </div>
 <div style="display:inline-block; width: 19%; vertical-align: top;">
     	<print expr="type"/>
