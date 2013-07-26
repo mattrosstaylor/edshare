@@ -30,7 +30,7 @@
 	<field ref="raw_keywords" show_pickup_list="1"/>
     </component>
 
-    <component><field ref="view_permissions" required="yes"/></component>
+    <component type="Field::ViewPermissions"><field ref="view_permissions" required="yes"/></component>
 
 </stage>
 

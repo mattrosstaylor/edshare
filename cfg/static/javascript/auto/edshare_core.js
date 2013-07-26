@@ -236,45 +236,26 @@ function addInlineTag( inputid, tag )
 
 /* javascript for view permissions render */
 function showAdvancedCheckbox(basename) {
-	document[basename+"_count"] = 1;
-	$('submit-values').innerHTML = "<input name='"+basename+"_"+document[basename+"_count"]+"_value' type='hidden' value='restricted' />";
-	$('submit-values').innerHTML += "<input name='"+basename+"_"+document[basename+"_count"]+"_type' type='hidden' value='restricted' />";
 	$(basename+'_advanced').show();
 }
 
-function hideAdvancedCheckbox(basename,value) {
-	document[basename+"_count"] = 1;
+function hideAdvancedCheckbox(basename) {
 	$(basename+'_advanced').hide();
 	$(basename+'_advanced_options').hide();
-	$(basename+'_advanced_checkbox').checked = false;
-	if(value == 'public')
-	{
-		$('submit-values').innerHTML = "<input name='"+basename+"_"+document[basename+"_count"]+"_value' type='hidden' value='public' />";
-		$('submit-values').innerHTML += "<input name='"+basename+"_"+document[basename+"_count"]+"_type' type='hidden' value='public' />";
-	}
-	if(value == 'private')
-	{
-		$('submit-values').innerHTML = "<input name='"+basename+"_"+document[basename+"_count"]+"_value' type='hidden' value='private' />";
-		$('submit-values').innerHTML += "<input name='"+basename+"_"+document[basename+"_count"]+"_type' type='hidden' value='private' />";
-	}
 }
 
-function showAdvancedOptions(basename) {
+function toggleAdvancedOptions(basename) {
 	if($(basename+'_advanced_checkbox').checked)
 	{
-		$('submit-values').innerHTML = "";
 		$(basename+'_advanced_options').show();
 	}
 	else
 	{
-		$('submit-values').innerHTML = "<input name='"+basename+"_"+document[basename+"_count"]+"_value' type='hidden' value='restricted' />";
-		$('submit-values').innerHTML += "<input name='"+basename+"_"+document[basename+"_count"]+"_type' type='hidden' value='resticted' />";
 		$(basename+'_advanced_options').hide();
 	}			
 }
 
 function addPermissionType(basename) {
-	document[basename+"_count"]++;
 	$('submit-values').innerHTML += "<div id='"+basename+"_"+document[basename+"_count"]+"_container'>"+
 		$(basename+'_type').value + ": " + $(basename+'_type_value').value + "<a href='#' onclick='deletePermissionType(\""+basename+"_"+document[basename+"_count"]+"_container\"); return false'>X</a>" + 
 		"<input type='hidden' name='"+basename+"_"+document[basename+"_count"]+"_type' value='"+$(basename+'_type').value+"' />" + 

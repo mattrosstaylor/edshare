@@ -129,7 +129,6 @@ $c->{fields}->{eprint} = [
 			'input_cols' => 20,
 		}
 	],
-	'render_input'=>'render_view_permissions_input',
 },
 
 
@@ -222,108 +221,6 @@ $c->{browse_views} = [
                 citation => "result",
         },
 ];
-
-$c->{render_view_permissions_input} = sub
-{
-	my ( $field, $repo, $current_value, $dataset, $staff, $hidden_fields, $object, $base_name ) = @_;
-	my $namedset_name = $dataset->field($field->{name}."_type")->{set_name}; 
-	my @values = $repo->get_types($namedset_name);
-	my %nameset_hash = map { $_ => 1 } @values;
-
-	my $xml_string = '<div>';
-
-	my $first_value_type = @$current_value[0]->{type};
-	my $show_advanced_options = (not ($first_value_type eq "public" or $first_value_type eq "private" or $first_value_type eq "restricted"));
-
-	if( defined $nameset_hash{private} )
-	{
-		$xml_string .= '<input name="privacy" type="radio" value="private" onchange="hideAdvancedCheckbox(\''.$base_name.'\',\'private\')" ';
-		if($first_value_type eq "private")
-		{
-			$xml_string .= 'checked="checked"';
-		}
-		$xml_string .= '/>'.$repo->phrase($namedset_name."_typename_private");
-		delete $nameset_hash{private};
-	}
-	
-	if( defined $nameset_hash{public} )
-	{
-		$xml_string .= '<input name="privacy" type="radio" value="public" onchange="hideAdvancedCheckbox(\''.$base_name.'\',\'public\')" ';
-		if($first_value_type eq "public")
-		{
-			$xml_string .= 'checked="checked"';
-		}
-		
-		$xml_string .= '/>'.$repo->phrase($namedset_name."_typename_public");
-		delete $nameset_hash{public};
-	}
-	
-	if( defined $nameset_hash{restricted} )
-	{
-		$xml_string .= '<input name="privacy" type="radio" value="restricted" onchange="showAdvancedCheckbox(\''.$base_name.'\')" id="'.$base_name.'_restricted" ';
-		if( not ($first_value_type eq "public" or $first_value_type eq "private") )
-		{
-			$xml_string .= 'checked="checked"';
-		}
-		$xml_string .= '/>'.$repo->phrase($namedset_name."_typename_restricted");
-		delete $nameset_hash{restricted};
-	}
-
-	$xml_string .= '<span id="'.$base_name.'_advanced" style="display:none;"><input type="checkbox" name="advanced" id="'.$base_name.'_advanced_checkbox" onchange="showAdvancedOptions(\''.$base_name.'\')" ';
-	if ($show_advanced_options)
-	{
-		$xml_string .= 'checked="checked"';
-	}
-
-	$xml_string .= '/> '.$repo->phrase($namedset_name."_typename_show_advanced").'</span>
-	<div id="'.$base_name.'_advanced_options" style="display:none;">
-		<select id="'.$base_name.'_type" name="type">';
-
-	foreach my $value (keys %nameset_hash)
-	{
-		#licenses_typename_odc_dbcl
-		$xml_string .= '<option value="'.$value.'">'.$repo->phrase($namedset_name."_typename_".$value).'</option>';
-	}
-
-	$xml_string .='</select>
-		<input id="'.$base_name.'_type_value" type="text" name="typevalue" onkeydown="doAutoComplete(\''.$base_name.'\')" autocomplete="off"/>
-		<input type="button" value="Add" onclick="addPermissionType(\''.$base_name.'\'); return false;" />
-		<div id="'.$base_name.'_autocomplete_choices" class="autocomplete" style="display:none;"> </div>
-
-
-	</div>
-		<div id="submit-values">';
-	
-	my $value_count = 0;
-	foreach my $value (@{$current_value})
-	{
-		$value_count++;
-		$xml_string .= "<div id='".$base_name."_".$value_count."_container'>";
-			# only display the values if advanced options
-		if ($show_advanced_options) {
-			$xml_string .= $value->{type}.": ".$value->{value};
-			$xml_string .= "<a onclick='deletePermissionType(\"${base_name}_${value_count}_container\"); return false' href='#'>X</a>";
-		}
-		$xml_string .= "<input type='hidden' value='".$value->{type}."' name='${base_name}_${value_count}_type' />";
-		$xml_string .= "<input type='hidden' value='".$value->{value}."' name='${base_name}_${value_count}_value' />";
-		$xml_string .= "</div>";
-	}
-
-	$xml_string .= '</div>
-		<script type="text/javascript">
-			document.'.$base_name.'_count = 0;
-			initPermsField("'.$base_name.'");
-		</script>
-		<input type="hidden" name="'.$base_name.'_spaces" id="'.$base_name.'_spaces" value="'.$value_count.'"/>
-</div>';
-	my $temp_doc = $repo->xml->parse_string($xml_string);
-	foreach my $div ($temp_doc->getChildNodes())
-	{
-		return $div;
-	}
-
-};
-
 
 $c->{search}->{advanced} = 
 {
@@ -547,6 +444,7 @@ $c->{plugins}->{"MePrints::Widget::EPrintsIssues"}->{params}->{disable} = 1;
 $c->{plugins}->{"MePrints::Widget::TopTen"}->{params}->{disable} = 1;
 
 $c->{plugins}->{"InputForm::Component::Field::TagLite"}->{params}->{disable} = 0;
+$c->{plugins}->{"InputForm::Component::Field::ViewPermissions"}->{params}->{disable} = 0;
 $c->{plugins}->{"TagCloud"}->{params}->{disable} = 0;
 #add mimetypes for css and javascript so they are served properly
 $c->{mimemap}->{css}  = "text/css";
