@@ -235,13 +235,24 @@ function addInlineTag( inputid, tag )
 
 
 /* javascript for view permissions render */
-function showAdvancedCheckbox(basename) {
-	$(basename+'_advanced').show();
+
+
+
+function viewPermissionsCoarseSelect(basename,type) {
+	$(basename+"_coarse_options").childElements().each(function(node) { node.removeClassName("selected");});
+	$$('input[name="'+basename+'_coarse_type"]')[0].value = type;
+	$(basename+"_"+type).addClassName("selected");
 }
 
-function hideAdvancedCheckbox(basename) {
-	$(basename+'_advanced').hide();
-	$(basename+'_advanced_options').hide();
+function viewPermissionsRadioSelected(basename, type) {
+	if (type == "restricted") {
+		$(basename+'_advanced').show();
+		toggleAdvancedOptions(basename);
+	}
+	else {
+		$(basename+'_advanced').hide();
+		$(basename+'_advanced_options').hide();
+	}
 }
 
 function toggleAdvancedOptions(basename) {

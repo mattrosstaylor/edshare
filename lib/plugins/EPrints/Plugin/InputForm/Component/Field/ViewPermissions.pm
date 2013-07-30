@@ -40,63 +40,57 @@ sub render_content
 	}
 
 	my $namedset_name = $dataset->field($field->{name}."_type")->{set_name}; 
-	my @values = $session->get_types($namedset_name);
-	my %nameset_hash = map { $_ => 1 } @values;
-
-	my $xml_string = '<div>';
+	my @view_permission_types = $session->get_types($namedset_name);
+	my %nameset_hash = map { $_ => 1 } @view_permission_types;
 
 	my $first_value_type = @$value[0]->{type};
 	my $show_advanced_options = (not ($first_value_type eq "public" or $first_value_type eq "private" or $first_value_type eq "restricted"));
 
-	if( defined $nameset_hash{private} )
+	my $xml_string = '<div>';
+	$xml_string .= '<ul id="'.$basename.'_coarse_options" class="edshare_view_permissions_coarse">';
+	foreach my $type ('private', 'public', 'restricted')
 	{
-		$xml_string .= '<input name="'.$basename.'_coarse_type" type="radio" value="private" onchange="hideAdvancedCheckbox(\''.$basename.'\')" ';
-		if($first_value_type eq "private")
+
+		if( defined $nameset_hash{$type} )
 		{
-			$xml_string .= 'checked="checked"';
+			$xml_string .= '<li id="'.$basename.'_'.$type.'" ';
+			if ($first_value_type eq $type)
+			{
+				$xml_string .= 'class="selected" ';
+			}
+			$xml_string .= 'onclick="viewPermissionsCoarseSelect(\''.$basename.'\',\''.$type.'\')" >';
+			$xml_string .= '<img src="/style/images/'.$type.'.png" /><br/>';
+			$xml_string .= $session->phrase($namedset_name."_typename_".$type);
+			$xml_string .= '</li>';
+			delete $nameset_hash{$type};
 		}
-		$xml_string .= '/>'.$session->phrase($namedset_name."_typename_private");
-		delete $nameset_hash{private};
-	}
-	
-	if( defined $nameset_hash{public} )
-	{
-		$xml_string .= '<input name="'.$basename.'_coarse_type" type="radio" value="public" onchange="hideAdvancedCheckbox(\''.$basename.'\')" ';
-		if($first_value_type eq "public")
-		{
-			$xml_string .= 'checked="checked"';
-		}
-		
-		$xml_string .= '/>'.$session->phrase($namedset_name."_typename_public");
-		delete $nameset_hash{public};
-	}
-	
-	if( defined $nameset_hash{restricted} )
-	{
-		$xml_string .= '<input name="'.$basename.'_coarse_type" type="radio" value="restricted" onchange="showAdvancedCheckbox(\''.$basename.'\')" ';
-		if( not ($first_value_type eq "public" or $first_value_type eq "private") )
-		{
-			$xml_string .= 'checked="checked"';
-		}
-		$xml_string .= '/>'.$session->phrase($namedset_name."_typename_restricted");
-		delete $nameset_hash{restricted};
 	}
 
-
-	$xml_string .= '<span id="'.$basename.'_advanced" style="display:none;"><input type="checkbox" name="'.$basename.'_advanced_checkbox" id="'.$basename.'_advanced_checkbox" onchange="toggleAdvancedOptions(\''.$basename.'\')" ';
+	$xml_string .= '<li id="'.$basename.'_custom" ';
 	if ($show_advanced_options)
 	{
-		$xml_string .= 'checked="checked"';
+		$xml_string .= 'class="selected" ';
 	}
+	$xml_string .= 'onclick="viewPermissionsCoarseSelect(\''.$basename.'\',\'custom\')" >';
+	$xml_string .= '<img src="/style/images/custom.png" /><br/>';
+	$xml_string .= $session->phrase($namedset_name."_custom");
+	$xml_string .= '</li>';
 
-	$xml_string .= '/> '.$session->phrase($namedset_name."_typename_show_advanced").'</span>';
+	$xml_string .= '</ul>';
 
+	$xml_string .= '<input name="'.$basename.'_coarse_type" type="hidden" value="'.$first_value_type.'" />';
+ 
 	$xml_string .= '<div id="'.$basename.'_advanced_options" style="display:none;">
 		<select id="'.$basename.'_type" name="type">';
 
-	foreach my $value (keys %nameset_hash)
+
+	# iterate through the array of types and print any that haven't been rendered yet
+	foreach my $value (@view_permission_types)
 	{
-		$xml_string .= '<option value="'.$value.'">'.$session->phrase($namedset_name."_typename_".$value).'</option>';
+		if ($nameset_hash{$value})
+		{
+			$xml_string .= '<option value="'.$value.'">'.$session->phrase($namedset_name."_typename_".$value).'</option>';
+		}
 	}
 
 	$xml_string .='</select>
@@ -137,7 +131,6 @@ sub render_content
 		return $div;
 	}
 =cut
-
 	$xml_string .= '</div>';
 	my $temp_doc = $session->xml->parse_string($xml_string);
 
