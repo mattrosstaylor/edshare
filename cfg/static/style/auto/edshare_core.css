@@ -76,14 +76,18 @@ div.autocomplete ul li {
 }
 
 /* view permissons */
-.edshare_view_permissions_coarse {
+.edshare_permissions {
+	text-align:center;
+}
+
+
+.edshare_permissions_coarse {
 	list-style:none;
 	text-align:center;
 }
 
-.edshare_view_permissions_coarse li {
+.edshare_permissions_coarse li {
 	display: inline-block;
-	text-align: center;
 	padding: 5px 20px;
 	font-weight:bold;
 	zoom: 1;
@@ -92,13 +96,13 @@ div.autocomplete ul li {
 	cursor: pointer;
 }
 
-.edshare_view_permissions_coarse img {
+.edshare_permissions_coarse img {
 	height: 64px;
 	width: 64px;
 	padding-bottom: 5px;
 }
 
-.edshare_view_permissions_coarse > li.selected {
+.edshare_permissions_coarse > li.selected {
 	border: 1px dashed black;
 	padding: 4px 19px;
 	background: white;

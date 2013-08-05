@@ -12,6 +12,7 @@ our @replaced_files = (
 	"/citations/eprint/result.xml",
 	"/namedsets/eprint",
 	"/namedsets/user",
+	"/workflows/eprint/default.xml",
 );
 
 sub new

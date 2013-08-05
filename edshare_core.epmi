@@ -9,12 +9,12 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>73a29f532458fac346aa73cf20b3b463</hash>
+          <hash>608ac4b561ddca3d0a93c84f2a3b0e48</hash>
           <hash_type>MD5</hash_type>
-          <filesize>14851</filesize>
+          <filesize>14793</filesize>
         </file>
         <file>
-          <filename>epm/edshare_core/cfg/cfg.d/x_edshare_eprint_automatic_fields.pl</filename>
+          <filename>epm/edshare_core/cfg/cfg.d/x_edshare_eprint_fields_automatic.pl</filename>
           <mime_type>text/plain</mime_type>
           <hash>a18e528f76b0e8013baf31f5247ba007</hash>
           <hash_type>MD5</hash_type>
@@ -26,6 +26,13 @@
           <hash>9e40db6c1a71ad54da47b76315c66647</hash>
           <hash_type>MD5</hash_type>
           <filesize>2580</filesize>
+        </file>
+        <file>
+          <filename>epm/edshare_core/cfg/cfg.d/x_edshare_eprint_search.pl</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>3b5633f79417e8035bc370074f6a8526</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>2348</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_eprint_validate.pl</filename>
@@ -79,9 +86,9 @@
         <file>
           <filename>epm/edshare_core/cfg/lang/en/phrases/x_edshare_core.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>c4e2fd4651c26fc8fc5b5ae6f28fadc4</hash>
+          <hash>37cefa939328e8e887b170ecde334e13</hash>
           <hash_type>MD5</hash_type>
-          <filesize>4583</filesize>
+          <filesize>4961</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/namedsets/eprint</filename>
@@ -93,23 +100,23 @@
         <file>
           <filename>epm/edshare_core/cfg/namedsets/view_permissions_type</filename>
           <mime_type>text/plain</mime_type>
-          <hash>c311a90304dbf9ee8f941fb817f5e888</hash>
+          <hash>5b73fd9ce0701073c4ec987414f90874</hash>
           <hash_type>MD5</hash_type>
-          <filesize>42</filesize>
+          <filesize>44</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/javascript/auto/edshare_core.js</filename>
           <mime_type>text/x-c++</mime_type>
-          <hash>3a34916c852354053ed4d4eae7fd45fb</hash>
+          <hash>3b8ee9439a6a504f309d0accf4d4af77</hash>
           <hash_type>MD5</hash_type>
-          <filesize>7737</filesize>
+          <filesize>7852</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/style/auto/edshare_core.css</filename>
           <mime_type>text/x-c</mime_type>
-          <hash>b1bc59f3482f4b92e5f560c76aef0ac3</hash>
+          <hash>407893640ef0b7ed928a9026207e868f</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1665</filesize>
+          <filesize>1671</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/style/images/custom.png</filename>
@@ -147,11 +154,11 @@
           <filesize>203</filesize>
         </file>
         <file>
-          <filename>epm/edshare_core/cfg/workflows/eprint/resource.xml</filename>
+          <filename>epm/edshare_core/cfg/workflows/eprint/default.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>59badd7cd8c6a7c3a246a376a2d1d2e3</hash>
+          <hash>df0b6ad2c94b9973cafe1e1bc74195fd</hash>
           <hash_type>MD5</hash_type>
-          <filesize>995</filesize>
+          <filesize>991</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cgi/edshare_toolbox</filename>
@@ -189,6 +196,13 @@
           <filesize>5338</filesize>
         </file>
         <file>
+          <filename>plugins/EPrints/Plugin/InputForm/Component/Field/Permissions.pm</filename>
+          <mime_type>inode/symlink</mime_type>
+          <hash>7b38fed6e5d316774f4e88adb778e580</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>4194</filesize>
+        </file>
+        <file>
           <filename>plugins/EPrints/Plugin/InputForm/Component/Field/TagLite.pm</filename>
           <mime_type>inode/symlink</mime_type>
           <hash>63bf093e2725958029ead45f27b11d0e</hash>
@@ -196,18 +210,11 @@
           <filesize>8950</filesize>
         </file>
         <file>
-          <filename>plugins/EPrints/Plugin/InputForm/Component/Field/ViewPermissions.pm</filename>
-          <mime_type>inode/symlink</mime_type>
-          <hash>02a1b34d851d99d7f1048ebfa1c6a861</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>4939</filesize>
-        </file>
-        <file>
           <filename>plugins/EPrints/Plugin/Screen/EPMC/EdShareCore.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>2bd7b554bdfe9c6547e438d716022337</hash>
+          <hash>00db673a18c4d50d7b150bb1a3cea8ae</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1925</filesize>
+          <filesize>1959</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPrint/EdShareEdit.pm</filename>

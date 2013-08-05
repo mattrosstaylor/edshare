@@ -234,14 +234,20 @@ function addInlineTag( inputid, tag )
 } 
 
 
-/* javascript for view permissions render */
+/* javascript for  permissions render */
 
 
-
-function viewPermissionsCoarseSelect(basename,type) {
+function permissionsCoarseSelect(basename,type) {
 	$(basename+"_coarse_options").childElements().each(function(node) { node.removeClassName("selected");});
 	$$('input[name="'+basename+'_coarse_type"]')[0].value = type;
 	$(basename+"_"+type).addClassName("selected");
+
+	if (type == "custom") {
+		$(basename+"_advanced_options").show();
+	}
+	else {
+		$(basename+"_advanced_options").hide();
+	}
 }
 
 function viewPermissionsRadioSelected(basename, type) {

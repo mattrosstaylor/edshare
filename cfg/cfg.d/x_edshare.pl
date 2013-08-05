@@ -404,11 +404,6 @@ $c->{"edshare_choose_workflow"} = sub {
 		return "collection";
 	}
 	
-	if($type eq "resource")
-	{
-		return "resource";
-	}
-	
 	return "default";
 	
 };
@@ -444,7 +439,7 @@ $c->{plugins}->{"MePrints::Widget::EPrintsIssues"}->{params}->{disable} = 1;
 $c->{plugins}->{"MePrints::Widget::TopTen"}->{params}->{disable} = 1;
 
 $c->{plugins}->{"InputForm::Component::Field::TagLite"}->{params}->{disable} = 0;
-$c->{plugins}->{"InputForm::Component::Field::ViewPermissions"}->{params}->{disable} = 0;
+$c->{plugins}->{"InputForm::Component::Field::Permissions"}->{params}->{disable} = 0;
 $c->{plugins}->{"TagCloud"}->{params}->{disable} = 0;
 #add mimetypes for css and javascript so they are served properly
 $c->{mimemap}->{css}  = "text/css";
