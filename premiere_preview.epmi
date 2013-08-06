@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<epm xmlns='http://eprints.org/ep2/data/2.0' id='http://waisvm-medshare.ecs.soton.ac.uk/id/epm/premiere_preview'>
+<epm xmlns='http://eprints.org/ep2/data/2.0' id='http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/premiere_preview'>
   <epmid>premiere_preview</epmid>
-  <uri>http://lslvm-mrt5b.ecs.soton.ac.uk/id/epm/premiere_preview</uri>
+  <uri>http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/premiere_preview</uri>
   <documents>
     <document>
       <files>
@@ -29,9 +29,9 @@
         <file>
           <filename>epm/premiere_preview/cfg/lang/en/phrases/premiere_preview.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>9db3fa30de7882551698aa92b7ce48af</hash>
+          <hash>d6ab6c7ed9fc6a1c73cf4b9810547748</hash>
           <hash_type>MD5</hash_type>
-          <filesize>688</filesize>
+          <filesize>547</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/static/javascript/auto/premiere_preview.js</filename>
@@ -60,6 +60,13 @@
           <hash>9606e1bf32e63284e6b8bf65df58949a</hash>
           <hash_type>MD5</hash_type>
           <filesize>2162</filesize>
+        </file>
+        <file>
+          <filename>epm/premiere_preview/cfg/static/style/images/denied.png</filename>
+          <mime_type>image/png</mime_type>
+          <hash>e20a0086ec62bacf3e8dbda83013623d</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>12574</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/static/style/images/license_icons/cc_by.png</filename>
@@ -120,9 +127,9 @@
         <file>
           <filename>epm/premiere_preview/cgi/premiere_preview_init</filename>
           <mime_type>text/plain</mime_type>
-          <hash>8c23e281fb6ad95c79d964114caba990</hash>
+          <hash>5f6d2e7ff4376070585ad6e20970b08a</hash>
           <hash_type>MD5</hash_type>
-          <filesize>765</filesize>
+          <filesize>827</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Convert/OfficePreview.pm</filename>

@@ -18,9 +18,9 @@ if ( $repository->call("can_user_view_document", $doc, $user) eq "ALLOW" )
 	my $div = $xml->create_document_fragment;
 	$div->appendChild( $eprint->render_citation("premiere_preview_document_list") );
 	print '<iframe id="premiere_preview_area" scrolling="no" src=""> </iframe>';
-	print $xml->to_string($div);
+	print $xml->to_string( $div );
 }
 else {
-	print "DENIED!!";
+	print $xml->to_string( $repository->html_phrase("premiere_preview_denied") );
 }
 

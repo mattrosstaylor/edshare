@@ -2,6 +2,7 @@
 <!DOCTYPE phrases SYSTEM "entities.dtd">
 <epp:phrases xmlns="http://www.w3.org/1999/xhtml" xmlns:epp="http://eprints.org/ep3/phrase" xmlns:epc="http://eprints.org/ep3/control">
 	<epp:phrase id="premiere_preview_document_count">This resource contains <epc:pin name="count"/> files:</epp:phrase>
-	<epp:phrase id="premiere_preview_document_count_one">This resource contains 1 file.</epp:phrase>
-	<epp:phrase id="premiere_preview_upload_info"><span><span class="premiere_preview_lighter">Uploaded by</span> <epc:pin name="uploader"/> <span class="premiere_preview_lighter">on</span> <pin name="date"/></span></epp:phrase>
+	<epp:phrase id="premiere_preview_denied">
+		<img src="/style/images/denied.png"/><h2 style="text-align:center">You don't have permission to access this resource.</h2>
+	</epp:phrase>
 </epp:phrases>
