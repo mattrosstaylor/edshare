@@ -1,16 +1,16 @@
 <?xml version='1.0' encoding='utf-8'?>
 <epm xmlns='http://eprints.org/ep2/data/2.0' id='http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/premiere_preview'>
   <epmid>premiere_preview</epmid>
-  <uri>http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/premiere_preview</uri>
+  <uri>http://lslvm-mrt5b.ecs.soton.ac.uk/id/epm/premiere_preview</uri>
   <documents>
     <document>
       <files>
         <file>
           <filename>epm/premiere_preview/cfg/cfg.d/x_premiere_preview.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>196acab5afee1f9d5d070fe039ab0dc1</hash>
+          <hash>3123917d0409af7a346b499b046b55fc</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1458</filesize>
+          <filesize>1295</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/citations/document/premiere_preview_selector.xml</filename>
@@ -22,16 +22,9 @@
         <file>
           <filename>epm/premiere_preview/cfg/citations/eprint/premiere_preview_document_list.xml</filename>
           <mime_type>text/plain</mime_type>
-          <hash>3627608ab49f968b2ecdce9fdaeec633</hash>
+          <hash>890cb53ac163edbff4f8f96f68203b20</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1598</filesize>
-        </file>
-        <file>
-          <filename>epm/premiere_preview/cfg/citations/eprint/premiere_preview_info.xml</filename>
-          <mime_type>application/xml</mime_type>
-          <hash>09d2ab03b29087a9e3adb6a267a47d8e</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>665</filesize>
+          <filesize>1874</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/lang/en/phrases/premiere_preview.xml</filename>
@@ -43,9 +36,9 @@
         <file>
           <filename>epm/premiere_preview/cfg/static/javascript/auto/premiere_preview.js</filename>
           <mime_type>text/plain</mime_type>
-          <hash>68473a9611b3c8e0ffbb845dc218407f</hash>
+          <hash>b1a13cf5529908283e2dcd6c7a98064d</hash>
           <hash_type>MD5</hash_type>
-          <filesize>519</filesize>
+          <filesize>841</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/static/javascript/jquery.media.0.92.js</filename>
@@ -53,6 +46,13 @@
           <hash>02fc2c4f03973eab7d206b5d0f3b1ce4</hash>
           <hash_type>MD5</hash_type>
           <filesize>16048</filesize>
+        </file>
+        <file>
+          <filename>epm/premiere_preview/cfg/static/javascript/jquery.min.js</filename>
+          <mime_type>text/html</mime_type>
+          <hash>b8d64d0bc142b3f670cc0611b0aebcae</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>94840</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/static/style/auto/premiere_preview.css</filename>
@@ -113,9 +113,16 @@
         <file>
           <filename>epm/premiere_preview/cgi/premiere_preview</filename>
           <mime_type>text/plain</mime_type>
-          <hash>a8c21b4219355bae06937b5b58d2f9f0</hash>
+          <hash>9df7fe67c05f667af11c367c1f54a755</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1315</filesize>
+          <filesize>1287</filesize>
+        </file>
+        <file>
+          <filename>epm/premiere_preview/cgi/premiere_preview_init</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>8c23e281fb6ad95c79d964114caba990</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>765</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Convert/OfficePreview.pm</filename>

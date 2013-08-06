@@ -8,10 +8,16 @@
 
       <epc:when test="length($docs) = 1">
         <div id="premiere_preview_download_area">
-          <span><epc:phrase ref="premiere_preview_document_count_one"/></span>
-          <span id="premiere_preview_document_button"/>
-          <span id="premiere_preview_document_info"/>
-          <div style="clear:both"/>
+          <epc:foreach expr="$docs" iterator="doc">
+            <span>
+              <img class="premiere_preview_document_icon" src="{$doc.premiere_preview_document_icon()}"/>
+              <epc:print expr="$doc.premiere_preview_document_description()" />
+            </span>            
+          </epc:foreach>
+
+          <span id="premiere_preview_document_button"> </span>
+          <span id="premiere_preview_document_info"> </span>
+          <div style="clear:both"> </div>
         </div>
         <div style="display:none">
           <epc:foreach expr="$docs" iterator="doc">
@@ -23,9 +29,9 @@
       <epc:otherwise>
         <div id="premiere_preview_download_area">        
           <span><epc:phrase ref="premiere_preview_document_count"><epc:pin name="count"><epc:print expr="$docs.length()"/></epc:pin></epc:phrase></span>
-          <span id="premiere_preview_document_button"/>
-          <span id="premiere_preview_document_info"/>
-          <div style="clear:both"/>
+          <span id="premiere_preview_document_button"> </span>
+          <span id="premiere_preview_document_info"> </span>
+          <div style="clear:both"> </div>
         </div>
         <ol class="premiere_preview_document_list">
           <epc:foreach expr="$docs" iterator="doc">

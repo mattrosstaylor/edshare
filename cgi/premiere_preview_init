@@ -1,0 +1,26 @@
+#!/usr/bin/perl
+use EPrints;
+use strict;
+
+my $repository = EPrints->new->current_repository;
+exit( 0 ) unless( defined $repository );
+my $xml = $repository->xml;
+
+my $eprintid = $repository->param("id");
+my $eprint = EPrints::DataObj::EPrint->new($repository, $eprintid);
+my $first_document = ($eprint->get_all_documents())[0];
+my $doc = $first_document if (defined $first_document);
+
+my $user = $repository->current_user;
+
+if ( $repository->call("can_user_view_document", $doc, $user) eq "ALLOW" )
+{
+	my $div = $xml->create_document_fragment;
+	$div->appendChild( $eprint->render_citation("premiere_preview_document_list") );
+	print '<iframe id="premiere_preview_area" scrolling="no" src=""> </iframe>';
+	print $xml->to_string($div);
+}
+else {
+	print "DENIED!!";
+}
+
