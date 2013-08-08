@@ -181,7 +181,7 @@ function createTagDiv( tag, id, varname, prefix, field )
 	var spaces = document.createTextNode( "     " );
 	tagdiv.appendChild( spaces );
 
-	var image_uri = eprints_http_root + '/style/images/taglite_remove.gif';
+	var image_uri = eprints_http_root + '/images/edshare_core/taglite_remove.gif';
 
 	var remtag = new Element( 'button' );
 	remtag.setStyle( {

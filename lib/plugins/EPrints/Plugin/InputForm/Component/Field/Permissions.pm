@@ -61,7 +61,7 @@ sub render_content
 				$xml_string .= 'class="selected" ';
 			}
 			$xml_string .= 'onclick="permissionsCoarseSelect(\''.$basename.'\',\''.$type.'\')" >';
-			$xml_string .= '<img src="/style/images/'.$type.'.png" /><br/>';
+			$xml_string .= '<img src="/images/edshare_core/'.$type.'.png" /><br/>';
 			$xml_string .= $session->phrase($namedset_name."_typename_".$type);
 			$xml_string .= '</li>';
 			delete $nameset_hash{$type};

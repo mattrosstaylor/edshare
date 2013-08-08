@@ -58,9 +58,9 @@
         <file>
           <filename>epm/edshare_core/cfg/citations/eprint/edshare_summary_metadata.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>598d456c486ae9a3fcfc29b8b5987605</hash>
+          <hash>3aa3ae209b8f16956d3878ab6ecfb5d9</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1538</filesize>
+          <filesize>1586</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/citations/eprint/edshare_summary_page.xml</filename>
@@ -105,11 +105,46 @@
           <filesize>44</filesize>
         </file>
         <file>
+          <filename>epm/edshare_core/cfg/static/images/edshare_core/custom.png</filename>
+          <mime_type>image/png</mime_type>
+          <hash>b075e4e4b9412f7fcda27a7fd2355f3c</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>13221</filesize>
+        </file>
+        <file>
+          <filename>epm/edshare_core/cfg/static/images/edshare_core/private.png</filename>
+          <mime_type>image/png</mime_type>
+          <hash>dad664e8e61ba55a48715b8a5f2a2817</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>5718</filesize>
+        </file>
+        <file>
+          <filename>epm/edshare_core/cfg/static/images/edshare_core/public.png</filename>
+          <mime_type>image/png</mime_type>
+          <hash>69b51176a99a3c98f85f56a4167f3479</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>9326</filesize>
+        </file>
+        <file>
+          <filename>epm/edshare_core/cfg/static/images/edshare_core/restricted.png</filename>
+          <mime_type>image/png</mime_type>
+          <hash>a84078720fc466b56d33357cfeff850a</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>24251</filesize>
+        </file>
+        <file>
+          <filename>epm/edshare_core/cfg/static/images/edshare_core/taglite_remove.gif</filename>
+          <mime_type>image/gif</mime_type>
+          <hash>856d3bd537ec1900c48be6d342af4797</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>203</filesize>
+        </file>
+        <file>
           <filename>epm/edshare_core/cfg/static/javascript/auto/edshare_core.js</filename>
           <mime_type>text/x-c++</mime_type>
-          <hash>3b8ee9439a6a504f309d0accf4d4af77</hash>
+          <hash>1b2f55dfd2ed68bf032eee0f63856f56</hash>
           <hash_type>MD5</hash_type>
-          <filesize>7852</filesize>
+          <filesize>7859</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/style/auto/edshare_core.css</filename>
@@ -117,41 +152,6 @@
           <hash>407893640ef0b7ed928a9026207e868f</hash>
           <hash_type>MD5</hash_type>
           <filesize>1671</filesize>
-        </file>
-        <file>
-          <filename>epm/edshare_core/cfg/static/style/images/custom.png</filename>
-          <mime_type>image/png</mime_type>
-          <hash>b075e4e4b9412f7fcda27a7fd2355f3c</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>13221</filesize>
-        </file>
-        <file>
-          <filename>epm/edshare_core/cfg/static/style/images/private.png</filename>
-          <mime_type>image/png</mime_type>
-          <hash>dad664e8e61ba55a48715b8a5f2a2817</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>5718</filesize>
-        </file>
-        <file>
-          <filename>epm/edshare_core/cfg/static/style/images/public.png</filename>
-          <mime_type>image/png</mime_type>
-          <hash>69b51176a99a3c98f85f56a4167f3479</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>9326</filesize>
-        </file>
-        <file>
-          <filename>epm/edshare_core/cfg/static/style/images/restricted.png</filename>
-          <mime_type>image/png</mime_type>
-          <hash>a84078720fc466b56d33357cfeff850a</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>24251</filesize>
-        </file>
-        <file>
-          <filename>epm/edshare_core/cfg/static/style/images/taglite_remove.gif</filename>
-          <mime_type>image/gif</mime_type>
-          <hash>856d3bd537ec1900c48be6d342af4797</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>203</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/workflows/eprint/default.xml</filename>
@@ -198,9 +198,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/InputForm/Component/Field/Permissions.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>7b38fed6e5d316774f4e88adb778e580</hash>
+          <hash>f195e8a1fe1bf4f9189cc88cabb96c1f</hash>
           <hash_type>MD5</hash_type>
-          <filesize>4194</filesize>
+          <filesize>4201</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/InputForm/Component/Field/TagLite.pm</filename>
