@@ -24,12 +24,6 @@
 		</a>
 	</li>
 	<li>
-		<cite:linkhere>
-			<!--<epc:phrase ref="Plugin/Screen/ResourceManager:view"/>-->
-			<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/view.png" alt="{phrase('Plugin/Screen/ResourceManager:view')}" border="0"/>
-		</cite:linkhere>
-	</li>
-	<li>
 		<a href="{$config{userhome}}?screen=EPrint::Edit&amp;eprintid={eprintid}" title="Edit" class="ep_manageable_action_button">
 			<!--	<epc:phrase ref="Plugin/Screen/ResourceManager:edit"/>	-->
 			<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/edit.png" alt="{phrase('Plugin/Screen/ResourceManager:edit')}" border="0"/>			</a>

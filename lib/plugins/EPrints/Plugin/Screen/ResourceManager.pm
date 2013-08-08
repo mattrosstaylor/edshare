@@ -133,7 +133,8 @@ sub _render_bulk_action_form
 			$bulk_action_option->appendChild( $bulk_screen->{screen}->render_title );
 			$bulk_action_select->appendChild( $bulk_action_option );
 		}
-
+# mrt - BULK ACTIONS CURRENTLY DISABLED
+=pod
 		$bulk_action_form->appendChild( $self->html_phrase( 'with_selected_resources' ) );
 		$bulk_action_form->appendChild( $bulk_action_select );
 		$bulk_action_form->appendChild( $session->make_javascript(<<INIT_CONTROL
@@ -143,6 +144,7 @@ document.observe('dom:loaded', function() {
 });
 INIT_CONTROL
 		) );
+=cut
 	}
 
 

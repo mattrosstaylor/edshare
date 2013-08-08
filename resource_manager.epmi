@@ -15,9 +15,9 @@
         <file>
           <filename>epm/resource_manager/cfg/citations/eprint/manageable.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>b8869f2e62ed492198fc0d02223134f0</hash>
+          <hash>44f6bae4573bd6dc1b3494ebb4d0b6fd</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2316</filesize>
+          <filesize>2006</filesize>
         </file>
         <file>
           <filename>epm/resource_manager/cfg/citations/eprint/manageable_data.xml</filename>
@@ -55,6 +55,62 @@
           <filesize>2626</filesize>
         </file>
         <file>
+          <filename>epm/resource_manager/cfg/static/images/resource_manager/ajax-loader.gif</filename>
+          <mime_type>image/gif</mime_type>
+          <hash>ae8189a1eda896ee867dcd220d45eef6</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>4750</filesize>
+        </file>
+        <file>
+          <filename>epm/resource_manager/cfg/static/images/resource_manager/checkbox_no.png</filename>
+          <mime_type>image/png</mime_type>
+          <hash>daafe24c4b3ee977beb1fb1343e60db3</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>194</filesize>
+        </file>
+        <file>
+          <filename>epm/resource_manager/cfg/static/images/resource_manager/checkbox_yes.png</filename>
+          <mime_type>image/png</mime_type>
+          <hash>0bd7bcc8b99bf952120ffd5e4200816b</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>243</filesize>
+        </file>
+        <file>
+          <filename>epm/resource_manager/cfg/static/images/resource_manager/edit.png</filename>
+          <mime_type>image/png</mime_type>
+          <hash>36fb60c4ea30bf0f1fed62b70ce7bfca</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>526</filesize>
+        </file>
+        <file>
+          <filename>epm/resource_manager/cfg/static/images/resource_manager/less.png</filename>
+          <mime_type>image/png</mime_type>
+          <hash>1a7a27f67c3e0a7389a60c92e4aa7de4</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>376</filesize>
+        </file>
+        <file>
+          <filename>epm/resource_manager/cfg/static/images/resource_manager/more.png</filename>
+          <mime_type>image/png</mime_type>
+          <hash>b5ed61c1ba9c42ddedeb70aabf6be35f</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>401</filesize>
+        </file>
+        <file>
+          <filename>epm/resource_manager/cfg/static/images/resource_manager/remove.png</filename>
+          <mime_type>image/png</mime_type>
+          <hash>d4f0ea2f8edb60488e419fdbfa7fd09b</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>680</filesize>
+        </file>
+        <file>
+          <filename>epm/resource_manager/cfg/static/images/resource_manager/warning.png</filename>
+          <mime_type>image/png</mime_type>
+          <hash>7ae0e7b90d9953ca68eca5bd01a2819f</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>852</filesize>
+        </file>
+        <file>
           <filename>epm/resource_manager/cfg/static/javascript/resource_manager.js</filename>
           <mime_type>text/x-c</mime_type>
           <hash>23430102065070119a153fa0fd28a95c</hash>
@@ -64,9 +120,9 @@
         <file>
           <filename>epm/resource_manager/cfg/static/style/resource_manager.css</filename>
           <mime_type>text/plain</mime_type>
-          <hash>365da84e86551691ad14025b6dbc1474</hash>
+          <hash>07f611bb4b14e0f50ea8c049b497f599</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2428</filesize>
+          <filesize>2465</filesize>
         </file>
         <file>
           <filename>epm/resource_manager/cgi/users/resource_manager</filename>
@@ -99,9 +155,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/Screen/ResourceManager.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>a28a3cc0344ce05b3c20729fde20da96</hash>
+          <hash>830e3ae361fbdba57fe45759b8f2d8af</hash>
           <hash_type>MD5</hash_type>
-          <filesize>5930</filesize>
+          <filesize>5979</filesize>
         </file>
         <file>
           <filename>static/images/epm/resource_manager.png</filename>
@@ -110,66 +166,10 @@
           <hash_type>MD5</hash_type>
           <filesize>157073</filesize>
         </file>
-        <file>
-          <filename>static/images/resource_manager/ajax-loader.gif</filename>
-          <mime_type>inode/symlink</mime_type>
-          <hash>9e34e033ec7749c0ee473c1879fe4a96</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>9427</filesize>
-        </file>
-        <file>
-          <filename>static/images/resource_manager/checkbox_no.png</filename>
-          <mime_type>inode/symlink</mime_type>
-          <hash>daafe24c4b3ee977beb1fb1343e60db3</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>194</filesize>
-        </file>
-        <file>
-          <filename>static/images/resource_manager/checkbox_yes.png</filename>
-          <mime_type>inode/symlink</mime_type>
-          <hash>0bd7bcc8b99bf952120ffd5e4200816b</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>243</filesize>
-        </file>
-        <file>
-          <filename>static/images/resource_manager/edit.png</filename>
-          <mime_type>inode/symlink</mime_type>
-          <hash>36fb60c4ea30bf0f1fed62b70ce7bfca</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>526</filesize>
-        </file>
-        <file>
-          <filename>static/images/resource_manager/less.png</filename>
-          <mime_type>image/png</mime_type>
-          <hash>1a7a27f67c3e0a7389a60c92e4aa7de4</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>376</filesize>
-        </file>
-        <file>
-          <filename>static/images/resource_manager/more.png</filename>
-          <mime_type>inode/symlink</mime_type>
-          <hash>b5ed61c1ba9c42ddedeb70aabf6be35f</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>401</filesize>
-        </file>
-        <file>
-          <filename>static/images/resource_manager/remove.png</filename>
-          <mime_type>inode/symlink</mime_type>
-          <hash>d4f0ea2f8edb60488e419fdbfa7fd09b</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>680</filesize>
-        </file>
-        <file>
-          <filename>static/images/resource_manager/view.png</filename>
-          <mime_type>inode/symlink</mime_type>
-          <hash>aa7010cb427b11cabbd24876dfd8ff37</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>588</filesize>
-        </file>
       </files>
       <mime_type>inode/symlink</mime_type>
       <format>other</format>
-      <main>static/images/resource_manager/view.png</main>
+      <main>static/images/epm/resource_manager.png</main>
       <content>install</content>
     </document>
     <document>

@@ -47,6 +47,10 @@
 	font-size: 12px;
 }
 
+.ep_resourcemanager_tag > img {
+	vertical-align: middle;
+}
+
 .ep_manageable_data {
 	vertical-align:center;
 	margin: 2px;
@@ -93,7 +97,6 @@
 .ep_manageable_data {
 	margin: 0;
 	padding: 0;
-	margin-right: 120px;
 	vertical-align: middle;
 }
 
@@ -108,7 +111,7 @@
 div.ep_manageable_controls {
 	display: block;
 	float: right;
-	width: 120px;
+	width: 90px;
 	padding: 0px;
 	margin: 0px;
 }
