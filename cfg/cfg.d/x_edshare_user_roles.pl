@@ -5,6 +5,8 @@ $c->{user_roles}->{user} = [qw{
 	set-password
 	deposit
 	change-email
+	+eprint/archive/edit
+	+eprint/archive/remove
 }];
 
 $c->{user_roles}->{admin} = [qw{

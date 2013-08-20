@@ -56,13 +56,13 @@ sub render_buttons
 	if( $eprint->value( "eprint_status" ) eq "inbox" )
 	{
 		push @{$buttons{_order}}, "deposit";
-		$buttons{save} = $session->phrase( "lib/submissionform:action_deposit" );
+		$buttons{deposit} = $session->phrase( "lib/submissionform:action_deposit" );
 	}
 	else
 	{
 		# mrt - this might need to be changed to give admin functionality
 		push @{$buttons{_order}}, "deposit";
-		$buttons{save} = $session->phrase( "lib/submissionform:action_deposit" );
+		$buttons{deposit} = $session->phrase( "lib/submissionform:action_deposit" );
 	}
 
  
@@ -161,4 +161,16 @@ sub action_deposit
 	{
 		$self->{processor}->add_message( "error", $self->html_phrase( "item_not_deposited" ) );
 	}
+}
+
+sub action_stop
+{
+	my( $self ) = @_;
+
+	# reload to discard changes
+	$self->{processor}->{eprint} = new EPrints::DataObj::EPrint( $self->{session}, $self->{processor}->{eprintid} );
+	$self->{processor}->{eprint}->set_value( "edit_lock_until", 0 );
+	$self->{processor}->{eprint}->commit;
+
+	$self->{processor}->{screenid} = "ResourceManager";
 }
