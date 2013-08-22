@@ -15,16 +15,16 @@
         <file>
           <filename>epm/resource_manager/cfg/citations/eprint/manageable.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>44f6bae4573bd6dc1b3494ebb4d0b6fd</hash>
+          <hash>d825f0643410060bf52ae919c92887ec</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2006</filesize>
+          <filesize>1988</filesize>
         </file>
         <file>
           <filename>epm/resource_manager/cfg/citations/eprint/manageable_data.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>f0dfc470ee98d275c4215b982d569a90</hash>
+          <hash>6f981c3410ab4742d80e5ceb03b6dec6</hash>
           <hash_type>MD5</hash_type>
-          <filesize>904</filesize>
+          <filesize>901</filesize>
         </file>
         <file>
           <filename>epm/resource_manager/cfg/citations/eprint/manageable_more.xml</filename>
@@ -78,9 +78,9 @@
         <file>
           <filename>epm/resource_manager/cfg/static/images/resource_manager/edit.png</filename>
           <mime_type>image/png</mime_type>
-          <hash>36fb60c4ea30bf0f1fed62b70ce7bfca</hash>
+          <hash>2d0291b1c95f04ebbba6959612baf038</hash>
           <hash_type>MD5</hash_type>
-          <filesize>526</filesize>
+          <filesize>734</filesize>
         </file>
         <file>
           <filename>epm/resource_manager/cfg/static/images/resource_manager/less.png</filename>
@@ -99,16 +99,16 @@
         <file>
           <filename>epm/resource_manager/cfg/static/images/resource_manager/remove.png</filename>
           <mime_type>image/png</mime_type>
-          <hash>d4f0ea2f8edb60488e419fdbfa7fd09b</hash>
+          <hash>21160610c390aceb442cbd16dff7fd7d</hash>
           <hash_type>MD5</hash_type>
-          <filesize>680</filesize>
+          <filesize>1127</filesize>
         </file>
         <file>
           <filename>epm/resource_manager/cfg/static/images/resource_manager/warning.png</filename>
           <mime_type>image/png</mime_type>
-          <hash>7ae0e7b90d9953ca68eca5bd01a2819f</hash>
+          <hash>03236bc53fed3367d5d9eed410d95952</hash>
           <hash_type>MD5</hash_type>
-          <filesize>852</filesize>
+          <filesize>827</filesize>
         </file>
         <file>
           <filename>epm/resource_manager/cfg/static/javascript/resource_manager.js</filename>
@@ -120,9 +120,9 @@
         <file>
           <filename>epm/resource_manager/cfg/static/style/resource_manager.css</filename>
           <mime_type>text/plain</mime_type>
-          <hash>07f611bb4b14e0f50ea8c049b497f599</hash>
+          <hash>d92c8ba785a68249fe61bdfe9c624007</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2465</filesize>
+          <filesize>2466</filesize>
         </file>
         <file>
           <filename>epm/resource_manager/cgi/users/resource_manager</filename>

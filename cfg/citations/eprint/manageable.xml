@@ -14,12 +14,12 @@
 
 <div class="ep_manageable_controls"><ul>
 	<li class="ep_manageable_more_arrow">
-		<a href="#" title="More detail" onclick="ep_manageable_toggle_detail({eprintid})" class="ep_manageable_action_button">
+		<a title="More detail" onclick="ep_manageable_toggle_detail({eprintid})" class="ep_manageable_action_button">
 			<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/more.png" border="0"/>
 		</a>
 	</li>
 	<li class="ep_manageable_less_arrow">
-		<a href="#" title="Less detail" onclick="ep_manageable_toggle_detail({eprintid})" class="ep_manageable_action_button">
+		<a title="Less detail" onclick="ep_manageable_toggle_detail({eprintid})" class="ep_manageable_action_button">
 			<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/less.png" border="0"/>
 		</a>
 	</li>

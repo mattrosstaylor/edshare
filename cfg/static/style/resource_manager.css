@@ -28,6 +28,7 @@
 .ep_manageable_action_icon {
 	vertical-align: middle;
 	padding: 0 5px;
+	height: 20px;
 }
 
 .ep_resource_manager_filter {
@@ -60,8 +61,8 @@
 	background-color: #ececec;
 	border-style: solid;
 	border-width: 1px;
-	margin: 1px 1%;
-	padding: 1px 1%;
+	margin: 2px 1%;
+	padding: 2px 1%;
 	text-align: left;
 }
 
@@ -111,7 +112,6 @@
 div.ep_manageable_controls {
 	display: block;
 	float: right;
-	width: 90px;
 	padding: 0px;
 	margin: 0px;
 }
