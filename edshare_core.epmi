@@ -37,9 +37,9 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_eprint_validate.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>89b134c681cb9f8f7bb09d11c0d0163d</hash>
+          <hash>3e4614d39b74b10469936c6255644f74</hash>
           <hash_type>MD5</hash_type>
-          <filesize>977</filesize>
+          <filesize>1098</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_user_roles.pl</filename>
@@ -86,9 +86,9 @@
         <file>
           <filename>epm/edshare_core/cfg/lang/en/phrases/x_edshare_core.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>f1cd2a31b1c0e1f9a831ec482b0dfd52</hash>
+          <hash>c0057d0bea0001a4a55efa27e0c7b370</hash>
           <hash_type>MD5</hash_type>
-          <filesize>5031</filesize>
+          <filesize>5124</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/namedsets/eprint</filename>
@@ -219,9 +219,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPrint/EdShareEdit.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>fb5711a97f01c9c2ae3f599624982bb9</hash>
+          <hash>8d6a8915967a510c2f8e048409822e6c</hash>
           <hash_type>MD5</hash_type>
-          <filesize>4494</filesize>
+          <filesize>4522</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/TagCloud.pm</filename>

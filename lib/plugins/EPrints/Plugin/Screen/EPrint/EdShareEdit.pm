@@ -88,31 +88,29 @@ sub action_deposit
 {
 	my( $self ) = @_;
 
-	# save eprint data
-	my $from_ok = $self->workflow->update_from_form( $self->{processor} );
+	# save eprint data - QUIETLY
+	$self->workflow->update_from_form( $self->{processor}, "shhhh, be quiet", 1 );
 	$self->uncache_workflow;
 
 	$self->{processor}->{screenid} = $self->{repository}->config("edshare_screen_after_edit") || "EPrint::View";	
 
-	if (not $from_ok)
-	{
-		$self->{processor}->{eprint}->set_value( "validation_status", "error" );
-		$self->{processor}->{eprint}->commit;
-
-		$self->{processor}->{eprint}->move_to_inbox;
-		$self->{processor}->add_message( "error", $self->html_phrase( "validation_errors" ) ); 
-		return;
-	}
+#	if (not $from_ok)
+#	{
+#		$self->{processor}->{eprint}->set_value( "validation_status", "error" );
+#		$self->{processor}->{eprint}->commit;
+#		$self->{processor}->{eprint}->move_to_inbox;
+#
+#		$self->{processor}->add_message( "error", $self->html_phrase( "validation_errors2" ) ); 
+#		return;
+#	}
 
 	my $problems = $self->{processor}->{eprint}->validate( $self->{processor}->{for_archive}, $self->workflow_id );
-	if( scalar @{$problems} > 0)
+	if( scalar @{$problems} > 0 )
 	{
 		$self->{processor}->{eprint}->set_value( "validation_status", "error" );
 		$self->{processor}->{eprint}->commit;
-
 		$self->{processor}->{eprint}->move_to_inbox;
 	
-		$self->{processor}->add_message( "error", $self->html_phrase( "validation_errors" ) ); 
 		my $warnings = $self->{session}->make_element( "ul" );
 		foreach my $problem_xhtml ( @{$problems} )
 		{
@@ -122,6 +120,7 @@ sub action_deposit
 		}
 		$self->workflow->link_problem_xhtml( $warnings, "EPrint::Edit" );
 		$self->{processor}->add_message( "warning", $warnings );
+		$self->{processor}->add_message( "error", $self->html_phrase( "validation_errors" ) ); 
 		return;
 	}
 
