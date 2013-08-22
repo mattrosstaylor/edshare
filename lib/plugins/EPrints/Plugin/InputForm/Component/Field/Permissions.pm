@@ -24,6 +24,7 @@ sub render_content
 #	my ( $field, $repo, $current_value, $dataset, $staff, $hidden_fields, $object, $basename ) = @_;
 	my ( $self, $surround ) = @_;
 	my $session = $self->{session};
+	my $xml = $session->{xml};
 	my $basename = $self->{prefix}."_view_permissions";
 	my $dataset = $self->{dataobj}->{dataset};
 	my $field = $dataset->field("view_permissions");
@@ -46,77 +47,78 @@ sub render_content
 	my $first_value_type = @$value[0]->{type};
 	my $show_advanced_options = (not ($first_value_type eq "public" or $first_value_type eq "private" or $first_value_type eq "restricted"));
 
-	my $xml_string = '<div class="edshare_permissions">';
+	my $div = $xml->create_element( "div", class=>"edshare_permissions" ); 
+	$div->appendChild( $xml->create_element( "input", name=>$basename."_coarse_type", type=>"hidden", value=>$first_value_type ) ); 
 
-	$xml_string .= '<input name="'.$basename.'_coarse_type" type="hidden" value="'.$first_value_type.'" />';
-	$xml_string .= '<ul id="'.$basename.'_coarse_options" class="edshare_permissions_coarse">';
+	my $ul = $xml->create_element( "ul", id=>$basename."_coarse_options", class=>"edshare_permissions_coarse" );
+	$div->appendChild( $ul );
 	foreach my $type ('private', 'public', 'restricted')
 	{
 
 		if( defined $nameset_hash{$type} )
 		{
-			$xml_string .= '<li id="'.$basename.'_'.$type.'" ';
+			my $li = $xml->create_element( "li", id=>$basename."_".$type, onclick=>"permissionsCoarseSelect('$basename', '$type');" );
+
 			if ($first_value_type eq $type)
 			{
-				$xml_string .= 'class="selected" ';
+				$li->setAttribute( class=>"selected" );
 			}
-			$xml_string .= 'onclick="permissionsCoarseSelect(\''.$basename.'\',\''.$type.'\')" >';
-			$xml_string .= '<img src="/images/edshare_core/'.$type.'.png" /><br/>';
-			$xml_string .= $session->phrase($namedset_name."_typename_".$type);
-			$xml_string .= '</li>';
+			$li->appendChild( $xml->create_element( "img", src=>"/images/edshare_core/$type.png" ) );
+			$li->appendChild( $xml->create_element( "br" ) );
+			$li->appendChild( $session->html_phrase( $namedset_name."_typename_".$type ) );
+
+			$ul->appendChild( $li );
 			delete $nameset_hash{$type};
 		}
 	}
 
+	my $xml_string;
 	if (%nameset_hash)
 	{
 		# special case for advanced options
-		$xml_string .= '<li id="'.$basename.'_custom" ';
+
+		my $li = $xml->create_element( "li", id=>$basename."_custom", onclick=>"permissionsCoarseSelect('$basename', 'custom');" );
+
 		if ($show_advanced_options)
 		{
-			$xml_string .= 'class="selected" ';
+				$li->setAttribute( class=>"selected" );
 		}
-		$xml_string .= 'onclick="permissionsCoarseSelect(\''.$basename.'\',\'custom\')" >';
-		$xml_string .= '<img src="/style/images/custom.png" /><br/>';
-		$xml_string .= $session->phrase($namedset_name."_custom");
-		$xml_string .= '</li>';
+		$li->appendChild( $xml->create_element( "img", src=>"/images/edshare_core/custom.png" ) );
+		$li->appendChild( $xml->create_element( "br" ) );
+		$li->appendChild( $session->html_phrase( $namedset_name."_typename_custom" ) );
+
+		$ul->appendChild( $li );
 	}
-		$xml_string .= '</ul>';
 
-		# advanced options sections
-		$xml_string .= '<div id="'.$basename.'_advanced_options" ';
-		if (not $show_advanced_options)
-		{
-			$xml_string .= 'style="display:none"';
-		} 
-		$xml_string .= '>';
-		$xml_string .= '<div>'.$session->phrase("view_permissions_advanced_options_blurb").'</div>';
-		$xml_string .= '<select id="'.$basename.'_type" name="type">';
+	# advanced options sections
+	$xml_string .= '<div id="'.$basename.'_advanced_options" ';
+	if (not $show_advanced_options)
+	{
+		$xml_string .= 'style="display:none"';
+	} 
+	$xml_string .= '>';
+	$xml_string .= '<div>'.$session->phrase("view_permissions_advanced_options_blurb").'</div>';
+	$xml_string .= '<select id="'.$basename.'_type" name="type">';
 
-		# iterate through the array of types and print any that haven't been rendered yet
-		foreach my $value (@view_permission_types)
+	# iterate through the array of types and print any that haven't been rendered yet
+	foreach my $value (@view_permission_types)
+	{
+		if ($nameset_hash{$value})
 		{
-			if ($nameset_hash{$value})
-			{
-				$xml_string .= '<option value="'.$value.'">'.$session->phrase($namedset_name."_typename_".$value).'</option>';
-			}
+			$xml_string .= '<option value="'.$value.'">'.$session->phrase($namedset_name."_typename_".$value).'</option>';
 		}
+	}
 
-		$xml_string .='</select>
-			<input id="'.$basename.'_type_value" type="text" name="typevalue" onkeyup="doAutoComplete(\''.$basename.'\')" autocomplete="off"/>
-			<input type="button" value="Add" onclick="addPermissionType(\''.$basename.'\'); return false;" />
-			<div id="'.$basename.'_autocomplete_choices" class="autocomplete" style="display:none;"> </div>
-		</div>';
+#	$xml_string .='</select>
+#		<input id="'.$basename.'_type_value" type="text" name="typevalue" onkeyup="doAutoComplete(\''.$basename.'\')" autocomplete="off"/>
+#		<input type="button" value="Add" onclick="addPermissionType(\''.$basename.'\'); return false;" />
+#		<div id="'.$basename.'_autocomplete_choices" class="autocomplete" style="display:none;"> </div>
+#	</div>';
 
 #add advanced options fill in here
 
-	$xml_string .= '</div>';
-	my $temp_doc = $session->xml->parse_string($xml_string);
-
-	foreach my $div ($temp_doc->getChildNodes())
-	{
-		return $div;
-	}
+#	$xml_string .= '</div>';
+	return $div;
 }
 
 sub update_from_form

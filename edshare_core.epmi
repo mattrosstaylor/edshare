@@ -9,9 +9,9 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>608ac4b561ddca3d0a93c84f2a3b0e48</hash>
+          <hash>236390c12000d222a809a4588fd8145f</hash>
           <hash_type>MD5</hash_type>
-          <filesize>14793</filesize>
+          <filesize>14937</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_eprint_fields_automatic.pl</filename>
@@ -198,9 +198,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/InputForm/Component/Field/Permissions.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>f195e8a1fe1bf4f9189cc88cabb96c1f</hash>
+          <hash>446924aa26d9e07521e5bc6a6910345d</hash>
           <hash_type>MD5</hash_type>
-          <filesize>4201</filesize>
+          <filesize>4349</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/InputForm/Component/Field/TagLite.pm</filename>
@@ -222,6 +222,13 @@
           <hash>8d6a8915967a510c2f8e048409822e6c</hash>
           <hash_type>MD5</hash_type>
           <filesize>4522</filesize>
+        </file>
+        <file>
+          <filename>plugins/EPrints/Plugin/Screen/RedirectingLogin.pm</filename>
+          <mime_type>inode/symlink</mime_type>
+          <hash>5eeac675639f8439626f7f2ad70052e1</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>5739</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/TagCloud.pm</filename>

@@ -492,4 +492,7 @@ $c->{can_user_view_document} = sub
 
 	return "DENY";
 
-}
+};
+
+$c->{plugins}->{"Screen::RedirectingLogin"}->{params}->{disable} = 0;
+$c->{plugin_alias_map}->{"Screen::Login"} = "Screen::RedirectingLogin";
