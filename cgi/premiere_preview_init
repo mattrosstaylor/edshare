@@ -9,18 +9,25 @@ my $xml = $repository->xml;
 my $eprintid = $repository->param("id");
 my $eprint = EPrints::DataObj::EPrint->new($repository, $eprintid);
 my $first_document = ($eprint->get_all_documents())[0];
-my $doc = $first_document if (defined $first_document);
+#my $doc = $first_document if (defined $first_document);
 
 my $user = $repository->current_user;
 
-if ( $repository->call("can_user_view_document", $doc, $user) eq "ALLOW" )
+if (not $first_document)
+{
+	print $xml->to_string( $repository->html_phrase( "premiere_preview:no_documents" ) );
+	return;
+}
+
+if ( $repository->call("can_user_view_document", $first_document, $user) eq "ALLOW" )
 {
 	my $div = $xml->create_document_fragment;
 	$div->appendChild( $eprint->render_citation("premiere_preview_document_list") );
 	print '<iframe id="premiere_preview_area" scrolling="no" src=""> </iframe>';
 	print $xml->to_string( $div );
 }
-else {
-	print $xml->to_string( $repository->html_phrase("premiere_preview_denied") );
+else
+{
+	print $xml->to_string( $repository->html_phrase( "premiere_preview:denied" ) );
 }
 

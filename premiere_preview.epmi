@@ -8,9 +8,9 @@
         <file>
           <filename>epm/premiere_preview/cfg/cfg.d/x_premiere_preview.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>097ba0ce34881c7b1243920301088a1c</hash>
+          <hash>ed24ebc90fa0ff69e05906b936b6b461</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1431</filesize>
+          <filesize>1475</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/citations/document/premiere_preview_selector.xml</filename>
@@ -22,16 +22,16 @@
         <file>
           <filename>epm/premiere_preview/cfg/citations/eprint/premiere_preview_document_list.xml</filename>
           <mime_type>text/plain</mime_type>
-          <hash>890cb53ac163edbff4f8f96f68203b20</hash>
+          <hash>fc05f61f48e1f02d835f925ec2ba6a11</hash>
           <hash_type>MD5</hash_type>
           <filesize>1874</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/lang/en/phrases/premiere_preview.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>30770668017eebefd3c056173b5caa67</hash>
+          <hash>1aa74c562d475fcd7b8a04adfa83a4a4</hash>
           <hash_type>MD5</hash_type>
-          <filesize>558</filesize>
+          <filesize>740</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/static/images/premiere_preview/ajax-loader.gif</filename>
@@ -134,9 +134,9 @@
         <file>
           <filename>epm/premiere_preview/cgi/premiere_preview_init</filename>
           <mime_type>text/plain</mime_type>
-          <hash>5f6d2e7ff4376070585ad6e20970b08a</hash>
+          <hash>9db81a0886b9737dc3a5d18185077b55</hash>
           <hash_type>MD5</hash_type>
-          <filesize>827</filesize>
+          <filesize>967</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Convert/OfficePreview.pm</filename>

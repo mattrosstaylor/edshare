@@ -28,7 +28,7 @@
 
       <epc:otherwise>
         <div id="premiere_preview_download_area">        
-          <span><epc:phrase ref="premiere_preview_document_count"><epc:pin name="count"><epc:print expr="$docs.length()"/></epc:pin></epc:phrase></span>
+          <span><epc:phrase ref="premiere_preview:document_count"><epc:pin name="count"><epc:print expr="$docs.length()"/></epc:pin></epc:phrase></span>
           <span id="premiere_preview_document_button"> </span>
           <span id="premiere_preview_document_info"> </span>
           <div style="clear:both"> </div>
