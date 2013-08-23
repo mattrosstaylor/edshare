@@ -1,0 +1,208 @@
+/* edshare summary */
+
+
+/* mrt - removing this styling until I finish previews
+#edshare_summary_above {
+}
+
+#edshare_summary_left {
+	float: left;
+	width: 66.5%
+}
+
+#edshare_summary_right {
+	float: right;
+	width: 33.2%
+}
+
+#edshare_summary_below {
+	clear:both;
+}
+
+.edshare_summary_abstract {
+	text-align: justify;
+}
+*/
+
+/* Result citation */
+.griditem {
+        color: #151a3d;
+        font-size:12px;
+        margin-top:5px;
+        margin-bottom:5px;
+        padding-bottom:10px;
+        padding-top:10px;
+        font-family: Verdana,Arial,Helvetica,sans-serif;
+        border-bottom: 1px solid #b3b7ba;
+        overflow: hidden;
+}
+
+.griditem h2 {
+        font-size: 14px;
+        font-family: Verdana,Arial,Helvetica,sans-serif;
+        text-align: left;
+        margin:0;
+        padding:0;
+	border: 0;
+}
+
+.griditem p {
+        margin:0;
+        padding:0;
+        text-align: left;
+}
+/* mrt - i haven't decided how to handle previews yet
+.griditem .preview {
+        float:left;
+        margin-right:5px;
+        margin-top:2px;
+        clear:left;
+}
+
+.griditem .preview img {
+        margin-left:10px;
+        padding:6px;
+        float:left;
+        border: 1px solid #e0e0d5;
+}
+
+.griditem .preview .previewData {
+        float:left;
+        margin-top:0px;
+        width:26px;
+        height:42px;
+        display:block;
+        color: #3d4b8c;
+        text-align: center;
+        line-height:20px;
+        font-size:8pt;
+        background-image: url(../images/preview.gif);
+}
+*/
+
+.griditem .metadata {
+        float:right;
+        font-size:10px;
+        line-height:12px;
+        overflow:hidden;
+        width:200px;
+        border-left: 2px solid #b3b7ba;
+        padding-left:4px;
+        text-align: left;
+}
+
+.result_body {
+/*        margin-left: 80px; mrt - again, how to handle previews */
+        margin-right: 220px;
+        line-height: 15px;
+        overflow: hidden;
+}
+
+.result_body h2 {
+        line-height: 20px;
+	margin-top: 0;
+}
+
+.result_body p {
+        text-align:justify;
+        overflow: hidden;
+}
+
+.result_text {
+        overflow: hidden;
+}
+
+.result_more {
+        margin-left: 80px;
+        margin-right: 160px;
+        line-height: 20px;
+        overflow: hidden;
+}
+
+/* Workflow styling */
+
+.ed_creatorsname {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+/*edshare summary toolbox */
+.edshare_toolbox_edshare_toolbox {
+	list-style: none;
+	padding-left: 10px;
+}
+
+/* taglite */
+.ed_taglite_maintable{
+        text-align:center;
+}
+
+.ep_taglite_pickup_container{
+        text-align:center;
+}
+.ed_taglite_bottom{
+        padding: 10px;
+}
+.ed_taglite_input{
+        margin: 10px 2px;
+}
+
+div.autocomplete {
+	  position:absolute;
+	  width:250px;
+	  background-color:white;
+	  border:1px solid #888;
+	  margin:0;
+	  padding:0;
+}
+div.autocomplete ul {
+	  list-style-type:none;
+	  margin:0;
+	  padding:0;
+}
+div.autocomplete ul li.selected { background-color: #ffb;}
+div.autocomplete ul li {
+	  list-style-type:none;
+	  display:block;
+	  margin:0;
+	  padding:2px;
+	  height:32px;
+	  cursor:pointer;
+}
+
+/* view permissons */
+.edshare_permissions {
+	text-align:center;
+}
+
+
+.edshare_permissions_coarse {
+	list-style:none;
+	text-align:center;
+}
+
+.edshare_permissions_coarse li {
+	display: inline-block;
+	padding: 5px 20px;
+	font-weight:bold;
+	zoom: 1;
+	filter: alpha(opacity=60);
+	opacity: 0.6;
+	cursor: pointer;
+}
+
+.edshare_permissions_coarse img {
+	height: 64px;
+	width: 64px;
+	padding-bottom: 5px;
+}
+
+.edshare_permissions_coarse > li.selected {
+	border: 1px dashed black;
+	padding: 4px 19px;
+	background: white;
+	filter: alpha(opacity=100);
+	opacity: 1;
+}

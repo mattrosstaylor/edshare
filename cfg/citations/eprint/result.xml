@@ -1,28 +1,37 @@
-<?xml version="1.0" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <!-- 
-	Neat citation for eprints used in search results.
+        Neat citation for eprints used in search results.
 -->
+<cite:citation xmlns="http://www.w3.org/1999/xhtml" xmlns:cite="http://eprints.org/ep3/citation" xmlns:epc="http://eprints.org/ep3/control">
+<div class="gridview compressed">
+	<div class="griditem">
+		<div class="metadata">
+			<strong>Added By:</strong> <epc:print expr="userid" /><br />
+			<strong>Added On:</strong> <epc:print expr="datestamp" /><br />
+			<epc:if test="keywords">
+				<strong>Keywords:</strong> <epc:print expr="keywords" /><br />
+			</epc:if>
+		</div>
+<!--		<cite:linkhere>
+			<choose>
+				<when test="type = 'collection'">
+					<span class="preview"><img alt="Collection" class="ep_doc_icon" src="/images/org_folder.png" /></span>
+				</when>
+				<otherwise>
+					<print expr="fileinfo"/>
+				</otherwise>
+			</choose>
 
-<cite:citation xmlns="http://www.w3.org/1999/xhtml" xmlns:cite="http://eprints.org/ep3/citation" xmlns:epc="http://eprints.org/ep3/control" type="table_row">
-  <tr class="ep_search_result">
-    <td style="padding-left: 0.5em"><epc:print expr="$n" />.</td>
-    <td style="padding-left: 0.5em">
-      <epc:print expr="$item.citation('default')" />
-    </td>
-    <td style="padding-left: 0.5em" align="center">
-      <epc:set name='docs' expr='$item.documents()'>
-        <epc:if test="length($docs) gt 0">
-          <div style="white-space: nowrap">
-          <epc:foreach expr="$docs" iterator="doc" limit='2'>
-             <epc:print expr="$doc.icon( 'HoverPreview', 'noNewWindow' )" />
-          </epc:foreach>
-          </div>
-        </epc:if>
-        <epc:if test="length($docs) gt 2">
-          <div><a href='{$item.url()}'>+<epc:print expr="length($docs)-2" /> <epc:phrase ref="page:more"/></a></div>
-        </epc:if>
-      </epc:set>
-    </td>
-  </tr>
+		</cite:linkhere>
+-->
+		<div class="result_body">
+			<h2><epc:print expr="$item.citation('default')" /></h2>
+			<div class="result_text">
+				<p><epc:print expr="abstract" /></p>
+			</div>
+			<div class="ep_column_clear"> </div>
+		</div>
+	</div>
+</div>
 </cite:citation>

@@ -9,9 +9,9 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>236390c12000d222a809a4588fd8145f</hash>
+          <hash>5838a03bdf371f4fa401c89260292ff6</hash>
           <hash_type>MD5</hash_type>
-          <filesize>14937</filesize>
+          <filesize>13366</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_eprint_fields_automatic.pl</filename>
@@ -49,6 +49,13 @@
           <filesize>407</filesize>
         </file>
         <file>
+          <filename>epm/edshare_core/cfg/cfg.d/x_edshare_views.pl</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>d34798a816e46f34f45f7d3fca607deb</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>1254</filesize>
+        </file>
+        <file>
           <filename>epm/edshare_core/cfg/citations/eprint/default.xml</filename>
           <mime_type>application/xml</mime_type>
           <hash>f2848415162dc21eaef3de36f0bab7ec</hash>
@@ -79,9 +86,9 @@
         <file>
           <filename>epm/edshare_core/cfg/citations/eprint/result.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>06727fafc2089d67b03349a5ad25fbc3</hash>
+          <hash>86eae6bb6f85f61d27745d203bfe56ef</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1063</filesize>
+          <filesize>1120</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/lang/en/phrases/x_edshare_core.xml</filename>
@@ -147,11 +154,11 @@
           <filesize>7859</filesize>
         </file>
         <file>
-          <filename>epm/edshare_core/cfg/static/style/auto/edshare_core.css</filename>
+          <filename>epm/edshare_core/cfg/static/style/auto/x_edshare_core.css</filename>
           <mime_type>text/x-c</mime_type>
-          <hash>407893640ef0b7ed928a9026207e868f</hash>
+          <hash>62d8b7024e75c12910fb8f30ef2fe252</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1671</filesize>
+          <filesize>3577</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/workflows/eprint/default.xml</filename>
