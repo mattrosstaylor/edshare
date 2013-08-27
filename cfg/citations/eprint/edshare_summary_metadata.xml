@@ -8,13 +8,11 @@
 
   <epc:if test="is_set(abstract)">
     <div class="ep_block">
-      <h2 class="ep_abstractpage_header"><epc:phrase ref="eprint_fieldname_abstract"/></h2>
       <p class="edshare_summary_abstract"><epc:print expr="abstract"/></p>
     </div>
   </epc:if>
   <div class="ep_block">
-    <h2 class="ep_abstractpage_header">Item details</h2>
-    <table style="margin-bottom: 1em; margin-top: 1em;" cellpadding="3">
+    <table class="edshare_summary_table" style="margin-bottom: 1em; margin-top: 1em;" cellpadding="3">
       <epc:foreach expr="$config{summary_page_metadata}" iterator="fieldname">
         <epc:if test="is_set($item.property($fieldname))">
           <tr>

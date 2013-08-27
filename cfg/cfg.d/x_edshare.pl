@@ -435,4 +435,8 @@ $c->{can_user_view_document} = sub
 };
 
 $c->{plugins}->{"Screen::RedirectingLogin"}->{params}->{disable} = 0;
+
+$c->{plugins}->{"Screen::BrowseViews"}->{params}->{disable} = 0;
+$c->{plugins}->{"Screen::BrowseViews"}->{appears}->{key_tools} = 400;
+
 $c->{plugin_alias_map}->{"Screen::Login"} = "Screen::RedirectingLogin";

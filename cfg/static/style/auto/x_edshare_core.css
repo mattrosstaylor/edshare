@@ -18,11 +18,11 @@
 #edshare_summary_below {
 	clear:both;
 }
+*/
 
 .edshare_summary_abstract {
-	text-align: justify;
+	font-size:110%;
 }
-*/
 
 /* Result citation */
 .griditem {

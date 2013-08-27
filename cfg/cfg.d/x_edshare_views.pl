@@ -26,8 +26,8 @@ $c->{browse_views} = [
 		#EdShare - order=fg added so that the browse view still orders family name first even though the names are rendered given first.
 		fields => [ "creators_name;order=fg" ],
 		new_column_at => [1, 1],
-		mode => "sections",
-		open_first_section => 1,
+#		mode => "sections",
+#		open_first_section => 1,
 		group_range_function => "EPrints::Update::Views::cluster_ranges_30",
 		grouping_function => "EPrints::Update::Views::group_by_a_to_z",
 	},
@@ -49,8 +49,8 @@ $c->{browse_views} = [
 	{
 		fields => [ "keywords" ],
 		new_column_at => [1, 1],
-		mode => "sections",
-		open_first_section => 1,
+#		mode => "sections",
+#		open_first_section => 1,
 		group_range_function => "EPrints::Update::Views::cluster_ranges_30",
 		grouping_function => "EPrints::Update::Views::group_by_a_to_z",
 	},
