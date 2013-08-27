@@ -10,6 +10,7 @@ use strict;
 our @replaced_files = (
 	"/citations/eprint/default.xml",
 	"/citations/eprint/result.xml",
+	"/lang/en/static/index.xpage",
 	"/namedsets/eprint",
 	"/workflows/eprint/default.xml",
 );

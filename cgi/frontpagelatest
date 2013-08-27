@@ -1,0 +1,71 @@
+#!/bin/perl
+
+use EPrints;
+
+use strict;
+my $session = new EPrints::Session;
+exit( 0 ) unless( defined $session );
+
+my $ds = $session->get_repository->get_dataset( "archive" );
+
+my $citation = "result";
+my $page=$session->make_doc_fragment();
+
+my $search = EPrints::Search->new(
+#		filters => [
+#		{ 
+#			meta_fields=>[ 'type' ], 
+#			value=> qw/ resource collection /, 
+#			describe=>0,
+#		},
+#		],	
+#		custom_order => "-datestamp",
+		dataset => $ds,
+		session => $session,
+		);
+$search->add_field( $ds->get_field("type"), "resource" );
+
+my $list = $search->perform_search();
+my $short_list;
+if( $list->count )
+{
+	$short_list = EPrints::List->new(session=>$session, dataset=>$ds, ids=>$list->get_ids(0,5));
+	$list->dispose;
+	my $type = $session->get_citation_type( $ds, $citation );
+	my $container;
+	if( $type eq "table_row" )
+	{
+		$container = $session->make_element( 
+				"table", 
+				class=>"ep_latest_list" );
+	}
+	else
+	{
+		$container = $session->make_element( 
+				"div", 
+				class=>"ep_latest_list" );
+	}
+	$page->appendChild( $container );
+	my $n = 1;
+	$short_list->map( sub{ 
+			my( $session, $dataset, $item, $info ) = @_;
+			my $row = $item->render_citation_link( "result", n => [$n++, "INTEGER"] ) ;
+			my $div = $session->make_element( 
+				"div", 
+				class=>"ep_latest_result" );
+			$div->appendChild( $row );
+			$container->appendChild( $div );
+	} );
+	$short_list->dispose;
+}
+else
+{
+	$page->appendChild( $session->html_phrase( "cgi/latest:none" ) );
+}
+
+
+$session->send_http_header( content_type=>"text/html; charset=ISO-8859-1" );
+
+print EPrints::XML::to_string($page);	
+
+$session->terminate;

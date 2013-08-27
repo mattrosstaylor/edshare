@@ -98,6 +98,13 @@
           <filesize>5297</filesize>
         </file>
         <file>
+          <filename>epm/edshare_core/cfg/lang/en/static/index.xpage</filename>
+          <mime_type>application/xml</mime_type>
+          <hash>d2f8de2be25c64d5d3ea60fc8ee7691b</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>2922</filesize>
+        </file>
+        <file>
           <filename>epm/edshare_core/cfg/namedsets/eprint</filename>
           <mime_type>text/plain</mime_type>
           <hash>c8a237c5c966bf37c93e1247e77d8066</hash>
@@ -156,9 +163,9 @@
         <file>
           <filename>epm/edshare_core/cfg/static/style/auto/x_edshare_core.css</filename>
           <mime_type>text/x-c</mime_type>
-          <hash>e5072c1d304210541a118b8edbb2eda1</hash>
+          <hash>1fe519262ec55dd186c2e2be4d838428</hash>
           <hash_type>MD5</hash_type>
-          <filesize>3572</filesize>
+          <filesize>3672</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/workflows/eprint/default.xml</filename>
@@ -173,6 +180,13 @@
           <hash>ec887e9d4dabc6c31f2bcbd6e06866de</hash>
           <hash_type>MD5</hash_type>
           <filesize>1197</filesize>
+        </file>
+        <file>
+          <filename>epm/edshare_core/cgi/frontpagelatest</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>62e7cb321aefaae9ff2e1fe91cb3504d</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>1608</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cgi/users/lookup/localname</filename>
@@ -219,9 +233,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPMC/EdShareCore.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>7083007dedf8b6633df563cfdb052d63</hash>
+          <hash>265177822cef51150da3530e3a15b02c</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1939</filesize>
+          <filesize>1971</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPrint/EdShareEdit.pm</filename>
