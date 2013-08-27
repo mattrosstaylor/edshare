@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<epm xmlns='http://eprints.org/ep2/data/2.0' id='http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/edshare_core'>
+<epm xmlns='http://eprints.org/ep2/data/2.0' id='http://www.medshare.soton.ac.uk/id/epm/edshare_core'>
   <epmid>edshare_core</epmid>
   <eprintid>234</eprintid>
-  <uri>http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/edshare_core</uri>
+  <uri>http://www.medshare.soton.ac.uk/id/epm/edshare_core</uri>
   <documents>
     <document>
       <files>
@@ -51,9 +51,9 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_views.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>143334e4560b7218dbde4c1e952847e2</hash>
+          <hash>ac06b0ee17c9000d4e3d23bcd60c4191</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1258</filesize>
+          <filesize>1226</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/citations/eprint/default.xml</filename>
@@ -65,9 +65,9 @@
         <file>
           <filename>epm/edshare_core/cfg/citations/eprint/edshare_summary_metadata.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>d7e0abb547522d3fe3fd9cbb5245f0fa</hash>
+          <hash>369f97722d0472a4f94204cb59a30d43</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1467</filesize>
+          <filesize>1317</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/citations/eprint/edshare_summary_page.xml</filename>
@@ -184,9 +184,9 @@
         <file>
           <filename>epm/edshare_core/cgi/frontpagelatest</filename>
           <mime_type>text/plain</mime_type>
-          <hash>62e7cb321aefaae9ff2e1fe91cb3504d</hash>
+          <hash>df91652310aa10554a41195af310a10f</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1608</filesize>
+          <filesize>1607</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cgi/users/lookup/localname</filename>

@@ -9,13 +9,13 @@ $c->{browse_views} = [
 		new_column_at => [10,10],
 	}
 	],
-	order => "creators_name/title",
+	order => "title",
 	citation => "result",
-	variations => [
-		"creators_name;first_letter",
+#	variations => [
+#		"creators_name;first_letter",
 #		"type",
-		"DEFAULT"
-	],
+#		"DEFAULT"
+#	],
 },
 {
 	id => "creators",
@@ -32,7 +32,7 @@ $c->{browse_views} = [
 		grouping_function => "EPrints::Update::Views::group_by_a_to_z",
 	},
 	],
-	order => "-datestamp/title",
+	order => "title",
 	citation => "result",
 #	variations => [
 #		"type",
@@ -55,7 +55,7 @@ $c->{browse_views} = [
 		grouping_function => "EPrints::Update::Views::group_by_a_to_z",
 	},
 	],
-	order => "-datestamp/title",
+	order => "title",
 	citation => "result",
 },
 ];
