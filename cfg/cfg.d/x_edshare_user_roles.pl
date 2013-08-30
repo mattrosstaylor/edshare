@@ -19,6 +19,7 @@ $c->{user_roles}->{admin} = [qw{
 	staff-view
 	admin
 	edit-config
+	+redo_thumbnails
 }];
 
 $c->{public_roles} = [qw{

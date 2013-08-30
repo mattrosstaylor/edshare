@@ -215,3 +215,17 @@ div.autocomplete ul li {
 	float: right;
 	width: 43%;
 }
+
+#edshare_toolbox {
+	margin: 12px;
+}
+
+#edshare_toolbox > ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#edshare_toolbox img {
+	vertical-align: middle;
+}

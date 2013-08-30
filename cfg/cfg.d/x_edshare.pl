@@ -289,22 +289,7 @@ $c->{cache_timeout} = 10;
 #   valid for ).
 $c->{cache_maxlife} = 12;
 
-
-
 $c->{plugins}->{"Import::DOI"}->{params}->{pid} = "ourl_eprintsorg:eprintsorg";
-
-$c->{plugins}->{"Issues"}->{params}->{disable} = 1;
-$c->{plugins}->{"Issues::ExactTitleDups"}->{params}->{disable} = 1;
-$c->{plugins}->{"Issues::SimilarTitles"}->{params}->{disable} = 1;
-$c->{plugins}->{"Issues::XMLConfig"}->{params}->{disable} = 1;
-
-# EdShare - Plugin config
-# EdShare - Disable the Review screen.
-$c->{plugins}->{"Screen::Review"}->{params}->{disable} = 1;
-# EdShare - Adds use as template to the manage deposits screen.
-
-# mrt - this plugin doesn't even exist yet
-#$c->{plugins}->{"Screen::EPrint::UseAsTemplate"}->{actions}->{use_as_template}->{appears}->{eprint_item_actions} = 20;
 
 
 $c->{can_request_view_document} = sub
@@ -329,33 +314,9 @@ $c->{"edshare_choose_workflow"} = sub {
 
 $c->{edshare_screen_after_edit} = "Items";
 
-$c->{plugin_alias_map}->{"Screen::EPrint::Edit"} = "Screen::EPrint::EdShareEdit";
-$c->{plugin_alias_map}->{"Screen::EPrint::CollectionEdit"} = "Screen::EPrint::EdShareEdit";
-$c->{plugin_alias_map}->{"Screen::EPrint::EdShareEdit"} = undef;
-$c->{plugins}->{"Screen::EPrint::EdShareEdit"}->{params}->{disable} = 0;
-
-# UseAsTemplate -> redirects to edit page after cloning
-#$c->{plugin_alias_map}->{"Screen::EPrint::UseAsTemplate"} = "Screen::EPrint::LocalUseAsTemplate";
-#$c->{plugin_alias_map}->{"Screen::EPrint::LocalUseAsTemplate"} = undef;
-
-# The 'Manage Records' screen:
-$c->{plugins}->{"Screen::DataSets"}->{appears}->{admin_actions_system} = 1600;
 $c->{plugins}->{"Screen::DataSets"}->{appears}->{key_tools} = undef;
 
-$c->{plugins}->{"Screen::EPrint::Box::BookmarkTools"}->{params}->{disable} = 1;
-$c->{plugins}->{"Screen::EPrint::Box::CollectionMembership"}->{params}->{disable} = 1;
 
-$c->{plugins}->{"Screen::EPrint::ExportZip"}->{appears}->{edshare_toolbox} = 29;
-$c->{plugins}->{"Screen::EPrint::Public::RequestCopy"}->{action}->{request}->{appears}->{edshare_toolbox} = 40;
-$c->{plugins}->{"MePrints::Widget::EPrintsIssues"}->{params}->{disable} = 1;
-#$c->{plugins}->{"MePrints::Widget::Repostats::Downloads"}->{params}->{disable} = 1;
-#$c->{plugins}->{"MePrints::Widget::Repostats::TopTen"}->{params}->{disable} = 1;
-# Use RepoStats' one
-$c->{plugins}->{"MePrints::Widget::TopTen"}->{params}->{disable} = 1;
-
-$c->{plugins}->{"InputForm::Component::Field::TagLite"}->{params}->{disable} = 0;
-$c->{plugins}->{"InputForm::Component::Field::Permissions"}->{params}->{disable} = 0;
-$c->{plugins}->{"TagCloud"}->{params}->{disable} = 0;
 #add mimetypes for css and javascript so they are served properly
 $c->{mimemap}->{css}  = "text/css";
 $c->{mimemap}->{js}  = "text/javascript";
@@ -363,7 +324,6 @@ $c->{mimemap}->{js}  = "text/javascript";
 
 
 # mrt - this is a serious thing am I sure I want to do this....
-$c->{plugin_alias_map}->{"Screen::EPrint::View"} = "Screen::EPrint::Summary";
 
 
 
@@ -385,9 +345,9 @@ $c->{can_request_view_document} = sub
 	foreach my $permission (@{$eprint->value("view_permissions")})
 	{
 		if($permission->{type} eq 'public'){ return "ALLOW"; }
-		if($permission->{type} eq 'restricted' && defined $user){ return "USER"; }  
-		if($permission->{type} eq 'user' && defined $user && $user->value("username") eq $permission->{value} ){ return "USER"; } 
-		if($permission->{type} eq 'department' && defined $user && $user->value("department") eq $permission->{value} ){ return "USER"; } 
+		if($permission->{type} eq 'restricted' && defined $user){ return "ALLOW"; }  
+		if($permission->{type} eq 'user' && defined $user && $user->value("username") eq $permission->{value} ){ return "ALLOW"; } 
+		if($permission->{type} eq 'department' && defined $user && $user->value("department") eq $permission->{value} ){ return "ALLOW"; } 
 	}
 
 	return "DENY";
@@ -429,15 +389,36 @@ $c->{does_user_own_eprint} = sub
 };
 
 
+# plugin activation
+$c->{plugins}->{"EdShareToolbox"}->{params}->{disable} = 0;
+$c->{plugins}->{"Export::Zip"}->{params}->{disable} = 0;
+$c->{plugins}->{"InputForm::Component::Field::TagLite"}->{params}->{disable} = 0;
+$c->{plugins}->{"InputForm::Component::Field::Permissions"}->{params}->{disable} = 0;
+#  $c->{plugins}->{"TagCloud"}->{params}->{disable} = 0;
+$c->{plugins}->{"Screen::BrowseViews"}->{params}->{disable} = 0;
+$c->{plugins}->{"Screen::EPrint::EdShareEdit"}->{params}->{disable} = 0;
+$c->{plugins}->{"Screen::EPrint::EmailAuthor"}->{params}->{disable} = 0;
+$c->{plugins}->{"Screen::EPrint::ExportZip"}->{params}->{disable} = 0;
+$c->{plugins}->{"Screen::EPrint::RedoThumbnails"}->{params}->{disable} = 0;
 $c->{plugins}->{"Screen::RedirectingLogin"}->{params}->{disable} = 0;
 
-$c->{plugins}->{"Screen::BrowseViews"}->{params}->{disable} = 0;
-$c->{plugins}->{"Screen::BrowseViews"}->{appears}->{key_tools} = 400;
+#plugin removal
+$c->{plugins}->{"Screen::Review"}->{params}->{disable} = 1;
+
+# plugin alias
+$c->{plugin_alias_map}->{"Screen::EPrint::Edit"} = "Screen::EPrint::EdShareEdit";
+$c->{plugin_alias_map}->{"Screen::EPrint::EdShareEdit"} = undef;
 
 $c->{plugin_alias_map}->{"Screen::Login"} = "Screen::RedirectingLogin";
+$c->{plugin_alias_map}->{"Screen::EPrint::RedirectingLogin"} = undef;
 
-# EdShare Toolbox
-$c->{plugins}->{"EdShareToolbox"}->{params}->{disable} = 0;
+$c->{plugin_alias_map}->{"Screen::EPrint::View"} = "Screen::EPrint::Summary";
+
+# toolbar stuff
 $c->{plugins}->{"Screen::EPrint::Edit"}->{appears}->{edshare_toolbox} = 10;
 $c->{plugins}->{"Screen::EPrint::Remove"}->{appears}->{edshare_toolbox} = 20;
-$c->{plugins}->{"Screen::EPrint::Staff::ChangeOwner"}->{appears}->{edshare_toolbox} = 30;
+$c->{plugins}->{"Screen::EPrint::RedoThumbnails"}->{appears}->{edshare_toolbox} = 30;
+$c->{plugins}->{"Screen::EPrint::ExportZip"}->{appears}->{edshare_toolbox} = 40;
+$c->{plugins}->{"Screen::EPrint::EmailAuthor"}->{appears}->{edshare_toolbox} = 50;
+
+$c->{plugins}->{"Screen::BrowseViews"}->{appears}->{key_tools} = 400;

@@ -1,0 +1,28 @@
+#!/usr/bin/perl
+
+use strict;
+use EPrints;
+
+my $session = EPrints::Session->new();
+
+my $eprintid = $session->param("eprintid");
+
+if(!defined $eprintid){return;}
+
+my $ds = $session->get_repository()->get_dataset('archive');
+
+my $eprint = EPrints::DataObj::EPrint->new( $session, $eprintid );
+
+if(!defined $eprint){ return; }
+
+my @ids = ($eprintid,);
+
+my $list = EPrints::List->new(session=>$session, dataset=>$ds, ids=>\@ids);
+
+EPrints::Apache::AnApache::header_out($session->{request}, "Content-Type"=>"application/zip" );
+EPrints::Apache::AnApache::header_out($session->{request}, "Content-Disposition"=>"attachement;filename=\"".$eprint->get_value("title").".zip\"" );
+
+print $list->export("Zip");
+
+$session->terminate();
+

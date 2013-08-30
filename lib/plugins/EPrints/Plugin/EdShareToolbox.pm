@@ -118,9 +118,10 @@ sub render_action_link
 	# will redirect to https
 	my $url_base = $session->config( "http_cgiroot" )."/users/home";
 	my $img_screen_name = $params->{screen_id};
+	$img_screen_name =~ s/Screen\:\://;
 	$img_screen_name =~ s/\:\:/_/g;
 	my $link = $session->make_element( "a", "href"=>$url_base.$parameters );
-#	$link->appendChild( $session->make_element( "img", src=>"/images/edshare_core/toolbox/".$img_screen_name.$img_action.".png" ) );
+	$link->appendChild( $session->make_element( "img", src=>"/images/edshare_core/toolbox/".$img_screen_name.$img_action.".png" ) );
 	$link->appendChild( $session->make_text( $title ) );
 
 	return $link;
@@ -132,7 +133,7 @@ sub render_action_link_list
 
 	my $session = $self->{session};
 
-	my $list = $session->make_element( 'ul', class=>'edshare_toolbox' );
+	my $list = $session->make_element( 'ul' );
 
 	foreach my $params ( $self->action_list( $list_id ) )
 	{
