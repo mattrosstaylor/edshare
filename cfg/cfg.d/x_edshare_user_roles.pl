@@ -1,19 +1,19 @@
 $c->{user_roles}->{user} = [qw{
 	general
-	edit-own-record
 	set-password
-	deposit
 	change-email
-	+eprint/archive/edit
-	+eprint/archive/remove
+	deposit
+	edit-own-record
+	+eprint/archive/edit:owner
+	+eprint/archive/remove:owner
 }];
 
 $c->{user_roles}->{admin} = [qw{
 	general
 	edit-own-record
 	set-password
-	deposit
 	change-email
+	deposit
 	editor
 	view-status
 	staff-view

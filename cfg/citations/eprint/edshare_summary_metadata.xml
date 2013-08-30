@@ -23,12 +23,9 @@
       </epc:foreach>
     </table>
   </div>
-<!-- mrt - edshare toolbox currently disabled
   <div class="ep_block">
-    <h2 class="ep_toolbox_header">Toolbox</h2>
+    <script type="text/javascript">edshare_core_render_toolbox("edshare_summary_toolbox", "<epc:print expr="eprintid" />");</script>
     <div id="edshare_summary_toolbox"> </div>
-    <script type="text/javascript">edshare_core_render_toolbox("edshare_summary_toolbox", "<epc:print expr="eprintid" />", "edshare_toolbox", "list");</script>
   </div>
--->
 </cite:citation>
 

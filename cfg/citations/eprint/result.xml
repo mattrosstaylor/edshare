@@ -9,7 +9,7 @@
 		<div class="metadata">
 			<strong>Added By:</strong> <epc:print expr="userid" /><br />
 			<strong>Added On:</strong> <epc:print expr="datestamp" /><br />
-			<epc:if test="keywords">
+			<epc:if test="length(keywords) gt 0">
 				<strong>Keywords:</strong> <epc:print expr="keywords" /><br />
 			</epc:if>
 		</div>
@@ -27,9 +27,16 @@
 -->
 		<div class="result_body">
 			<h2><epc:print expr="$item.citation('default')" /></h2>
-			<div class="result_text">
-				<p><epc:print expr="abstract" /></p>
-			</div>
+			<div class="result_text"><p>
+				<epc:choose>
+					<epc:when test="abstract">
+						<epc:print expr="abstract" />
+					</epc:when>
+					<epc:otherwise>
+						No description.
+					</epc:otherwise>
+				</epc:choose>
+			</p></div>
 			<div class="ep_column_clear"> </div>
 		</div>
 	</div>

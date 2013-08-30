@@ -1,47 +1,37 @@
 #!/usr/bin/perl
-use EPrints;
+
 use strict;
-my $repository = EPrints->new->current_repository;
-exit( 0 ) unless( defined $repository );
 
-my $processor = EPrints::ScreenProcessor->new(session => $repository);
+my $session = EPrints::Session->new;
+exit unless( defined $session );
 
-$repository->{processor} = $processor;
-
-my $screen = $repository->plugin("Screen");
-$screen->{processor} = $processor;
-
-my $params = {};
-
-if($repository->param("eprintid")){
-	my $eprint = $repository->eprint($repository->param("eprintid"));
-	$processor->{eprint} = $eprint;
-	$processor->{eprintid} = $eprint->get_id;
-	$params->{eprintid} = $eprint->get_id;
-}
-
-my $xml = undef;
-my $list_name = $repository->param("listname");
-
-if($repository->param("listtype") eq "list")
+my $eprintid = $session->param( 'eprintid' );
+unless( defined $eprintid )
 {
-	$params->{class} = "edshare_toolbox_$list_name";
-	$xml = $processor->render_item_list( [
-                $processor->list_items( $list_name )], %{$params}
-        );
-}
-if($repository->param("listtype") eq "bar")
-{
-	$xml = $screen->render_action_list_bar($list_name, $params);
+	print "no eprint id";
+	$session->terminate;
+	exit;
 }
 
-if($repository->param("listtype") eq "icons")
+my $eprint = EPrints::DataObj::EPrint->new( $session, $eprintid );
+unless( defined $eprint )
 {
-	 $xml = $screen->render_action_list_icons($list_name, $params);
-}
-if(!defined($xml))
-{
-	$xml = $screen->render_action_list($list_name, $params);
+	print "no eprint";
+	$session->terminate;
+	exit;
 }
 
-print $repository->xml->to_string($xml);
+my $toolbox = $session->plugin( "EdShareToolbox" );
+unless( defined $toolbox )
+{
+	print "no plugin";
+	$session->terminate;
+	exit;
+}
+
+my $response = $session->make_doc_fragment;
+$response->appendChild( $toolbox->render( eprint => $eprint ) );
+print $response->toString;
+
+$session->terminate;
+return;

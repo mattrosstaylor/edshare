@@ -36,22 +36,6 @@ $c->{fields}->{document} = [
 
 ];
 
-$c->{set_eprint_defaults} = sub
-{
-	my( $data, $session ) = @_;
-# EdShare - Makes the default eprint type a "resource"
-	if(!EPrints::Utils::is_set( $data->{type} ))
-	{
-		$data->{type} = "resource";	
-	}
-
-	if(!defined $data->{view_permissions})
-	{
-		$data->{view_permissions} = [ { type=>"private", value=>"private" } ];
-	}
-};
-
-
 $c->{fields}->{eprint} = [
 {
 	'name' => 'creators',
@@ -317,16 +301,11 @@ $c->{plugins}->{"Issues::XMLConfig"}->{params}->{disable} = 1;
 # EdShare - Plugin config
 # EdShare - Disable the Review screen.
 $c->{plugins}->{"Screen::Review"}->{params}->{disable} = 1;
-# EdShare mask the View plugin with a custom plugin that redirects users to their item page.
-$c->{plugin_alias_map}->{"Screen::EPrint::View::Owner"} = "Screen::RedirectToItems";
-$c->{plugin_alias_map}->{"Screen::EPrint::View::Editor"} = "Screen::RedirectToItems";
 # EdShare - Adds use as template to the manage deposits screen.
 
 # mrt - this plugin doesn't even exist yet
 #$c->{plugins}->{"Screen::EPrint::UseAsTemplate"}->{actions}->{use_as_template}->{appears}->{eprint_item_actions} = 20;
 
-# Assemble EdShare Toolbox
-$c->{plugins}->{"Screen::EPrint::Edit"}->{appears}->{edshare_toolbox} = 10;
 
 $c->{can_request_view_document} = sub
 {
@@ -355,10 +334,6 @@ $c->{plugin_alias_map}->{"Screen::EPrint::CollectionEdit"} = "Screen::EPrint::Ed
 $c->{plugin_alias_map}->{"Screen::EPrint::EdShareEdit"} = undef;
 $c->{plugins}->{"Screen::EPrint::EdShareEdit"}->{params}->{disable} = 0;
 
-# Custom summary screen
-#$c->{plugin_alias_map}->{"Screen::EPrint::Summary"} = "Screen::EPrint::LocalSummary";
-#$c->{plugin_alias_map}->{"Screen::EPrint::LocalSummary"} = undef;
-
 # UseAsTemplate -> redirects to edit page after cloning
 #$c->{plugin_alias_map}->{"Screen::EPrint::UseAsTemplate"} = "Screen::EPrint::LocalUseAsTemplate";
 #$c->{plugin_alias_map}->{"Screen::EPrint::LocalUseAsTemplate"} = undef;
@@ -385,6 +360,14 @@ $c->{plugins}->{"TagCloud"}->{params}->{disable} = 0;
 $c->{mimemap}->{css}  = "text/css";
 $c->{mimemap}->{js}  = "text/javascript";
 
+
+
+# mrt - this is a serious thing am I sure I want to do this....
+$c->{plugin_alias_map}->{"Screen::EPrint::View"} = "Screen::EPrint::Summary";
+
+
+
+# various Permissions stuff...
 
 $c->{can_request_view_document} = sub
 {
@@ -434,9 +417,27 @@ $c->{can_user_view_document} = sub
 
 };
 
+$c->{does_user_own_eprint} = sub
+{
+	my( $session, $user, $eprint ) = @_;
+
+	return 1 if $user->get_value( "userid" ) == $eprint->get_value( "userid" );
+
+	# add code for checking permissions here
+
+	return 0;
+};
+
+
 $c->{plugins}->{"Screen::RedirectingLogin"}->{params}->{disable} = 0;
 
 $c->{plugins}->{"Screen::BrowseViews"}->{params}->{disable} = 0;
 $c->{plugins}->{"Screen::BrowseViews"}->{appears}->{key_tools} = 400;
 
 $c->{plugin_alias_map}->{"Screen::Login"} = "Screen::RedirectingLogin";
+
+# EdShare Toolbox
+$c->{plugins}->{"EdShareToolbox"}->{params}->{disable} = 0;
+$c->{plugins}->{"Screen::EPrint::Edit"}->{appears}->{edshare_toolbox} = 10;
+$c->{plugins}->{"Screen::EPrint::Remove"}->{appears}->{edshare_toolbox} = 20;
+$c->{plugins}->{"Screen::EPrint::Staff::ChangeOwner"}->{appears}->{edshare_toolbox} = 30;
