@@ -1,5 +1,8 @@
-/* edshare summary */
+.clearer {
+	clear: both;
+}
 
+/* edshare summary */
 
 /* mrt - removing this styling until I finish previews
 #edshare_summary_above {
@@ -51,6 +54,7 @@
         padding:0;
         text-align: left;
 }
+
 /* mrt - i haven't decided how to handle previews yet
 .griditem .preview {
         float:left;
@@ -120,7 +124,6 @@
 }
 
 /* Workflow styling */
-
 .ed_creatorsname {
 	list-style: none;
 	margin: 0;
@@ -172,7 +175,7 @@ div.autocomplete ul li {
 	  cursor:pointer;
 }
 
-/* view permissons */
+/* permissons component */
 .edshare_permissions {
 	text-align:center;
 }
@@ -207,6 +210,21 @@ div.autocomplete ul li {
 	opacity: 1;
 }
 
+
+.edshare_permissions_advanced_left {
+	width: 58%;
+}
+
+.edshare_permissions_advanced_right {
+	float: right;
+	width: 39%;
+}
+
+.edshare_permissions_table {
+	width: 100%;
+}
+
+/* front page stuff */
 #edshare_frontpage_left {
 	width: 55%;
 }

@@ -41,8 +41,8 @@ sub render_content
 	}
 
 	my $namedset_name = $dataset->field($field->{name}."_type")->{set_name}; 
-	my @view_permission_types = $session->get_types($namedset_name);
-	my %nameset_hash = map { $_ => 1 } @view_permission_types;
+	my @permission_types = $session->get_types($namedset_name);
+	my %nameset_hash = map { $_ => 1 } @permission_types;
 
 	my $first_value_type = @$value[0]->{type};
 	my $show_advanced_options = (not ($first_value_type eq "public" or $first_value_type eq "private" or $first_value_type eq "restricted"));
@@ -90,36 +90,43 @@ sub render_content
 		$ul->appendChild( $li );
 	}
 
-	# advanced options sections
-	$xml_string .= '<div id="'.$basename.'_advanced_options" ';
+	my $advanced = $xml->create_element( "div", id=>$basename."_advanced_options", style=>"padding: 1px;position:relative;"); # mrt - we need 1px padding to stop the margins from collapsing - we need a relative position to anchor the positions - CSS is a very stupid thing
+	$div->appendChild( $advanced );
+
 	if (not $show_advanced_options)
 	{
-		$xml_string .= 'style="display:none"';
-	} 
-	$xml_string .= '>';
-	$xml_string .= '<div>'.$session->phrase("view_permissions_advanced_options_blurb").'</div>';
-	$xml_string .= '<select id="'.$basename.'_type" name="type">';
+		$advanced->setAttribute( style=>"display:none;"); 
+	}
+
+	my $left = $xml->create_element( "div", class=>"edshare_permissions_advanced_left" );
+	my $right = $xml->create_element( "div", class=>"edshare_permissions_advanced_right" );
+	$advanced->appendChild( $right );
+	$advanced->appendChild( $left );
+	$advanced->appendChild( $xml->create_element( "div", class=>"clearer" ) );
+
+	$left->appendChild( $self->html_phrase( "advanced_left_top" ) );
+	$right->appendChild( $self->html_phrase( "advanced_right_top" ) );
+
+	my $value_list = $xml->create_element( "ul", id=>$basename."_advanced_values", class=>"edshare_permissions_advanced_values");
+	$right->appendChild( $value_list );	
+
+	my $table = $xml->create_element( "table", class=>"edshare_permissions_table" );
+	$left->appendChild( $table );
+
 
 	# iterate through the array of types and print any that haven't been rendered yet
-	foreach my $value (@view_permission_types)
+	foreach my $value (@permission_types)
 	{
 		if ($nameset_hash{$value})
 		{
-			$xml_string .= '<option value="'.$value.'">'.$session->phrase($namedset_name."_typename_".$value).'</option>';
+			my $plugin = $session->plugin( "PermissionType::".$value, parent_component=>$self );
+			$table->appendChild( $plugin->render() );
 		}
 	}
 
-#	$xml_string .='</select>
-#		<input id="'.$basename.'_type_value" type="text" name="typevalue" onkeyup="doAutoComplete(\''.$basename.'\')" autocomplete="off"/>
-#		<input type="button" value="Add" onclick="addPermissionType(\''.$basename.'\'); return false;" />
-#		<div id="'.$basename.'_autocomplete_choices" class="autocomplete" style="display:none;"> </div>
-#	</div>';
-
-#add advanced options fill in here
-
-#	$xml_string .= '</div>';
 	return $div;
 }
+
 
 sub update_from_form
 {

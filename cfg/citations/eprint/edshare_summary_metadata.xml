@@ -17,7 +17,7 @@
         <epc:if test="is_set($item.property($fieldname))">
           <tr>
             <th align="right"><epc:phrase ref="eprint_fieldname_{$fieldname}" />:</th>
-            <td valign="top"><epc:print expr="$item.property($fieldname)" /></td>
+            <td valign="middle"><epc:print expr="$item.property($fieldname)" /></td>
           </tr>
         </epc:if>
       </epc:foreach>

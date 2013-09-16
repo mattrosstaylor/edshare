@@ -105,7 +105,7 @@ $c->{fields}->{eprint} = [
 		{
 			'sub_name' => 'type',
 			'type' => 'namedset',
-			'set_name' => 'view_permissions_type',
+			'set_name' => 'view_permissions',
 		},
  		{
 			'sub_name' => 'value',
@@ -394,6 +394,8 @@ $c->{plugins}->{"EdShareToolbox"}->{params}->{disable} = 0;
 $c->{plugins}->{"Export::Zip"}->{params}->{disable} = 0;
 $c->{plugins}->{"InputForm::Component::Field::TagLite"}->{params}->{disable} = 0;
 $c->{plugins}->{"InputForm::Component::Field::Permissions"}->{params}->{disable} = 0;
+$c->{plugins}->{"PermissionType::Creators"}->{params}->{disable} = 0;
+$c->{plugins}->{"PermissionType::UserLookup"}->{params}->{disable} = 0;
 #  $c->{plugins}->{"TagCloud"}->{params}->{disable} = 0;
 $c->{plugins}->{"Screen::BrowseViews"}->{params}->{disable} = 0;
 $c->{plugins}->{"Screen::EPrint::EdShareEdit"}->{params}->{disable} = 0;

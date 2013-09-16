@@ -52,12 +52,28 @@
 	<epp:phrase id="Field/TagLite:raw_keywords:pickuplist_blurb">Choose from your own keywords</epp:phrase>
 	<epp:phrase id="Field/TagLite:raw_keywords:advice_below"><p>Separate each keyword with a comma: <span style="font-style: italic;">social networks, lecture, slides</span>. Hit enter to add your keywords.</p></epp:phrase>
 	
-	<epp:phrase id="eprint_fieldname_viewperms">Permissions</epp:phrase>
-	<epp:phrase id="eprint_fieldhelp_viewperms">Who is allowed to view this resource? </epp:phrase>
+	<epp:phrase id="eprint_fieldname_view_permissions">View Permissions</epp:phrase>
+	<epp:phrase id="eprint_fieldname_view_permissions_type">Visibility</epp:phrase>
+	<epp:phrase id="eprint_fieldname_view_permissions_value">Values</epp:phrase>
+
+	<epp:phrase id="eprint_fieldhelp_view_permissions">Who is allowed to view this resource?</epp:phrase>
 	<epp:phrase id="eprint_fieldopt_viewperms_private">Just me</epp:phrase>
 	<epp:phrase id="eprint_fieldopt_viewperms_registered_only">Registered users</epp:phrase>
 	<epp:phrase id="eprint_fieldopt_viewperms_public">World</epp:phrase>
 
+	<epp:phrase id="Plugin/InputForm/Component/Field/Permissions:advanced_left_top"><h2>Select new users</h2><p>You can select stuff here, yo:</p></epp:phrase>
+	<epp:phrase id="Plugin/InputForm/Component/Field/Permissions:advanced_right_top"><h2>Permitted</h2><p>The following users are permitted to view this resource:</p></epp:phrase>
+	<epp:phrase id="Plugin/InputForm/Component/Field/Permissions:advanced_right_top"><h2>Permitted</h2><p>The following users are permitted to view this resource:</p></epp:phrase>
+
+<!-- permission type --> 
+	<epp:phrase id="Plugin/PermissionType/UserLookup:prompt">User</epp:phrase>
+	<epp:phrase id="Plugin/PermissionType/Creators:prompt">Creators</epp:phrase>
+	<epp:phrase id="Plugin/PermissionType/Creators:allow">Allow</epp:phrase>
+	<epp:phrase id="Plugin/PermissionType/Creators:deny">Deny</epp:phrase>
+	<epp:phrase id="Plugin/PermissionType/UserLookup:legend_name">Name</epp:phrase>
+	<epp:phrase id="Plugin/PermissionType/UserLookup:legend_email">Email</epp:phrase>
+
+<!-- document level -->
 	<epp:phrase id="document_fieldname_description">Description</epp:phrase>
 	<epp:phrase id="document_fieldhelp_description">A short explanation of what this file is about.</epp:phrase>
 
@@ -67,17 +83,14 @@
 
 <!-- views -->
 	<epp:phrase id="viewname_eprint_keywords">Keywords</epp:phrase>
-	<epp:phrase id="view_permissions_type_typename_private">Private</epp:phrase>
-	<epp:phrase id="view_permissions_type_typename_public">Public</epp:phrase>
-	<epp:phrase id="view_permissions_type_typename_restricted">Registered Users</epp:phrase>
-	<epp:phrase id="view_permissions_type_typename_department">Department</epp:phrase>
-	<epp:phrase id="view_permissions_type_typename_user">Selected Users</epp:phrase>
-	<epp:phrase id="view_permissions_type_custom">Custom</epp:phrase>
+	<epp:phrase id="view_permissions_typename_private">Private</epp:phrase>
+	<epp:phrase id="view_permissions_typename_public">Public</epp:phrase>
+	<epp:phrase id="view_permissions_typename_restricted">Registered Users</epp:phrase>
+	<epp:phrase id="view_permissions_typename_department">Department</epp:phrase>
+	<epp:phrase id="view_permissions_typename_user">Selected Users</epp:phrase>
+	<epp:phrase id="view_permissions_typename_custom">Custom</epp:phrase>
 	<epp:phrase id="view_permissions_advanced_options_blurb">You can set custom view options here by augue orci, pellentesque sit amet sem et, eleifend iaculis nunc. Duis commodo sapien neque, id consectetur ligula volutpat vitae. Ut sed ante et nunc blandit sodales quis ut nulla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</epp:phrase>
-	<epp:phrase id="eprint_fieldname_view_permissions_type">Visibility</epp:phrase>
-	<epp:phrase id="eprint_fieldname_view_permissions_value">Values</epp:phrase>
-	<epp:phrase id="eprint_fieldname_view_permissions">View Permissions</epp:phrase>
-
+	
 <!-- validation_status -->
 	<epp:phrase id="eprint_fieldname_validation_status">Validation status</epp:phrase>
 	<epp:phrase id="eprint_fieldopt_validation_status_error">Invalid</epp:phrase>
@@ -85,8 +98,7 @@
 
 <!-- email author -->
 	<epp:phrase id="Plugin/Screen/EPrint/EmailAuthor:title">Email the uploader</epp:phrase> 
-	<epp:phrase id="Plugin/Screen/EPrint/EmailAuthor:intro">This interface allows you to email the uploader of this item without them having to give out their email address. Be considerate when emailing a person. Try to make emails cle
-ar and concise. By emailing this person you are giving them your email address as a way to reply. Please remember just because you have emailed the user does not mean they are oblidged to reply to you.</epp:phrase>
+	<epp:phrase id="Plugin/Screen/EPrint/EmailAuthor:intro">This interface allows you to email the uploader of this item without them having to give out their email address. Be considerate when emailing a person. Try to make emails clear and concise. By emailing this person you are giving them your email address as a way to reply. Please remember just because you have emailed the user does not mean they are oblidged to reply to you.</epp:phrase>
 	<epp:phrase id="Plugin/Screen/EPrint/EmailAuthor:subject">Email subject:</epp:phrase> 
 	<epp:phrase id="Plugin/Screen/EPrint/EmailAuthor:body_text">Email body:</epp:phrase>
 	<epp:phrase id="Plugin/Screen/EPrint/EmailAuthor:button">Send email</epp:phrase> 

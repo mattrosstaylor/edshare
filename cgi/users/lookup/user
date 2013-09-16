@@ -1,0 +1,152 @@
+#!/usr/bin/perl
+use EPrints;
+
+use strict;
+
+my $session = EPrints::Session->new();
+
+# security?
+
+my $content = "text/xml";
+$session->send_http_header( content_type=>$content );
+my $type = $session->param( "type" );
+my $q = lc( $session->param( "q" ) );
+
+$q =~ s/^\s+|\s+$//g;
+
+if ( $type eq "name" )
+{
+	$q = EPrints::Database::prep_like_value($q);
+	my $sql = "SELECT name_family, name_given, name_honourific, name_lineage, email, userid FROM user ";
+	$sql .= "WHERE LOWER(CONCAT(name_given, ' ', name_family)) LIKE '\%".$q."\%' ";
+	$sql .= "LIMIT 40";
+
+	print STDERR "\n\n".$sql."\n\n"; 
+
+	my $sth = $session->get_database->prepare( $sql );
+	$session->get_database->execute( $sth , $sql );
+	my $first = 1;
+
+	print <<END;
+<?xml version="1.0" encoding="UTF-8" ?>
+<ul>
+END
+
+
+
+	while( my( $f, $g, $h, $l, $e, $uid ) = $sth->fetchrow_array )
+	{
+		if( $first )
+		{
+			print "<li class='ep_first'>";
+			$first = 0;
+		}
+		else
+		{
+			print "<li>";
+		}
+		print "$h $g $f $l";
+		if( defined $e ) { print " ($e)"; }
+		print "<ul>";
+		print "<li id='for:value:relative:_name_family'>$f</li>";
+		print "<li id='for:value:relative:_name_given'>$g</li>";
+		print "<li id='for:value:relative:_name_honourific'>$h</li>";
+		print "<li id='for:value:relative:_name_lineage'>$l</li>";
+		print "<li id='for:value:relative:_id'>$e</li>";
+		print "<li id='for:value:relative:_userid'>$uid</li>";
+		print "</ul></li>\n";
+	}
+	print "</ul>";
+
+	$session->terminate;
+	exit;
+}
+elsif ( $type eq "email" )
+{
+	print STDERR "sbemail";
+}
+else
+{
+	print STDERR "feck orf";
+        $session->terminate;
+        exit;
+}
+
+        $session->terminate;
+        exit;
+
+=pod
+my $given = $session->param( "_name_given" );
+
+#$id is the email here:
+my $id = $session->param( "_id" );
+my $userid = $session->param( "_userid" );
+
+my $is_set = 0;
+
+# dirty '1' at the end :)
+my $sql = "SELECT name_family, name_given, name_honourific, name_lineage, email, userid FROM user WHERE 1 ";
+
+if( EPrints::Utils::is_set( $family ) )
+{
+        $is_set++;
+        $sql .= "AND name_family LIKE '".EPrints::Database::prep_like_value($family)."\%' ";
+}
+if( EPrints::Utils::is_set( $given ) )
+{
+        $is_set++;
+        $sql .= "AND name_given LIKE '".EPrints::Database::prep_like_value($given)."\%' ";
+}
+if( EPrints::Utils::is_set( $id ) )
+{
+        $is_set++;
+        $sql .= "AND email LIKE '".EPrints::Database::prep_like_value($id)."\%' ";
+}
+if( EPrints::Utils::is_set( $userid ) )
+{
+        $is_set++;
+        $sql .= "AND userid ='".EPrints::Database::prep_int($userid)."' ";
+}
+$sql.=" LIMIT 40";
+
+print <<END;
+<?xml version="1.0" encoding="UTF-8" ?>
+<ul>
+END
+
+unless( $is_set )
+{
+        print "</ul>";
+        $session->terminate;
+        exit;
+}
+
+my $sth = $session->get_database->prepare( $sql );
+$session->get_database->execute( $sth , $sql );
+my $first = 1;
+while( my( $f, $g, $h, $l, $e, $uid ) = $sth->fetchrow_array )
+{
+        if( $first )
+        {
+                print "<li class='ep_first'>";
+                $first = 0;
+        }
+        else
+        {
+                print "<li>";
+        }
+        print "$h $g $f $l";
+        if( defined $e ) { print " ($e)"; }
+        print "<ul>";
+        print "<li id='for:value:relative:_name_family'>$f</li>";
+        print "<li id='for:value:relative:_name_given'>$g</li>";
+        print "<li id='for:value:relative:_name_honourific'>$h</li>";
+        print "<li id='for:value:relative:_name_lineage'>$l</li>";
+        print "<li id='for:value:relative:_id'>$e</li>";
+        print "<li id='for:value:relative:_userid'>$uid</li>";
+        print "</ul></li>\n";
+}
+print "</ul>";
+
+$session->terminate;
+=cut
