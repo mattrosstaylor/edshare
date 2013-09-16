@@ -14,6 +14,81 @@ function permissionsCoarseSelect(basename,type) {
 	}
 }
 
+// mrt - this code is profoundedly retarded - who the hell even wrote this obtuse bullhonky???
+
+function ep_autocompleter_selected_users( element, target, url, search_type, width_of_these, object_back_ref ) {
+	new Ajax.Autocompleter( element, target, url, {
+		paramName: 'q',
+		callback: function( el, entry ) {
+			return entry + "&type=" +search_type;
+		},
+
+		onShow: function(element, update) {
+			console.log(element);
+
+
+			update.style.position = 'absolute';
+			Position.clone(element, update, {
+				setWidth: false,
+				setHeight: false,
+				setLeft: element.offsetLeft,
+				offsetTop: element.offsetHeight
+			});
+
+			update.style.width  = '200px';
+			Effect.Appear(update,{duration:0.15});
+		},
+
+		updateElement: function( selected ) {
+			// should do something more custom :)
+
+			var values=new Array();
+			var done = false;
+
+			var ul = $A(selected.getElementsByTagName( 'ul' )).first();
+			var lis = $A(ul.getElementsByTagName( 'li' ));
+
+			for(var x=0; x<6; x++) {
+				var li = lis[x];
+				if( li != null ) {
+					var myid = li.getAttribute( 'id' );
+					var attr = myid.split( /:/ );
+					if (attr[0] != 'for') {
+						alert( "Autocomplete id reference did not start with 'for': "+myid);
+						return;
+					}
+					if( attr[1] != 'value' ) {
+						alert("Autocomplete id reference did not contain 'value': "+myid);
+						return;
+					}
+					var id = attr[3];
+					if( id == null) {
+						id = '';
+					}
+					if( attr[1] == 'value' ) {
+						var newvalue = li.innerHTML;
+						rExp = /&gt;/gi;
+						newvalue = newvalue.replace(rExp, ">" );
+						rExp = /&lt;/gi;
+						newvalue = newvalue.replace(rExp, "<" );
+						rExp = /&amp;/gi;
+						newvalue = newvalue.replace(rExp, "&" );
+
+						// so id is either family, given, id, userid etc
+						values[id] = newvalue;
+					}
+				}
+
+			}
+
+			object_back_ref.add_user(values, object_back_ref);
+
+		}
+	});
+}
+
+
+// mrt - this junk is no longer needed
 /*
 function viewPermissionsRadioSelected(basename, type) {
 	if (type == "restricted") {
@@ -75,85 +150,3 @@ function doAutoComplete(basename)
 }
 */
 
-
-function ep_autocompleter_selected_users( element, target, url, basenames, width_of_these, fields_to_send, extra_params, object_back_ref )
-{
-	new Ajax.Autocompleter( element, target, url, {
-		paramName: 'q',
-		callback: function( el, entry ) {
-			var params = fields_to_send.inject( entry, function( acc, rel_id, index ) {
-				return acc + '&' + rel_id + '=' + $F(basenames.relative + rel_id);
-			} );
-
-			return params + extra_params;
-		},
-
-		onShow: function(element, update) {
-			var w = width_of_these.inject( 0, function( acc, cell, index ) {
-				return acc + Element.getDimensions(cell).width;
-			} );
-
-			// seb - this is a dirty hack
-			if( target.match("visible") ) {
-				w = w * 2;
-			}
-
-			update.style.position = 'absolute';
-			Position.clone(element, update, {
-				setWidth: false,
-				setHeight: false,
-				setLeft: element.offsetLeft,
-				offsetTop: element.offsetHeight
-			});
-
-			update.style.width  = w + 'px';
-			Effect.Appear(update,{duration:0.15});
-		},
-
-		updateElement: function( selected ) {
-			// should do something more custom :)
-
-			var values=new Array();
-			var done = false;
-
-			var ul = $A(selected.getElementsByTagName( 'ul' )).first();
-			var lis = $A(ul.getElementsByTagName( 'li' ));
-
-			for(var x=0; x<6; x++) {
-				var li = lis[x];
-				if( li != null ) {
-					var myid = li.getAttribute( 'id' );
-					var attr = myid.split( /:/ );
-					if (attr[0] != 'for') {
-						alert( "Autocomplete id reference did not start with 'for': "+myid);
-						return;
-					}
-					if( attr[1] != 'value' ) {
-						alert("Autocomplete id reference did not contain 'value': "+myid);
-						return;
-					}
-					var id = attr[3];
-					if( id == null) {
-						id = '';
-					}
-					if( attr[1] == 'value' ) {
-						var newvalue = li.innerHTML;
-						rExp = /&gt;/gi;
-						newvalue = newvalue.replace(rExp, ">" );
-						rExp = /&lt;/gi;
-						newvalue = newvalue.replace(rExp, "<" );
-						rExp = /&amp;/gi;
-						newvalue = newvalue.replace(rExp, "&" );
-
-						// so id is either family, given, id, userid etc
-						values[id] = newvalue;
-					}
-				}
-
-			}
-
-			object_back_ref.add_user(values, object_back_ref);
-
-		}
-	});
-}

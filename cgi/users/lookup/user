@@ -5,7 +5,8 @@ use strict;
 
 my $session = EPrints::Session->new();
 
-# security?
+use Data::Dumper;
+print STDERR "\n\nparams:\n". Dumper( $session->param )."\n\n";
 
 my $content = "text/xml";
 $session->send_http_header( content_type=>$content );
@@ -21,7 +22,7 @@ if ( $type eq "name" )
 	$sql .= "WHERE LOWER(CONCAT(name_given, ' ', name_family)) LIKE '\%".$q."\%' ";
 	$sql .= "LIMIT 40";
 
-	print STDERR "\n\n".$sql."\n\n"; 
+#	print STDERR "\n\n".$sql."\n\n"; 
 
 	my $sth = $session->get_database->prepare( $sql );
 	$session->get_database->execute( $sth , $sql );
@@ -31,8 +32,6 @@ if ( $type eq "name" )
 <?xml version="1.0" encoding="UTF-8" ?>
 <ul>
 END
-
-
 
 	while( my( $f, $g, $h, $l, $e, $uid ) = $sth->fetchrow_array )
 	{
@@ -67,7 +66,7 @@ elsif ( $type eq "email" )
 }
 else
 {
-	print STDERR "feck orf";
+	print STDERR "No type specified";
         $session->terminate;
         exit;
 }

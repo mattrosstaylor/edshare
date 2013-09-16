@@ -224,6 +224,11 @@ div.autocomplete ul li {
 	width: 100%;
 }
 
+ /* not sure why the drop downs aren't ordered - but I will do it explicitly just to make sure  */
+.ep_drop_target {
+	z-index: 5;
+}
+
 /* front page stuff */
 #edshare_frontpage_left {
 	width: 55%;
