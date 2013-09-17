@@ -100,9 +100,9 @@
         <file>
           <filename>epm/edshare_core/cfg/lang/en/phrases/x_edshare_core.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>cabc34aaaa6adb7f38f3e0469837b2ca</hash>
+          <hash>8c991bd7a6acbf0c60aaacc66607659f</hash>
           <hash_type>MD5</hash_type>
-          <filesize>9992</filesize>
+          <filesize>9556</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/lang/en/static/index.xpage</filename>
@@ -126,35 +126,35 @@
           <filesize>58</filesize>
         </file>
         <file>
-          <filename>epm/edshare_core/cfg/static/images/edshare_core/custom.png</filename>
+          <filename>epm/edshare_core/cfg/static/images/edshare_core/permissions/custom.png</filename>
           <mime_type>image/png</mime_type>
           <hash>b075e4e4b9412f7fcda27a7fd2355f3c</hash>
           <hash_type>MD5</hash_type>
           <filesize>13221</filesize>
         </file>
         <file>
-          <filename>epm/edshare_core/cfg/static/images/edshare_core/private.png</filename>
+          <filename>epm/edshare_core/cfg/static/images/edshare_core/permissions/private.png</filename>
           <mime_type>image/png</mime_type>
           <hash>dad664e8e61ba55a48715b8a5f2a2817</hash>
           <hash_type>MD5</hash_type>
           <filesize>5718</filesize>
         </file>
         <file>
-          <filename>epm/edshare_core/cfg/static/images/edshare_core/public.png</filename>
+          <filename>epm/edshare_core/cfg/static/images/edshare_core/permissions/public.png</filename>
           <mime_type>image/png</mime_type>
           <hash>69b51176a99a3c98f85f56a4167f3479</hash>
           <hash_type>MD5</hash_type>
           <filesize>9326</filesize>
         </file>
         <file>
-          <filename>epm/edshare_core/cfg/static/images/edshare_core/restricted.png</filename>
+          <filename>epm/edshare_core/cfg/static/images/edshare_core/permissions/restricted.png</filename>
           <mime_type>image/png</mime_type>
           <hash>a84078720fc466b56d33357cfeff850a</hash>
           <hash_type>MD5</hash_type>
           <filesize>24251</filesize>
         </file>
         <file>
-          <filename>epm/edshare_core/cfg/static/images/edshare_core/taglite_remove.gif</filename>
+          <filename>epm/edshare_core/cfg/static/images/edshare_core/remove.gif</filename>
           <mime_type>image/gif</mime_type>
           <hash>856d3bd537ec1900c48be6d342af4797</hash>
           <hash_type>MD5</hash_type>
@@ -198,23 +198,23 @@
         <file>
           <filename>epm/edshare_core/cfg/static/javascript/auto/edshare_core.js</filename>
           <mime_type>text/x-c++</mime_type>
-          <hash>d84e47df6f80ca7256fcb428e13d5075</hash>
+          <hash>7552122f3c4c3ab4c65e2c5f5ba44fec</hash>
           <hash_type>MD5</hash_type>
-          <filesize>5561</filesize>
+          <filesize>5553</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/javascript/auto/edshare_permissions.js</filename>
           <mime_type>text/html</mime_type>
-          <hash>90be3a1f2be808032584b7b854b6faf6</hash>
+          <hash>065a064f619780588d4dd01f425d4df8</hash>
           <hash_type>MD5</hash_type>
-          <filesize>4059</filesize>
+          <filesize>4023</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/style/auto/x_edshare_core.css</filename>
           <mime_type>text/x-c</mime_type>
-          <hash>cb87a856104fa83d1609c8a0ae217a6c</hash>
+          <hash>5eb06a6953635ac946aa3dbbcd621093</hash>
           <hash_type>MD5</hash_type>
-          <filesize>4193</filesize>
+          <filesize>4356</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/workflows/eprint/default.xml</filename>
@@ -261,9 +261,9 @@
         <file>
           <filename>epm/edshare_core/cgi/users/lookup/user</filename>
           <mime_type>text/plain</mime_type>
-          <hash>779e00be61271f4adea2a2ba10071436</hash>
+          <hash>58306660841b9ba0730f9a0218e94ce4</hash>
           <hash_type>MD5</hash_type>
-          <filesize>3688</filesize>
+          <filesize>3691</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/EdShareCoreUtils.pm</filename>
@@ -289,9 +289,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/InputForm/Component/Field/Permissions.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>ee0e6f2eba6d65850b1bdd0d4e455f21</hash>
+          <hash>d3dec70518a8715b6a774ab49de76ea5</hash>
           <hash_type>MD5</hash_type>
-          <filesize>4702</filesize>
+          <filesize>5466</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/InputForm/Component/Field/TagLite.pm</filename>
@@ -303,23 +303,23 @@
         <file>
           <filename>plugins/EPrints/Plugin/PermissionType.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>0b32004a3ea7c2037ae7cad1e076431d</hash>
+          <hash>ea1c8ae3acab8d6892e7e84e44494534</hash>
           <hash_type>MD5</hash_type>
-          <filesize>898</filesize>
+          <filesize>1411</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/PermissionType/Creators.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>7dea78929a7f03e980655c55af1ecea8</hash>
+          <hash>c96b73ced5299955b04c7f1dc9b4aaaf</hash>
           <hash_type>MD5</hash_type>
-          <filesize>666</filesize>
+          <filesize>920</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/PermissionType/UserLookup.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>2c3889ac0281b870861cdaf30bd8ec9a</hash>
+          <hash>3e26ba6fd9ef016a2771d63d75aad0b1</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1627</filesize>
+          <filesize>1946</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPMC/EdShareCore.pm</filename>

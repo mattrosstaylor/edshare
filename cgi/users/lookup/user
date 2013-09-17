@@ -44,7 +44,7 @@ END
 		{
 			print "<li>";
 		}
-		print "$h $g $f $l";
+		print "$h $g $f<br>$l";
 		if( defined $e ) { print " ($e)"; }
 		print "<ul>";
 		print "<li id='for:value:relative:_name_family'>$f</li>";

@@ -14,6 +14,7 @@ sub new
 	my $self = $class->SUPER::new( %opts );
 	$self->{name} = 'Creators PermissionType';
         $self->{visible} = "all";
+	$self->{permission_type} = "Creators";
 
 	return $self;
 }
@@ -32,6 +33,17 @@ sub render_input
 
 	$td->appendChild( $input );
 	return $td;
+}
+
+sub render_value
+{
+	my ( $self, $value ) = @_;
+	my $xml = $self->repository->xml;
+
+	my $frag = $self->SUPER::render_value( $value );
+	$frag->appendChild( $self->html_phrase( "render_value" )); 
+	
+	return $frag;
 }
 
 1;

@@ -24,9 +24,6 @@ function ep_autocompleter_selected_users( element, target, url, search_type, wid
 		},
 
 		onShow: function(element, update) {
-			console.log(element);
-
-
 			update.style.position = 'absolute';
 			Position.clone(element, update, {
 				setWidth: false,
@@ -35,7 +32,6 @@ function ep_autocompleter_selected_users( element, target, url, search_type, wid
 				offsetTop: element.offsetHeight
 			});
 
-			update.style.width  = '200px';
 			Effect.Appear(update,{duration:0.15});
 		},
 
@@ -80,6 +76,8 @@ function ep_autocompleter_selected_users( element, target, url, search_type, wid
 				}
 
 			}
+
+			console.log(values);
 
 			object_back_ref.add_user(values, object_back_ref);
 

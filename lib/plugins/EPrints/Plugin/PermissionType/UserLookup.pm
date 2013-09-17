@@ -14,6 +14,7 @@ sub new
 	my $self = $class->SUPER::new( %opts );
 	$self->{name} = 'UserLookup PermissionType';
         $self->{visible} = "all";
+	$self->{permission_type} = "UserLookup";
 
 	return $self;
 }
@@ -62,6 +63,18 @@ sub render_input
 	));
 
 	return $td;
+}
+
+sub render_value
+{
+	my ( $self, $value ) = @_;
+	my $xml = $self->repository->xml;
+
+	my $frag = $self->SUPER::render_value( $value );
+	$frag->appendChild( $xml->create_text_node( "User " ) ); 
+	$frag->appendChild( $xml->create_text_node( "(".$value.")" ) );
+	
+	return $frag;
 }
 
 1;

@@ -85,13 +85,13 @@
 */
 
 .griditem .metadata {
-        float:right;
-        font-size:10px;
-        line-height:12px;
-        overflow:hidden;
-        width:200px;
+        float: right;
+        font-size: 10px;
+        line-height: 12px;
+        overflow: hidden;
+        width: 200px;
         border-left: 2px solid #b3b7ba;
-        padding-left:4px;
+        padding-left: 4px;
         text-align: left;
 }
 
@@ -108,7 +108,7 @@
 }
 
 .result_body p {
-        text-align:justify;
+        text-align: justify;
         overflow: hidden;
 }
 
@@ -212,22 +212,35 @@ div.autocomplete ul li {
 
 
 .edshare_permissions_advanced_left {
-	width: 58%;
+	width: 50%;
 }
 
 .edshare_permissions_advanced_right {
 	float: right;
-	width: 39%;
+	width: 49%;
 }
 
-.edshare_permissions_table {
+.edshare_permissions_advanced_types {
 	width: 100%;
+}
+
+.edshare_permissions_advanced_values {
+	background: white;
+	border: 1px silver solid;
+	padding: 5px;
+	margin: 0;
+	list-style: inside none;
 }
 
  /* not sure why the drop downs aren't ordered - but I will do it explicitly just to make sure  */
 .ep_drop_target {
 	z-index: 5;
 }
+
+
+
+
+
 
 /* front page stuff */
 #edshare_frontpage_left {

@@ -18,7 +18,6 @@ sub new
 	return $self;
 }
 
-
 sub render_content
 {
 #	my ( $field, $repo, $current_value, $dataset, $staff, $hidden_fields, $object, $basename ) = @_;
@@ -30,21 +29,21 @@ sub render_content
 	my $field = $dataset->field("view_permissions");
 
 	# Get the field and its value/default
-	my $value;
+	my $values;
 	if( $self->{dataobj} )
 	{
-		$value = $self->{dataobj}->get_value( $field->{name} );
+		$values = $self->{dataobj}->get_value( $field->{name} );
 	}
 	else
 	{
-		$value = $self->{default};
+		$values = $self->{default};
 	}
 
 	my $namedset_name = $dataset->field($field->{name}."_type")->{set_name}; 
 	my @permission_types = $session->get_types($namedset_name);
 	my %nameset_hash = map { $_ => 1 } @permission_types;
 
-	my $first_value_type = @$value[0]->{type};
+	my $first_value_type = @$values[0]->{type};
 	my $show_advanced_options = (not ($first_value_type eq "public" or $first_value_type eq "private" or $first_value_type eq "restricted"));
 
 	my $div = $xml->create_element( "div", class=>"edshare_permissions" ); 
@@ -63,7 +62,7 @@ sub render_content
 			{
 				$li->setAttribute( class=>"selected" );
 			}
-			$li->appendChild( $xml->create_element( "img", src=>"/images/edshare_core/$type.png" ) );
+			$li->appendChild( $xml->create_element( "img", src=>"/images/edshare_core/permissions/$type.png" ) );
 			$li->appendChild( $xml->create_element( "br" ) );
 			$li->appendChild( $session->html_phrase( $namedset_name."_typename_".$type ) );
 
@@ -83,7 +82,7 @@ sub render_content
 		{
 				$li->setAttribute( class=>"selected" );
 		}
-		$li->appendChild( $xml->create_element( "img", src=>"/images/edshare_core/custom.png" ) );
+		$li->appendChild( $xml->create_element( "img", src=>"/images/edshare_core/permissions/custom.png" ) );
 		$li->appendChild( $xml->create_element( "br" ) );
 		$li->appendChild( $session->html_phrase( $namedset_name."_typename_custom" ) );
 
@@ -107,26 +106,50 @@ sub render_content
 	$left->appendChild( $self->html_phrase( "advanced_left_top" ) );
 	$right->appendChild( $self->html_phrase( "advanced_right_top" ) );
 
-	my $value_list = $xml->create_element( "ul", id=>$basename."_advanced_values", class=>"edshare_permissions_advanced_values");
-	$right->appendChild( $value_list );	
-
-	my $table = $xml->create_element( "table", class=>"edshare_permissions_table" );
+	my $table = $xml->create_element( "table", class=>"edshare_permissions_advanced_types" );
 	$left->appendChild( $table );
 
+# mrt - maybe I will load the plugins into a nice hashmap a bit later on so I don't spam loading them - but not today....
 
 	# iterate through the array of types and print any that haven't been rendered yet
-	foreach my $value (@permission_types)
+	foreach my $type (@permission_types)
 	{
-		if ($nameset_hash{$value})
+		if ($nameset_hash{$type})
 		{
-			my $plugin = $session->plugin( "PermissionType::".$value, parent_component=>$self );
+			my $plugin = $session->plugin( "PermissionType::".$type, parent_component=>$self );
 			$table->appendChild( $plugin->render() );
 		}
 	}
 
+
+	# render the existing values in the table - gangsta!!
+	my $value_list = $xml->create_element( "ul",
+		id=>$basename."_advanced_values",
+		class=>"edshare_permissions_advanced_values"
+	);
+	$right->appendChild( $value_list );	
+
+	foreach my $permission ( @$values )
+	{
+		my $plugin = $session->plugin( "PermissionType::".$permission->{type}, parent_component=>$self );
+		my $li = $xml->create_element( "li",
+			class=>"secretly_I_hate_my_life"
+		);
+		$li->appendChild( $plugin->render_value( $permission->{value} ) );
+
+		my $remove = $xml->create_element( "a",
+			onclick=>"alert('fuck you');"
+		);
+		$remove->appendChild( $xml->create_element ( "img",
+			src=>"/images/edshare_core/remove.gif"
+		));
+		$li->appendChild( $remove );
+		
+		$value_list->appendChild( $li );			
+	}
+
 	return $div;
 }
-
 
 sub update_from_form
 {
