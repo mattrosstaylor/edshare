@@ -129,25 +129,21 @@ sub render_content
 	);
 	$right->appendChild( $value_list );	
 
+
+	my $add_values_javascript;
+
 	foreach my $permission ( @$values )
 	{
 		my $plugin = $session->plugin( "PermissionType::".$permission->{type}, parent_component=>$self );
 		my $li = $xml->create_element( "li",
-			class=>"secretly_I_hate_my_life"
+			class=>"edshare_permissions_advanced_value"
 		);
 		$li->appendChild( $plugin->render_value( $permission->{value} ) );
-
-		my $remove = $xml->create_element( "a",
-			onclick=>"alert('fuck you');"
-		);
-		$remove->appendChild( $xml->create_element ( "img",
-			src=>"/images/edshare_core/remove.gif"
-		));
-		$li->appendChild( $remove );
 		
 		$value_list->appendChild( $li );			
 	}
 
+        $div->appendChild( $session->make_javascript( "permissionsInitialiseRemoveButtons('".$self->{prefix}."_view_permissions');" ) );
 	return $div;
 }
 

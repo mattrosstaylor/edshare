@@ -198,16 +198,16 @@
         <file>
           <filename>epm/edshare_core/cfg/static/javascript/auto/edshare_core.js</filename>
           <mime_type>text/x-c++</mime_type>
-          <hash>7552122f3c4c3ab4c65e2c5f5ba44fec</hash>
+          <hash>cc004dd5fea42172f5c1e1b7d67c4582</hash>
           <hash_type>MD5</hash_type>
-          <filesize>5553</filesize>
+          <filesize>5371</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/javascript/auto/edshare_permissions.js</filename>
-          <mime_type>text/html</mime_type>
-          <hash>065a064f619780588d4dd01f425d4df8</hash>
+          <mime_type>text/x-c++</mime_type>
+          <hash>59917c5dbeef6de734e03811190c111c</hash>
           <hash_type>MD5</hash_type>
-          <filesize>4023</filesize>
+          <filesize>4033</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/style/auto/x_edshare_core.css</filename>
@@ -261,9 +261,9 @@
         <file>
           <filename>epm/edshare_core/cgi/users/lookup/user</filename>
           <mime_type>text/plain</mime_type>
-          <hash>58306660841b9ba0730f9a0218e94ce4</hash>
+          <hash>7a2b9261005e48997a3f72a43682e0c5</hash>
           <hash_type>MD5</hash_type>
-          <filesize>3691</filesize>
+          <filesize>3682</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/EdShareCoreUtils.pm</filename>
@@ -289,9 +289,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/InputForm/Component/Field/Permissions.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>d3dec70518a8715b6a774ab49de76ea5</hash>
+          <hash>ae731780d0dfee796b2da3c6c48402d4</hash>
           <hash_type>MD5</hash_type>
-          <filesize>5466</filesize>
+          <filesize>5430</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/InputForm/Component/Field/TagLite.pm</filename>
@@ -317,9 +317,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/PermissionType/UserLookup.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>3e26ba6fd9ef016a2771d63d75aad0b1</hash>
+          <hash>70116a68e52ae6bfa668bad7cbeeb425</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1946</filesize>
+          <filesize>2105</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPMC/EdShareCore.pm</filename>

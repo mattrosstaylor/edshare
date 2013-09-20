@@ -1,7 +1,6 @@
 /* javascript for  permissions render */
 
-
-function permissionsCoarseSelect(basename,type) {
+function permissionsCoarseSelect(basename, type) {
 	$(basename+"_coarse_options").childElements().each(function(node) { node.removeClassName("selected");});
 	$$('input[name="'+basename+'_coarse_type"]')[0].value = type;
 	$(basename+"_"+type).addClassName("selected");
@@ -14,13 +13,72 @@ function permissionsCoarseSelect(basename,type) {
 	}
 }
 
-// mrt - this code is profoundedly retarded - who the hell even wrote this obtuse bullhonky???
+function permissionsAddPermitted(type, value, html, basename) {
+	basename+="_view_permissions";
+	// mrt - this is currently hard coded but i am sure i will fix that later ;)
+	var list = $(basename+"_advanced_values");
+	var newItem = new Element("li", { class: "edshare_permissions_advanced_value" } );
+	newItem.appendChild(new Element("input", {
+		"type": "hidden",
+		"name": basename+"_type",
+		"value": type
+	}));
+	newItem.appendChild(new Element("input", {
+		"type": "hidden",
+		"name": basename+"_value",
+		"value": value
+	}));
 
-function ep_autocompleter_selected_users( element, target, url, search_type, width_of_these, object_back_ref ) {
+	newItem.appendChild(html);
+	permissionsAddRemoveButton(newItem);
+	list.appendChild(newItem);
+}
+
+function permissionsInitialiseRemoveButtons(basename) {
+	$(basename+"_advanced_values").childElements().each( function(element) {
+		permissionsAddRemoveButton(element);
+	});
+}
+
+function permissionsAddRemoveButton(element) {
+	var image_uri = '/images/edshare_core/remove.gif';
+
+	var removeButton = new Element( 'button' );
+	removeButton.setStyle( {
+		'background': 'url('+image_uri+') 0 0',
+		'cursor': 'pointer',
+		'height': '10px',
+		'width': '10px',
+		'outline-style': 'none',
+		'outline-color': 'invert',
+		'outline-width': '0px',
+		'border': '0px',
+		'padding': '0px',
+		'margin': '0px 0px 0px 20px',
+		'font-size': '100%'
+	} );
+
+	removeButton.style.verticalAlign = 'middle';
+
+	removeButton.observe( 'click', function() {
+		this.up().remove();
+		return false;
+	} );
+	removeButton.observe( 'mouseover', function() {
+		this.setStyle( { 'background':  'url('+image_uri+') -10px 0' } );
+	} );
+	removeButton.observe( 'mouseout', function() {
+		this.setStyle( { 'background':  'url('+image_uri+') 0 0' } );
+	} );
+
+	element.appendChild(removeButton);
+}
+
+function ep_autocompleter_user_lookup( element, target, url, searchType, basename ) {
 	new Ajax.Autocompleter( element, target, url, {
 		paramName: 'q',
 		callback: function( el, entry ) {
-			return entry + "&type=" +search_type;
+			return entry + "&type=" +searchType;
 		},
 
 		onShow: function(element, update) {
@@ -74,77 +132,13 @@ function ep_autocompleter_selected_users( element, target, url, search_type, wid
 						values[id] = newvalue;
 					}
 				}
-
 			}
+			var node = document.createTextNode( values["_name_honourific"] +" " +values["_name_given"] +" " +values["_name_family"] +" (" +values["_id"] +")" );
+			permissionsAddPermitted("UserLookup", values["_userid"], node, basename); 
 
-			console.log(values);
-
-			object_back_ref.add_user(values, object_back_ref);
-
+			$(basename+"_lookup_user_name").value="";
+			return false;
 		}
 	});
 }
-
-
-// mrt - this junk is no longer needed
-/*
-function viewPermissionsRadioSelected(basename, type) {
-	if (type == "restricted") {
-		$(basename+'_advanced').show();
-		toggleAdvancedOptions(basename);
-	}
-	else {
-		$(basename+'_advanced').hide();
-		$(basename+'_advanced_options').hide();
-	}
-}
-
-function toggleAdvancedOptions(basename) {
-	if($(basename+'_advanced_checkbox').checked)
-	{
-		$(basename+'_advanced_options').show();
-	}
-	else
-	{
-		$(basename+'_advanced_options').hide();
-	}
-}
-
-function addPermissionType(basename) {
-	$('submit-values').innerHTML += "<div id='"+basename+"_"+document[basename+"_count"]+"_container'>"+
-		$(basename+'_type').value + ": " + $(basename+'_type_value').value + "<a href='#' onclick='deletePermissionType(\""+basename+"_"+document[basename+"_count"]+"_container\"); return false'>X</a>" +
-		"<input type='hidden' name='"+basename+"_"+document[basename+"_count"]+"_type' value='"+$(basename+'_type').value+"' />" +
-
-
-		"<input type='hidden' name='"+basename+"_"+document[basename+"_count"]+"_value' value='"+$(basename+'_type_value').value+"' />" +
-		"</div>";
-	$(basename+'_type_value').value = "";
-	$(basename+"_spaces").writeAttribute('value', document[basename+"_count"]);
-}
-
-function initPermsField(basename)
-{
-	if($(basename+"_restricted").checked)
-	{
-		$(basename+"_advanced").show();
-		if($(basename+"_advanced_checkbox").checked)
-		{
-			$(basename+"_advanced_options").show();
-		}
-
-	}
-}
-
-function doAutoComplete(basename)
-{
-
-	new Ajax.Autocompleter(basename+"_type_value", basename+"_autocomplete_choices", eprints_http_cgiroot +"/users/lookup/view_permissions", {
-	  paramName: "query",
-	  minChars: 2,
-	  parameters: "type="+$(basename+"_type").value+"&basename="+basename
-//	  indicator: 'indicator1'
-	});
-
-}
-*/
 

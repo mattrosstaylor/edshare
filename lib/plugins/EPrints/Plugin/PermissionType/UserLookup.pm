@@ -49,16 +49,14 @@ sub render_input
 
 	# mrt - I guess I put the javascript here?
 	my $rel_path = $self->repository->get_conf( "rel_path" );
-	my $js_var_name = "fuck knows";
 
 	$td->appendChild( $self->repository->make_javascript(
-		'ep_autocompleter_selected_users('.
+		'ep_autocompleter_user_lookup('.
 			'"' .$prefix.'_lookup_user_name",'.
 			'"' .$prefix.'_lookup_user_name_drop",'.
 			'"' .$rel_path.'/cgi/users/lookup/user",'.
 			'"name",'.
-			'"only_fuck_knows",'.
-			'"seriously, what is this???"'.
+			'"' .$prefix.'"'.
 		');'
 	));
 
@@ -71,9 +69,16 @@ sub render_value
 	my $xml = $self->repository->xml;
 
 	my $frag = $self->SUPER::render_value( $value );
-	$frag->appendChild( $xml->create_text_node( "User " ) ); 
-	$frag->appendChild( $xml->create_text_node( "(".$value.")" ) );
-	
+	my $user = EPrints::DataObj::User->new( $self->repository, $value );
+	if (defined $user)
+	{
+		my $name = $user->value( "name" );
+		$frag->appendChild( $xml->create_text_node( $name->{honourific}." ".$name->{given}." ".$name->{family}." (".$user->value("email").")" ) );
+	}
+	else
+	{
+		$frag->appendChild( $xml->create_text_node("Unknown user ". $value ) );
+	}
 	return $frag;
 }
 

@@ -169,13 +169,10 @@ function createTagDiv( tag, id, varname, prefix, field )
 
 	// replaces white spaces with "" for searches => no longer true for /view/ ?
 	var ntag = tag;		//.replace( / /gi, "" );
-	var searchlink = new Element( 'a', {
-		"target": "_blank",
-		"href": "/view/"+field+"/"+ntag+"/"
-	} );
-	searchlink.update( tag );
+	var span = new Element( 'span', { 'style': 'font-weight: bolder'} );
+	span.update( tag );
 
-	tagdiv.appendChild( searchlink );
+	tagdiv.appendChild( span );
 
 	var spaces = document.createTextNode( "     " );
 	tagdiv.appendChild( spaces );
@@ -222,12 +219,3 @@ function createTagDiv( tag, id, varname, prefix, field )
 	return tagdiv;
 };
 
-function addInlineTag( inputid, tag )
-{
-	var el = $( inputid );
-	if( el != null )
-	{
-		el.value = tag+","+el.value;
-	}
-	return false;
-}
