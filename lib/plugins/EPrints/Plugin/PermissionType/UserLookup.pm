@@ -33,10 +33,6 @@ sub render_input
 		class=>"ep_form_text",
 		onkeypress=> "return EPJS_block_enter( event );"
 	));
-	$td->appendChild( $xml->create_element( "div",
-		id=>$prefix."_lookup_user_name_drop",
-		class=>"ep_drop_target"
-	));
 
 	$td->appendChild( $xml->create_element( "br" ) );
 	$td->appendChild( $self->html_phrase( "legend_email" ) );
@@ -47,15 +43,29 @@ sub render_input
 		onkeypress=> "return EPJS_block_enter( event );"
 	));
 
+	$td->appendChild( $xml->create_element( "div",
+		id=>$prefix."_lookup_user_drop",
+		class=>"ep_drop_target"
+	));
+
 	# mrt - I guess I put the javascript here?
 	my $rel_path = $self->repository->get_conf( "rel_path" );
 
 	$td->appendChild( $self->repository->make_javascript(
 		'ep_autocompleter_user_lookup('.
 			'"' .$prefix.'_lookup_user_name",'.
-			'"' .$prefix.'_lookup_user_name_drop",'.
+			'"' .$prefix.'_lookup_user_drop",'.
 			'"' .$rel_path.'/cgi/users/lookup/user",'.
 			'"name",'.
+			'"' .$prefix.'"'.
+		');'
+	));
+	$td->appendChild( $self->repository->make_javascript(
+		'ep_autocompleter_user_lookup('.
+			'"' .$prefix.'_lookup_user_email",'.
+			'"' .$prefix.'_lookup_user_drop",'.
+			'"' .$rel_path.'/cgi/users/lookup/user",'.
+			'"email",'.
 			'"' .$prefix.'"'.
 		');'
 	));

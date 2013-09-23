@@ -232,6 +232,10 @@ div.autocomplete ul li {
 	list-style: inside none;
 }
 
+.edshare_permissions_advanced_value {
+	margin-bottom: 2px;
+}
+
  /* not sure why the drop downs aren't ordered - but I will do it explicitly just to make sure  */
 .ep_drop_target {
 	z-index: 5;

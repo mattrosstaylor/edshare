@@ -1,14 +1,3 @@
-/* edshare core javascript */
-function edshare_core_render_toolbox(targetId, eprintid) {
-	new Ajax.Request( eprints_http_cgiroot +"/edshare_toolbox", {
-		method: "get",
-		parameters:{'eprintid':eprintid},
-		onSuccess: function(response) {
-			$(targetId).innerHTML = response.responseText;
-	  	}
-	});
-}
-
 /*javascript for taglite*/
 
 // what if we don't want to have a max || max == 0?
@@ -177,7 +166,7 @@ function createTagDiv( tag, id, varname, prefix, field )
 	var spaces = document.createTextNode( "     " );
 	tagdiv.appendChild( spaces );
 
-	var image_uri = eprints_http_root + '/images/edshare_core/remove.gif';
+	var image_uri = eprints_http_root + '/images/edshare_core/remove.png';
 
 	var remtag = new Element( 'button' );
 	remtag.setStyle( {

@@ -15,17 +15,25 @@ my $q = lc( $session->param( "q" ) );
 
 $q =~ s/^\s+|\s+$//g;
 
-if ( $type eq "name" )
+
+if ( $type eq "name" or $type eq "email" )
 {
 	$q = EPrints::Database::prep_like_value($q);
 	my $sql = "SELECT name_family, name_given, name_honourific, email, userid FROM user ";
-	$sql .= "WHERE LOWER(CONCAT(name_given, ' ', name_family)) LIKE '\%".$q."\%' ";
+	if ( $type eq "name" )
+	{
+ 
+		$sql .= "WHERE LOWER(CONCAT(name_given, ' ', name_family)) LIKE '\%".$q."\%' ";
+	}
+	elsif ($type eq "email" )
+	{
+		$sql .= "WHERE LOWER(email) LIKE '".$q."\%' ";
+	}
+
 	$sql .= "LIMIT 40";
-
-#	print STDERR "\n\n".$sql."\n\n"; 
-
 	my $sth = $session->get_database->prepare( $sql );
 	$session->get_database->execute( $sth , $sql );
+
 	my $first = 1;
 
 	print <<END;
@@ -58,10 +66,6 @@ END
 
 	$session->terminate;
 	exit;
-}
-elsif ( $type eq "email" )
-{
-	print STDERR "sbemail";
 }
 else
 {

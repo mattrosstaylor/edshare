@@ -41,7 +41,7 @@ function permissionsInitialiseRemoveButtons(basename) {
 }
 
 function permissionsAddRemoveButton(element) {
-	var image_uri = '/images/edshare_core/remove.gif';
+	var image_uri = '/images/edshare_core/remove.png';
 
 	var removeButton = new Element( 'button' );
 	removeButton.setStyle( {
@@ -136,7 +136,7 @@ function ep_autocompleter_user_lookup( element, target, url, searchType, basenam
 			var node = document.createTextNode( values["_name_honourific"] +" " +values["_name_given"] +" " +values["_name_family"] +" (" +values["_id"] +")" );
 			permissionsAddPermitted("UserLookup", values["_userid"], node, basename); 
 
-			$(basename+"_lookup_user_name").value="";
+			$(element).value="";
 			return false;
 		}
 	});
