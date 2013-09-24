@@ -27,7 +27,7 @@ if ( $type eq "name" or $type eq "email" )
 	}
 	elsif ($type eq "email" )
 	{
-		$sql .= "WHERE LOWER(email) LIKE '".$q."\%' ";
+		$sql .= "WHERE LOWER(email) LIKE '\%".$q."\%' ";
 	}
 
 	$sql .= "LIMIT 40";

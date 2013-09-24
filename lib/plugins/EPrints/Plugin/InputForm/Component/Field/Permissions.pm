@@ -136,6 +136,7 @@ sub render_content
 	{
 		my $plugin = $session->plugin( "PermissionType::".$permission->{type}, parent_component=>$self );
 		my $li = $xml->create_element( "li",
+			id=>$basename."_".$permission->{type}."_".$permission->{value},
 			class=>"edshare_permissions_advanced_value"
 		);
 		$li->appendChild( $plugin->render_value( $permission->{value} ) );

@@ -6,18 +6,37 @@ function permissionsCoarseSelect(basename, type) {
 	$(basename+"_"+type).addClassName("selected");
 
 	if (type == "custom") {
-		$(basename+"_advanced_options").show();
+		Effect.Appear($(basename+"_advanced_options"), {duration:0.5});
 	}
 	else {
-		$(basename+"_advanced_options").hide();
+		Effect.Fade($(basename+"_advanced_options"), {duration:0.5});
 	}
+}
+
+function permissionsAddPermittedFromString(type, value, html, basename) {
+	var dummyDom = new Element('div');
+	dummyDom.innerHTML = html;
+	permissionsAddPermitted(type, value, dummyDom.firstChild, basename);
 }
 
 function permissionsAddPermitted(type, value, html, basename) {
 	basename+="_view_permissions";
+	var itemId = basename+"_"+type+"_"+value;
+
+
 	// mrt - this is currently hard coded but i am sure i will fix that later ;)
 	var list = $(basename+"_advanced_values");
-	var newItem = new Element("li", { class: "edshare_permissions_advanced_value" } );
+
+	// check whether or not this item is already in the list - hahahah we can just search the entire DOM!!!
+	if ($(itemId)) {
+		new Effect.Highlight($(itemId));
+		return;
+	}
+
+	var newItem = new Element("li", { 
+		id: itemId,
+		class: "edshare_permissions_advanced_value" 
+	} );
 	newItem.appendChild(new Element("input", {
 		"type": "hidden",
 		"name": basename+"_type",
@@ -28,10 +47,11 @@ function permissionsAddPermitted(type, value, html, basename) {
 		"name": basename+"_value",
 		"value": value
 	}));
-
+	newItem.hide();
 	newItem.appendChild(html);
 	permissionsAddRemoveButton(newItem);
 	list.appendChild(newItem);
+	Effect.Appear(newItem);
 }
 
 function permissionsInitialiseRemoveButtons(basename) {

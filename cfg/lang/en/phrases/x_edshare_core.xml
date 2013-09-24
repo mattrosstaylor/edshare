@@ -88,7 +88,6 @@
 	<epp:phrase id="view_permissions_typename_UserLookup">Selected Users</epp:phrase>
 	<epp:phrase id="view_permissions_typename_Creators">Listed Creators</epp:phrase>
 
-
 	<epp:phrase id="Plugin/PermissionType/Creators:render_value">Listed Creators</epp:phrase>
 	
 <!-- validation_status -->

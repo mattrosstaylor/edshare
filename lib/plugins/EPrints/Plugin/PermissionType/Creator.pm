@@ -25,11 +25,14 @@ sub render_input
 	my $xml = $self->repository->xml;
 
 	my $td = $xml->create_element( "td" );
+	my $html = $xml->to_string( $self->html_phrase( "render_value") );
+	my $prefix = $self->{parent_component}->{prefix};
+
 	my $input = $xml->create_element( "input",
 		type=>"button",
 		value=>$self->phrase( "allow" ),
-		id=>$self->{parent_component}->{prefix}."_creators_checkbox"
-	);
+		id=>$self->{parent_component}->{prefix}."_creators_checkbox",
+		onclick=>"permissionsAddPermittedFromString('Creators', 'Creators', '$html', '$prefix');");
 
 	$td->appendChild( $input );
 	return $td;
