@@ -15,7 +15,28 @@ sub new
 	$self->{name} = 'Permissions Component';
         $self->{visible} = "all";
 
+
 	return $self;
+}
+
+sub parse_config
+{
+        my( $self, $config_dom ) = @_;
+
+        my @fields = $config_dom->getElementsByTagName( "field" );
+
+        if( scalar @fields != 1 )
+        {
+                EPrints::abort( "Bad configuration for Field Component\n".$config_dom->toString );
+        }
+        else
+        {
+                my $field = $fields[0];
+                $self->{config}->{field} = $self->xml_to_metafield( $fields[0] );
+
+		$self->{basename} = $self->{prefix}."_".$self->{config}->{field}->{name};
+        }
+
 }
 
 sub render_content
@@ -24,7 +45,7 @@ sub render_content
 	my ( $self, $surround ) = @_;
 	my $session = $self->{session};
 	my $xml = $session->{xml};
-	my $basename = $self->{prefix}."_view_permissions";
+	my $basename = $self->{basename};
 	my $dataset = $self->{dataobj}->{dataset};
 	my $field = $dataset->field("view_permissions");
 
@@ -45,6 +66,12 @@ sub render_content
 
 	my $first_value_type = @$values[0]->{type};
 	my $show_advanced_options = (not ($first_value_type eq "public" or $first_value_type eq "private" or $first_value_type eq "restricted"));
+
+	# if the first value is a custom type, set the coarse_type to "custom" instead of the actual type
+	if ( $show_advanced_options)
+	{
+		$first_value_type = "custom";
+	}
 
 	my $div = $xml->create_element( "div", class=>"edshare_permissions" ); 
 	$div->appendChild( $xml->create_element( "input", name=>$basename."_coarse_type", type=>"hidden", value=>$first_value_type ) ); 
@@ -122,29 +149,32 @@ sub render_content
 	}
 
 
-	# render the existing values in the table - gangsta!!
 	my $value_list = $xml->create_element( "ul",
 		id=>$basename."_advanced_values",
 		class=>"edshare_permissions_advanced_values"
 	);
 	$right->appendChild( $value_list );	
 
-
-	my $add_values_javascript;
-
-	foreach my $permission ( @$values )
+	# render the existing values in the table - gangsta!!
+	if ( $show_advanced_options)
 	{
-		my $plugin = $session->plugin( "PermissionType::".$permission->{type}, parent_component=>$self );
-		my $li = $xml->create_element( "li",
-			id=>$basename."_".$permission->{type}."_".$permission->{value},
-			class=>"edshare_permissions_advanced_value"
-		);
-		$li->appendChild( $plugin->render_value( $permission->{value} ) );
+		my $add_values_javascript;
+
+		foreach my $permission ( @$values )
+		{
+			my $plugin = $session->plugin( "PermissionType::".$permission->{type}, parent_component=>$self );
+			my $li = $xml->create_element( "li",
+				id=>$basename."_".$permission->{type}."_".$permission->{value},
+				class=>"edshare_permissions_advanced_value"
+			);
+			$li->appendChild( $plugin->render_value( $permission->{value} ) );
 		
-		$value_list->appendChild( $li );			
+			$value_list->appendChild( $li );			
+		}
+
+       		$div->appendChild( $session->make_javascript( "permissionsInitialiseRemoveButtons('".$self->{basename}."');" ) );
 	}
 
-        $div->appendChild( $session->make_javascript( "permissionsInitialiseRemoveButtons('".$self->{prefix}."_view_permissions');" ) );
 	return $div;
 }
 
@@ -152,15 +182,31 @@ sub update_from_form
 {
         my( $self, $processor ) = @_;
         my $session = $self->{session};
-	my $basename = $self->{prefix}."_view_permissions";
+	my $basename = $self->{basename};
 
         my $obj = $self->{dataobj};
 
         my $field = $self->{config}->{field};
 
 	my $coarse_type = $session->param( $basename."_coarse_type" );
-	my $advanced = $session->param( $basename."_advanced" );
 
-	$obj->set_value( "view_permissions" , [ { type=>$coarse_type, value=>$coarse_type} ]);
+	if ($coarse_type eq "custom")
+	{
+		my @types = $session->param($basename."_type");
+		my @values = $session->param($basename."_value");
+
+		my @permissions;
+
+		for (my $i=0; $i<@types; $i++)
+		{
+			push (@permissions, {type=>@types[$i], value=>@values[$i]});	
+		}
+
+		$obj->set_value( $field->{name}, \@permissions );
+	}
+	else
+	{	
+		$obj->set_value( $field->{name} , [ { type=>$coarse_type, value=>$coarse_type} ]);
+	}
 }
 

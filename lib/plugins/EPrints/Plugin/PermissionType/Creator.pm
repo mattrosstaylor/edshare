@@ -26,13 +26,13 @@ sub render_input
 
 	my $td = $xml->create_element( "td" );
 	my $html = $xml->to_string( $self->html_phrase( "render_value") );
-	my $prefix = $self->{parent_component}->{prefix};
+	my $basename = $self->{parent_component}->{basename};
 
 	my $input = $xml->create_element( "input",
 		type=>"button",
 		value=>$self->phrase( "allow" ),
-		id=>$self->{parent_component}->{prefix}."_creators_checkbox",
-		onclick=>"permissionsAddPermittedFromString('Creators', 'Creators', '$html', '$prefix');");
+		id=>$basename."_creators_checkbox",
+		onclick=>"permissionsAddPermittedFromString('Creators', 'Creators', '$html', '$basename');");
 
 	$td->appendChild( $input );
 	return $td;

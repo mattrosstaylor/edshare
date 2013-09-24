@@ -1,12 +1,8 @@
 #!/usr/bin/perl
 use EPrints;
-
 use strict;
 
 my $session = EPrints::Session->new();
-
-use Data::Dumper;
-print STDERR "\n\nparams:\n". Dumper( $session->param )."\n\n";
 
 my $content = "text/xml";
 $session->send_http_header( content_type=>$content );

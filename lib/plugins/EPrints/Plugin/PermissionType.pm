@@ -54,20 +54,20 @@ sub render_value
 {
 	my ( $self, $value ) = @_;
 	my $xml = $self->repository->xml;
-	my $prefix = $self->{parent_component}->{prefix};
+	my $basename = $self->{parent_component}->{basename};
 
 	my $frag = $xml->create_document_fragment;
 
 	# add the hidden fields
 	$frag->appendChild( $xml->create_element( "input",
 		type=>"hidden",
-		name=>$prefix."_type",
+		name=>$basename."_type",
 		value=>$self->{permission_type}
 	));
 
 	$frag->appendChild( $xml->create_element( "input",
 		type=>"hidden",
-		name=>$prefix."_value",
+		name=>$basename."_value",
 		value=>$value
 	));
 

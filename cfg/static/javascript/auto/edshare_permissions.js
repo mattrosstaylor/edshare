@@ -20,7 +20,6 @@ function permissionsAddPermittedFromString(type, value, html, basename) {
 }
 
 function permissionsAddPermitted(type, value, html, basename) {
-	basename+="_view_permissions";
 	var itemId = basename+"_"+type+"_"+value;
 
 

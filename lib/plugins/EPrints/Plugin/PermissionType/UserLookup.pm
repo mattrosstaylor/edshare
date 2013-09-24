@@ -23,13 +23,13 @@ sub render_input
 {
 	my ( $self ) = @_;
 	my $xml = $self->repository->xml;
-	my $prefix = $self->{parent_component}->{prefix};
+	my $basename = $self->{parent_component}->{basename};
 
 	my $td = $xml->create_element( "td" );
 	$td->appendChild( $self->html_phrase( "legend_name" ) );
 	$td->appendChild( $xml->create_element( "input",
 		type=>"text",
-		id=>$prefix."_lookup_user_name",
+		id=>$basename."_lookup_user_name",
 		class=>"ep_form_text",
 		onkeypress=> "return EPJS_block_enter( event );"
 	));
@@ -38,13 +38,13 @@ sub render_input
 	$td->appendChild( $self->html_phrase( "legend_email" ) );
 	$td->appendChild( $xml->create_element( "input",
 		type=>"text",
-		id=>$prefix."_lookup_user_email",
+		id=>$basename."_lookup_user_email",
 		class=>"ep_form_text",
 		onkeypress=> "return EPJS_block_enter( event );"
 	));
 
 	$td->appendChild( $xml->create_element( "div",
-		id=>$prefix."_lookup_user_drop",
+		id=>$basename."_lookup_user_drop",
 		class=>"ep_drop_target"
 	));
 
@@ -53,20 +53,20 @@ sub render_input
 
 	$td->appendChild( $self->repository->make_javascript(
 		'ep_autocompleter_user_lookup('.
-			'"' .$prefix.'_lookup_user_name",'.
-			'"' .$prefix.'_lookup_user_drop",'.
+			'"' .$basename.'_lookup_user_name",'.
+			'"' .$basename.'_lookup_user_drop",'.
 			'"' .$rel_path.'/cgi/users/lookup/user",'.
 			'"name",'.
-			'"' .$prefix.'"'.
+			'"' .$basename.'"'.
 		');'
 	));
 	$td->appendChild( $self->repository->make_javascript(
 		'ep_autocompleter_user_lookup('.
-			'"' .$prefix.'_lookup_user_email",'.
-			'"' .$prefix.'_lookup_user_drop",'.
+			'"' .$basename.'_lookup_user_email",'.
+			'"' .$basename.'_lookup_user_drop",'.
 			'"' .$rel_path.'/cgi/users/lookup/user",'.
 			'"email",'.
-			'"' .$prefix.'"'.
+			'"' .$basename.'"'.
 		');'
 	));
 
