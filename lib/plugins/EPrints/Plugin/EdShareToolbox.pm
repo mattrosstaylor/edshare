@@ -38,11 +38,14 @@ sub render_actions
 	my $chunk = $session->make_doc_fragment;
 
 	return $chunk unless( defined $self->{eprint} );
-	return $chunk if( $self->{eprint}->get_value( "eprint_status" ) eq 'inbox' );
 
 	push @{$hidden}, "eprintid";
 	$chunk->appendChild( $self->render_action_link_list("edshare_toolbox", $hidden) );
-	$chunk->appendChild( _render_addthis_button( $session ) );
+	
+	if ( not $self->{eprint}->value( "eprint_status" ) eq "inbox" )
+	{
+		$chunk->appendChild( _render_addthis_button( $session ) );
+	}
 	return $chunk;
 }
 

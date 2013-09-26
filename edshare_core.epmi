@@ -9,16 +9,16 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>36497bf5a333bc410ed64135caaf1615</hash>
+          <hash>f5e8239cb2aab368e74e59374e0b2ae2</hash>
           <hash_type>MD5</hash_type>
-          <filesize>12370</filesize>
+          <filesize>12684</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_eprint_defaults.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>67974c86e833973142ff9b9b7a26f0e6</hash>
+          <hash>1e52c6df4c1e7514d243fa02851e4a69</hash>
           <hash_type>MD5</hash_type>
-          <filesize>357</filesize>
+          <filesize>640</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_eprint_fields_automatic.pl</filename>
@@ -100,9 +100,9 @@
         <file>
           <filename>epm/edshare_core/cfg/lang/en/phrases/x_edshare_core.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>06a94a07b443a58748001c819893ba92</hash>
+          <hash>ad33b65a1636f693e924c94d74038afd</hash>
           <hash_type>MD5</hash_type>
-          <filesize>9555</filesize>
+          <filesize>9559</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/lang/en/static/index.xpage</filename>
@@ -282,9 +282,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/EdShareToolbox.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>f144c80d59c22dfb4d37c00505d90338</hash>
+          <hash>2707f0e952ff0df1aa649fa8d9d7fd9c</hash>
           <hash_type>MD5</hash_type>
-          <filesize>4573</filesize>
+          <filesize>4568</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Export/Zip.pm</filename>
@@ -345,9 +345,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPrint/EmailAuthor.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>0d8e5311f2bf5d7b2a8a29e87e3c9679</hash>
+          <hash>0a75d9a1a6f5b35a61dcdfc6e71527f6</hash>
           <hash_type>MD5</hash_type>
-          <filesize>3520</filesize>
+          <filesize>3821</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPrint/ExportZip.pm</filename>
@@ -359,9 +359,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPrint/RedoThumbnails.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>f62dcb001a6f76fe5b7705e23e252923</hash>
+          <hash>7e04dcac2be8c8bcde7b7ed993815c2e</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1745</filesize>
+          <filesize>1864</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Screen/RedirectingLogin.pm</filename>

@@ -406,6 +406,10 @@ $c->{plugins}->{"Screen::RedirectingLogin"}->{params}->{disable} = 0;
 
 #plugin removal
 $c->{plugins}->{"Screen::Review"}->{params}->{disable} = 1;
+$c->{plugins}->{"Screen::EPrint::Document::Extract"}->{params}->{disable} = 1;
+$c->{plugins}->{"Screen::EPrint::Document::Convert"}->{params}->{disable} = 1;
+$c->{plugins}->{"Screen::EPrint::Document::Files"}->{params}->{disable} = 1;
+$c->{plugins}->{"Screen::EPrint::UploadMethod::URL"}->{params}->{disable} = 1;
 
 # plugin alias
 $c->{plugin_alias_map}->{"Screen::EPrint::Edit"} = "Screen::EPrint::EdShareEdit";

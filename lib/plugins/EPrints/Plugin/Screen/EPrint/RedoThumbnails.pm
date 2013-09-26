@@ -23,6 +23,12 @@ sub can_be_viewed
 {
         my( $self ) = @_;
 
+	my $eprint = $self->{processor}->{eprint};
+	if( $eprint->get_value( "eprint_status" ) eq "inbox" )
+	{
+		return 0;
+	}
+
         return $self->allow( "redo_thumbnails" );
 }
 

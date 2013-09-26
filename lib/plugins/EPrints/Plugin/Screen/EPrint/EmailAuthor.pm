@@ -16,10 +16,28 @@ sub new
 	return $self;
 }
 
+sub can_be_viewed
+{
+	my( $self ) = @_;
+
+	my $eprint = $self->{processor}->{eprint};
+	if( $eprint->value( "eprint_status" ) eq "inbox" )
+	{
+		return 0;
+	}
+
+	if ( $self->{session}->current_user->get_id == $eprint->value( "userid") )
+	{
+		return 0;
+	}
+
+	return 1;
+}
 
 sub allow_email
 {
-	return 1;
+	my( $self ) = @_;
+	return $self->can_be_viewed;
 }
 
 sub action_email
