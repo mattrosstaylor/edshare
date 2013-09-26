@@ -90,7 +90,7 @@ sub render
 document.observe('dom:loaded', function() {
 	\$('$manageable_list_id').update('<img src=\\'$loader_image_url\\'/>');
 	new Ajax.Request('$cgi_url', {
-		method: 'get',
+		method: 'post',
 		parameters: { $params_json },
 		onSuccess: function(response) {
 			\$('$filterbox_id').update(response.responseJSON[0]);
