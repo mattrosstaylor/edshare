@@ -1,6 +1,6 @@
 function initPremierePreview(eprintid, docid) {
 	new Ajax.Request( eprints_http_cgiroot +"/premiere_preview_init", {
-	  method: "get",
+	  method: "post",
 	  parameters:{'id':eprintid},
 	  onSuccess: function(response) {
 		$('premiere_preview_main').innerHTML = response.responseText;

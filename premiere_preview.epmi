@@ -99,9 +99,9 @@
         <file>
           <filename>epm/premiere_preview/cfg/static/javascript/auto/premiere_preview.js</filename>
           <mime_type>text/plain</mime_type>
-          <hash>b1a13cf5529908283e2dcd6c7a98064d</hash>
+          <hash>2dcc98da35560be43354c1b7f9364815</hash>
           <hash_type>MD5</hash_type>
-          <filesize>841</filesize>
+          <filesize>842</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/static/javascript/jquery.media.0.92.js</filename>
