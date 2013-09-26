@@ -212,9 +212,9 @@
         <file>
           <filename>epm/edshare_core/cfg/static/javascript/auto/edshare_toolbox.js</filename>
           <mime_type>text/plain</mime_type>
-          <hash>932f60cbb05ed20dbe3405765fe8bc23</hash>
+          <hash>4d9626aebec51f107897169f9cb86080</hash>
           <hash_type>MD5</hash_type>
-          <filesize>302</filesize>
+          <filesize>303</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/style/auto/x_edshare_core.css</filename>
@@ -345,9 +345,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPrint/EmailAuthor.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>0a75d9a1a6f5b35a61dcdfc6e71527f6</hash>
+          <hash>db1131520d5d553150ef53a831f01835</hash>
           <hash_type>MD5</hash_type>
-          <filesize>3821</filesize>
+          <filesize>3859</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPrint/ExportZip.pm</filename>
