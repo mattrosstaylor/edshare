@@ -121,9 +121,9 @@
         <file>
           <filename>epm/edshare_core/cfg/namedsets/view_permissions</filename>
           <mime_type>text/plain</mime_type>
-          <hash>9b1faf1041af57328d7e3c6a75d72be1</hash>
+          <hash>76626b9ee341059d1926c943fa58514f</hash>
           <hash_type>MD5</hash_type>
-          <filesize>58</filesize>
+          <filesize>60</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/images/edshare_core/permissions/custom.png</filename>
