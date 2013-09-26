@@ -8,10 +8,25 @@ my $xml = $repository->xml;
 
 my $eprintid = $repository->param("id");
 my $eprint = EPrints::DataObj::EPrint->new($repository, $eprintid);
-my $first_document = ($eprint->get_all_documents())[0];
-#my $doc = $first_document if (defined $first_document);
 
 my $user = $repository->current_user;
+
+
+if ( $eprint->value( "eprint_status" ) eq "inbox" )
+{
+	if ($eprint->value( "validation_status" ) eq "error" )
+	{
+		print $xml->to_string( $repository->html_phrase( "premiere_preview:invalid" ) );
+	}
+	else
+	{
+		print $xml->to_string( $repository->html_phrase( "premiere_preview:private" ) );
+	}
+	return;
+}
+
+
+my $first_document = ($eprint->get_all_documents())[0];
 
 if (not $first_document)
 {

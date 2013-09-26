@@ -29,9 +29,9 @@
         <file>
           <filename>epm/premiere_preview/cfg/lang/en/phrases/premiere_preview.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>1aa74c562d475fcd7b8a04adfa83a4a4</hash>
+          <hash>3c17d76dd66cc65695b554dd8b0f1c28</hash>
           <hash_type>MD5</hash_type>
-          <filesize>740</filesize>
+          <filesize>1143</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/static/images/premiere_preview/ajax-loader.gif</filename>
@@ -134,9 +134,9 @@
         <file>
           <filename>epm/premiere_preview/cgi/premiere_preview_init</filename>
           <mime_type>text/plain</mime_type>
-          <hash>9db81a0886b9737dc3a5d18185077b55</hash>
+          <hash>dea44c181a9908c064d9e615a71ff7db</hash>
           <hash_type>MD5</hash_type>
-          <filesize>967</filesize>
+          <filesize>1219</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Convert/OfficePreview.pm</filename>
