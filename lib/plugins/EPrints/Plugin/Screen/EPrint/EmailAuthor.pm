@@ -26,7 +26,9 @@ sub can_be_viewed
 		return 0;
 	}
 
-	if ( $self->{session}->current_user->get_id == $eprint->value( "userid") )
+	my $user = $self->{session}->current_user;
+
+	if ( defined $user and $user->get_id == $eprint->value( "userid") )
 	{
 		return 0;
 	}
