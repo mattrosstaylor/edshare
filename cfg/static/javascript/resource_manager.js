@@ -70,12 +70,13 @@ window.selectAll = function(event) {
 */
 
 window.updateResourceSelection = function(event) {
+
 	if (!Prototype.Browser.IE && !event.isLeftClick()) return;
 	var element = event.element();
 	if (ignoreElement(element)) {
 		return;
 	} else if (!Object.isUndefined(element = event.findElement('.ep_manageable'))) {
-		checkbox = $$('#'+element.readAttribute('id')+' .ep_resource_manager_select_check')[0];
+/*		checkbox = $$('#'+element.readAttribute('id')+' .ep_resource_manager_select_check')[0];
 		if (inBulkSelection(element)) {
 			element.removeClassName('ep_manageable_selected');
 			if (Object.isUndefined(event.findElement('.ep_resource_manager_select_check'))) {
@@ -87,7 +88,11 @@ window.updateResourceSelection = function(event) {
 				checkbox.writeAttribute('checked', true);
 			}
 		}
-		checkbox.blur();
+		checkbox.blur();*/
+		Element.toggleClassName(element, "ep_manageable_showing_more");
+		
+
+
 	}
 }
 

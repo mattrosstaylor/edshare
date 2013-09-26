@@ -22,9 +22,9 @@
         <file>
           <filename>epm/resource_manager/cfg/citations/eprint/manageable_data.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>6f981c3410ab4742d80e5ceb03b6dec6</hash>
+          <hash>75eedeab168a9696b5b65ae9cdf19746</hash>
           <hash_type>MD5</hash_type>
-          <filesize>901</filesize>
+          <filesize>909</filesize>
         </file>
         <file>
           <filename>epm/resource_manager/cfg/citations/eprint/manageable_more.xml</filename>
@@ -113,9 +113,9 @@
         <file>
           <filename>epm/resource_manager/cfg/static/javascript/resource_manager.js</filename>
           <mime_type>text/x-c</mime_type>
-          <hash>23430102065070119a153fa0fd28a95c</hash>
+          <hash>c7995aed5046f5e3403d7e12167d996d</hash>
           <hash_type>MD5</hash_type>
-          <filesize>5347</filesize>
+          <filesize>5423</filesize>
         </file>
         <file>
           <filename>epm/resource_manager/cfg/static/style/resource_manager.css</filename>
