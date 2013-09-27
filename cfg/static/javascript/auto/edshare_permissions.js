@@ -34,7 +34,7 @@ function permissionsAddPermitted(type, value, html, basename) {
 
 	var newItem = new Element("li", { 
 		id: itemId,
-		class: "edshare_permissions_advanced_value" 
+		"class": "edshare_permissions_advanced_value" 
 	} );
 	newItem.appendChild(new Element("input", {
 		"type": "hidden",
