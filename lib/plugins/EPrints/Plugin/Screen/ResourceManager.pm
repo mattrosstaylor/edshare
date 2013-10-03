@@ -151,24 +151,6 @@ INIT_CONTROL
 	return( $frag, $bulk_action_form );
 }
 
-sub render_links
-{
-	my( $self ) = @_;
-
-	my $session = $self->{session};
-	my $base_url = $session->get_repository->get_conf( 'base_url' );
-	
-	my $js = $session->make_element( 'script', type => 'text/javascript', src => $base_url.'/javascript/resource_manager.js' );
-	my $style = $session->make_element( 'style', type => 'text/css', media => 'screen' );
-	$style->appendChild( $session->make_text( '@import url('.$base_url.'/style/resource_manager.css);' ) );
-
-	my $links = $session->make_doc_fragment;
-	$links->appendChild( $js );
-	$links->appendChild( $style ); 
-
-	return $links;
-}
-
 sub phrase
 {
 	my( $self, $id, %bits ) = @_;

@@ -111,14 +111,14 @@
           <filesize>827</filesize>
         </file>
         <file>
-          <filename>epm/resource_manager/cfg/static/javascript/resource_manager.js</filename>
+          <filename>epm/resource_manager/cfg/static/javascript/auto/resource_manager.js</filename>
           <mime_type>text/x-c</mime_type>
           <hash>c7995aed5046f5e3403d7e12167d996d</hash>
           <hash_type>MD5</hash_type>
           <filesize>5423</filesize>
         </file>
         <file>
-          <filename>epm/resource_manager/cfg/static/style/resource_manager.css</filename>
+          <filename>epm/resource_manager/cfg/static/style/auto/resource_manager.css</filename>
           <mime_type>text/plain</mime_type>
           <hash>d92c8ba785a68249fe61bdfe9c624007</hash>
           <hash_type>MD5</hash_type>
@@ -155,9 +155,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/Screen/ResourceManager.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>830e3ae361fbdba57fe45759b8f2d8af</hash>
+          <hash>3d8ec01daf002abced33d2370ece363f</hash>
           <hash_type>MD5</hash_type>
-          <filesize>5979</filesize>
+          <filesize>5398</filesize>
         </file>
         <file>
           <filename>static/images/epm/resource_manager.png</filename>
