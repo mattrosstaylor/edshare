@@ -199,7 +199,7 @@ sub update_from_form
 
 		for (my $i=0; $i<@types; $i++)
 		{
-			push (@permissions, {type=>@types[$i], value=>@values[$i]});	
+			push (@permissions, {type=>$types[$i], value=>$values[$i]});	
 		}
 
 		$obj->set_value( $field->{name}, \@permissions );

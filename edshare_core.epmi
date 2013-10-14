@@ -2,7 +2,7 @@
 <epm xmlns='http://eprints.org/ep2/data/2.0' id='http://www.medshare.soton.ac.uk/id/epm/edshare_core'>
   <epmid>edshare_core</epmid>
   <eprintid>234</eprintid>
-  <uri>http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/edshare_core</uri>
+  <uri>http://www.medshare.soton.ac.uk/id/epm/edshare_core</uri>
   <documents>
     <document>
       <files>
@@ -296,7 +296,7 @@
         <file>
           <filename>plugins/EPrints/Plugin/InputForm/Component/Field/Permissions.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>f8cd8bcb1783d2ac1897d132cb0eb68a</hash>
+          <hash>b72e177c74e63921f3240335d625b465</hash>
           <hash_type>MD5</hash_type>
           <filesize>6450</filesize>
         </file>
