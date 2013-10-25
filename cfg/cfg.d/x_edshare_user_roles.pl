@@ -8,6 +8,16 @@ $c->{user_roles}->{user} = [qw{
 	+eprint/archive/remove:owner
 }];
 
+$c->{user_roles}->{editor} = [qw{
+	general
+	set-password
+	change-email
+	deposit
+	edit-own-record
+	editor
+	+redo_thumbnails
+}];
+
 $c->{user_roles}->{admin} = [qw{
 	general
 	edit-own-record

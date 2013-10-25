@@ -1,6 +1,5 @@
 private
 public
 restricted
-#UserLookup
-#Creators
-#department
+UserLookup
+Creators

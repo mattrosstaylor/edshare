@@ -93,7 +93,7 @@ sub action_email
 	{
 		$self->{processor}->add_message( "error", $self->html_phrase( "not_sent" ) );	
 	}
-	$self->{processor}->{screenid} = "EPrint::View";
+	$self->{processor}->{redirect} = $self->{session}->get_repository->get_conf( "base_url" )."/".$self->{processor}->{eprintid};
 }
 
 

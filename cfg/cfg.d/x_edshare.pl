@@ -4,16 +4,6 @@ $c->{resourcemanager_filter_fields} = [
 	'validation_status',
 ];
 
-
-# override citations
-$c->{edshare_core_session_init} = $c->{session_init};
-$c->{session_init} = sub {
-	my ( $repo, $offline ) = @_;
-
-	$repo->call("edshare_core_session_init");
-#	$repo->{citations}->{eprint}->{default} = $repo->{citations}->{eprint}->{edshare_default};
-};
-
 $c->{fields}->{document} = [
 # EdShare - This field adds a description to a document which outlines what it is intended to be used for.
 	{
@@ -336,10 +326,15 @@ $c->{can_request_view_document} = sub
 	my $eprint = $doc->get_eprint();
 	my $status = $eprint->value( "eprint_status" );
 	my $user = $eprint->repository->current_user();
-
+	
 	if( $status ne "archive" )
 	{
 		return( "DENY" );
+	}
+
+	if( defined $user && ($user->value( "usertype" ) eq 'admin' || $user->value( "usertype" ) eq 'editor' ))
+	{
+		return "ALLOW";
 	}
 
 	foreach my $permission (@{$eprint->value("view_permissions")})
@@ -363,6 +358,11 @@ $c->{can_user_view_document} = sub
 	if( $status ne "archive" )
 	{
 		return( "DENY" );
+	}
+
+	if( defined $user && ($user->value( "usertype" ) eq 'admin' || $user->value( "usertype" ) eq 'editor' ))
+	{
+		return "ALLOW";
 	}
 
 	foreach my $permission (@{$eprint->value("view_permissions")})
@@ -401,7 +401,7 @@ $c->{plugins}->{"Screen::BrowseViews"}->{params}->{disable} = 0;
 $c->{plugins}->{"Screen::EPrint::EdShareEdit"}->{params}->{disable} = 0;
 $c->{plugins}->{"Screen::EPrint::EmailAuthor"}->{params}->{disable} = 0;
 $c->{plugins}->{"Screen::EPrint::ExportZip"}->{params}->{disable} = 0;
-$c->{plugins}->{"Screen::EPrint::RedoThumbnails"}->{params}->{disable} = 0;
+$c->{plugins}->{"Screen::EPrint::RedoThumbnails"}->{params}->{disable} = 1;
 $c->{plugins}->{"Screen::RedirectingLogin"}->{params}->{disable} = 0;
 
 #plugin removal
