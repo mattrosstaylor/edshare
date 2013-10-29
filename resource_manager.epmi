@@ -15,9 +15,9 @@
         <file>
           <filename>epm/resource_manager/cfg/citations/eprint/manageable.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>f5c45bc7445e9dacccd77a827820b44b</hash>
+          <hash>30792e8383c4d4d8800f47899f3adc67</hash>
           <hash_type>MD5</hash_type>
-          <filesize>3064</filesize>
+          <filesize>3079</filesize>
         </file>
         <file>
           <filename>epm/resource_manager/cfg/citations/eprint/manageable_more.xml</filename>

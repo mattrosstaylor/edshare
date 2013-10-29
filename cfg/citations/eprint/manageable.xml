@@ -13,11 +13,13 @@
 			<cite:linkhere><span title="{title}" class="ep_manageable_data_title"><print expr="title"/></span></cite:linkhere>
 			<epc:choose>
 				<epc:when test="validation_status = 'error'">
-					<img title="This resource failed validation and is currently inaccessible" class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/warning.png" border="0"/>
+					<span title="This resource failed validation and is currently inaccessible" style="font-size:40%;font-weight:bold;">
+						<img class="ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/warning.png" border="0"/>ERROR
+					</span>
 				</epc:when>
 				<epc:when test="eprint_status = 'inbox'">
 					<span title="This resource is private and can only be seen by you" style="font-size:40%;font-weight:bold;">
-						<img class="ep_manageable_action_button ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/private.png" border="0"/>PRIVATE
+						<img class="ep_manageable_action_icon" src="{$config{rel_path}}/images/resource_manager/private.png" border="0"/>PRIVATE
 					</span>
 				</epc:when>
 			</epc:choose>
