@@ -9,9 +9,9 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>f46c84810903f0bbd8fd7ba29637acb8</hash>
+          <hash>99fab197391258bddaa1d9867f2c1493</hash>
           <hash_type>MD5</hash_type>
-          <filesize>12673</filesize>
+          <filesize>13073</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_eprint_defaults.pl</filename>
@@ -100,9 +100,9 @@
         <file>
           <filename>epm/edshare_core/cfg/lang/en/phrases/x_edshare_core.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>162ca18f2c0c0e9961a1dce85e36762f</hash>
+          <hash>d397d0cfd9da1f0ad219529408e45206</hash>
           <hash_type>MD5</hash_type>
-          <filesize>9526</filesize>
+          <filesize>10151</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/lang/en/static/index.xpage</filename>
@@ -194,6 +194,20 @@
           <hash>21160610c390aceb442cbd16dff7fd7d</hash>
           <hash_type>MD5</hash_type>
           <filesize>1127</filesize>
+        </file>
+        <file>
+          <filename>epm/edshare_core/cfg/static/images/edshare_core/toolbox/EPrint_ShowLock.png</filename>
+          <mime_type>image/png</mime_type>
+          <hash>44cb6175b17d20901e93544e544cdec9</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>1143</filesize>
+        </file>
+        <file>
+          <filename>epm/edshare_core/cfg/static/images/edshare_core/toolbox/EPrint_Staff_ChangeOwner.png</filename>
+          <mime_type>image/png</mime_type>
+          <hash>fdb2bed7cfdaab499c50d598b2032816</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>1159</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/static/javascript/auto/edshare_permissions.js</filename>
@@ -334,6 +348,13 @@
           <hash>265177822cef51150da3530e3a15b02c</hash>
           <hash_type>MD5</hash_type>
           <filesize>1971</filesize>
+        </file>
+        <file>
+          <filename>plugins/EPrints/Plugin/Screen/EPrint/EdShareChangeOwner.pm</filename>
+          <mime_type>inode/symlink</mime_type>
+          <hash>69bb1c34862e07b6b38c4ec6c00860aa</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>224</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPrint/EdShareEdit.pm</filename>

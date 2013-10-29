@@ -23,11 +23,20 @@
 	<epp:phrase id="page:nofulltext">There are no documents attached to this resource.</epp:phrase>
 	<epp:phrase id="validate:no_documents">You haven't uploaded any documents.</epp:phrase>
 
+	<epp:phrase id="Plugin/Screen/EPrint/ShowLock:title">Resource currently locked for editing</epp:phrase>
+
+	<epp:phrase id="Plugin/Screen/EPrint/Edit:title">Edit Resource</epp:phrase>
+	<epp:phrase id="Plugin/Screen/EPrint/Edit:description">Edit Resource</epp:phrase>
+
 	<epp:phrase id="Plugin/Screen/EPrint/Summary:title">Private Resource</epp:phrase>
 	<epp:phrase id="Plugin/Screen/EPrint/ExportZip:title">Download all documents (zipped)</epp:phrase>
 	<epp:phrase id="Plugin/Screen/EPrint/RedoThumbnails:title">Regenerate previews</epp:phrase>
 	<epp:phrase id="Plugin/Screen/EPrint/RedoThumbnails:confirm">This tool allows you to instruct the system to regenerate the previews for this resource if they are incorrect or incomplete. This action ignores the indexer and is performed immediately, as a result this might take some time. If the preview still can't be created, please use the Contact Us botton at the bottom of the page.</epp:phrase>
 	<epp:phrase id="lib/submissionform:action_redo_thumbnails">Regenerate</epp:phrase>
+
+	<epp:phrase id="Plugin/Screen/EPrint/Staff/ChangeOwner:title">Change Resource Owner</epp:phrase>
+	<epp:phrase id="Plugin/Screen/EPrint/Staff/ChangeOwner:changedowner">Transferred ownership of this resource to <epc:pin name="user"/>.</epp:phrase>
+	<epp:phrase id="user_fieldhelp_username">Username must be a combination of letters and numbers.</epp:phrase>
 
 <!-- workflow phrases -->
 	<epp:phrase id="eprint_fieldhelp_title">Try to make your title concise, but also helpful and explanatory to other users. Avoid being too vague or too general. The title will be the first impression you give other users about your resource.</epp:phrase>
