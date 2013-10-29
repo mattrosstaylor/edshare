@@ -9,9 +9,9 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>99fab197391258bddaa1d9867f2c1493</hash>
+          <hash>44733e705100b4eace9dd02c59f66154</hash>
           <hash_type>MD5</hash_type>
-          <filesize>13073</filesize>
+          <filesize>13074</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_eprint_defaults.pl</filename>
@@ -51,9 +51,9 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_user_roles.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>62112edf53e722d0a352c85d76df8a93</hash>
+          <hash>2e944ec56320314f43e005a726e464f5</hash>
           <hash_type>MD5</hash_type>
-          <filesize>533</filesize>
+          <filesize>595</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_views.pl</filename>

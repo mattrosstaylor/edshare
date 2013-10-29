@@ -423,7 +423,7 @@ $c->{plugin_alias_map}->{"Screen::Login"} = "Screen::RedirectingLogin";
 $c->{plugin_alias_map}->{"Screen::EPrint::RedirectingLogin"} = undef;
 
 $c->{plugin_alias_map}->{"Screen::EPrint::View"} = "Screen::EPrint::Summary";
-$c->{plugin_alias_map}->{"Screen::EPrint::Summary"} = undef;
+#$c->{plugin_alias_map}->{"Screen::EPrint::Summary"} = undef;
 
 # toolbar stuff
 $c->{plugins}->{"Screen::EPrint::ShowLock"}->{appears}->{edshare_toolbox} = 0;

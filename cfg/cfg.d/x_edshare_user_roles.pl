@@ -15,6 +15,8 @@ $c->{user_roles}->{editor} = [qw{
 	deposit
 	edit-own-record
 	editor
+	staff-view
+	+eprint/archive/summary
 	+redo_thumbnails
 }];
 
@@ -27,6 +29,7 @@ $c->{user_roles}->{admin} = [qw{
 	editor
 	view-status
 	staff-view
+	+eprint/archive/summary
 	admin
 	edit-config
 	+redo_thumbnails
