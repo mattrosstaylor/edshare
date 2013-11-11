@@ -97,6 +97,13 @@
           <filesize>6592</filesize>
         </file>
         <file>
+          <filename>epm/premiere_preview/cfg/static/images/premiere_preview/unavailable.png</filename>
+          <mime_type>image/png</mime_type>
+          <hash>534b4f1cfa09311c28cc651046de4bba</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>10674</filesize>
+        </file>
+        <file>
           <filename>epm/premiere_preview/cfg/static/javascript/auto/premiere_preview.js</filename>
           <mime_type>text/plain</mime_type>
           <hash>2dcc98da35560be43354c1b7f9364815</hash>
@@ -106,9 +113,9 @@
         <file>
           <filename>epm/premiere_preview/cfg/static/javascript/jquery.media.0.92.js</filename>
           <mime_type>text/plain</mime_type>
-          <hash>02fc2c4f03973eab7d206b5d0f3b1ce4</hash>
+          <hash>aada4483f1e0f38a15d53cedbe4d4513</hash>
           <hash_type>MD5</hash_type>
-          <filesize>16048</filesize>
+          <filesize>19004</filesize>
         </file>
         <file>
           <filename>epm/premiere_preview/cfg/static/javascript/jquery.min.js</filename>
@@ -134,9 +141,9 @@
         <file>
           <filename>epm/premiere_preview/cgi/premiere_preview_init</filename>
           <mime_type>text/plain</mime_type>
-          <hash>dea44c181a9908c064d9e615a71ff7db</hash>
+          <hash>5ca013e832a41d9ca92167fc5df67b37</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1219</filesize>
+          <filesize>1218</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Convert/OfficePreview.pm</filename>
