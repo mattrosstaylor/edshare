@@ -426,7 +426,7 @@ function generate(el, opts, player) {
 	else if (player == 'pdf') {
 		// mrt - detect misery!
 		var info = getAcrobatInfo();
-		if(info.acrobat && false){
+		if(info.acrobat){
 			o = $('<iframe' + ' width="' + opts.width + '" height="' + opts.height + '" >');
 			o.attr('src', opts.src);
 		}
