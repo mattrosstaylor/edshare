@@ -24,7 +24,7 @@ unless( defined $js_prefix && defined $fieldname )
 }
 
 # yes this is a bit hacky but safer
-unless( $fieldname eq 'keywords' || $fieldname eq 'courses' )
+unless( $fieldname eq 'raw_keywords' || $fieldname eq 'courses' )
 {
         print "<p>Wrong arguments</p>";
         $session->terminate;

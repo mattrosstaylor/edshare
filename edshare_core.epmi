@@ -9,9 +9,9 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>7e755cb9c5ab2e0c4b7bc24bd72f52f4</hash>
+          <hash>3d42a6daa233b636078081199a0c54ad</hash>
           <hash_type>MD5</hash_type>
-          <filesize>13167</filesize>
+          <filesize>13105</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_eprint_defaults.pl</filename>
@@ -275,9 +275,9 @@
         <file>
           <filename>epm/edshare_core/cgi/users/lookup/taglite_picklist</filename>
           <mime_type>text/plain</mime_type>
-          <hash>e8c0cf3e30b456f63008bf60dd3a6f08</hash>
+          <hash>1b92d48ce467722bee994df4de3e126c</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1344</filesize>
+          <filesize>1348</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cgi/users/lookup/user</filename>
