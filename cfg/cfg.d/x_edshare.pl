@@ -400,6 +400,7 @@ $c->{plugins}->{"PermissionType::UserLookup"}->{params}->{disable} = 0;
 $c->{plugins}->{"Screen::BrowseViews"}->{params}->{disable} = 0;
 $c->{plugins}->{"Screen::EPrint::EdShareEdit"}->{params}->{disable} = 0;
 $c->{plugins}->{"Screen::EPrint::EdShareChangeOwner"}->{params}->{disable} = 0;
+$c->{plugins}->{"Screen::EPrint::EdShareViewRedirect"}->{params}->{disable} = 0;
 $c->{plugins}->{"Screen::EPrint::EmailAuthor"}->{params}->{disable} = 0;
 $c->{plugins}->{"Screen::EPrint::ExportZip"}->{params}->{disable} = 0;
 $c->{plugins}->{"Screen::EPrint::RedoThumbnails"}->{params}->{disable} = 1;
@@ -422,8 +423,7 @@ $c->{plugin_alias_map}->{"Screen::EPrint::EdShareChangeOwner"} = undef;
 $c->{plugin_alias_map}->{"Screen::Login"} = "Screen::RedirectingLogin";
 $c->{plugin_alias_map}->{"Screen::EPrint::RedirectingLogin"} = undef;
 
-$c->{plugin_alias_map}->{"Screen::EPrint::View"} = "Screen::EPrint::Summary";
-#$c->{plugin_alias_map}->{"Screen::EPrint::Summary"} = undef;
+$c->{plugin_alias_map}->{"Screen::EPrint::View"} = "Screen::EPrint::EdShareViewRedirect";
 
 # toolbar stuff
 $c->{plugins}->{"Screen::EPrint::ShowLock"}->{appears}->{edshare_toolbox} = 0;

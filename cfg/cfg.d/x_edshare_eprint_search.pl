@@ -32,7 +32,6 @@ $c->{search}->{advanced} =
 {
 # EdShare - Made new fields searchable and added some new order methods
 	search_fields => [
-		{ meta_fields => [ $EPrints::Utils::FULLTEXT ] },
 		{ meta_fields => [ "title" ] },
 		{ meta_fields => [ "creators_name" ] },
 		{ meta_fields => [ "abstract" ] },

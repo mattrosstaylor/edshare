@@ -9,9 +9,9 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>44733e705100b4eace9dd02c59f66154</hash>
+          <hash>7e755cb9c5ab2e0c4b7bc24bd72f52f4</hash>
           <hash_type>MD5</hash_type>
-          <filesize>13074</filesize>
+          <filesize>13167</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_eprint_defaults.pl</filename>
@@ -37,9 +37,9 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_eprint_search.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>3b5633f79417e8035bc370074f6a8526</hash>
+          <hash>6225c2898d0999acd5a6175cc68c8b2e</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2348</filesize>
+          <filesize>2296</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_eprint_validate.pl</filename>
@@ -100,9 +100,9 @@
         <file>
           <filename>epm/edshare_core/cfg/lang/en/phrases/x_edshare_core.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>d397d0cfd9da1f0ad219529408e45206</hash>
+          <hash>4b7af6c0b8e0bdb40de76ccd8bd1ebb1</hash>
           <hash_type>MD5</hash_type>
-          <filesize>10151</filesize>
+          <filesize>10446</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/lang/en/static/index.xpage</filename>

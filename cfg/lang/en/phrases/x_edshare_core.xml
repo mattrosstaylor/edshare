@@ -34,6 +34,11 @@
 	<epp:phrase id="Plugin/Screen/EPrint/RedoThumbnails:confirm">This tool allows you to instruct the system to regenerate the previews for this resource if they are incorrect or incomplete. This action ignores the indexer and is performed immediately, as a result this might take some time. If the preview still can't be created, please use the Contact Us botton at the bottom of the page.</epp:phrase>
 	<epp:phrase id="lib/submissionform:action_redo_thumbnails">Regenerate</epp:phrase>
 
+	<epp:phrase id="Plugin/Screen/EPrint/Remove:title">Delete Resource</epp:phrase>
+	<epp:phrase id="Plugin/Screen/EPrint/Remove:sure_delete">Are you absolutely sure you want to permenently delete this resource?</epp:phrase>
+	<epp:phrase id="lib/submissionform:action_remove">Delete</epp:phrase>
+
+
 	<epp:phrase id="Plugin/Screen/EPrint/Staff/ChangeOwner:title">Change Resource Owner</epp:phrase>
 	<epp:phrase id="Plugin/Screen/EPrint/Staff/ChangeOwner:changedowner">Transferred ownership of this resource to <epc:pin name="user"/>.</epp:phrase>
 	<epp:phrase id="user_fieldhelp_username">Username must be a combination of letters and numbers.</epp:phrase>
