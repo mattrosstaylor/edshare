@@ -12,6 +12,8 @@ our @replaced_files = (
 	"/citations/eprint/result.xml",
 	"/lang/en/static/index.xpage",
 	"/namedsets/eprint",
+	"/namedsets/licenses",
+	"/namedsets/user",
 	"/workflows/eprint/default.xml",
 );
 

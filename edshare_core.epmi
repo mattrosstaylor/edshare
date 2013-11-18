@@ -2,7 +2,7 @@
 <epm xmlns='http://eprints.org/ep2/data/2.0' id='http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/edshare_core'>
   <epmid>edshare_core</epmid>
   <eprintid>234</eprintid>
-  <uri>http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/edshare_core</uri>
+  <uri>http://lslvm-mrt5b.ecs.soton.ac.uk/id/epm/edshare_core</uri>
   <documents>
     <document>
       <files>
@@ -16,9 +16,9 @@
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_eprint_defaults.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>1e52c6df4c1e7514d243fa02851e4a69</hash>
+          <hash>92494f2471fd63055ffe32b6abcfa5ce</hash>
           <hash_type>MD5</hash_type>
-          <filesize>640</filesize>
+          <filesize>712</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_eprint_fields_automatic.pl</filename>
@@ -117,6 +117,20 @@
           <hash>c8a237c5c966bf37c93e1247e77d8066</hash>
           <hash_type>MD5</hash_type>
           <filesize>34</filesize>
+        </file>
+        <file>
+          <filename>epm/edshare_core/cfg/namedsets/licenses</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>cbc8d312082ed3b1185cd1ad4fa289dd</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>88</filesize>
+        </file>
+        <file>
+          <filename>epm/edshare_core/cfg/namedsets/user</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>3d39e1ebac91148d2efb93712f419f4e</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>11</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/namedsets/view_permissions</filename>
@@ -345,9 +359,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPMC/EdShareCore.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>265177822cef51150da3530e3a15b02c</hash>
+          <hash>a0217d2b4ec3539938de0bf238b6792c</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1971</filesize>
+          <filesize>2015</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPrint/EdShareChangeOwner.pm</filename>

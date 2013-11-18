@@ -28,4 +28,10 @@ $c->{set_eprint_defaults} = sub
 	{
 		$data->{validation_status} = "error";
 	}
+
+
+	if(!defined $data->{license})
+	{
+		$data->{license} = "cc_by_nc";
+	}
 };
