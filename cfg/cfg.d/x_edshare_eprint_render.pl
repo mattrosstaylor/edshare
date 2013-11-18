@@ -1,6 +1,6 @@
 $c->{summary_page_metadata} = [qw/
 	userid
-	datestamp
+	lastmod
 	creators
 	keywords
 	license

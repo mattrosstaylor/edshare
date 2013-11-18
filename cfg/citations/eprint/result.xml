@@ -8,7 +8,11 @@
 	<div class="griditem">
 		<div class="metadata">
 			<strong>Added By:</strong> <epc:print expr="userid" /><br />
-			<strong>Added On:</strong> <epc:print expr="datestamp" /><br />
+			<strong>Date:</strong> <epc:print expr="lastmod" /><br />
+			<epc:if test="length(creators) gt 0">
+				<strong>Creators:</strong> <epc:print expr="creators" /><br />
+			</epc:if>
+
 			<epc:if test="length(keywords) gt 0">
 				<strong>Keywords:</strong> <epc:print expr="keywords" /><br />
 			</epc:if>

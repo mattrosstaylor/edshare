@@ -43,7 +43,7 @@
 -->
 <div id="edshare_frontpage_right">
 	<div class="frontpage_recent">
-		<h2>Recently uploaded resources <a href="/cgi/latest_tool?output=RSS2" title="RSS feed of the latest resources."><img alt="RSS 2.0" src="/style/images/feed-icon-14x14.png"/></a></h2>
+		<h2>Latest Resources <a href="/cgi/latest_tool?output=RSS2" title="RSS feed of the latest resources."><img alt="RSS 2.0" src="/style/images/feed-icon-14x14.png"/></a></h2>
 		<div id="mostrecent_list"> </div>
 		<script type="text/javascript">
 			new Ajax.Request("/cgi/frontpagelatest?frag=1", {

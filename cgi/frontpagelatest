@@ -19,7 +19,7 @@ my $search = EPrints::Search->new(
 #			describe=>0,
 #		},
 #		],	
-		custom_order => "-datestamp",
+		custom_order => "-lastmod",
 		dataset => $ds,
 		session => $session,
 		);
