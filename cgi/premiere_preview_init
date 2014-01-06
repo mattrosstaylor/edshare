@@ -42,6 +42,13 @@ if ( $repository->call("can_user_view_document", $first_document, $user) eq "ALL
 }
 else
 {
-	print $xml->to_string( $repository->html_phrase( "premiere_preview:denied" ) );
+	if (not $user)
+	{
+		print $xml->to_string( $repository->html_phrase( "premiere_preview:denied_not_logged_in" ) );
+	}
+	else
+	{
+		print $xml->to_string( $repository->html_phrase( "premiere_preview:denied" ) );
+	}
 }
 
