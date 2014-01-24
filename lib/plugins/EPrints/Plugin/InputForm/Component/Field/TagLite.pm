@@ -3,7 +3,6 @@ package EPrints::Plugin::InputForm::Component::Field::TagLite;
 use EPrints::Plugin::InputForm::Component::Field;
 @ISA = ( "EPrints::Plugin::InputForm::Component::Field" );
 
-
 use Unicode::String qw(latin1);
 
 use strict;
@@ -36,8 +35,8 @@ sub parse_config
                 my $field = $fields[0];
                 $self->{config}->{field} = $self->xml_to_metafield( $fields[0] );
 
-                my $show_pickup_list = $fields[0]->getAttribute( 'show_pickup_list' );
-                $self->{config}->{show_pickup_list} = ($show_pickup_list == 1);
+                my $show_common_user_tags = $fields[0]->getAttribute( 'show_common_user_tags' );
+                $self->{config}->{show_common_user_tags} = ($show_common_user_tags == 1);
         }
 }
 
@@ -139,132 +138,138 @@ sub render_title
 
 sub render_content
 {
-        my ( $self, $surround )  = @_;
+	my ( $self, $surround )  = @_;
 
-        my $session = $self->{session};
+	my $session = $self->{session};
 
-        my ( $table, $tr, $td );
+	my $field = $self->{config}->{field};
+	my $fieldname = $field->get_name;
+	my $prefix = $self->{prefix}."_".$fieldname;
+	my $js_var_name = $prefix."_object";
 
-        my $chunk = $session->make_doc_fragment;
+	# the target DIV element, which will get the newly enterred subjects
+	my $target_name = $prefix."_actualvalues";
 
-        my $field = $self->{config}->{field};
-        my $fieldname = $field->get_name;
-        my $prefix = $self->{prefix}."_".$fieldname;
+	my $content = $session->make_element( "div", "class" => "edshare_taglite" );
+	my $target_div = $session->make_element( "div", "id" => $target_name );
+	$content->appendChild( $target_div );
+	my $script_content = "var ".$js_var_name." = new inputTagLite( document.getElementById( '".$target_name."' ),0,'".$js_var_name."', '".$prefix."', '$fieldname' );";
 
-        $table = $session->make_element( "table", "cellpadding" => "0", "cellspacing" => "0", "border" => "0", "class" => "ed_taglite_maintable", width=>"100%" );
+	my $eprint = $self->{workflow}->{item};
+	my $values = $field->get_value( $eprint );
 
-        $chunk->appendChild( $table );
+	if(defined $values)
+	{
+		foreach my $tag ( @{$values} )
+		{
+			$tag =~ s/\'/\\\'/g;
+			$script_content .= "\n".$js_var_name.".initTag( '$tag' );";
+		}
+	}
 
+	my $script = $session->make_javascript( "$script_content" );
+	$content->appendChild( $script );
 
-        my $js_var_name = $prefix."_object";
+#	$content->appendChild( $session->html_phrase( "Field/TagLite:$fieldname:blurb") );
 
-        $tr = $session->make_element( "tr" );
-        $table->appendChild( $tr );
-        $td = $session->make_element( "td", "class" => "ed_taglite_top" );
-        $tr->appendChild( $td );
+	my $input_name = $prefix."_inputer";
 
-        # the target DIV element, which will get the newly enterred subjects
-        my $div_name = $prefix."_actualvalues";
+	my $js_function_call;
+	if( $fieldname eq "courses" )
+	{
+		$js_function_call = $js_var_name.".initTagLine_CoursesCodes( document.getElementById( '".$input_name."' ) )";
+	}
+	else
+	{
+		$js_function_call = $js_var_name.".initTagLine( document.getElementById( '".$input_name."' ) )";
+	}
 
-        my $div_tags = $session->make_element( "div", "id"=> $div_name );
-        $td->appendChild( $div_tags );
+	my $input = $session->make_element( "input",
+		"type"=>"text",
+		"size"=>"30",
+		"name"=> $input_name,
+		"id"=> $input_name,
+		"class" => "edshare_taglite_input",
+		"onKeyPress" => "return EPJS_block_enter(event)",
+		"onblur" => "return $js_function_call;"
+	);
 
-        my $script_content = "var ".$js_var_name." = new inputTagLite( document.getElementById( '".$div_name."' ),0,'".$js_var_name."', '".$prefix."', '$fieldname' );";
+	$content->appendChild( $input );
 
-        my $eprint = $self->{workflow}->{item};
-        my $values = $field->get_value( $eprint );
+	# the name of the javascript object which holds the subjects
 
-        if(defined $values)
-        {
-                foreach my $tag ( @{$values} )
-                {
-                        $tag =~ s/\'/\\\'/g;
-                        $script_content .= "\n".$js_var_name.".initTag( '$tag' );";
-                }
-        }
-        my $script = $session->make_javascript( "$script_content" );
-        $chunk->appendChild( $script );
-
-
-        $tr = $session->make_element( "tr" );
-        $table->appendChild( $tr );
-        $td = $session->make_element( "td", "class" => "ed_taglite_bottom" );
-        $tr->appendChild( $td );
-
-
-        $td->appendChild( $session->html_phrase( "Field/TagLite:$fieldname:blurb") );
-
-        my $input_name = $prefix."_inputer";
-
-        my $js_function_call;
-        if( $fieldname eq "courses" )
-        {
-                $js_function_call = $js_var_name.".initTagLine_CoursesCodes( document.getElementById( '".$input_name."' ) )";
-        }
-        else
-        {
-                $js_function_call = $js_var_name.".initTagLine( document.getElementById( '".$input_name."' ) )";
-        }
-
-        my $input = $session->make_element( "input",
-                                "type"=>"text",
-                                "size"=>"30",
-                                "name"=> $input_name,
-                                "id"=> $input_name,
-                                "class" => "ed_taglite_input",
-                                "onKeyPress" => "return EPJS_block_enter(event)",
-                                "onblur" => "return $js_function_call;"
- );
-
-        $td->appendChild( $input );
-
-        # the name of the javascript object which holds the subjects
-
-        my $enter_script = $session->make_javascript(<<ENTER_SCRIPT
+	my $enter_script = $session->make_javascript(<<ENTER_SCRIPT
 \$('$input_name').observe('keypress', function(event) {
-        var keycode;
-        if (Object.isUndefined(event.which)) {
-                keycode = event.keyCode;
-        } else {
-                keycode = event.which;
-        }
-        if (keycode == Event.KEY_RETURN) {
-                return $js_function_call;
-        }
+	var keycode;
+	if (Object.isUndefined(event.which)) {
+		keycode = event.keyCode;
+	}
+	else {
+		keycode = event.which;
+	}
+	if (keycode == Event.KEY_RETURN) {
+		return $js_function_call;
+	}
 });
 ENTER_SCRIPT
-        );
-        $td->appendChild( $enter_script );
-        my $link = $session->make_element( "input", "type"=>"button", "value" => "Add", "onclick" => "return $js_function_call;", "class" => "ep_form_internal_button" );
-        $td->appendChild( $link );
+);
 
-        if( defined $field->{input_advice_below} )
-        {
-                my $advice = $field->call_property( "input_advice_below", $session, $field, $values );
-                my $advice_container = $session->make_element( "div", class=>"ep_taglite_advice_below" );
-                $chunk->appendChild( $advice_container );
-                $advice_container->appendChild( $advice );
-        }
+	$content->appendChild( $enter_script );
+	my $link = $session->make_element( "input", "type"=>"button", "value" => "Add", "onclick" => "return $js_function_call;", "class" => "ep_form_internal_button" );
+	$content->appendChild( $link );
 
-        # not sure of the condition to enable that feature:
-        if( $self->{config}->{show_pickup_list} )
-        {
-                my $container_id = $prefix."_owntags";
-                my $rel_path = $session->get_repository->get_conf( "rel_path" );
+	if( defined $field->{input_advice_below} )
+	{
+		my $advice = $field->call_property( "input_advice_below", $session, $field, $values );
+		my $advice_container = $session->make_element( "div", class=>"ep_taglite_advice_below" );
+		$content->appendChild( $advice_container );
+		$advice_container->appendChild( $advice );
+	}
 
-                my $owntags_container = $session->make_element( "div", id => $container_id, class => "ep_taglite_pickup_container" );
-                $chunk->appendChild( $owntags_container );
+	# not sure of the condition to enable that feature:
+	if( $self->{config}->{show_common_user_tags} )
+	{
+		my $suggestions_table = $session->make_element( "table", class => "edshare_taglite_suggestions_table" );
+		$content->appendChild( $suggestions_table );
 
-                my $input_prefix = $prefix."_inputer";
-                my $link = $session->make_element( "a", href=>"#", onclick => "new Ajax.Updater( '$container_id', '$rel_path/cgi/users/lookup/taglite_picklist?jsvar=$js_var_name&fieldname=".$field->get_name."', { method:'get', onComplete: function(req) { \$('$container_id').innerHTML = req.responseText; } } );return false;" );
+		my @plugin_list = qw( MostPopularUserTags );
 
-                #$link->appendChild( $session->make_text( "Choose from your own tags" ) );
-                $link->appendChild( $session->html_phrase( "Field/TagLite:$fieldname:pickuplist_blurb"  ) );
-                $owntags_container->appendChild( $link );
-        }
+		foreach my $plugin_name (@plugin_list)
+		{
+			my $tr = $session->make_element( "tr" );
+			my $th = $session->make_element( "th" );
+			$th->appendChild( $session->html_phrase( "Plugin/TagLiteSuggestionList/".$plugin_name.":legend" ) );
+			$tr->appendChild( $th );
+			my $td = $session->make_element( "td" );
+			my $ul = $session->make_element( "ul" );
+			$tr->appendChild( $td );
+			$td->appendChild( $ul );
 
+			my $plugin = $session->plugin( "TagLiteSuggestionList::".$plugin_name, fieldname=>$fieldname );
+			my @suggestion_list = $plugin->get_tag_suggestion_list();
 
-        return $chunk;
+			if ( scalar( @suggestion_list ) )
+			{
+				foreach my $tag ( @suggestion_list )
+				{
+					my $tag_single_quote_escaped = $tag;
+					$tag_single_quote_escaped =~ s/'/\\'/g;
+					my $li = $session->make_element( "li" );
+					my $tag_anchor = $session->make_element( "a", "href" => "#", "onclick" => "$js_var_name.initTag( '$tag_single_quote_escaped' );return false;" );
+					$tag_anchor->appendChild( $session->make_text( $tag ) );
+					$li->appendChild( $tag_anchor );
+					$ul->appendChild( $li );
+				}
+				$suggestions_table->appendChild( $tr );
+			}
+			else
+			{
+				print "<p>No tag found</p>";
+			}
+		}
+	}
+
+	return $content;
 }
 
 sub could_collapse

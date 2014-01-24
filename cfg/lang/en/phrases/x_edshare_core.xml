@@ -64,8 +64,9 @@
 	<epp:phrase id="eprint_fieldhelp_keywords">Individual words which describe the content of the resource. These help users understand what your resource is about at a glance.</epp:phrase>
 
 	<epp:phrase id="Field/TagLite:raw_keywords:blurb">Keywords</epp:phrase>
-	<epp:phrase id="Field/TagLite:raw_keywords:pickuplist_blurb">Choose from your own keywords</epp:phrase>
 	<epp:phrase id="Field/TagLite:raw_keywords:advice_below"><p>Separate each keyword with a comma: <span style="font-style: italic;">social networks, lecture, slides</span>. Hit enter to add your keywords.</p></epp:phrase>
+
+	<epp:phrase id="Plugin/TagLiteSuggestionList/MostPopularUserTags:legend">Your most commonly used keywords:</epp:phrase>
 	
 	<epp:phrase id="eprint_fieldname_view_permissions">View Permissions</epp:phrase>
 	<epp:phrase id="eprint_fieldname_view_permissions_type">Visibility</epp:phrase>

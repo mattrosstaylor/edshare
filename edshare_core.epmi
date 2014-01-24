@@ -2,16 +2,16 @@
 <epm xmlns='http://eprints.org/ep2/data/2.0' id='http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/edshare_core'>
   <epmid>edshare_core</epmid>
   <eprintid>234</eprintid>
-  <uri>http://lslvm-mrt5b.ecs.soton.ac.uk/id/epm/edshare_core</uri>
+  <uri>http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/edshare_core</uri>
   <documents>
     <document>
       <files>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>3d42a6daa233b636078081199a0c54ad</hash>
+          <hash>9dc7da512cc7ecd9fe14e1628f0e4f24</hash>
           <hash_type>MD5</hash_type>
-          <filesize>13105</filesize>
+          <filesize>13193</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/cfg.d/x_edshare_eprint_defaults.pl</filename>
@@ -100,9 +100,9 @@
         <file>
           <filename>epm/edshare_core/cfg/lang/en/phrases/x_edshare_core.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>e1f40c224a700f64e12e05f98fb80f07</hash>
+          <hash>016d8c928717eb5916d5c4e6439450ae</hash>
           <hash_type>MD5</hash_type>
-          <filesize>10666</filesize>
+          <filesize>10683</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/lang/en/static/index.xpage</filename>
@@ -247,16 +247,16 @@
         <file>
           <filename>epm/edshare_core/cfg/static/style/auto/x_edshare_core.css</filename>
           <mime_type>text/x-c</mime_type>
-          <hash>de22a819688817d9d316628046c1ce01</hash>
+          <hash>a045b5d0d3b9e8e519e558bdac9a2485</hash>
           <hash_type>MD5</hash_type>
-          <filesize>4418</filesize>
+          <filesize>4624</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cfg/workflows/eprint/default.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>df0b6ad2c94b9973cafe1e1bc74195fd</hash>
+          <hash>4c190ac48e50607df3274066c7ce597e</hash>
           <hash_type>MD5</hash_type>
-          <filesize>991</filesize>
+          <filesize>996</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cgi/edshare_toolbox</filename>
@@ -285,13 +285,6 @@
           <hash>5c1b75d8c60387380665cebef8f31d68</hash>
           <hash_type>MD5</hash_type>
           <filesize>2921</filesize>
-        </file>
-        <file>
-          <filename>epm/edshare_core/cgi/users/lookup/taglite_picklist</filename>
-          <mime_type>text/plain</mime_type>
-          <hash>1b92d48ce467722bee994df4de3e126c</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>1348</filesize>
         </file>
         <file>
           <filename>epm/edshare_core/cgi/users/lookup/user</filename>
@@ -331,9 +324,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/InputForm/Component/Field/TagLite.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>63bf093e2725958029ead45f27b11d0e</hash>
+          <hash>29ae43e9b8388e0e59e6e108a559aaca</hash>
           <hash_type>MD5</hash_type>
-          <filesize>8950</filesize>
+          <filesize>8075</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/PermissionType.pm</filename>
@@ -411,6 +404,20 @@
           <hash>b1efaa52323085ccc9ed390bce56d573</hash>
           <hash_type>MD5</hash_type>
           <filesize>4372</filesize>
+        </file>
+        <file>
+          <filename>plugins/EPrints/Plugin/TagLiteSuggestionList.pm</filename>
+          <mime_type>inode/symlink</mime_type>
+          <hash>1d279bb7a4d81584fb09f7238b3f4c85</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>466</filesize>
+        </file>
+        <file>
+          <filename>plugins/EPrints/Plugin/TagLiteSuggestionList/MostPopularUserTags.pm</filename>
+          <mime_type>inode/symlink</mime_type>
+          <hash>3d3d9843c06fae4a44a7a52ab7f8ef0d</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>959</filesize>
         </file>
         <file>
           <filename>static/images/epm/edshare_core.png</filename>

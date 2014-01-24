@@ -163,6 +163,8 @@ sub render_content
 		foreach my $permission ( @$values )
 		{
 			my $plugin = $session->plugin( "PermissionType::".$permission->{type}, parent_component=>$self );
+			next if (not defined( $plugin ) );
+
 			my $li = $xml->create_element( "li",
 				id=>$basename."_".$permission->{type}."_".$permission->{value},
 				class=>"edshare_permissions_advanced_value"

@@ -27,7 +27,7 @@
     </component>
 
     <component type="Field::TagLite">
-	<field ref="raw_keywords" show_pickup_list="1"/>
+	<field ref="raw_keywords" show_common_user_tags="1"/>
     </component>
 
     <component type="Field::Permissions"><field ref="view_permissions" required="yes"/></component>
