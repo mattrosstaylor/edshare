@@ -131,24 +131,39 @@
 }
 
 /* taglite */
-
 .edshare_taglite {
 	text-align: center;
 }
 
-.edshare_taglite_suggestions_table {
+.edshare_taglite_suggestions {
+/*	display: none; */
+} 
+
+.edshare_taglite_tag {
+	font-weight: bolder;
+}
+
+.edshare_taglite_suggestions table {
+	margin-top: 10px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-.edshare_taglite_suggestions_table ul {
-	list-style-type: none;
+.edshare_taglite_suggestions h2 {
+	font-weight: normal;
 }
 
+.edshare_taglite_suggestions td {
+	text-align: left;
+	padding: 0 10px;
+}
+
+/* mrt - maybe restyle this a bit
 .edshare_taglite_suggestions_table li {
 	display: inline;
 	padding-right: 7px;
 }
+*/
 
 /* old shit
 .ed_taglite_maintable{

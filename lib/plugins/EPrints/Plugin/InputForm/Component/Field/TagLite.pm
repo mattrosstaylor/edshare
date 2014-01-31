@@ -34,9 +34,7 @@ sub parse_config
                 # we need to have the autocompleter URL ('input_lookup_url') set
                 my $field = $fields[0];
                 $self->{config}->{field} = $self->xml_to_metafield( $fields[0] );
-
-                my $show_common_user_tags = $fields[0]->getAttribute( 'show_common_user_tags' );
-                $self->{config}->{show_common_user_tags} = ($show_common_user_tags == 1);
+		$self->{config}->{suggestions_url} = $fields[0]->getAttribute( 'suggestions_url' );
         }
 }
 
@@ -148,12 +146,17 @@ sub render_content
 	my $js_var_name = $prefix."_object";
 
 	# the target DIV element, which will get the newly enterred subjects
-	my $target_name = $prefix."_actualvalues";
+	my $target_name = $prefix."_values";
+	my $placeholder_name = $prefix."_placeholder";
+	my $suggestions_name = $prefix."_suggestions";
 
 	my $content = $session->make_element( "div", "class" => "edshare_taglite" );
+	my $placeholder_div = $session->make_element( "div", "id" => $placeholder_name );
+	$placeholder_div->appendChild($session->html_phrase( "Field/TagLite:$fieldname:placeholder") );
+	$content->appendChild( $placeholder_div );
 	my $target_div = $session->make_element( "div", "id" => $target_name );
 	$content->appendChild( $target_div );
-	my $script_content = "var ".$js_var_name." = new inputTagLite( document.getElementById( '".$target_name."' ),0,'".$js_var_name."', '".$prefix."', '$fieldname' );";
+	my $script_content = "var ".$js_var_name." = new inputTagLite( '".$js_var_name."', '".$prefix."', '$fieldname' );";
 
 	my $eprint = $self->{workflow}->{item};
 	my $values = $field->get_value( $eprint );
@@ -174,15 +177,7 @@ sub render_content
 
 	my $input_name = $prefix."_inputer";
 
-	my $js_function_call;
-	if( $fieldname eq "courses" )
-	{
-		$js_function_call = $js_var_name.".initTagLine_CoursesCodes( document.getElementById( '".$input_name."' ) )";
-	}
-	else
-	{
-		$js_function_call = $js_var_name.".initTagLine( document.getElementById( '".$input_name."' ) )";
-	}
+	my $js_function_call = $js_var_name.".addFromInput( document.getElementById( '".$input_name."' ) )";
 
 	my $input = $session->make_element( "input",
 		"type"=>"text",
@@ -191,7 +186,6 @@ sub render_content
 		"id"=> $input_name,
 		"class" => "edshare_taglite_input",
 		"onKeyPress" => "return EPJS_block_enter(event)",
-		"onblur" => "return $js_function_call;"
 	);
 
 	$content->appendChild( $input );
@@ -226,49 +220,29 @@ ENTER_SCRIPT
 		$advice_container->appendChild( $advice );
 	}
 
-	# not sure of the condition to enable that feature:
-	if( $self->{config}->{show_common_user_tags} )
+	my $suggestions = $session->make_element( "div", id=> $suggestions_name, class => "edshare_taglite_suggestions" );
+	$content->appendChild( $suggestions);
+
+	my $link = $session->make_element( "a", href=>"#", onclick => "new Ajax.Updater( '$suggestions_name', '".$self->{config}->{suggestions_url}."?jsvar=$js_var_name&fieldname=".$field->get_name."', { method:'get', onComplete: function(req) { \$('$suggestions_name').innerHTML = req.responseText; } } );return false;" );
+
+	$link->appendChild( $session->html_phrase( "Field/TagLite:$fieldname:show_suggestions"  ) );
+	$suggestions->appendChild( $link );
+
+=pod
+	my @plugin_list = qw( MostPopularUserTags StaticTags );
+
+	my $number_of_table_columns = 4;
+	foreach my $plugin_name (@plugin_list)
 	{
-		my $suggestions_table = $session->make_element( "table", class => "edshare_taglite_suggestions_table" );
-		$content->appendChild( $suggestions_table );
+		my $plugin = $session->plugin( "TagLiteSuggestionList::".$plugin_name, fieldname=>$fieldname );
 
-		my @plugin_list = qw( MostPopularUserTags );
 
-		foreach my $plugin_name (@plugin_list)
-		{
-			my $tr = $session->make_element( "tr" );
-			my $th = $session->make_element( "th" );
-			$th->appendChild( $session->html_phrase( "Plugin/TagLiteSuggestionList/".$plugin_name.":legend" ) );
-			$tr->appendChild( $th );
-			my $td = $session->make_element( "td" );
-			my $ul = $session->make_element( "ul" );
-			$tr->appendChild( $td );
-			$td->appendChild( $ul );
-
-			my $plugin = $session->plugin( "TagLiteSuggestionList::".$plugin_name, fieldname=>$fieldname );
-			my @suggestion_list = $plugin->get_tag_suggestion_list();
-
-			if ( scalar( @suggestion_list ) )
-			{
-				foreach my $tag ( @suggestion_list )
-				{
-					my $tag_single_quote_escaped = $tag;
-					$tag_single_quote_escaped =~ s/'/\\'/g;
-					my $li = $session->make_element( "li" );
-					my $tag_anchor = $session->make_element( "a", "href" => "#", "onclick" => "$js_var_name.initTag( '$tag_single_quote_escaped' );return false;" );
-					$tag_anchor->appendChild( $session->make_text( $tag ) );
-					$li->appendChild( $tag_anchor );
-					$ul->appendChild( $li );
-				}
-				$suggestions_table->appendChild( $tr );
-			}
-			else
-			{
-				print "<p>No tag found</p>";
-			}
-		}
+		my $header = $session->make_element("h2");
+                $header->appendChild( $session->html_phrase( "Plugin/TagLiteSuggestionList/".$plugin_name.":legend" ) );
+		$suggestions->appendChild( $header );
+		$suggestions->appendChild( $plugin->render_suggestion_table( 4, $js_var_name));
 	}
-
+=cut
 	return $content;
 }
 

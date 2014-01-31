@@ -394,6 +394,7 @@ $c->{plugins}->{"EdShareToolbox"}->{params}->{disable} = 0;
 $c->{plugins}->{"Export::Zip"}->{params}->{disable} = 0;
 $c->{plugins}->{"InputForm::Component::Field::TagLite"}->{params}->{disable} = 0;
 $c->{plugins}->{"TagLiteSuggestionList::MostPopularUserTags"}->{params}->{disable} = 0;
+$c->{plugins}->{"TagLiteSuggestionList::StaticTags"}->{params}->{disable} = 0;
 $c->{plugins}->{"InputForm::Component::Field::Permissions"}->{params}->{disable} = 0;
 $c->{plugins}->{"PermissionType::Creators"}->{params}->{disable} = 0;
 $c->{plugins}->{"PermissionType::UserLookup"}->{params}->{disable} = 0;

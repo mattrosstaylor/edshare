@@ -36,7 +36,7 @@ sub get_tag_suggestion_list
 		push ( @list, $result);
 	}
 
-	return @list;
+	return \@list;
 }
 
 1;

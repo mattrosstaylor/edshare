@@ -1,22 +1,19 @@
 /*javascript for taglite*/
 
-// what if we don't want to have a max || max == 0?
-
-// certainly on EdShare we don't want a max number of tag for an item...
-function inputTagLite( el_target, max, varname, prefix, edshare_field )
+function inputTagLite( varname, prefix, edshare_field )
 {
 	this.counter = 0;
-	this.max = max;
 
 	// tags would be appended to this DOM element:
-	this.daddy = el_target;
+	this.values = document.getElementById(prefix +"_values");
+	this.placeholder = document.getElementById(prefix +"_placeholder");
 	this.tags_ref = new Array();
 	this.varname = varname;
 
 	// to know how to call variables
 	this.prefix = prefix;
 	this.field = edshare_field;
-        this.initTagLine = function( el ) {
+        this.addFromInput = function( el ) {
                 var tagline = el.value;
                 var tags = tagline.split( "," );
                 var done = 0;
@@ -33,57 +30,8 @@ function inputTagLite( el_target, max, varname, prefix, edshare_field )
                 return false;
         }
 
-	/* This carries out extra checks  */
-        this.initTagLine_CoursesCodes = function( el ) {
-                var tagline = el.value;
-                var tags = tagline.split( "," );
-                var done = 0;
-
-		var newline = "";
-		var invalid = "";
-
-                for(i=0;i<tags.length;i++)
-                {
-			if( (! /\w\w\w\w\d\d\d\d/.test(tags[i])) && tags[i] != "" )
-			{
-				invalid += tags[i] + "\n";
-				newline += tags[i] + ",";
-			}
-			else
-			{
-	                        if(this.initTag( tags[i] ))
-				{
-		                        done++;
-				}
-			}
-                }
-
-		if(invalid.length != 0)
-		{
-			// problematic course codes
-			el.value = newline;
-			alert( "The following Course Codes are invalid: \n\n"+invalid+"\nCourse codes are made of 4 letters followed by 4 digits, there is no space between the letters and digits. For example: COMP1001, SOCI2008.  Please remove the entry you have made and add the correct version.");
-		}
-		else
-		{
-	                if(done > 0)
-        	        {
-                	        el.value = "";
-	                }
-		}
-
-                return false;
-
-        }
-
 	this.initTag = function( tag )
 	{
-
-                if( this.max > 0 && this.counter >= this.max)
-                {
-                        return false;
-                }
-
                 if( tag.length == 0 )
                 {
                         return false;
@@ -94,9 +42,10 @@ function inputTagLite( el_target, max, varname, prefix, edshare_field )
                         return false;           // already have that tag!
                 }
 
-		this.daddy.appendChild( createTagDiv( tag, ''+this.counter, varname, prefix, this.field ) );
+		this.values.appendChild( createTagDiv( tag, ''+this.counter, varname, prefix, this.field ) );
 		this.tags_ref[ tag ] = '1';
 		this.counter++;
+		this.checkCount();
 		return true;
 	}
 
@@ -106,11 +55,6 @@ function inputTagLite( el_target, max, varname, prefix, edshare_field )
 	this.addTag = function( tag_el ) {
 		// to disable this method:
 		return false;
-
-		if( this.max > 0 && this.counter >= this.max)
-		{
-			return false;
-		}
 
 		var tag = tag_el.value;
 		if( tag.length == 0 )
@@ -123,9 +67,10 @@ function inputTagLite( el_target, max, varname, prefix, edshare_field )
 			return false;		// already have that tag!
 		}
 
-		this.daddy.appendChild( createTagDiv( tag, ''+this.counter, varname, prefix,this.field ) );
+		this.values.appendChild( createTagDiv( tag, ''+this.counter, varname, prefix,this.field ) );
 		this.tags_ref[ tag ] = '1';
 		this.counter++;
+		this.checkCount();
 		tag_el.value = "";
 		return false;
 	};
@@ -136,9 +81,18 @@ function inputTagLite( el_target, max, varname, prefix, edshare_field )
 		tagdiv.parentNode.removeChild( tagdiv );
 		delete this.tags_ref[ tag ];
 		this.counter--;
+		this.checkCount();
 		return false;
 	};
 
+	this.checkCount = function() {
+		if (this.counter == 0) {
+			this.placeholder.style.display="block";
+		}
+		else {
+			this.placeholder.style.display="none";
+		}
+	}
 
 	this.clear = function () {
 		/* not implemented yet */
@@ -156,9 +110,7 @@ function createTagDiv( tag, id, varname, prefix, field )
 		tag = tag.toUpperCase();
 	}
 
-	// replaces white spaces with "" for searches => no longer true for /view/ ?
-	var ntag = tag;		//.replace( / /gi, "" );
-	var span = new Element( 'span', { 'style': 'font-weight: bolder'} );
+	var span = new Element( 'span', { 'class': 'edshare_taglite_tag'} );
 	span.update( tag );
 
 	tagdiv.appendChild( span );
