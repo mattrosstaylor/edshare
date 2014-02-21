@@ -1,0 +1,59 @@
+#!/usr/bin/perl
+use EPrints;
+use strict;
+
+my $repository = EPrints->new->current_repository;
+exit( 0 ) unless( defined $repository );
+
+my $width = $repository->get_conf("premiere_preview_width");
+my $height = $repository->get_conf("premiere_preview_height");
+my $docid = $repository->param("doc");
+
+my $doc = EPrints::DataObj::Document->new($repository, $docid);
+
+exit( 0 ) unless( defined $doc );
+
+# check for pdf preview
+my $related = $doc->search_related("ispdfThumbnailVersionOf");
+my $pdf = $related->item(0);
+if (defined $pdf)
+{
+	$doc = $pdf;
+} 
+
+$repository->send_http_header( content_type=>"text/html; charset=UTF-8" );
+
+#get the url components
+my $http_root = $repository->get_conf("base_url");
+
+my $url = "$http_root/" .$doc->file_path;
+
+print <<EOF;
+<html>
+<head>
+<style type="text/css">
+
+body, iframe { 
+    border:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+}
+
+</style>
+<script type="text/javascript" src="$http_root/javascript/jquery.min.js"></script> 
+<script type="text/javascript" src="$http_root/javascript/jquery.media.0.92.js"></script> 
+
+<script type="text/javascript">
+	\$(document).ready(function () {
+		\$('.media').media({width:$width, height:$height});
+	});
+
+ </script>
+</head>
+
+<body>
+  <a class="media" href="$url"/>
+</body>
+
+</html>
+EOF

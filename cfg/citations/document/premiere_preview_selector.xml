@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<cite:citation xmlns="http://www.w3.org/1999/xhtml" xmlns:cite="http://eprints.org/ep3/citation" xmlns:epc="http://eprints.org/ep3/control">
+<li id="premiere_preview_selector_{docid}" title="{$item.premiere_preview_document_description()}" class="premiere_preview_selector" onclick="setPremierePreview({docid});">
+	<img class="premiere_preview_document_icon" src="{$item.premiere_preview_document_icon()}"/>
+	<span class="premiere_preview_document_title"><epc:print expr="$item.premiere_preview_document_description()"/></span>
+
+	<div id="premiere_preview_document_hidden_info_{docid}" class="premiere_preview_document_hidden">
+          <epc:print expr="format"/> (<epc:print expr="$item.doc_size().human_filesize()" />)
+	</div>
+	<div id="premiere_preview_document_hidden_button_{docid}" class="premiere_preview_document_hidden">
+	  <a class="premiere_preview_button" href="{$item.url()}">Download</a>
+	</div>
+</li>
+</cite:citation>

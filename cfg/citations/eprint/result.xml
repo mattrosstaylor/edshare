@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+        Neat citation for eprints used in search results.
+-->
+<cite:citation xmlns="http://www.w3.org/1999/xhtml" xmlns:cite="http://eprints.org/ep3/citation" xmlns:epc="http://eprints.org/ep3/control">
+<div class="gridview compressed">
+	<div class="griditem">
+		<div class="metadata">
+			<strong>Added By:</strong> <epc:print expr="userid" /><br />
+			<strong>Date:</strong> <epc:print expr="lastmod" /><br />
+			<epc:if test="length(creators) gt 0">
+				<strong>Creators:</strong> <epc:print expr="creators" /><br />
+			</epc:if>
+
+			<epc:if test="length(keywords) gt 0">
+				<strong>Keywords:</strong> <epc:print expr="keywords" /><br />
+			</epc:if>
+		</div>
+<!--		<cite:linkhere>
+			<choose>
+				<when test="type = 'collection'">
+					<span class="preview"><img alt="Collection" class="ep_doc_icon" src="/images/org_folder.png" /></span>
+				</when>
+				<otherwise>
+					<print expr="fileinfo"/>
+				</otherwise>
+			</choose>
+
+		</cite:linkhere>
+-->
+		<div class="result_body">
+			<h2><epc:print expr="$item.citation('default')" /></h2>
+			<div class="result_text"><p>
+				<epc:choose>
+					<epc:when test="abstract">
+						<epc:print expr="abstract" />
+					</epc:when>
+					<epc:otherwise>
+						No description.
+					</epc:otherwise>
+				</epc:choose>
+			</p></div>
+			<div class="ep_column_clear"> </div>
+		</div>
+	</div>
+</div>
+</cite:citation>
