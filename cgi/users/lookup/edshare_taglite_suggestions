@@ -1,0 +1,23 @@
+#!/usr/bin/perl
+use EPrints;
+use strict;
+
+my $session = EPrints::Session->new();
+
+my $js_var_name = $session->param( "jsvar" );
+my $fieldname = $session->param( "fieldname" );
+
+my $frag = $session->make_doc_fragment;
+
+my $number_of_table_columns = 4;
+my $plugin = $session->plugin( "TagLiteSuggestionList::MostPopularUserTags", fieldname=>$fieldname );
+
+my $header = $session->make_element("h2");
+$header->appendChild( $session->html_phrase( "Plugin/TagLiteSuggestionList/MostPopularUserTags:".$fieldname."_legend" ) );
+$frag->appendChild( $header );
+$frag->appendChild( $plugin->render_suggestion_table( 4, $js_var_name));
+
+$session->send_http_header( content_type=>"text/html; charset=ISO-8859-1" );
+print EPrints::XML::to_string($frag);
+
+$session->terminate;

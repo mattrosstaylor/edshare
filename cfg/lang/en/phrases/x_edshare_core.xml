@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE phrases SYSTEM "entities.dtd">
+<epp:phrases xmlns="http://www.w3.org/1999/xhtml" xmlns:epp="http://eprints.org/ep3/phrase" xmlns:epc="http://eprints.org/ep3/control">
+	<epp:phrase id="edshare_frontpage_left">
+		<h2 style="font-size: 250%;">Welcome to <epc:phrase ref="archive_name" /></h2><p>Phasellus neque augue, venenatis ut tellus in, venenatis adipiscing risus. Quisque rhoncus fringilla pharetra. Donec molestie dui viverra tortor porta convallis. Nunc rhoncus, urna vitae porta lacinia, nulla neque aliquam purus, ut vulputate magna urna vulputate turpis. Duis vel sollicitudin magna. Morbi nisi justo, convallis et metus non, mollis egestas est. Aenean faucibus vitae libero a iaculis. Curabitur in hendrerit augue.</p>
+<p>Suspendisse cursus vitae nulla sit amet pulvinar. Nam volutpat volutpat nibh in euismod. Duis sit amet blandit enim, at posuere tortor. Curabitur elit lectus, pellentesque id ligula ut, laoreet suscipit est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean consectetur massa eget magna tristique, sed tempor lectus adipiscing. Duis blandit imperdiet leo. Sed eget suscipit est. Donec risus lorem, luctus a tincidunt non, mollis a lorem. Vivamus fermentum lacus et nunc condimentum, at ultricies velit cursus.</p>
+		<h2>Browse <epc:phrase ref="archive_name" /></h2>
+		<p>While it is often easier to search for resources using the search box on the top-right of the site or <a href="/cgi/search/advanced">advanced search</a>, it is also possible to browse resources in <epc:phrase ref="archive_name" /> by a number of useful categories:</p>
+		<ul>   
+                        <li><a href="/view/year">Year</a></li>
+                        <li><a href="/view/creator">Creator</a></li>
+                        <li><a href="/view/keywords">Associated Keywords</a></li>
+                </ul>
+	</epp:phrase>
+
+	<epp:phrase id="Plugin/Screen/Login:title:logged_in"><epc:pin name="user" /></epp:phrase>
+	<epp:phrase id="Plugin/Screen/BrowseViews:title">Browse Resources</epp:phrase>
+	<epp:phrase id="eprint_typename_resource">Resource</epp:phrase>
+	<epp:phrase id="Plugin/Screen/NewEPrint:action:create:title">Add New Resource</epp:phrase>
+	<epp:phrase id="lib/submissionform:action_deposit">Save</epp:phrase>
+	<epp:phrase id="Plugin/Screen/EPrint/Edit:item_deposited">Resource saved.</epp:phrase>
+	<epp:phrase id="Plugin/Screen/EPrint/Edit:validation_errors">This resource has been made innaccessible until the specified problems are resolved.</epp:phrase>
+	<epp:phrase id="page:nofulltext">There are no documents attached to this resource.</epp:phrase>
+	<epp:phrase id="validate:no_documents">You haven't uploaded any documents.</epp:phrase>
+
+	<epp:phrase id="Plugin/Screen/EPrint/ShowLock:title">Resource currently locked for editing</epp:phrase>
+
+	<epp:phrase id="Plugin/Screen/EPrint/Edit:title">Edit Resource</epp:phrase>
+	<epp:phrase id="Plugin/Screen/EPrint/Edit:description">Edit Resource</epp:phrase>
+
+	<epp:phrase id="Plugin/Screen/EPrint/Summary:title">Private Resource</epp:phrase>
+	<epp:phrase id="Plugin/Screen/EPrint/ExportZip:title">Download all documents (zipped)</epp:phrase>
+	<epp:phrase id="Plugin/Screen/EPrint/RedoThumbnails:title">Regenerate previews</epp:phrase>
+	<epp:phrase id="Plugin/Screen/EPrint/RedoThumbnails:confirm">This tool allows you to instruct the system to regenerate the previews for this resource if they are incorrect or incomplete. This action ignores the indexer and is performed immediately, as a result this might take some time. If the preview still can't be created, please use the Contact Us botton at the bottom of the page.</epp:phrase>
+	<epp:phrase id="lib/submissionform:action_redo_thumbnails">Regenerate</epp:phrase>
+
+	<epp:phrase id="Plugin/Screen/EPrint/Remove:title">Delete Resource</epp:phrase>
+	<epp:phrase id="Plugin/Screen/EPrint/Remove:sure_delete">Are you absolutely sure you want to permenently delete this resource?</epp:phrase>
+	<epp:phrase id="lib/submissionform:action_remove">Delete</epp:phrase>
+
+
+	<epp:phrase id="Plugin/Screen/EPrint/Staff/ChangeOwner:title">Change Resource Owner</epp:phrase>
+	<epp:phrase id="Plugin/Screen/EPrint/Staff/ChangeOwner:changedowner">Transferred ownership of this resource to <epc:pin name="user"/>.</epp:phrase>
+	<epp:phrase id="user_fieldhelp_username">Username must be a combination of letters and numbers.</epp:phrase>
+
+<!-- workflow phrases -->
+	<epp:phrase id="eprint_fieldhelp_title">Try to make your title concise, but also helpful and explanatory to other users. Avoid being too vague or too general. The title will be the first impression you give other users about your resource.</epp:phrase>
+
+	<epp:phrase id="eprint_fieldname_abstract">Description</epp:phrase>
+	<epp:phrase id="eprint_fieldhelp_abstract">Enter a brief description of this resource.</epp:phrase>
+
+	<epp:phrase id="eprint_fieldname_license">License</epp:phrase>
+	<epp:phrase id="eprint_fieldhelp_license">Select an appropriate license for this resource. This repository allows <a href="http://creativecommons.org/about/licenses/" target="_blank">Creative Commons</a> licenses.</epp:phrase>
+
+	<epp:phrase id="eprint_fieldhelp_creators">The person or people who made this resource. (Email address will not be shared).</epp:phrase>
+
+	<epp:phrase id="eprint_fieldname_advice">Advice for reuse</epp:phrase>
+	<epp:phrase id="eprint_fieldhelp_advice">Do you have any suggestions for how another user might reuse this resource in their teaching?</epp:phrase>
+
+	<epp:phrase id="eprint_fieldname_raw_keywords">Keywords</epp:phrase>
+	<epp:phrase id="eprint_fieldhelp_raw_keywords">Individual words which describe the content of the resource. These help users understand what your resource is about at a glance.</epp:phrase>
+
+	<epp:phrase id="eprint_fieldname_keywords">Keywords</epp:phrase>
+	<epp:phrase id="eprint_fieldhelp_keywords">Individual words which describe the content of the resource. These help users understand what your resource is about at a glance.</epp:phrase>
+
+	<epp:phrase id="Field/TagLite:raw_keywords:blurb">Keywords</epp:phrase>
+	<epp:phrase id="Field/TagLite:raw_keywords:placeholder">No keywords</epp:phrase>
+	<epp:phrase id="Field/TagLite:raw_keywords:show_suggestions">Click here to show keyword suggestions.</epp:phrase>
+	<epp:phrase id="Field/TagLite:raw_keywords:advice_below"><p>Separate each keyword with a comma: <span style="font-style: italic;">social networks, lecture, slides</span>. Hit enter to add your keywords.</p></epp:phrase>
+
+	<epp:phrase id="Plugin/TagLiteSuggestionList/MostPopularUserTags:raw_keywords_legend">Choose from your most commonly used keywords:</epp:phrase>
+	<epp:phrase id="Plugin/TagLiteSuggestionList:none_found">None found.</epp:phrase>
+	
+	<epp:phrase id="eprint_fieldname_view_permissions">View Permissions</epp:phrase>
+	<epp:phrase id="eprint_fieldname_view_permissions_type">Visibility</epp:phrase>
+	<epp:phrase id="eprint_fieldname_view_permissions_value">Values</epp:phrase>
+
+	<epp:phrase id="eprint_fieldhelp_view_permissions">Who is allowed to view this resource?</epp:phrase>
+
+	<epp:phrase id="Plugin/InputForm/Component/Field/Permissions:advanced_left_top"><h2>Custom</h2><p>You can use these controls to select </p></epp:phrase>
+	<epp:phrase id="Plugin/InputForm/Component/Field/Permissions:advanced_right_top"><h2>Permitted</h2><p>The following users are permitted to view this resource:</p></epp:phrase>
+
+<!-- permission type --> 
+	<epp:phrase id="Plugin/PermissionType/UserLookup:prompt">Permit a specific user</epp:phrase>
+	<epp:phrase id="Plugin/PermissionType/Creators:prompt">Permit all users listed as a creator for this resource</epp:phrase>
+	<epp:phrase id="Plugin/PermissionType/Creators:allow">Allow</epp:phrase>
+	<epp:phrase id="Plugin/PermissionType/Creators:deny">Deny</epp:phrase>
+	<epp:phrase id="Plugin/PermissionType/UserLookup:legend_name">Name</epp:phrase>
+	<epp:phrase id="Plugin/PermissionType/UserLookup:legend_email">Email</epp:phrase>
+
+<!-- document level -->
+	<epp:phrase id="document_fieldname_description">Description</epp:phrase>
+	<epp:phrase id="document_fieldhelp_description">A short explanation of what this file is about.</epp:phrase>
+
+<!-- invisible workflow phrases -->
+	<epp:phrase id="eprint_fieldname_userid">Added By</epp:phrase>
+	<epp:phrase id="eprint_fieldname_datestamp">Added On</epp:phrase>
+	<epp:phrase id="eprint_fieldname_lastmod">Date</epp:phrase>
+
+<!-- views -->
+	<epp:phrase id="viewname_eprint_keywords">Keywords</epp:phrase>
+	<epp:phrase id="view_permissions_typename_private">Private</epp:phrase>
+	<epp:phrase id="view_permissions_typename_public">Public</epp:phrase>
+	<epp:phrase id="view_permissions_typename_restricted">Registered Users</epp:phrase>
+	<epp:phrase id="view_permissions_typename_custom">Custom</epp:phrase>
+	<epp:phrase id="view_permissions_typename_unknown">Unknown</epp:phrase>
+	<epp:phrase id="view_permissions_typename_UserLookup">Selected Users</epp:phrase>
+	<epp:phrase id="view_permissions_typename_Creators">Listed Creators</epp:phrase>
+
+	<epp:phrase id="Plugin/PermissionType/Creators:render_value">Listed Creators</epp:phrase>
+	
+<!-- validation_status -->
+	<epp:phrase id="eprint_fieldname_validation_status">Validation status</epp:phrase>
+	<epp:phrase id="eprint_fieldopt_validation_status_error">Invalid</epp:phrase>
+	<epp:phrase id="eprint_fieldopt_validation_status_ok">Valid</epp:phrase>
+
+<!-- email author -->
+	<epp:phrase id="Plugin/Screen/EPrint/EmailAuthor:title">Email the uploader</epp:phrase> 
+	<epp:phrase id="Plugin/Screen/EPrint/EmailAuthor:intro">This interface allows you to email the uploader of this item without them having to give out their email address. Be considerate when emailing a person. Try to make emails clear and concise. By emailing this person you are giving them your email address as a way to reply. Please remember just because you have emailed the user does not mean they are oblidged to reply to you.</epp:phrase>
+	<epp:phrase id="Plugin/Screen/EPrint/EmailAuthor:subject">Email subject:</epp:phrase> 
+	<epp:phrase id="Plugin/Screen/EPrint/EmailAuthor:body_text">Email body:</epp:phrase>
+	<epp:phrase id="Plugin/Screen/EPrint/EmailAuthor:button">Send email</epp:phrase> 
+	<epp:phrase id="Plugin/Screen/EPrint/EmailAuthor:body"><p><epc:pin name="requester"/> from <epc:phrase ref="archive_name" /> has contacted you about your resource: <epc:pin name="title" />.</p> 
+		<p>The following message was sent:</p>                                                                                                   
+		<epc:pin name="reason" />
+	</epp:phrase> 
+	<epp:phrase id="Plugin/Screen/EPrint/EmailAuthor:sent">Email sent</epp:phrase> 
+	<epp:phrase id="Plugin/Screen/EPrint/EmailAuthor:not_sent">Email could not be sent at this time</epp:phrase> 
+
+<!-- search -->
+	<epp:phrase id="ordername_eprint_byyear">newest first</epp:phrase>
+	<epp:phrase id="ordername_eprint_byyearoldest">oldest first</epp:phrase>
+
+</epp:phrases>

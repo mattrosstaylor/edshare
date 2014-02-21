@@ -1,0 +1,37 @@
+#!/usr/bin/perl
+
+use strict;
+
+my $session = EPrints::Session->new;
+exit unless( defined $session );
+
+my $eprintid = $session->param( 'eprintid' );
+unless( defined $eprintid )
+{
+	print "no eprint id";
+	$session->terminate;
+	exit;
+}
+
+my $eprint = EPrints::DataObj::EPrint->new( $session, $eprintid );
+unless( defined $eprint )
+{
+	print "no eprint";
+	$session->terminate;
+	exit;
+}
+
+my $toolbox = $session->plugin( "EdShareToolbox" );
+unless( defined $toolbox )
+{
+	print "no plugin";
+	$session->terminate;
+	exit;
+}
+
+my $response = $session->make_doc_fragment;
+$response->appendChild( $toolbox->render( eprint => $eprint ) );
+print $response->toString;
+
+$session->terminate;
+return;

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="iso-8859-1"  standalone="no"  ?>
+<!DOCTYPE page SYSTEM "entities.dtd" >
+<xpage:page xmlns="http://www.w3.org/1999/xhtml" xmlns:xpage="http://eprints.org/ep3/xpage" xmlns:epc="http://eprints.org/ep3/control">
+<xpage:title>Welcome to <epc:phrase ref="archive_name" /></xpage:title>
+
+<xpage:body>
+
+<!--<p class="frontpage_banner_text">
+	The <epc:phrase ref="archive_name"/> is a new way of storing, managing and publishing your Language teaching resources on the web. Share handouts, exercises, podcasts, videos and anything else you can imagine!
+</p>
+
+
+
+<div class="frontpage_info">
+
+	<h2>Languagebox Activities</h2>
+<p> Language Box is being used by participants in the Community Cafe project. This project was funded by the JISC and worked to create a collection of resources for use by community languages teachers across the UK. If you are a teacher of a community language, working in a supplementary school or Saturday school, please join the site and share your work! </p>
+
+<h2> LanguageBox and the FAVOR project</h2>
+<p> The JISC-funded FAVOR project has been working with part-time language tutors to publish and showcase their teaching resources. Tutors have been involved in creating new open educational resources around the topic of transition from language study at school to university. These materials give students a 'taste of' the range of languages that can be studied in UK HE and the language learning activities that are part of academic study. Watch this space for some great new resources!</p>
+<p> <a href="http://thefavorproject.wordpress.com/">Read the FAVOR project blog</a></p>
+
+	<div class="ep_front_tag_cloud">
+		<h2>Tag cloud</h2>
+		<div id="front_tag_cloud"> </div>
+		<script type="text/javascript">
+			new Ajax.Request("/cgi/tag_cloud",
+					{
+						parameters:"frag=1",
+						method:"GET",
+						onSuccess:function(trans){
+							$('front_tag_cloud').innerHTML = trans.responseText;
+						}
+					});
+					
+					
+		</script>
+	</div>
+	<div class="clearer"> </div>
+
+	
+</div>
+-->
+<div id="edshare_frontpage_right">
+	<div class="frontpage_recent">
+		<h2>Latest Resources <a href="/cgi/latest_tool?output=RSS2" title="RSS feed of the latest resources."><img alt="RSS 2.0" src="/style/images/feed-icon-14x14.png"/></a></h2>
+		<div id="mostrecent_list"> </div>
+		<script type="text/javascript">
+			new Ajax.Request("/cgi/frontpagelatest?frag=1", {
+				method:"get",
+				onSuccess:function(response){
+					$("mostrecent_list").innerHTML = response.responseText;
+	<!--				readMore();-->
+				}
+			});
+
+			document.observe( 'dom:loaded', function() {
+				$$(".ed_page_title").each(function(element) {
+					element.hide();
+				});
+			});
+				
+			
+		</script>
+		<!--#Include virtual="/cgi/frontpage_list"-->
+	</div>
+</div>
+
+<div id="edshare_frontpage_left">
+	<epc:phrase ref="edshare_frontpage_left" />
+</div>
+
+<div class="clearer" />
+</xpage:body>
+</xpage:page>
