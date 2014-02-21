@@ -1,7 +1,6 @@
 $c->{preview_width} = 700;
 $c->{preview_height} = 525;
 
-$c->{plugins}{"Convert::OfficePreview"}{params}{disable} = 0;
 
 # enable audio_*/video_* previews
 $c->{thumbnail_types} = sub {
@@ -41,14 +40,4 @@ EOF
 	$div->appendChild( $js );
 
 	return $div;
-};
-
-# replace top_left fragment with preview area
-$c->{preview_render_fragments} = $c->{render_fragments};
-$c->{render_fragments} = sub
-{
-	my ( $eprint, $repository, $preview, $fragments ) = @_;
-	$repository->call("preview_render_fragments", $eprint, $repository, $preview, $fragments);
-	$fragments->{top_left} = $repository->call("render_preview", $eprint, $repository);
-	return $fragments;
 };

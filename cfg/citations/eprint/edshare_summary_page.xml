@@ -5,17 +5,32 @@
 -->
 
 <cite:citation xmlns="http://www.w3.org/1999/xhtml" xmlns:epc="http://eprints.org/ep3/control" xmlns:cite="http://eprints.org/ep3/citation" >
-	<div id="edshare_summary_above"><epc:print expr="$above"/></div>
-	
 	<div id="edshare_summary_left">
-		<div id="edshare_summary_top_left"><epc:print expr="$top_left"/></div>
-		<div id="edshare_summary_bottom_left"><epc:print expr="$bottom_left"/></div>
+		<epc:print expr="$preview"/>
 	</div>
 	<div id="edshare_summary_right">
-		<div id="edshare_summary_top_right"><epc:print expr="$top_right"/></div>
-		<div id="edshare_summary_bottom_right"><epc:print expr="$bottom_right"/></div>
+		<epc:if test="is_set(abstract)">
+			<div class="ep_block">
+				<p class="edshare_summary_abstract"><epc:print expr="abstract"/></p>
+			</div>
+		</epc:if>
+		<div class="ep_block">
+			<table class="edshare_summary_table" style="margin-bottom: 1em; margin-top: 1em;" cellpadding="3">
+				<epc:foreach expr="$config{summary_page_metadata}" iterator="fieldname">
+					<epc:if test="is_set($item.property($fieldname))">
+						<tr>
+							<th align="right"><epc:phrase ref="eprint_fieldname_{$fieldname}" />:</th>
+							<td valign="middle"><epc:print expr="$item.property($fieldname)" /></td>
+						</tr>
+					</epc:if>
+				</epc:foreach>
+			</table>
+		</div>
+		<div class="ep_block">
+			<h2>Toolbox</h2>
+			<script type="text/javascript">edshare_render_toolbox("edshare_toolbox", "<epc:print expr="eprintid" />");</script>
+			<div id="edshare_toolbox"> </div>
+		</div>
 	</div>
-
-	<div id="edshare_summary_below"><epc:print expr="$below"/></div>
 </cite:citation>
 

@@ -37,12 +37,7 @@ $c->{render_fragments} = sub
 	
 	my $xml = $repository->xml;	
 
-	$fragments->{above} = $xml->create_document_fragment;
-	$fragments->{top_left} = $eprint->render_citation( "edshare_summary_preview" );
-	$fragments->{bottom_left} = $xml->create_document_fragment;
-	$fragments->{top_right} = $eprint->render_citation( "edshare_summary_metadata" );
-	$fragments->{bottom_right} = $xml->create_document_fragment;
-	$fragments->{below} = $xml->create_document_fragment;
+	$fragments->{preview} = $repository->call("render_preview", $eprint, $repository);
 
 	return $fragments;
 };
