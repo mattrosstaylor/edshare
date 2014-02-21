@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE phrases SYSTEM "entities.dtd">
+<epp:phrases xmlns="http://www.w3.org/1999/xhtml" xmlns:epp="http://eprints.org/ep3/phrase" xmlns:epc="http://eprints.org/ep3/control">
+	<epp:phrase id="preview:document_count">This resource contains <epc:pin name="count"/> files:</epp:phrase>
+	<epp:phrase id="preview:denied_not_logged_in">
+		<img src="/images/preview/denied.png"/><h2 style="text-align:center">Access to this resource is restricted - please log in.</h2>
+	</epp:phrase>
+	<epp:phrase id="preview:denied">
+		<img src="/images/preview/denied.png"/><h2 style="text-align:center">You don't have permission to access this resource.</h2>
+	</epp:phrase>
+	<epp:phrase id="preview:no_documents">
+		<img src="/images/preview/denied.png"/><h2 style="text-align:center">This resource has no documents.</h2>
+	</epp:phrase>
+	<epp:phrase id="preview:private">
+		<img src="/images/preview/denied.png"/><h2 style="text-align:center">Previews are not available for private resources.</h2>
+	</epp:phrase>
+	<epp:phrase id="preview:invalid">
+		<img src="/images/preview/denied.png"/><h2 style="text-align:center">Previews are not available for resources with validation errors.</h2>
+	</epp:phrase>
+
+</epp:phrases>

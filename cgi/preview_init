@@ -15,11 +15,11 @@ if ( $eprint->value( "eprint_status" ) eq "inbox" )
 {
 	if ($eprint->value( "validation_status" ) eq "error" )
 	{
-		print $xml->to_string( $repository->html_phrase( "premiere_preview:invalid" ) );
+		print $xml->to_string( $repository->html_phrase( "preview:invalid" ) );
 	}
 	else
 	{
-		print $xml->to_string( $repository->html_phrase( "premiere_preview:private" ) );
+		print $xml->to_string( $repository->html_phrase( "preview:private" ) );
 	}
 	return;
 }
@@ -29,26 +29,26 @@ my $first_document = ($eprint->get_all_documents())[0];
 
 if (not $first_document)
 {
-	print $xml->to_string( $repository->html_phrase( "premiere_preview:no_documents" ) );
+	print $xml->to_string( $repository->html_phrase( "preview:no_documents" ) );
 	return;
 }
 
 if ( $repository->call("can_user_view_document", $first_document, $user) eq "ALLOW" )
 {
 	my $div = $xml->create_document_fragment;
-	$div->appendChild( $eprint->render_citation("premiere_preview_document_list") );
-	print '<iframe id="premiere_preview_area" scrolling="no" src=""> </iframe>';
+	$div->appendChild( $eprint->render_citation("preview_document_list") );
+	print '<iframe id="preview_area" scrolling="no" src=""> </iframe>';
 	print $xml->to_string( $div );
 }
 else
 {
 	if (not $user)
 	{
-		print $xml->to_string( $repository->html_phrase( "premiere_preview:denied_not_logged_in" ) );
+		print $xml->to_string( $repository->html_phrase( "preview:denied_not_logged_in" ) );
 	}
 	else
 	{
-		print $xml->to_string( $repository->html_phrase( "premiere_preview:denied" ) );
+		print $xml->to_string( $repository->html_phrase( "preview:denied" ) );
 	}
 }
 

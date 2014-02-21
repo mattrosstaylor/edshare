@@ -26,7 +26,9 @@ $c->{resourcemanager_items_screen_enabled} = 0;
 # The fields must be multiple value text fields in order to be used. If they
 # aren't then they will be ignored.
 $c->{resourcemanager_filter_fields} = [
-	'keywords'
+	'keywords',
+	'view_permissions_type',
+	'validation_status',
 ];
 
 if( $c->{resourcemanager_items_screen_enabled} == 0 )

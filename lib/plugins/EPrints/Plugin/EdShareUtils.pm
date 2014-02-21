@@ -1,4 +1,4 @@
-package EPrints::Plugin::EdShareCoreUtils;
+package EPrints::Plugin::EdShareUtils;
 
 @ISA = ( "EPrints::Plugin" );
 

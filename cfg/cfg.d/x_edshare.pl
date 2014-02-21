@@ -49,7 +49,7 @@ $c->{fields}->{eprint} = [
 	}],
 	'input_boxes' => 1,
 	'input_ordered' => 0,
-	'render_value' => 'EPrints::Plugin::EdShareCoreUtils::render_creators_name',
+	'render_value' => 'EPrints::Plugin::EdShareUtils::render_creators_name',
 
 	'allow_null' => 1,
 },
@@ -67,7 +67,7 @@ $c->{fields}->{eprint} = [
 	'type' => 'text',
 	'multiple' => 1,
 	'text_index' => 1,
-	'render_single_value' => 'EPrints::Plugin::EdShareCoreUtils::render_single_keyword',
+	'render_single_value' => 'EPrints::Plugin::EdShareUtils::render_single_keyword',
 #	    'input_advice_below' => sub { return shift->html_phrase( "Field/TagLite:keywords:advice_below" ); },
 },
 
@@ -128,7 +128,7 @@ $c->{fields}->{eprint} = [
 	],	
 },
 
-# The following are core fields which arent used in EdShare Core but EPrints wont let us remove
+# The following are core fields which arent used in EdShare but EPrints wont let us remove
 {
 	'name' => 'date',
 	'type' => 'date',

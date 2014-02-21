@@ -89,7 +89,7 @@ sub render_content
 			{
 				$li->setAttribute( class=>"selected" );
 			}
-			$li->appendChild( $xml->create_element( "img", src=>"/images/edshare_core/permissions/$type.png" ) );
+			$li->appendChild( $xml->create_element( "img", src=>"/images/edshare/permissions/$type.png" ) );
 			$li->appendChild( $xml->create_element( "br" ) );
 			$li->appendChild( $session->html_phrase( $namedset_name."_typename_".$type ) );
 
@@ -109,7 +109,7 @@ sub render_content
 		{
 				$li->setAttribute( class=>"selected" );
 		}
-		$li->appendChild( $xml->create_element( "img", src=>"/images/edshare_core/permissions/custom.png" ) );
+		$li->appendChild( $xml->create_element( "img", src=>"/images/edshare/permissions/custom.png" ) );
 		$li->appendChild( $xml->create_element( "br" ) );
 		$li->appendChild( $session->html_phrase( $namedset_name."_typename_custom" ) );
 

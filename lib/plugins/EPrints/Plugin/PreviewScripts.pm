@@ -1,4 +1,4 @@
-package EPrints::Plugin::PremierePreviewScripts;
+package EPrints::Plugin::PreviewScripts;
 
 use strict;
 
@@ -7,7 +7,7 @@ our @ISA = qw/ EPrints::Plugin /;
 package EPrints::Script::Compiled;
 
 
-sub run_premiere_preview_license_icon
+sub run_preview_license_icon
 {
 	my( $self, $state, $object ) = @_;
 	my $repo = $state->{session}->get_repository;
@@ -18,13 +18,13 @@ sub run_premiere_preview_license_icon
 		$self->runtime_error( "Script '".caller(3) ."' can only be called on an EPrint not ". ref($eprint));
 	}
 
-	my $icon_url = $repo->xml->create_element("img", "class"=>"premiere_preview_license_icon", "src"=>"/style/images/license_icons/".$eprint->value("license").".png");
+	my $icon_url = $repo->xml->create_element("img", "class"=>"preview_license_icon", "src"=>"/style/images/license_icons/".$eprint->value("license").".png");
 
 	return [ $icon_url, "XHTML" ];
 
 }
 
-sub run_premiere_preview_document_description
+sub run_preview_document_description
 {
 	my( $self, $state, $object ) = @_;
 	my $repo = $state->{session}->get_repository;
@@ -47,7 +47,7 @@ sub run_premiere_preview_document_description
 	return [ $desc, "STRING" ];
 }
 
-sub run_premiere_preview_document_icon
+sub run_preview_document_icon
 {
 	my( $self, $state, $object ) = @_;
 	my $repo = $state->{session}->get_repository;

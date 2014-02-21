@@ -60,7 +60,7 @@ function permissionsInitialiseRemoveButtons(basename) {
 }
 
 function permissionsAddRemoveButton(element) {
-	var image_uri = '/images/edshare_core/remove.png';
+	var image_uri = '/images/edshare/remove.png';
 
 	var removeButton = new Element( 'button' );
 	removeButton.setStyle( {

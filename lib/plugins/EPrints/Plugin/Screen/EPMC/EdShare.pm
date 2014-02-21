@@ -1,4 +1,4 @@
-package EPrints::Plugin::Screen::EPMC::EdShareCore;
+package EPrints::Plugin::Screen::EPMC::EdShare;
 
 @ISA = ( 'EPrints::Plugin::Screen::EPMC' );
 
@@ -25,8 +25,8 @@ sub new
 
 	$self->{actions} = [qw( enable disable )];
 	$self->{disable} = 0;
-	$self->{package_name} = "edshare_core";
-	$self->{replace_suffix} = ".edshare_core_replaced";
+	$self->{package_name} = "edshare";
+	$self->{replace_suffix} = ".edshare_replaced";
 
 	return $self;
 }

@@ -431,7 +431,7 @@ function generate(el, opts, player) {
 			o.attr('src', opts.src);
 		}
 		else {
-			o = $('<div style="text-align:center;padding-top:' +opts.height*0.3 +'px;width=' + opts.width + 'px;"><h1><img style="vertical-align:middle;" src="/images/premiere_preview/unavailable.png">Preview Unavailable</h1><p>No compatible PDF reader plugin could be found on this computer.</p></div>');
+			o = $('<div style="text-align:center;padding-top:' +opts.height*0.3 +'px;width=' + opts.width + 'px;"><h1><img style="vertical-align:middle;" src="/images/preview/unavailable.png">Preview Unavailable</h1><p>No compatible PDF reader plugin could be found on this computer.</p></div>');
 		}
 		o.css('backgroundColor', o.bgColor);
 	}

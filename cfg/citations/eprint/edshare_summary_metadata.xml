@@ -25,7 +25,7 @@
   </div>
   <div class="ep_block">
     <h2>Toolbox</h2>
-    <script type="text/javascript">edshare_core_render_toolbox("edshare_toolbox", "<epc:print expr="eprintid" />");</script>
+    <script type="text/javascript">edshare_render_toolbox("edshare_toolbox", "<epc:print expr="eprintid" />");</script>
     <div id="edshare_toolbox"> </div>
   </div>
 </cite:citation>
