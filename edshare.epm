@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<epm xmlns='http://eprints.org/ep2/data/2.0' id='http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/edshare'>
+  <epmid>edshare</epmid>
+  <uri>http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/edshare</uri>
+  <documents>
+    <document>
+      <format>other</format>
+      <content>install</content>
+    </document>
+  </documents>
+  <version>1.0.0</version>
+  <creators>
+    <item>
+      <name>
+        <family>Taylor</family>
+        <given>Matt R</given>
+      </name>
+      <id>mrt@ecs.soton.ac.uk</id>
+    </item>
+    <item>
+      <name>
+        <family>McSweeney</family>
+        <given>Patrick</given>
+      </name>
+      <id>pm5@ecs.soton.ac.uk</id>
+    </item>
+    <item>
+      <name>
+        <family>Francois</family>
+        <given>Sebastian</given>
+      </name>
+      <id>sf2@ecs.soton.ac.uk</id>
+    </item>
+  </creators>
+  <title>EdShare for EPrints 3.3</title>
+</epm>
