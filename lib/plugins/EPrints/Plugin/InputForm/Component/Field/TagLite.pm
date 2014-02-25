@@ -223,7 +223,7 @@ ENTER_SCRIPT
 	my $suggestions = $session->make_element( "div", id=> $suggestions_name, class => "edshare_taglite_suggestions" );
 	$content->appendChild( $suggestions);
 
-	my $link = $session->make_element( "a", href=>"#", onclick => "new Ajax.Updater( '$suggestions_name', '".$self->{config}->{suggestions_url}."?jsvar=$js_var_name&fieldname=".$field->get_name."', { method:'get', onComplete: function(req) { \$('$suggestions_name').innerHTML = req.responseText; } } );return false;" );
+	$link = $session->make_element( "a", href=>"#", onclick => "new Ajax.Updater( '$suggestions_name', '".$self->{config}->{suggestions_url}."?jsvar=$js_var_name&fieldname=".$field->get_name."', { method:'get', onComplete: function(req) { \$('$suggestions_name').innerHTML = req.responseText; } } );return false;" );
 
 	$link->appendChild( $session->html_phrase( "Field/TagLite:$fieldname:show_suggestions"  ) );
 	$suggestions->appendChild( $link );

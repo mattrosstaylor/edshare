@@ -23,7 +23,8 @@ sub render_input
 {
 	my ( $self ) = @_;
 	my $xml = $self->repository->xml;
-	my $basename = $self->{parent_component}->{basename};
+	my $basename = $self->{basename};
+	my $js_var_name = $self->{js_var_name};
 
 	my $td = $xml->create_element( "td" );
 	$td->appendChild( $self->html_phrase( "legend_name" ) );
@@ -57,7 +58,7 @@ sub render_input
 			'"' .$basename.'_lookup_user_drop",'.
 			'"' .$rel_path.'/cgi/users/lookup/user",'.
 			'"name",'.
-			'"' .$basename.'"'.
+			'"' .$js_var_name.'"'.
 		');'
 	));
 	$td->appendChild( $self->repository->make_javascript(
@@ -66,7 +67,7 @@ sub render_input
 			'"' .$basename.'_lookup_user_drop",'.
 			'"' .$rel_path.'/cgi/users/lookup/user",'.
 			'"email",'.
-			'"' .$basename.'"'.
+			'"' .$js_var_name.'"'.
 		');'
 	));
 
@@ -76,20 +77,17 @@ sub render_input
 sub render_value
 {
 	my ( $self, $value ) = @_;
-	my $xml = $self->repository->xml;
 
-	my $frag = $self->SUPER::render_value( $value );
 	my $user = EPrints::DataObj::User->new( $self->repository, $value );
 	if (defined $user)
 	{
 		my $name = $user->value( "name" );
-		$frag->appendChild( $xml->create_text_node( $name->{honourific}." ".$name->{given}." ".$name->{family}." (".$user->value("email").")" ) );
+		return $name->{honourific}." ".$name->{given}." ".$name->{family}." (".$user->value("email").")";
 	}
 	else
 	{
-		$frag->appendChild( $xml->create_text_node("Unknown user ". $value ) );
+		return "Unknown user ". $value;
 	}
-	return $frag;
 }
 
 1;

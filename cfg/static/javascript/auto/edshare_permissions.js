@@ -1,99 +1,115 @@
 /* javascript for  permissions render */
 
-function permissionsCoarseSelect(basename, type) {
-	$(basename+"_coarse_options").childElements().each(function(node) { node.removeClassName("selected");});
-	$$('input[name="'+basename+'_coarse_type"]')[0].value = type;
-	$(basename+"_"+type).addClassName("selected");
+function inputPermissions(varName, basename) {
 
-	if (type == "custom") {
-		Effect.Appear($(basename+"_advanced_options"), {duration:0.5});
-	}
-	else {
-		Effect.Fade($(basename+"_advanced_options"), {duration:0.5});
-	}
-}
+	this.count = 0;
 
-function permissionsAddPermittedFromString(type, value, html, basename) {
-	var dummyDom = new Element('div');
-	dummyDom.innerHTML = html;
-	permissionsAddPermitted(type, value, dummyDom.firstChild, basename);
-}
+	this.coarseSelect = function(type) {
+		$(basename+"_coarse_options").childElements().each(function(node) { node.removeClassName("selected");});
+		$$('input[name="'+basename+'_coarse_type"]')[0].value = type;
+		$(basename+"_"+type).addClassName("selected");
 
-function permissionsAddPermitted(type, value, html, basename) {
-	var itemId = basename+"_"+type+"_"+value;
-
-
-	// mrt - this is currently hard coded but i am sure i will fix that later ;)
-	var list = $(basename+"_advanced_values");
-
-	// check whether or not this item is already in the list - hahahah we can just search the entire DOM!!!
-	if ($(itemId)) {
-		new Effect.Highlight($(itemId));
-		return;
+		if (type == "custom") {
+			Effect.BlindDown($(basename+"_advanced_options_wrapper"), {duration:0.5});
+		}
+		else {
+			Effect.BlindUp($(basename+"_advanced_options_wrapper"), {duration:0.5});
+		}
 	}
 
-	var newItem = new Element("li", { 
-		id: itemId,
-		"class": "edshare_permissions_advanced_value" 
-	} );
-	newItem.appendChild(new Element("input", {
-		"type": "hidden",
-		"name": basename+"_type",
-		"value": type
-	}));
-	newItem.appendChild(new Element("input", {
-		"type": "hidden",
-		"name": basename+"_value",
-		"value": value
-	}));
-	newItem.hide();
-	newItem.appendChild(html);
-	permissionsAddRemoveButton(newItem);
-	list.appendChild(newItem);
-	Effect.Appear(newItem);
+	this.addPermittedFromString = function(type, value, html) {
+		var dummyDom = new Element('div');
+		dummyDom.innerHTML = html;
+		this.addPermitted(type, value, dummyDom.firstChild);
+	}
+
+	this.addPermitted = function(type, value, html) {
+		var itemId = basename+"_"+type+"_"+value;
+
+		// mrt - this is currently hard coded but i am sure i will fix that later ;)
+		var list = $(basename+"_advanced_values");
+
+		// check whether or not this item is already in the list - hahahah we can just search the entire DOM!!!
+		if ($(itemId)) {
+			new Effect.Highlight($(itemId));
+			return;
+		}
+
+		var newItem = new Element("li", { 
+			id: itemId,
+			"class": "edshare_permissions_advanced_value" 
+		} );
+		newItem.appendChild(new Element("input", {
+			"type": "hidden",
+			"name": basename+"_type",
+			"value": type
+		}));
+		newItem.appendChild(new Element("input", {
+			"type": "hidden",
+			"name": basename+"_value",
+			"value": value
+		}));
+		newItem.hide();
+		newItem.appendChild(html);
+		this.addRemoveButton(newItem);
+		list.appendChild(newItem);
+		Effect.Appear(newItem);
+		// update the count
+		this.count++;
+		this.checkCount();
+	}
+
+	this.checkCount = function() {
+		var placeholder = document.getElementById(basename +"_placeholder");
+
+		if (this.count == 0) {
+			placeholder.style.display="block";
+		}
+		else { 
+			placeholder.style.display="none";
+		}
+	}
+
+	this.addRemoveButton = function(element) {
+		var image_uri = '/images/edshare/remove.png';
+
+		var removeButton = new Element( 'button' );
+		removeButton.setStyle( {
+			'background': 'url('+image_uri+') 0 0',
+			'cursor': 'pointer',
+			'height': '10px',
+			'width': '10px',
+			'outline-style': 'none',
+			'outline-color': 'invert',
+			'outline-width': '0px',
+			'border': '0px',
+			'padding': '0px',
+			'margin': '0px 0px 0px 20px',
+			'font-size': '100%'
+		} );
+
+		removeButton.style.verticalAlign = 'middle';
+
+		removeButton.observe( 'click', function() {
+			this.up().remove();
+			var obj = eval(varName);
+			obj.count--;
+			obj.checkCount();
+			return false;
+		} );
+		removeButton.observe( 'mouseover', function() {
+			this.setStyle( { 'background':  'url('+image_uri+') -10px 0' } );
+		} );
+		removeButton.observe( 'mouseout', function() {
+			this.setStyle( { 'background':  'url('+image_uri+') 0 0' } );
+		} );
+
+		element.appendChild(removeButton);
+	}
 }
 
-function permissionsInitialiseRemoveButtons(basename) {
-	$(basename+"_advanced_values").childElements().each( function(element) {
-		permissionsAddRemoveButton(element);
-	});
-}
 
-function permissionsAddRemoveButton(element) {
-	var image_uri = '/images/edshare/remove.png';
-
-	var removeButton = new Element( 'button' );
-	removeButton.setStyle( {
-		'background': 'url('+image_uri+') 0 0',
-		'cursor': 'pointer',
-		'height': '10px',
-		'width': '10px',
-		'outline-style': 'none',
-		'outline-color': 'invert',
-		'outline-width': '0px',
-		'border': '0px',
-		'padding': '0px',
-		'margin': '0px 0px 0px 20px',
-		'font-size': '100%'
-	} );
-
-	removeButton.style.verticalAlign = 'middle';
-
-	removeButton.observe( 'click', function() {
-		this.up().remove();
-		return false;
-	} );
-	removeButton.observe( 'mouseover', function() {
-		this.setStyle( { 'background':  'url('+image_uri+') -10px 0' } );
-	} );
-	removeButton.observe( 'mouseout', function() {
-		this.setStyle( { 'background':  'url('+image_uri+') 0 0' } );
-	} );
-
-	element.appendChild(removeButton);
-}
-
-function ep_autocompleter_user_lookup( element, target, url, searchType, basename ) {
+function ep_autocompleter_user_lookup( element, target, url, searchType, varName ) {
 	new Ajax.Autocompleter( element, target, url, {
 		paramName: 'q',
 		callback: function( el, entry ) {
@@ -153,7 +169,10 @@ function ep_autocompleter_user_lookup( element, target, url, searchType, basenam
 				}
 			}
 			var node = document.createTextNode( values["_name_honourific"] +" " +values["_name_given"] +" " +values["_name_family"] +" (" +values["_id"] +")" );
-			permissionsAddPermitted("UserLookup", values["_userid"], node, basename); 
+			
+			// mrt - this obviously needs to be fixed
+			var obj = eval(varName);
+			obj.addPermitted("UserLookup", values["_userid"], node); 
 
 			$(element).value="";
 			return false;

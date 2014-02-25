@@ -26,13 +26,14 @@ sub render_input
 
 	my $td = $xml->create_element( "td" );
 	my $html = $xml->to_string( $self->html_phrase( "render_value") );
-	my $basename = $self->{parent_component}->{basename};
+	my $basename = $self->{basename};
+	my $js_var_name = $self->{js_var_name};
 
 	my $input = $xml->create_element( "input",
 		type=>"button",
 		value=>$self->phrase( "allow" ),
 		id=>$basename."_creators_checkbox",
-		onclick=>"permissionsAddPermittedFromString('Creators', 'Creators', '$html', '$basename');");
+		onclick=>"$js_var_name.addPermittedFromString('Creators', 'Creators', '$html', '$basename');");
 
 	$td->appendChild( $input );
 	return $td;
@@ -41,12 +42,8 @@ sub render_input
 sub render_value
 {
 	my ( $self, $value ) = @_;
-	my $xml = $self->repository->xml;
-
-	my $frag = $self->SUPER::render_value( $value );
-	$frag->appendChild( $self->html_phrase( "render_value" )); 
 	
-	return $frag;
+	return "Listed Creators";
 }
 
 1;

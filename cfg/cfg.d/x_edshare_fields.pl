@@ -99,6 +99,24 @@ $c->{fields}->{eprint} = [
 	],
 },
 
+{
+	'name' => 'edit_permissions',
+	'type' => 'compound',
+	'multiple' => 1,
+	'fields' => [
+		{
+			'sub_name' => 'type',
+			'type' => 'namedset',
+			'set_name' => 'edit_permissions',
+		},
+ 		{
+			'sub_name' => 'value',
+			'type' => 'text',
+			'input_cols' => 20,
+		}
+	],
+},
+
 
 {
 	'name' => 'raw_keywords',

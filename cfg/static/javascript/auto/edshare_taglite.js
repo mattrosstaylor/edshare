@@ -2,7 +2,7 @@
 
 function inputTagLite( varname, prefix, edshare_field )
 {
-	this.counter = 0;
+	this.count = 0;
 
 	// tags would be appended to this DOM element:
 	this.values = document.getElementById(prefix +"_values");
@@ -42,9 +42,9 @@ function inputTagLite( varname, prefix, edshare_field )
                         return false;           // already have that tag!
                 }
 
-		this.values.appendChild( createTagDiv( tag, ''+this.counter, varname, prefix, this.field ) );
+		this.values.appendChild( createTagDiv( tag, ''+this.count, varname, prefix, this.field ) );
 		this.tags_ref[ tag ] = '1';
-		this.counter++;
+		this.count++;
 		this.checkCount();
 		return true;
 	}
@@ -67,9 +67,9 @@ function inputTagLite( varname, prefix, edshare_field )
 			return false;		// already have that tag!
 		}
 
-		this.values.appendChild( createTagDiv( tag, ''+this.counter, varname, prefix,this.field ) );
+		this.values.appendChild( createTagDiv( tag, ''+this.count, varname, prefix,this.field ) );
 		this.tags_ref[ tag ] = '1';
-		this.counter++;
+		this.count++;
 		this.checkCount();
 		tag_el.value = "";
 		return false;
@@ -80,13 +80,13 @@ function inputTagLite( varname, prefix, edshare_field )
 		var tagdiv = document.getElementById( "container_"+tagid );
 		tagdiv.parentNode.removeChild( tagdiv );
 		delete this.tags_ref[ tag ];
-		this.counter--;
+		this.count--;
 		this.checkCount();
 		return false;
 	};
 
 	this.checkCount = function() {
-		if (this.counter == 0) {
+		if (this.count == 0) {
 			this.placeholder.style.display="block";
 		}
 		else {

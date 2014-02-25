@@ -15,7 +15,8 @@ sub new
 	my $self = $class->SUPER::new( %opts );
 	$self->{name} = 'PermissionType Superclass';
 	$self->{visible} = "all";
-	$self->{parent_component} = $opts{parent_component};
+	$self->{basename} = $opts{basename};
+	$self->{js_var_name} = $opts{js_var_name};
 	$self->{permission_type} = "unknown";
 
 	return $self;
@@ -53,25 +54,8 @@ sub render_input
 sub render_value
 {
 	my ( $self, $value ) = @_;
-	my $xml = $self->repository->xml;
-	my $basename = $self->{parent_component}->{basename};
-
-	my $frag = $xml->create_document_fragment;
-
-	# add the hidden fields
-	$frag->appendChild( $xml->create_element( "input",
-		type=>"hidden",
-		name=>$basename."_type",
-		value=>$self->{permission_type}
-	));
-
-	$frag->appendChild( $xml->create_element( "input",
-		type=>"hidden",
-		name=>$basename."_value",
-		value=>$value
-	));
-
-	return $frag;
+	
+	return "Unknown Permission Type";
 }
 
 1;

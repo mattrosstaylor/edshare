@@ -24,6 +24,12 @@ $c->{set_eprint_defaults} = sub
 		$data->{view_permissions} = [ { type=>"private", value=>"private" } ];
 	}
 
+	if(!defined $data->{edit_permissions})
+	{
+		$data->{edit_permissions} = [ { type=>"private", value=>"private" } ];
+	}
+
+
 	if(!defined $data->{validation_status})
 	{
 		$data->{validation_status} = "error";

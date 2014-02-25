@@ -29,9 +29,16 @@
     <component type="Field::TagLite">
 	<field ref="raw_keywords" suggestions_url="{$config{rel_cgipath}}/users/lookup/edshare_taglite_suggestions" />
     </component>
-
-    <component type="Field::Permissions"><field ref="view_permissions" required="yes"/></component>
-
-</stage>
-
+<!--
+    <component type="Field::Multi">
+	<title>Permissions</title>
+	<component type="Field::Permissions"><field ref="view_permissions" /></component>
+	<field ref="edit_permissions" />
+    </component>
+-->
+    <component type="Permissions">
+	<field ref="view_permissions"/>
+	<field ref="edit_permissions"/>
+    </component>
+  </stage>
 </workflow>
