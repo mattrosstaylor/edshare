@@ -438,9 +438,15 @@ function generate(el, opts, player) {
 	else if (player == 'img') {
 		o = $('<img>');
 		o.attr('src', opts.src);
-		opts.width && o.attr('width', opts.width);
-		opts.height && o.attr('height', opts.height);
+		opts.width && o.css('max-width', opts.width);
+		opts.height && o.css('max-height', opts.height);
 		o.css('backgroundColor', o.bgColor);
+		o.css('position', 'absolute');
+		o.css('margin', 'auto');
+		o.css('top','0');
+		o.css('bottom','0');
+		o.css('left','0');
+		o.css('right','0');
 	}
 	else if (lameIE) {
 		var a = ['<object width="' + opts.width + '" height="' + opts.height + '" '];

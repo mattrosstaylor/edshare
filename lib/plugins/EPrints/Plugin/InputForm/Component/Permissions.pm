@@ -39,18 +39,14 @@ sub parse_config
 		$self->{config}->{right}->{basename} = $self->{prefix}."_".$self->{config}->{right}->{field}->{name};
 	}
 }
-=pod
-sub _render_permission_type
+
+sub render_title
 {
-	my ( $self ) = @_;
+	my( $self, $surround ) = @_;
 	my $session = $self->{session};
-	my $xml = $session->{xml};
 
-	my $frag = $xml->create_document_fragment;
-
-	return $frag;
+	return $session->html_phrase( "sys:ep_form_required", label=>$self->html_phrase( "title" ) );
 }
-=cut
 
 sub render_content
 {
@@ -65,13 +61,56 @@ sub render_content
 	$div->appendChild( $left );
 	$div->appendChild( $right );
 
-	$left->appendChild( $self->_render_permission_type( $self->{config}->{left} ) );
-	$right->appendChild( $self->_render_permission_type( $self->{config}->{right} ) );
+	$left->appendChild( $self->_render_content_helper( $self->{config}->{left} ) );
+	$right->appendChild( $self->_render_content_helper( $self->{config}->{right} ) );
 
 	return $div;
 }
 
-sub _render_permission_type
+sub _render_list
+{
+        my ( $self, $config ) = @_;
+	my $session = $self->{session};
+	my $xml = $session->{xml};
+
+	my $basename = $config->{basename};
+	my $fieldname = $config->{field}->{name};	
+
+	# add the value list
+	my $list = $xml->create_element( "ul",
+		id=>$basename."_advanced_list",
+		class=>"edshare_permissions_advanced_list"
+	);
+
+	# add the placeholder for when the list is empty
+	my $placeholder = $xml->create_element( "li", id=>$basename."_placeholder", class=>"edshare_permissions_advanced_placeholder edshare_permissions_advanced_value" );
+	$placeholder->appendChild( $session->html_phrase( $fieldname."_advanced_placeholder" ) );
+	$list->appendChild( $placeholder );
+
+	return $list;
+}
+
+sub _render_coarse_option
+{
+	my ( $self, $type, $basename, $fieldname, $namedset_name, $first_value_type, $js_var_name ) = @_;
+	my $session = $self->{session};
+	my $xml = $session->{xml};
+
+	my $li = $xml->create_element( "li", id=>$basename."_".$type, onclick=>"$js_var_name.coarseSelect('$type');" );
+
+	if ( $first_value_type eq $type )
+	{
+		$li->setAttribute( class=>"selected" );
+	}
+	$li->appendChild( $xml->create_element( "img", src=>"/images/edshare/$fieldname/$type.png" ) );
+	$li->appendChild( $xml->create_element( "br" ) );
+	$li->appendChild( $session->html_phrase( $namedset_name."_typename_".$type ) );
+
+	return $li;
+}
+
+
+sub _render_content_helper
 {
 	my ( $self, $config ) = @_;
 	my $session = $self->{session};
@@ -117,28 +156,25 @@ sub _render_permission_type
 	}
 
 	my $frag = $xml->create_document_fragment; 
-	$frag->appendChild( $xml->create_element( "input", name=>$basename."_coarse_type", type=>"hidden", value=>$first_value_type ) ); 
+	my $legend = $xml->create_element( "div", class=>"edshare_permissions_legend" );
+	$legend->appendChild( $field->render_help );
+	$frag->appendChild( $legend );	
+
+	my $content = $xml->create_element( "div", class=>"edshare_permissions_content" );
+	$frag->appendChild( $content );
 
 	# initialise the Permissions object
-	$frag->appendChild( $session->make_javascript( "var ".$js_var_name." = new inputPermissions( '".$js_var_name."', '".$basename."');" ) );
-
+	$content->appendChild( $session->make_javascript( "var ".$js_var_name." = new inputPermissions( '".$js_var_name."', '".$basename."');" ) );
+	$content->appendChild( $xml->create_element( "input", name=>$basename."_coarse_type", type=>"hidden", value=>$first_value_type ) ); 
+	
 	my $ul = $xml->create_element( "ul", id=>$basename."_coarse_options", class=>"edshare_permissions_coarse" );
-	$frag->appendChild( $ul );
+	$content->appendChild( $ul );
+	
 	foreach my $type ('private', 'public', 'restricted')
 	{
 		if( defined $nameset_hash{$type} )
-		{
-			my $li = $xml->create_element( "li", id=>$basename."_".$type, onclick=>"$js_var_name.coarseSelect('$type');" );
-
-			if ($first_value_type eq $type)
-			{
-				$li->setAttribute( class=>"selected" );
-			}
-			$li->appendChild( $xml->create_element( "img", src=>"/images/edshare/permissions/$type.png" ) );
-			$li->appendChild( $xml->create_element( "br" ) );
-			$li->appendChild( $session->html_phrase( $namedset_name."_typename_".$type ) );
-
-			$ul->appendChild( $li );
+		{	
+			$ul->appendChild( $self->_render_coarse_option( $type, $basename, $fieldname, $namedset_name, $first_value_type, $js_var_name ) );
 			delete $nameset_hash{$type};
 		}
 	}
@@ -147,83 +183,68 @@ sub _render_permission_type
 	if (%nameset_hash)
 	{
 		# special case for advanced options
-
-		my $li = $xml->create_element( "li", id=>$basename."_custom", onclick=>"$js_var_name.coarseSelect('custom');" );
-
-		if ($show_advanced_options)
-		{
-				$li->setAttribute( class=>"selected" );
-		}
-		$li->appendChild( $xml->create_element( "img", src=>"/images/edshare/permissions/custom.png" ) );
-		$li->appendChild( $xml->create_element( "br" ) );
-		$li->appendChild( $session->html_phrase( $namedset_name."_typename_custom" ) );
-
-		$ul->appendChild( $li );
+		$ul->appendChild( $self->_render_coarse_option( "custom", $basename, $fieldname, $namedset_name, $first_value_type, $js_var_name ) );
 	}
 
 	my $advanced_wrapper = $xml->create_element( "div", id=>$basename."_advanced_options_wrapper" );
 	my $advanced = $xml->create_element( "div", class=>"edshare_permissions_advanced_options" );
 
 	$advanced_wrapper->appendChild( $advanced );
-	$frag->appendChild( $advanced_wrapper );
+	$content->appendChild( $advanced_wrapper );
 
 	if ( not $show_advanced_options )
 	{
-		$advanced->setAttribute( style=>"display:none;" ); 
+		$advanced_wrapper->setAttribute( style=>"display:none;" ); 
 	}
 
-	my $table = $xml->create_element( "table", class=>"edshare_permissions_advanced_types" );
-	$advanced->appendChild( $table );
+	# sort the permissions by type, son
+	my $values_by_type = {};
+	foreach my $permission ( @$values )
+	{
+		my $type = $permission->{type};
+		my $value = $permission->{value};
+		if ( not exists $values_by_type->{$type} )
+		{
+			$values_by_type->{$type} = [];
+		}
+		push ( $values_by_type->{$type}, $value );
+	}
 
 # mrt - maybe I will load the plugins into a nice hashmap a bit later on so I don't spam loading them - but not today....
-
 	# iterate through the array of types and print any that haven't been rendered yet
+	my $list_element_added = 0;
 	foreach my $type ( @permission_types )
 	{
 		if ( $nameset_hash{$type} )
 		{
-			my $plugin = $session->plugin( "PermissionType::".$type, basename=>$basename, js_var_name=>$js_var_name );
-			$table->appendChild( $plugin->render() );
+			my $plugin = $session->plugin( "PermissionType::".$type, basename=>$basename, fieldname=>$fieldname, js_var_name=>$js_var_name );
+			if (not $list_element_added and $plugin->requires_list )
+			{
+				$advanced->appendChild( $self->_render_list( $config ) );
+				$list_element_added = 1;
+			}
+			my $type_div = $xml->create_element( "div", class=>"edshare_permissions_advanced_type" );
+			$type_div->appendChild( $plugin->render( $values_by_type->{$type} ) );
+			$advanced->appendChild( $type_div );
 		}
 	}
-
-	my $value_list = $xml->create_element( "ul",
-		id=>$basename."_advanced_values",
-		class=>"edshare_permissions_advanced_values"
-	);
-	$advanced->appendChild( $value_list );	
-
-	# add the placeholder for when the list is empty
-	my $placeholder = $xml->create_element( "li", id=>$basename."_placeholder" );
-	$placeholder->appendChild( $session->html_phrase( $fieldname."_advanced_placeholder" ) );
-	$value_list->appendChild( $placeholder );
-
-	# render the existing values in the table - gangsta!!
-	if ( $show_advanced_options )
-	{
-		my $add_values_javascript;
-
-		foreach my $permission ( @$values )
-		{
-			my $plugin = $session->plugin( "PermissionType::".$permission->{type}, parent_component=>$self );
-			next if (not defined( $plugin ) );
-
-			$add_values_javascript = $js_var_name.".addPermittedFromString('".$permission->{type}."','".$permission->{value}."','".$plugin->render_value( $permission->{value})."');";
-			$frag->appendChild( $session->make_javascript( $add_values_javascript ));
-		}
-	}
-
 	return $frag;
 }
 
-=pod
-
 sub update_from_form
 {
-        my( $self, $processor ) = @_;
+	my( $self, $processor ) = @_;
+	$self->_update_from_form_helper( $processor, $self->{config}->{left} );
+	$self->_update_from_form_helper( $processor, $self->{config}->{right} );
+}
+
+
+sub _update_from_form_helper
+{
+        my( $self, $processor, $config ) = @_;
         my $session = $self->{session};
-	my $basename = $self->{basename};
-        my $field = $self->{config}->{field};
+	my $basename = $config->{basename};
+        my $field = $config->{field};
 
         my $obj = $self->{dataobj};
 
@@ -231,15 +252,26 @@ sub update_from_form
 
 	if ($coarse_type eq "custom")
 	{
-		my @types = $session->param($basename."_type");
-		my @values = $session->param($basename."_value");
-
 		my @permissions;
 
-		for (my $i=0; $i<@types; $i++)
-		{
-			push (@permissions, {type=>$types[$i], value=>$values[$i]});	
+		foreach my $param ( $session->param ) {
+			if ( $param =~ /$basename/ )
+			{
+				my $type = substr( $param, length( $basename."_" ) );
+				next if ( $type eq "coarse_type" );
+
+				foreach my $value ($session->param( $param ) )
+				{	
+					push (@permissions, {type=>$type, value=>$value } );
+				}
+			}
 		}
+
+		if ( scalar ( @permissions) == 0 )
+		{
+			$processor->add_message( "warning", $self->html_phrase( "no_custom_values", field=>$field->render_name, revert=>$session->html_phrase( $field->name."_typename_private" ) ) );
+			push (@permissions, {type=>"private", value=>"private" } );
+		} 
 
 		$obj->set_value( $field->{name}, \@permissions );
 	}
@@ -248,4 +280,3 @@ sub update_from_form
 		$obj->set_value( $field->{name} , [ { type=>$coarse_type, value=>$coarse_type} ]);
 	}
 }
-=cut

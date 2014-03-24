@@ -32,7 +32,7 @@ $c->{validate_eprint} = sub
 	my @problems = ();
 
 	# if there are no documents, then we have a problem
-	if (not scalar $eprint->get_all_documents())
+	if ( not scalar $eprint->get_all_documents() )
 	{
 		push @problems, $repository->html_phrase( "validate:no_documents");
 	}

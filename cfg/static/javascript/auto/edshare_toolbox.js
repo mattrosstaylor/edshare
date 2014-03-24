@@ -8,3 +8,11 @@ function edshare_render_toolbox(targetId, eprintid) {
 	  	}
 	});
 }
+
+function edshare_suppress_page_title() {
+	document.observe( 'dom:loaded', function() {
+		$$(".edshare_page_title").each(function(element) {
+			element.hide();
+		});
+	});
+}

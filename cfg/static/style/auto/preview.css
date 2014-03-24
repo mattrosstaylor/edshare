@@ -1,21 +1,24 @@
 /* this section deals only with dimensions */
 
+#preview_main {
+	width: inherit;
+}
+
 #preview_area {
-	width: 700px;
-	height: 525px;
 	overflow: hidden;
 	padding: 0;
-	margin: 0;
+	margin: -1px;
 	border: 1px solid black;
+	width: inherit;
+	height: inherit;
 }
 
 #edshare_summary_left {
-	width: 702px;
 	float:left;
+	padding-right: 12px;
 }
 
 #edshare_summary_right {
-	margin-left: 712px;
 }
 
 .preview_ajax {
@@ -26,7 +29,11 @@
 /* end dimensions */
 
 .ep_tm_page_content {
+/* wtf is this???	 
+
 	width: 1000px !important;
+*/
+
 }
 
 /* document selector */
@@ -34,6 +41,7 @@
 #preview_documents {
 	border: 1px solid black;
 	border-top: 0px;
+	margin: -1px;
 }
 
 #preview_download_area {

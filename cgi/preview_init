@@ -37,7 +37,9 @@ if ( $repository->call("can_user_view_document", $first_document, $user) eq "ALL
 {
 	my $div = $xml->create_document_fragment;
 	$div->appendChild( $eprint->render_citation("preview_document_list") );
-	print '<iframe id="preview_area" scrolling="no" src=""> </iframe>';
+	my $preview_dimensions = $repository->call( "preview_dimensions" );
+
+	print '<iframe id="preview_area" scrolling="no" src="" style="height:'.$preview_dimensions->{height}.'px;"> </iframe>';
 	print $xml->to_string( $div );
 }
 else

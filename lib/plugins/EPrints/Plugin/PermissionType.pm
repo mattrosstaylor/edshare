@@ -16,46 +16,46 @@ sub new
 	$self->{name} = 'PermissionType Superclass';
 	$self->{visible} = "all";
 	$self->{basename} = $opts{basename};
+	$self->{fieldname} = $opts{fieldname};
 	$self->{js_var_name} = $opts{js_var_name};
 	$self->{permission_type} = "unknown";
 
 	return $self;
 }
 
-sub render
+sub requires_list
 {
 	my ( $self ) = @_;
-	my $xml = $self->repository->xml;
-
-	my $row = $xml->create_element( "tr", valign=>"top" );
-	$row->appendChild( $self->render_prompt() );
-	$row->appendChild( $self->render_input() );
-
-	return $row;
+	return 0;
 }
 
-sub render_prompt
+sub _render_list_values
 {
-	my ( $self ) = @_;
-	my $xml = $self->repository->xml;
+	my ( $self, $values ) = @_;
+	my $session = $self->{session};
 
-	my $td = $xml->create_element( "td" );
-	$td->appendChild( $self->html_phrase( "prompt" ) );
-	return $td;
+	my $js_var_name = $self->{js_var_name};
+	my $add_values_javascript;
+
+	foreach my $value ( @$values )
+	{
+		$add_values_javascript .= $js_var_name.".addPermittedFromString('".$self->{permission_type}."','".$value."','".$self->_render_value( $value )."');";
+	}
+
+	return $session->make_javascript( $add_values_javascript );
 }
 
-sub render_input
-{
-	my ( $self ) = @_;
-
-	return $self->{repository}->xml->create_document_fragment;
-}
-
-sub render_value
+sub _render_value
 {
 	my ( $self, $value ) = @_;
-	
-	return "Unknown Permission Type";
+	return $self->{permission_type}.": ". $value;
+}
+
+sub render
+{
+	my ( $self, @values ) = @_;
+
+	return $self->html_phrase( "prompt" );
 }
 
 1;

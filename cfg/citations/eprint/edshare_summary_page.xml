@@ -5,15 +5,19 @@
 -->
 
 <cite:citation xmlns="http://www.w3.org/1999/xhtml" xmlns:epc="http://eprints.org/ep3/control" xmlns:cite="http://eprints.org/ep3/citation" >
-	<div id="edshare_summary_left">
-		<epc:print expr="$preview"/>
+	<div id="edshare_summary_left" style="width:{$flags{preview_width}}px">
+		<div id="preview_main">
+			<img src="/images/preview/ajax-loader.gif" class="preview_ajax"/>
+		</div>
+		<epc:print expr="$init_preview_script"/>
 	</div>
-	<div id="edshare_summary_right">
-		<epc:if test="is_set(abstract)">
-			<div class="ep_block">
+	<div id="edshare_summary_right" style="margin-left:{$flags{preview_width}}px">
+		<div class="ep_block">
+			<h2><epc:print expr="title"/></h2>
+			<epc:if test="is_set(abstract)">
 				<p class="edshare_summary_abstract"><epc:print expr="abstract"/></p>
-			</div>
-		</epc:if>
+			</epc:if>
+		</div>
 		<div class="ep_block">
 			<table class="edshare_summary_table" style="margin-bottom: 1em; margin-top: 1em;" cellpadding="3">
 				<epc:foreach expr="$config{summary_page_metadata}" iterator="fieldname">
@@ -32,5 +36,7 @@
 			<div id="edshare_toolbox"> </div>
 		</div>
 	</div>
+	<div class="clearer"/>
+	<script type="text/javascript">edshare_suppress_page_title();</script>
 </cite:citation>
 

@@ -5,8 +5,9 @@ use strict;
 my $repository = EPrints->new->current_repository;
 exit( 0 ) unless( defined $repository );
 
-my $width = $repository->get_conf("preview_width");
-my $height = $repository->get_conf("preview_height");
+my $dimensions = $repository->call( "preview_dimensions" );
+my $width = $dimensions->{width};
+my $height = $dimensions->{height};
 my $docid = $repository->param("doc");
 
 my $doc = EPrints::DataObj::Document->new($repository, $docid);

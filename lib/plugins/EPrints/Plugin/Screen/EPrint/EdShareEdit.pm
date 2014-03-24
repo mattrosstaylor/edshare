@@ -94,15 +94,8 @@ sub action_deposit
 
 	$self->{processor}->{screenid} = $self->{repository}->config("edshare_screen_after_edit") || "EPrint::View";	
 
-#	if (not $from_ok)
-#	{
-#		$self->{processor}->{eprint}->set_value( "validation_status", "error" );
-#		$self->{processor}->{eprint}->commit;
-#		$self->{processor}->{eprint}->move_to_inbox;
-#
-#		$self->{processor}->add_message( "error", $self->html_phrase( "validation_errors2" ) ); 
-#		return;
-#	}
+	# always release the edit lock
+	$self->{processor}->{eprint}->set_value( "edit_lock_until", 0 );
 
 	my $problems = $self->{processor}->{eprint}->validate( $self->{processor}->{for_archive}, $self->workflow_id );
 	if( scalar @{$problems} > 0 )
@@ -124,7 +117,7 @@ sub action_deposit
 		return;
 	}
 
-	$self->{processor}->{eprint}->set_value( "edit_lock_until", 0 );
+	# passed validation checks
 	$self->{processor}->{eprint}->set_value( "validation_status", "ok" );
 	$self->{processor}->{eprint}->commit;
 

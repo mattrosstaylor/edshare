@@ -19,31 +19,25 @@ sub new
 	return $self;
 }
 
-sub render_input
+sub render
 {
-	my ( $self ) = @_;
+	my ( $self, $values ) = @_;
 	my $xml = $self->repository->xml;
 
-	my $td = $xml->create_element( "td" );
-	my $html = $xml->to_string( $self->html_phrase( "render_value") );
+	my $frag = $xml->create_document_fragment;
 	my $basename = $self->{basename};
 	my $js_var_name = $self->{js_var_name};
 
-	my $input = $xml->create_element( "input",
-		type=>"button",
-		value=>$self->phrase( "allow" ),
-		id=>$basename."_creators_checkbox",
-		onclick=>"$js_var_name.addPermittedFromString('Creators', 'Creators', '$html', '$basename');");
+	$frag->appendChild( $self->html_phrase( "prompt" ) );
 
-	$td->appendChild( $input );
-	return $td;
-}
+	my $checkbox = $xml->create_element( "input", type=>"checkbox", name=>$basename."_Creators", value=>"Creators" );
+	$frag->appendChild( $checkbox );
 
-sub render_value
-{
-	my ( $self, $value ) = @_;
-	
-	return "Listed Creators";
+	if ( defined($values) and scalar(@$values) == 1 )
+	{
+		$checkbox->setAttribute( "checked", "checked" );
+	}
+	return $frag;
 }
 
 1;

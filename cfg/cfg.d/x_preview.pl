@@ -1,14 +1,19 @@
-$c->{preview_width} = 700;
-$c->{preview_height} = 525;
-
+$c->{preview_dimensions} = sub 
+{
+	my $dimensions;
+	$dimensions->{width} = 640;
+	$dimensions->{height} = 480;
+	return $dimensions;
+};
 
 # enable audio_*/video_* previews
-$c->{thumbnail_types} = sub {
+$c->{thumbnail_types} = sub 
+{
 	my( $list, $repo, $doc ) = @_;
 	push @$list, qw( pdf );
 };
 
-$c->{render_preview} = sub
+$c->{init_preview_script} = sub
 {
 	my ( $eprint, $repository ) = @_;
 	my $xml = $repository->xml;
@@ -27,9 +32,6 @@ $c->{render_preview} = sub
 
 	my $eprintid = $eprint->id;
 
-	my $div = $xml->create_element( "div", id=>"preview_main");
-	$div->appendChild($xml->create_element( "img", src=>"/images/preview/ajax-loader.gif", class=>"preview_ajax" ) );	
-
 	my $script = <<EOF;
 document.observe('dom:loaded', function(){
 	initPreview($eprintid, $docid);
@@ -37,7 +39,6 @@ document.observe('dom:loaded', function(){
 EOF
 	my $js = $xml->create_element( "script", type=>"text/javascript" );
 	$js->appendChild( $xml->create_text_node($script) );
-	$div->appendChild( $js );
 
-	return $div;
+	return $js;
 };

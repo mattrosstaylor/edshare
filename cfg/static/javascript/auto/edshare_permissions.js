@@ -27,7 +27,7 @@ function inputPermissions(varName, basename) {
 		var itemId = basename+"_"+type+"_"+value;
 
 		// mrt - this is currently hard coded but i am sure i will fix that later ;)
-		var list = $(basename+"_advanced_values");
+		var list = $(basename+"_advanced_list");
 
 		// check whether or not this item is already in the list - hahahah we can just search the entire DOM!!!
 		if ($(itemId)) {
@@ -41,15 +41,13 @@ function inputPermissions(varName, basename) {
 		} );
 		newItem.appendChild(new Element("input", {
 			"type": "hidden",
-			"name": basename+"_type",
-			"value": type
-		}));
-		newItem.appendChild(new Element("input", {
-			"type": "hidden",
-			"name": basename+"_value",
+			"name": basename+"_" +type,
 			"value": value
 		}));
-		newItem.hide();
+		// the appear animation should not be played for the first item because it replaces the placeholder
+		if (this.count > 0) {
+			newItem.hide();
+		}
 		newItem.appendChild(html);
 		this.addRemoveButton(newItem);
 		list.appendChild(newItem);

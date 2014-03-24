@@ -19,32 +19,41 @@ sub new
 	return $self;
 }
 
-sub render_input
+sub requires_list
 {
 	my ( $self ) = @_;
+	return 1;
+}
+
+sub render
+{
+	my ( $self, $values ) = @_;
 	my $xml = $self->repository->xml;
 	my $basename = $self->{basename};
 	my $js_var_name = $self->{js_var_name};
 
-	my $td = $xml->create_element( "td" );
-	$td->appendChild( $self->html_phrase( "legend_name" ) );
-	$td->appendChild( $xml->create_element( "input",
+	my $frag = $xml->create_document_fragment;
+	$frag->appendChild( $self->html_phrase( "prompt" ) );
+	$frag->appendChild( $xml->create_element( "br" ) );
+
+	$frag->appendChild( $self->html_phrase( "legend_name" ) );
+	$frag->appendChild( $xml->create_element( "input",
 		type=>"text",
 		id=>$basename."_lookup_user_name",
 		class=>"ep_form_text",
 		onkeypress=> "return EPJS_block_enter( event );"
 	));
 
-	$td->appendChild( $xml->create_element( "br" ) );
-	$td->appendChild( $self->html_phrase( "legend_email" ) );
-	$td->appendChild( $xml->create_element( "input",
+	$frag->appendChild( $xml->create_element( "br" ) );
+	$frag->appendChild( $self->html_phrase( "legend_email" ) );
+	$frag->appendChild( $xml->create_element( "input",
 		type=>"text",
 		id=>$basename."_lookup_user_email",
 		class=>"ep_form_text",
 		onkeypress=> "return EPJS_block_enter( event );"
 	));
 
-	$td->appendChild( $xml->create_element( "div",
+	$frag->appendChild( $xml->create_element( "div",
 		id=>$basename."_lookup_user_drop",
 		class=>"ep_drop_target"
 	));
@@ -52,7 +61,7 @@ sub render_input
 	# mrt - I guess I put the javascript here?
 	my $rel_path = $self->repository->get_conf( "rel_path" );
 
-	$td->appendChild( $self->repository->make_javascript(
+	$frag->appendChild( $self->repository->make_javascript(
 		'ep_autocompleter_user_lookup('.
 			'"' .$basename.'_lookup_user_name",'.
 			'"' .$basename.'_lookup_user_drop",'.
@@ -61,7 +70,7 @@ sub render_input
 			'"' .$js_var_name.'"'.
 		');'
 	));
-	$td->appendChild( $self->repository->make_javascript(
+	$frag->appendChild( $self->repository->make_javascript(
 		'ep_autocompleter_user_lookup('.
 			'"' .$basename.'_lookup_user_email",'.
 			'"' .$basename.'_lookup_user_drop",'.
@@ -71,10 +80,11 @@ sub render_input
 		');'
 	));
 
-	return $td;
+	$frag->appendChild( $self->_render_list_values( $values ) );
+	return $frag;
 }
 
-sub render_value
+sub _render_value
 {
 	my ( $self, $value ) = @_;
 

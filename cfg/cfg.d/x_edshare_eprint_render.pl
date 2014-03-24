@@ -37,7 +37,7 @@ $c->{render_fragments} = sub
 	
 	my $xml = $repository->xml;	
 
-	$fragments->{preview} = $repository->call("render_preview", $eprint, $repository);
+	$fragments->{init_preview_script} = $repository->call("init_preview_script", $eprint, $repository);
 
 	return $fragments;
 };
@@ -49,10 +49,12 @@ $c->{eprint_render} = sub
 	my $succeeds_field = $repository->dataset( "eprint" )->field( "succeeds" );
 	my $commentary_field = $repository->dataset( "eprint" )->field( "commentary" );
 
+	my $preview_dimensions = $repository->call( "preview_dimensions" );
+
 	my $flags = { 
 		has_multiple_versions => $eprint->in_thread( $succeeds_field ),
 		in_commentary_thread => $eprint->in_thread( $commentary_field ),
-		preview => $preview,
+		preview_width => $preview_dimensions->{width},
 	};
 	my %fragments = ();
 	$repository->call("render_fragments", $eprint, $repository, $preview, \%fragments);
@@ -60,7 +62,6 @@ $c->{eprint_render} = sub
 	foreach my $key ( keys %fragments ) { $fragments{$key} = [ $fragments{$key}, "XHTML" ]; }
 	
 	my $page = $eprint->render_citation( "edshare_summary_page", %fragments, flags=>$flags );
-
 	my $title = $eprint->render_citation("brief");
 
 	my $links = $repository->xml()->create_document_fragment();

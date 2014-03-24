@@ -55,6 +55,17 @@ $c->{fields}->{eprint} = [
 	'input_rows' => 1,
 },
 
+{
+	name => 'full_text_status',
+	type => 'set',
+	options => [qw(
+		public
+		restricted
+		none
+	)],
+	input_style => 'medium',
+},
+
 # Edshare - Keywords changed to be a multiple field so that browse views can be made.
 {
 	'name' => 'keywords',
