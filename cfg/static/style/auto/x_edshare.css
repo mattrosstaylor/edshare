@@ -107,57 +107,6 @@
 	padding: 0;
 }
 
-/* taglite */
-.edshare_taglite {
-	text-align: center;
-}
-
-.edshare_taglite_suggestions {
-/*	display: none; */
-} 
-
-.edshare_taglite_tag {
-	font-weight: bolder;
-}
-
-.edshare_taglite_suggestions table {
-	margin-top: 10px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.edshare_taglite_suggestions h2 {
-	font-weight: normal;
-}
-
-.edshare_taglite_suggestions td {
-	text-align: left;
-	padding: 0 10px;
-}
-
-/* mrt - maybe restyle this a bit
-.edshare_taglite_suggestions_table li {
-	display: inline;
-	padding-right: 7px;
-}
-*/
-
-/* old shit
-.ed_taglite_maintable{
-        text-align:center;
-}
-
-.ep_taglite_pickup_container{
-        text-align:center;
-}
-.ed_taglite_bottom{
-        padding: 10px;
-}
-.ed_taglite_input{
-        margin: 10px 2px;
-}
-*/
-
 /* autocomplete stuff */
 div.autocomplete {
 	  position:absolute;
@@ -182,90 +131,6 @@ div.autocomplete ul li {
 	  cursor:pointer;
 }
 
-/* permissons component */
-.edshare_permissions {
-	text-align:center;
-}
-
-.edshare_permissions_left, .edshare_permissions_right {
-	display: inline-block;
-	width: 50%;
-	margin: 0;
-	padding: 0;
-	vertical-align: top;
-}
-
-.edshare_permissions_legend {
-	font-weight: bold;
-}
-
-.edshare_permissions_coarse {
-	list-style:none;
-	text-align:center;
-	padding-left: 0;
-}
-
-.edshare_permissions_coarse li {
-	display: inline-block;
-	padding: 5px 10px;
-	border: 1px dashed transparent;
-	font-weight:bold;
-	zoom: 1;
-	filter: alpha(opacity=60);
-	opacity: 0.6;
-	cursor: pointer;
-}
-
-.edshare_permissions_coarse > li.selected {
-	background: white;
-	border-color: black;
-	filter: alpha(opacity=100);
-	opacity: 1;
-}
-
-.edshare_permissions_coarse img {
-	margin-bottom: 5px;
-}
-
-.edshare_permissions_left .edshare_permissions_coarse img {
-	height: 72px;
-	width: 72px;
-}
-
-
-.edshare_permissions_right .edshare_permissions_coarse {
-	padding: 12px 0;
-}
-.edshare_permissions_right .edshare_permissions_coarse img {
-	height: 48px;
-	width: 48px;
-}
-
-.edshare_permissions_advanced_options {
-	padding: 7px;
-	width: 100%;
-}
-.edshare_permissions_advanced_placeholder {
-	color: grey;
-}
-
-.edshare_permissions_advanced_type {
-	margin-bottom: 15px;
-}
-
-.edshare_permissions_advanced_list {
-	background: white;
-	border: 1px silver solid;
-	padding: 5px;
-	margin: 0;
-	margin-bottom: 15px;
-	list-style: inside none;
-}
-
-.edshare_permissions_advanced_value {
-	margin-bottom: 2px;
-}
-
  /* not sure why the drop downs aren't ordered - but I will do it explicitly just to make sure  */
 .ep_drop_target {
 	z-index: 5;
@@ -280,18 +145,4 @@ div.autocomplete ul li {
 #edshare_frontpage_right {
 	float: right;
 	width: 43%;
-}
-
-#edshare_toolbox {
-	margin: 12px;
-}
-
-#edshare_toolbox > ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-#edshare_toolbox img {
-	vertical-align: middle;
 }

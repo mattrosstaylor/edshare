@@ -454,25 +454,11 @@
           <filesize>827</filesize>
         </file>
         <file>
-          <filename>epm/edshare/cfg/static/javascript/auto/edshare_permissions.js</filename>
+          <filename>epm/edshare/cfg/static/javascript/auto/permissions.js</filename>
           <mime_type>text/x-c++</mime_type>
           <hash>b0cad2475b7ca3180dfdc6f689ac8cae</hash>
           <hash_type>MD5</hash_type>
           <filesize>4851</filesize>
-        </file>
-        <file>
-          <filename>epm/edshare/cfg/static/javascript/auto/edshare_taglite.js</filename>
-          <mime_type>text/x-c++</mime_type>
-          <hash>5cdd04091d737884f945399856a80b82</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>3770</filesize>
-        </file>
-        <file>
-          <filename>epm/edshare/cfg/static/javascript/auto/edshare_toolbox.js</filename>
-          <mime_type>text/plain</mime_type>
-          <hash>cdf01ae399f0cdb6f9439f638d70d4e8</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>466</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/static/javascript/auto/preview.js</filename>
@@ -489,6 +475,20 @@
           <filesize>5423</filesize>
         </file>
         <file>
+          <filename>epm/edshare/cfg/static/javascript/auto/taglite.js</filename>
+          <mime_type>text/x-c++</mime_type>
+          <hash>5cdd04091d737884f945399856a80b82</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>3770</filesize>
+        </file>
+        <file>
+          <filename>epm/edshare/cfg/static/javascript/auto/toolbox.js</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>cdf01ae399f0cdb6f9439f638d70d4e8</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>466</filesize>
+        </file>
+        <file>
           <filename>epm/edshare/cfg/static/javascript/jquery.media.0.92.js</filename>
           <mime_type>text/plain</mime_type>
           <hash>139460cebb3baba703412964834c6365</hash>
@@ -501,6 +501,13 @@
           <hash>b8d64d0bc142b3f670cc0611b0aebcae</hash>
           <hash_type>MD5</hash_type>
           <filesize>94840</filesize>
+        </file>
+        <file>
+          <filename>epm/edshare/cfg/static/style/auto/permissions.css</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>1f4aecd0040a4f6de618f234606c9a90</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>1431</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/static/style/auto/preview.css</filename>
@@ -517,11 +524,25 @@
           <filesize>2466</filesize>
         </file>
         <file>
+          <filename>epm/edshare/cfg/static/style/auto/taglite.css</filename>
+          <mime_type>text/x-c</mime_type>
+          <hash>3d3dd465738fb0f5a628fb423b0646bc</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>394</filesize>
+        </file>
+        <file>
+          <filename>epm/edshare/cfg/static/style/auto/toolbox.css</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>c9dd0c295d236480a48b1407f02c115b</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>185</filesize>
+        </file>
+        <file>
           <filename>epm/edshare/cfg/static/style/auto/x_edshare.css</filename>
           <mime_type>text/x-c</mime_type>
-          <hash>94892c354000bd56c898aaf3527535e0</hash>
+          <hash>c856533a1c9f31d5289ac70440bd98d0</hash>
           <hash_type>MD5</hash_type>
-          <filesize>4959</filesize>
+          <filesize>2631</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/workflows/eprint/default.xml</filename>
@@ -652,9 +673,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/PermissionType/UserLookup.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>506b0f7ff9458a1db5c4bb10a024d737</hash>
+          <hash>8612d5c7371b265e591a381a0d95b10a</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2345</filesize>
+          <filesize>2478</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/PreviewScripts.pm</filename>

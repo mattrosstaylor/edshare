@@ -1,0 +1,14 @@
+/* EdShare Toolbox */
+#edshare_toolbox {
+	margin: 12px;
+}
+
+#edshare_toolbox > ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#edshare_toolbox img {
+	vertical-align: middle;
+}
