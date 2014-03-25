@@ -15,8 +15,8 @@ sub new
 	my $self = $class->SUPER::new( %opts );
 	$self->{name} = 'PermissionType Superclass';
 	$self->{visible} = "all";
-	$self->{basename} = $opts{basename};
 	$self->{fieldname} = $opts{fieldname};
+	$self->{basename} = $opts{basename};
 	$self->{js_var_name} = $opts{js_var_name};
 	$self->{permission_type} = "unknown";
 
@@ -56,6 +56,14 @@ sub render
 	my ( $self, @values ) = @_;
 
 	return $self->html_phrase( "prompt" );
+}
+
+
+sub test
+{
+	my ( $self, $user, $eprint, $values ) = @_;
+
+	return "DENY";
 }
 
 1;

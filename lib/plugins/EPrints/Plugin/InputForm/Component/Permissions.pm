@@ -198,17 +198,7 @@ sub _render_content_helper
 	}
 
 	# sort the permissions by type, son
-	my $values_by_type = {};
-	foreach my $permission ( @$values )
-	{
-		my $type = $permission->{type};
-		my $value = $permission->{value};
-		if ( not exists $values_by_type->{$type} )
-		{
-			$values_by_type->{$type} = [];
-		}
-		push ( $values_by_type->{$type}, $value );
-	}
+	my $values_by_type = $session->call( "collate_permission_values_by_type", $values );
 
 # mrt - maybe I will load the plugins into a nice hashmap a bit later on so I don't spam loading them - but not today....
 	# iterate through the array of types and print any that haven't been rendered yet
@@ -217,7 +207,8 @@ sub _render_content_helper
 	{
 		if ( $nameset_hash{$type} )
 		{
-			my $plugin = $session->plugin( "PermissionType::".$type, basename=>$basename, fieldname=>$fieldname, js_var_name=>$js_var_name );
+			my $plugin = $session->plugin( "PermissionType::".$type, fieldname=>$fieldname, basename=>$basename, js_var_name=>$js_var_name );
+			next if (not defined $plugin);
 			if (not $list_element_added and $plugin->requires_list )
 			{
 				$advanced->appendChild( $self->_render_list( $config ) );

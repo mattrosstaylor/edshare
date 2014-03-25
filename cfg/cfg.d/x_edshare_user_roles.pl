@@ -33,6 +33,7 @@ $c->{user_roles}->{admin} = [qw{
 	admin
 	edit-config
 	+redo_thumbnails
+	+eprint/inbox/remove
 }];
 
 $c->{public_roles} = [qw{

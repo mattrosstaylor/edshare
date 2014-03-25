@@ -40,4 +40,17 @@ sub render
 	return $frag;
 }
 
+sub test
+{
+	my ( $self, $user, $eprint, $values ) = @_;
+
+	my $user_email = $user->value( "email" );
+	my $creator_emails = $eprint->value( "creators_id" );
+	foreach my $creator_email ( @$creator_emails )
+	{
+		if ($creator_email eq $user_email) { return "ALLOW" }
+	}
+
+	return "DENY";
+}
 1;

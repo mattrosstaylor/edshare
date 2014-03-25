@@ -45,13 +45,6 @@ sub render_buttons
 
 	my %buttons = ( _order=>[], _class=>"ep_form_button_bar" );
 
-# mrt - nice coding guys!
-#	if( defined $self->workflow->get_prev_stage_id )
-#	{
-#		push @{$buttons{_order}}, "prev";
-#		$buttons{prev} = $session->phrase( "lib/submissionform:action_prev" );
-#	}
-
 	my $eprint = $self->{processor}->{eprint};
 	if( $eprint->value( "eprint_status" ) eq "inbox" )
 	{
@@ -69,19 +62,24 @@ sub render_buttons
 	push @{$buttons{_order}}, "stop";
 	$buttons{stop} = $session->phrase( "lib/submissionform:action_stop" );
 
-# mrt - NEXT TIIIIIME
-#	push @{$buttons{_order}}, "next";
-#	$buttons{next} = $session->phrase( "lib/submissionform:action_next" );
-
 	return $session->render_action_buttons( %buttons );
 }
 
+sub can_view
+{
+	return 0;
+}
 
 # mrt - at the moment this will just return true
 sub allow_deposit
 {
 	return 1;
 
+}
+
+sub allow_stop
+{
+	return 1;
 }
 
 sub action_deposit

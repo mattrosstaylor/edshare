@@ -100,4 +100,19 @@ sub _render_value
 	}
 }
 
+sub test
+{
+	my ( $self, $user, $eprint, $values ) = @_;
+
+	my %values_map = map { $_ => 1 } @$values;
+	if( exists $values_map{$user->id} )
+	{
+		return "ALLOW";
+	}
+	else
+	{
+		return "DENY";
+	}
+}
+
 1;

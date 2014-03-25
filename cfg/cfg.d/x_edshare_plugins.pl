@@ -12,6 +12,7 @@ $c->{plugins}->{"PermissionType::UserLookup"}->{params}->{disable} = 0;
 $c->{plugins}->{"Screen::BrowseViews"}->{params}->{disable} = 0;
 $c->{plugins}->{"Screen::EPrint::EdShareEdit"}->{params}->{disable} = 0;
 $c->{plugins}->{"Screen::EPrint::EdShareChangeOwner"}->{params}->{disable} = 0;
+$c->{plugins}->{"Screen::EPrint::EdShareRemove"}->{params}->{disable} = 0;
 $c->{plugins}->{"Screen::EPrint::EdShareViewRedirect"}->{params}->{disable} = 0;
 $c->{plugins}->{"Screen::EPrint::EmailAuthor"}->{params}->{disable} = 0;
 $c->{plugins}->{"Screen::EPrint::ExportZip"}->{params}->{disable} = 0;
@@ -35,6 +36,9 @@ $c->{plugins}->{"Screen::EPrint::UploadMethod::URL"}->{params}->{disable} = 1;
 # plugin alias
 $c->{plugin_alias_map}->{"Screen::EPrint::Edit"} = "Screen::EPrint::EdShareEdit";
 $c->{plugin_alias_map}->{"Screen::EPrint::EdShareEdit"} = undef;
+
+$c->{plugin_alias_map}->{"Screen::EPrint::Remove"} = "Screen::EPrint::EdShareRemove";
+$c->{plugin_alias_map}->{"Screen::EPrint::EdShareRemove"} = undef;
 
 $c->{plugin_alias_map}->{"Screen::EPrint::Staff::ChangeOwner"} = "Screen::EPrint::EdShareChangeOwner";
 $c->{plugin_alias_map}->{"Screen::EPrint::EdShareChangeOwner"} = undef;

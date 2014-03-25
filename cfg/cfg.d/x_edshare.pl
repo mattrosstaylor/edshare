@@ -101,7 +101,6 @@ $c->{edshare_screen_after_edit} = "Items";
 
 $c->{plugins}->{"Screen::DataSets"}->{appears}->{key_tools} = undef;
 
-
 #add mimetypes for css and javascript so they are served properly
 $c->{mimemap}->{css}  = "text/css";
 $c->{mimemap}->{js}  = "text/javascript";

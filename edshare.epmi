@@ -8,9 +8,9 @@
         <file>
           <filename>epm/edshare/cfg/cfg.d/x_edshare.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>7db7247a427e622fa3d093f7bd3a451d</hash>
+          <hash>e0b8e9f394093007f30474186ec7969e</hash>
           <hash_type>MD5</hash_type>
-          <filesize>3300</filesize>
+          <filesize>3299</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/cfg.d/x_edshare_eprint_defaults.pl</filename>
@@ -57,23 +57,23 @@
         <file>
           <filename>epm/edshare/cfg/cfg.d/x_edshare_permissions.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>dcc1a4606b3f1f7d8d6a8856c12c4b95</hash>
+          <hash>5e3f1362033f737cb7a86d8df6690d5b</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1904</filesize>
+          <filesize>2060</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/cfg.d/x_edshare_plugins.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>bec94fb75dadd3cef6dc67c04057fa8f</hash>
+          <hash>c68d18af81a04b35478a4dd88ae8f718</hash>
           <hash_type>MD5</hash_type>
-          <filesize>3437</filesize>
+          <filesize>3666</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/cfg.d/x_edshare_user_roles.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>2e944ec56320314f43e005a726e464f5</hash>
+          <hash>fa3c095d8d96829b22de7b36d51fc2e7</hash>
           <hash_type>MD5</hash_type>
-          <filesize>595</filesize>
+          <filesize>617</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/cfg.d/x_edshare_views.pl</filename>
@@ -624,9 +624,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/EdShareToolbox.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>c4a4913f703f842ac1dca6c64e200034</hash>
+          <hash>a6070066a8ac6c53309a2637125b3469</hash>
           <hash_type>MD5</hash_type>
-          <filesize>4563</filesize>
+          <filesize>4487</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/EdShareUtils.pm</filename>
@@ -652,30 +652,30 @@
         <file>
           <filename>plugins/EPrints/Plugin/InputForm/Component/Permissions.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>5e29d9719172f400d9bfff6ff39444a6</hash>
+          <hash>096945e216b9ec27d2563f4f443adbb4</hash>
           <hash_type>MD5</hash_type>
-          <filesize>8494</filesize>
+          <filesize>8343</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/PermissionType.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>4913919283f9dca1b85c6a7f1949ad85</hash>
+          <hash>42e37167bb3f4ff8b8112936e7eda105</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1133</filesize>
+          <filesize>1210</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/PermissionType/Creators.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>956b6b0a8f67251152c695851d6f6e59</hash>
+          <hash>0eb29040e181044bd1d943c9b1f7303d</hash>
           <hash_type>MD5</hash_type>
-          <filesize>912</filesize>
+          <filesize>1196</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/PermissionType/UserLookup.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>8612d5c7371b265e591a381a0d95b10a</hash>
+          <hash>d9573345d18b867e30dbcc550535f1d7</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2478</filesize>
+          <filesize>2672</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/PreviewScripts.pm</filename>
@@ -736,9 +736,16 @@
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPrint/EdShareEdit.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>5d4693e9843bc40a0c8bb51b3d4530c1</hash>
+          <hash>b40784856fc9345375eea84c1be9abc8</hash>
           <hash_type>MD5</hash_type>
-          <filesize>4284</filesize>
+          <filesize>4014</filesize>
+        </file>
+        <file>
+          <filename>plugins/EPrints/Plugin/Screen/EPrint/EdShareRemove.pm</filename>
+          <mime_type>inode/symlink</mime_type>
+          <hash>fa640565ce6ecf12b48858c460d90109</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>125</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Screen/EPrint/EdShareViewRedirect.pm</filename>

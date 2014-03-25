@@ -170,12 +170,9 @@ sub action_list
 {
 	my( $self, $list_id ) = @_;
 	my @list = ();
-#	print STDERR "\n\n";
 	foreach my $item ( $self->list_items( $list_id ) )
 	{
-#		print STDERR $item;
 		next unless $self->action_allowed( $item );
-#		print STDERR " ALLOWED\n";
 		push @list, $item;
 	}
 
