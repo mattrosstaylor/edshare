@@ -14,31 +14,37 @@
         </upload-methods>
     </component>
     <component type="Documents">
-  	<field ref="description"/>
+        <field ref="description"/>
     </component>
 
     <component type="Field::Multi">
-	<title>Resource Information</title>
-	<field ref="title" required="yes" />
-	<field ref="abstract"/>
-	<field ref="license" required="yes" />
-	<field ref="creators" input_lookup_url="{$config{rel_cgipath}}/users/lookup/localname" />
-	<field ref="advice" />
+        <title>Resource Information</title>
+        <field ref="title" required="yes" />
+        <field ref="abstract"/>
+        <field ref="license" required="yes" />
+        <field ref="creators" input_lookup_url="{$config{rel_cgipath}}/users/lookup/localname" />
+        <field ref="advice" />
     </component>
 
     <component type="Field::TagLite">
 	<field ref="raw_keywords" suggestions_url="{$config{rel_cgipath}}/users/lookup/edshare_taglite_suggestions" />
     </component>
-<!--
-    <component type="Field::Multi">
-	<title>Permissions</title>
-	<component type="Field::Permissions"><field ref="view_permissions" /></component>
-	<field ref="edit_permissions" />
-    </component>
--->
+
     <component type="Permissions">
-	<field ref="view_permissions"/>
+        <field ref="view_permissions"/>
+	<available-types>
+            <type>private</type>
+            <type>public</type>
+            <type>restricted</type>
+            <type>Creators</type>
+            <type>UserLookup</type>
+	</available-types>
 	<field ref="edit_permissions"/>
+	<available-types>
+             <type>private</type>
+             <type>Creators</type>
+             <type>UserLookup</type>
+        </available-types>
     </component>
   </stage>
 </workflow>

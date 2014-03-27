@@ -25,6 +25,7 @@ $c->{is_user_permitted} = sub
 	my $values_by_type = $eprint->repository->call( "collate_permission_values_by_type", $eprint->value( $fieldname ) );
 
 	# check basic permissions
+	if ( exists $values_by_type->{private} ) { return "DENY"; }
 	if ( exists $values_by_type->{public} ) { return "ALLOW"; }
 
 	# if permissions are not public - anyone not logged in will be rejected here.

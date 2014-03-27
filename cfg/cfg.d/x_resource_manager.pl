@@ -5,6 +5,6 @@
 # aren't then they will be ignored.
 $c->{resourcemanager_filter_fields} = [
 	'keywords',
-	'view_permissions_type',
+	'view_permissions',
 	'validation_status',
 ];

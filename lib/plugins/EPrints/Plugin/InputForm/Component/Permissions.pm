@@ -24,7 +24,26 @@ sub parse_config
 	my( $self, $config_dom ) = @_;
 
 	my @fields = $config_dom->getElementsByTagName( "field" );
+	my @availabletypes = $config_dom->getElementsByTagName( "available-types" );
 
+	if( scalar @fields != 2 )
+	{
+		push @{$self->{problems}}, $self->{repository}->html_phrase( "Plugin/InputForm/Component/Field:error_missing_field",
+			xml => $self->{repository}->xml->create_text_node( $self->{repository}->xml->to_string( $config_dom ) )
+		);
+	}
+	if( scalar @availabletypes != 2 )
+	{
+		push @{$self->{problems}}, $self->html_phrase( "available-types_missing",
+			xml => $self->{repository}->xml->create_text_node( $self->{repository}->xml->to_string( $config_dom ) )
+		);
+	}
+
+	$self->{config}->{left} = $self->_parse_config_helper( $fields[0], $availabletypes[0]);
+	$self->{config}->{right} = $self->_parse_config_helper( $fields[1], $availabletypes[1]);
+
+=pod
+	my @fields = $config_dom->getElementsByTagName( "field" );
 	if( scalar @fields != 2 )
 	{
 		push @{$self->{problems}}, $self->{repository}->html_phrase( "Plugin/InputForm/Component/Field:error_missing_field",
@@ -38,6 +57,45 @@ sub parse_config
 		$self->{config}->{right}->{field} = $self->xml_to_metafield( $fields[1] );
 		$self->{config}->{right}->{basename} = $self->{prefix}."_".$self->{config}->{right}->{field}->{name};
 	}
+
+	my @availabletypes = $config_dom->getElementsByTagName( "available-types" );
+	if( scalar @availabletypes != 2 )
+	{
+		push @{$self->{problems}}, $self->html_phrase( "available-types_missing",
+			xml => $self->{repository}->xml->create_text_node( $self->{repository}->xml->to_string( $config_dom ) )
+		);
+	}
+	else
+	{
+		$self->{config}->{left}->{types} = [];
+		my @types = $availabletypes[0]->getElementsByTagName( "types" );
+
+		foreach my $type_tag ( @types )
+		{
+			my $type = EPrints::XML::to_string( EPrints::XML::contents_of( $type_tag ) );
+			push @{$self->{config}->{left}->{types}, $type;
+		}
+	}
+=cut
+}
+
+sub _parse_config_helper
+{
+	my( $self, $field, $availabletypes ) = @_;
+	my $subconfig;
+
+	$subconfig->{field} = $self->{field} = $self->xml_to_metafield( $field );
+	$subconfig->{basename} = $self->{prefix}."_".$subconfig->{field}->{name};
+
+	$subconfig->{types} = [];
+	my @types = $availabletypes->getElementsByTagName( "type" );
+
+	foreach my $type_tag ( @types )
+	{
+		my $type = EPrints::XML::to_string( EPrints::XML::contents_of( $type_tag ) );
+		push @{$subconfig->{types}}, $type;
+	}
+	return $subconfig;
 }
 
 sub render_title
@@ -92,7 +150,7 @@ sub _render_list
 
 sub _render_coarse_option
 {
-	my ( $self, $type, $basename, $fieldname, $namedset_name, $first_value_type, $js_var_name ) = @_;
+	my ( $self, $type, $basename, $fieldname, $first_value_type, $js_var_name ) = @_;
 	my $session = $self->{session};
 	my $xml = $session->{xml};
 
@@ -104,7 +162,7 @@ sub _render_coarse_option
 	}
 	$li->appendChild( $xml->create_element( "img", src=>"/images/edshare/$fieldname/$type.png" ) );
 	$li->appendChild( $xml->create_element( "br" ) );
-	$li->appendChild( $session->html_phrase( $namedset_name."_typename_".$type ) );
+	$li->appendChild( $session->html_phrase( $fieldname."_typename_".$type ) );
 
 	return $li;
 }
@@ -133,9 +191,11 @@ sub _render_content_helper
 		$values = $self->{default};
 	}
 
-	my $namedset_name = $dataset->field($fieldname."_type")->{set_name}; 
-	my @permission_types = $session->get_types($namedset_name);
-	my %nameset_hash = map { $_ => 1 } @permission_types;
+#	my $namedset_name = $dataset->field($fieldname."_type")->{set_name}; 
+#	my @permission_types = $session->get_types($namedset_name);
+	my $permission_types = $config->{types};
+
+	my %permission_types_hash = map { $_ => 1 } @$permission_types;
 
 	my $first_value_type;
 	if ( defined @$values[0] ) 
@@ -172,18 +232,18 @@ sub _render_content_helper
 	
 	foreach my $type ('private', 'public', 'restricted')
 	{
-		if( defined $nameset_hash{$type} )
+		if( defined $permission_types_hash{$type} )
 		{	
-			$ul->appendChild( $self->_render_coarse_option( $type, $basename, $fieldname, $namedset_name, $first_value_type, $js_var_name ) );
-			delete $nameset_hash{$type};
+			$ul->appendChild( $self->_render_coarse_option( $type, $basename, $fieldname, $first_value_type, $js_var_name ) );
+			delete $permission_types_hash{$type};
 		}
 	}
 
 	my $xml_string;
-	if (%nameset_hash)
+	if (%permission_types_hash)
 	{
 		# special case for advanced options
-		$ul->appendChild( $self->_render_coarse_option( "custom", $basename, $fieldname, $namedset_name, $first_value_type, $js_var_name ) );
+		$ul->appendChild( $self->_render_coarse_option( "custom", $basename, $fieldname, $first_value_type, $js_var_name ) );
 	}
 
 	my $advanced_wrapper = $xml->create_element( "div", id=>$basename."_advanced_options_wrapper" );
@@ -203,9 +263,9 @@ sub _render_content_helper
 # mrt - maybe I will load the plugins into a nice hashmap a bit later on so I don't spam loading them - but not today....
 	# iterate through the array of types and print any that haven't been rendered yet
 	my $list_element_added = 0;
-	foreach my $type ( @permission_types )
+	foreach my $type ( @$permission_types )
 	{
-		if ( $nameset_hash{$type} )
+		if ( $permission_types_hash{$type} )
 		{
 			my $plugin = $session->plugin( "PermissionType::".$type, fieldname=>$fieldname, basename=>$basename, js_var_name=>$js_var_name );
 			next if (not defined $plugin);
@@ -268,6 +328,6 @@ sub _update_from_form_helper
 	}
 	else
 	{	
-		$obj->set_value( $field->{name} , [ { type=>$coarse_type, value=>$coarse_type} ]);
+		$obj->set_value( $field->{name} , [ { type=>$coarse_type } ]);
 	}
 }

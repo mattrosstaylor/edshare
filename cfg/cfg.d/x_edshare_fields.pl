@@ -94,13 +94,13 @@ $c->{fields}->{eprint} = [
 
 {
 	'name' => 'view_permissions',
-	'type' => 'compound',
+	'type' => 'multipart',
 	'multiple' => 1,
 	'fields' => [
 		{
 			'sub_name' => 'type',
 			'type' => 'namedset',
-			'set_name' => 'view_permissions',
+			'set_name' => 'permissions',
 		},
  		{
 			'sub_name' => 'value',
@@ -112,13 +112,13 @@ $c->{fields}->{eprint} = [
 
 {
 	'name' => 'edit_permissions',
-	'type' => 'compound',
+	'type' => 'multipart',
 	'multiple' => 1,
 	'fields' => [
 		{
 			'sub_name' => 'type',
 			'type' => 'namedset',
-			'set_name' => 'edit_permissions',
+			'set_name' => 'permissions',
 		},
  		{
 			'sub_name' => 'value',
