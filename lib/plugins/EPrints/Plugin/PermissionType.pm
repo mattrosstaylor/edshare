@@ -66,4 +66,11 @@ sub test
 	return "DENY";
 }
 
+sub get_permitted_items_for_user
+{
+	my ( $self, $user ) = @_;
+
+	return 0;
+}
+
 1;

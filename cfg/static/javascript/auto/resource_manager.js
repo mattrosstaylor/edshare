@@ -1,7 +1,7 @@
-document.observe( 'dom:loaded', function() {
+/*document.observe( 'dom:loaded', function() {
 	document.observe('click', updateResourceSelection);
 });
-
+*/
 /*
 window.addRemovalButtons = function() {
 	$$('.ep_resourcemanager_tag_active').each(function(tag) {
@@ -68,7 +68,7 @@ window.selectAll = function(event) {
 	}
 }
 */
-
+/*
 window.updateResourceSelection = function(event) {
 
 	if (!Prototype.Browser.IE && !event.isLeftClick()) return;
@@ -76,7 +76,7 @@ window.updateResourceSelection = function(event) {
 	if (ignoreElement(element)) {
 		return;
 	} else if (!Object.isUndefined(element = event.findElement('.ep_manageable'))) {
-/*		checkbox = $$('#'+element.readAttribute('id')+' .ep_resource_manager_select_check')[0];
+		checkbox = $$('#'+element.readAttribute('id')+' .ep_resource_manager_select_check')[0];
 		if (inBulkSelection(element)) {
 			element.removeClassName('ep_manageable_selected');
 			if (Object.isUndefined(event.findElement('.ep_resource_manager_select_check'))) {
@@ -88,7 +88,7 @@ window.updateResourceSelection = function(event) {
 				checkbox.writeAttribute('checked', true);
 			}
 		}
-		checkbox.blur();*/
+		checkbox.blur();
 		Element.toggleClassName(element, "ep_manageable_showing_more");
 		
 
@@ -117,7 +117,7 @@ window.inBulkSelection = function(element) {
 	var checkbox = $$('#'+element.readAttribute('id')+' .ep_resource_manager_select_check')[0];
 	return checkbox.readAttribute('checked') || element.hasClassName('ep_manageable_selected');
 }
-
+*/
 
 /* mrt - this is currently deactivated since there is no search at the moment
 window.enableSearch = function(event) {
@@ -186,6 +186,6 @@ window.executeBulkAction = function(event) {
 	}*/
 }
 
-function ep_manageable_toggle_detail(eprintid) {
-	$('manageable_id_'+eprintid).toggleClassName('ep_manageable_showing_more');
+function manageable_toggle_detail(eprintid) {
+	$('manageable_id_'+eprintid).toggleClassName('manageable_showing_more');
 }

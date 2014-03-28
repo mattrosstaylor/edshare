@@ -328,6 +328,6 @@ sub _update_from_form_helper
 	}
 	else
 	{	
-		$obj->set_value( $field->{name} , [ { type=>$coarse_type } ]);
+		$obj->set_value( $field->{name} , [ { type=>$coarse_type, value=>$coarse_type } ]);
 	}
 }

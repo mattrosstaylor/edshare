@@ -53,4 +53,24 @@ sub test
 
 	return "DENY";
 }
+
+sub get_permitted_items_for_user
+{
+	my ( $self, $user ) = @_;
+	my $session = $self->{session};
+
+	my $ds = $session->get_dataset( 'eprint' );
+
+	my $search = EPrints::Search->new(
+		dataset => $ds,
+		session => $session,
+		satisfy_all => 1,
+	);
+
+	$search->add_field( $ds->get_field( $self->{fieldname}."_type" ), "Creators", "EX" );
+	$search->add_field( $ds->get_field( "creators_id" ), $user->value( "email" ), "EX" );
+
+	return $search->perform_search;
+}
+
 1;

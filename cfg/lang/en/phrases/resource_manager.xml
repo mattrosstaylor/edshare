@@ -28,10 +28,15 @@
 	<epp:phrase id="Plugin/Screen/ResourceManager:available_tags">Available Filters</epp:phrase>
 
 	<!-- Manageable Citation -->
+	<epp:phrase id="Plugin/Screen/ResourceManager:error">This resource failed validation and is currently inaccessible</epp:phrase>
+	<epp:phrase id="Plugin/Screen/ResourceManager:private">This resource is private and can only be seen by you</epp:phrase>
+	<epp:phrase id="Plugin/Screen/ResourceManager:more">More Detail</epp:phrase>
+	<epp:phrase id="Plugin/Screen/ResourceManager:less">Less Detail</epp:phrase>
 	<epp:phrase id="Plugin/Screen/ResourceManager:view">View</epp:phrase>
 	<epp:phrase id="Plugin/Screen/ResourceManager:edit">Edit</epp:phrase>
-	<epp:phrase id="Plugin/Screen/ResourceManager:deposit">Deposit</epp:phrase>
-	<epp:phrase id="Plugin/Screen/ResourceManager:remove">Remove</epp:phrase>
+	<epp:phrase id="Plugin/Screen/ResourceManager:remove">Delete</epp:phrase>
+	<epp:phrase id="Plugin/Screen/ResourceManager:cannot_edit">You cannot edit this item because it is currently being edited by someone else</epp:phrase>
+	<epp:phrase id="Plugin/Screen/ResourceManager:cannot_remove">You cannot delete this item because it doesn't belong to you</epp:phrase>
 
 	<!-- Manageable Metadata -->
 	<epp:phrase id="eprint_fieldname_status">Status</epp:phrase>
@@ -39,6 +44,5 @@
 	<!-- CGI Scripts -->
 	<epp:phrase id="cgi/resourcemanager:must_be_logged_in">You must be logged in to view this list.</epp:phrase>
 	<epp:phrase id="cgi/resourcemanager:no_type_defined">The 'type' parameter must be defined.</epp:phrase>
-	<epp:phrase id="cgi/resourcemanager:no_resources"><epc:phrase ref="Plugin/Screen/ResourceManager:no_resources"/></epp:phrase>
 
 </epp:phrases>

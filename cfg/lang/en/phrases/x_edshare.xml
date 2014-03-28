@@ -80,7 +80,7 @@
 
 -->
 
-	<epp:phrase id="Plugin/InputForm/Component/Permissions:title">Permissions</epp:phrase>
+	<epp:phrase id="Plugin/InputForm/Component/Permissions:title">Permissions and Sharing</epp:phrase>
 	<epp:phrase id="Plugin/InputForm/Component/Permissions:no_custom_values"><epc:pin name="field"/> have reverted to <epc:pin name="revert" /> because no custom options were selected.</epp:phrase>
 	<epp:phrase id="eprint_fieldname_view_permissions">View Permissions</epp:phrase>
 	<epp:phrase id="eprint_fieldname_view_permissions_type">Visibility</epp:phrase>

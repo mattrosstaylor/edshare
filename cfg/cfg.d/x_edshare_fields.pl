@@ -94,7 +94,7 @@ $c->{fields}->{eprint} = [
 
 {
 	'name' => 'view_permissions',
-	'type' => 'multipart',
+	'type' => 'compound',
 	'multiple' => 1,
 	'fields' => [
 		{
@@ -112,7 +112,7 @@ $c->{fields}->{eprint} = [
 
 {
 	'name' => 'edit_permissions',
-	'type' => 'multipart',
+	'type' => 'compound',
 	'multiple' => 1,
 	'fields' => [
 		{

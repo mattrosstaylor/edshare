@@ -33,6 +33,122 @@ sub render
 	my $session = $self->{session};
 
 	my $frag = $session->make_doc_fragment;
+
+	$frag->appendChild( $self->render_action_list_bar( "item_tools" ) );
+	
+	my $container = $session->make_element ( "div", id=>"resource_manager_container" );
+	my $controls = $session->make_element ( "div" , id=>"resource_manager_left" );
+	my $list = $session->make_element( 'div', id=>"resource_manager_right" );
+	$container->appendChild( $controls );
+	$container->appendChild( $list );
+	$frag->appendChild( $container );
+	
+	#$controls->appendChild( $self->_render_controls() );
+
+	my $items = $self->_generate_item_list;
+	$list->appendChild( $self->_render_item_list( $items ) );
+
+	$container->appendChild( $session->make_element( "div", class=>"clearer" ) );
+
+	return $frag;
+}
+
+
+sub _render_controls
+{
+	my( $self ) = @_;
+	
+}
+
+sub _render_item_list
+{
+	my( $self, $eprint_list ) = @_;
+	my $session = $self->{session};
+
+	my $item_list = $session->make_doc_fragment;
+
+	if( !$eprint_list->count )
+	{
+		$item_list->appendChild( $session->html_phrase( 'Plugin/Screen/ResourceManager:no_resources' ) );
+	}
+	else
+	{
+		my %info;
+		$info{dom} = $item_list;
+
+		$eprint_list->map( sub{
+			my( $session, $dataset, $eprint, $info ) = @_;
+
+			my $owned = ($session->current_user->id == $eprint->value("userid"));
+			my $url;
+			if( $eprint->get_value( 'eprint_status' ) eq 'archive' )
+			{
+				$url = $eprint->get_url;
+			}
+			else
+			{
+				$url = $session->get_repository->get_conf( 'rel_path' ).'/cgi/users/home?screen=EPrint::Summary&eprintid='.$eprint->get_id;
+			}
+			my $container;
+			if ( $owned )
+			{
+				$container = $session->make_element( "div", id => "manageable_id_".$eprint->get_id, class => "manageable" );
+			}
+			else
+			{
+
+				$container = $session->make_element( "div", id => "manageable_id_".$eprint->get_id, class => "manageable manageable_shared" );
+			}			
+
+			my $flags = {
+					can_remove=> $owned,
+					can_edit=> $eprint->could_obtain_lock( $session->current_user ),
+			};
+			$container->appendChild( $eprint->render_citation( 'manageable', url => $url, flags=>$flags ) );
+			$info->{dom}->appendChild( $container );
+		}, \%info );
+	}
+
+	return $item_list;
+}
+
+sub _generate_item_list
+{
+	my( $self ) = @_;
+	my $session = $self->{session};
+
+	my $user = $session->current_user;
+        my $ds = $session->get_dataset( 'eprint' );
+
+        my $search = EPrints::Search->new(
+                dataset => $ds,
+                session => $session,
+        );
+
+        $search->add_field( $ds->get_field("userid"), $user->id);
+
+	my $all_items = $search->perform_search;
+
+
+	my @permission_types = qw/ Creators UserLookup/; 
+	foreach my $type (@permission_types)
+	{
+		my $plugin = $session->plugin( "PermissionType::".$type, fieldname=>"edit_permissions" );
+		next if (not defined $plugin);
+		my $items = $plugin->get_permitted_items_for_user( $user );
+		$all_items = $all_items->union( $items );	
+	}
+
+	return $all_items->reorder( "-lastmod" );
+}
+
+=pod
+sub render
+{
+	my( $self ) = @_;
+	my $session = $self->{session};
+
+	my $frag = $session->make_doc_fragment;
 	$frag->appendChild( $self->render_action_list_bar( 'item_tools' ) );
 	
 	my $id_prefix = "ed_resourcemanager";
@@ -102,7 +218,7 @@ document.observe('dom:loaded', function() {
 
 	return $frag;
 }
-
+=cut
 
 sub _render_bulk_action_form
 {
