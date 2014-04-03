@@ -51,7 +51,6 @@
 
 <div class="manageable_data_wrapper">
 	<div class="manageable_data">
-		<!--    <input type="checkbox" name="bulkaction_eprintids" value="{eprintid}" id="select-{eprintid}" class="ep_resource_manager_select_check"/> -->
 		<cite:linkhere><span title="{title}" class="manageable_data_title"><print expr="title"/></span></cite:linkhere>
 		<epc:choose>
 			<epc:when test="validation_status = 'error'">

@@ -162,7 +162,7 @@ sub _render_coarse_option
 	}
 	$li->appendChild( $xml->create_element( "img", src=>"/images/edshare/$fieldname/$type.png" ) );
 	$li->appendChild( $xml->create_element( "br" ) );
-	$li->appendChild( $session->html_phrase( $fieldname."_typename_".$type ) );
+	$li->appendChild( $session->html_phrase( "permissions_typename_".$type ) );
 
 	return $li;
 }
@@ -320,7 +320,7 @@ sub _update_from_form_helper
 
 		if ( scalar ( @permissions) == 0 )
 		{
-			$processor->add_message( "warning", $self->html_phrase( "no_custom_values", field=>$field->render_name, revert=>$session->html_phrase( $field->name."_typename_private" ) ) );
+			$processor->add_message( "warning", $self->html_phrase( "no_custom_values", field=>$field->render_name, revert=>$session->html_phrase( "permissions_typename_private" ) ) );
 			push (@permissions, {type=>"private", value=>"private" } );
 		} 
 

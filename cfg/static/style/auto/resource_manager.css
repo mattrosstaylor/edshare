@@ -1,5 +1,6 @@
 #resource_manager_left {
 	width: 25%;
+	float: left;
 }
 
 #resource_manager_right {
@@ -7,6 +8,33 @@
 	float: right;
 }
 
+/* controls */
+.resource_manager_control_title {
+	font-weight: bold;
+	font-size: 110%;
+	margin-top: 10px;
+}
+
+.resource_manager_control_block ul {
+	list-style: none;
+	margin: 5px;
+	padding: 0;
+}
+
+.resource_manager_control_block li {
+	padding-bottom: 3px;
+}
+
+.resource_manager_control_block img {
+	vertical-align: middle;
+}
+
+.resource_manager_show_control {
+	text-size: 120%;
+}
+
+
+/* manageable items */
 .manageable img {
 	vertical-align: middle;
 	height: 20px;

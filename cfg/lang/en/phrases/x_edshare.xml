@@ -112,19 +112,13 @@
 	<epp:phrase id="eprint_fieldname_lastmod">Date</epp:phrase>
 
 <!-- views -->
-	<epp:phrase id="view_permissions_typename_private">Only Me</epp:phrase>
-	<epp:phrase id="view_permissions_typename_public">Public</epp:phrase>
-	<epp:phrase id="view_permissions_typename_restricted">Registered Users</epp:phrase>
-	<epp:phrase id="view_permissions_typename_custom">Custom</epp:phrase>
-	<epp:phrase id="view_permissions_typename_unknown">Unknown</epp:phrase>
-	<epp:phrase id="view_permissions_typename_UserLookup">Selected Users</epp:phrase>
-	<epp:phrase id="view_permissions_typename_Creators">Listed Creators</epp:phrase>
-
-	<epp:phrase id="edit_permissions_typename_private">Only Me</epp:phrase>
-	<epp:phrase id="edit_permissions_typename_custom">Custom</epp:phrase>
-	<epp:phrase id="edit_permissions_typename_unknown">Unknown</epp:phrase>
-	<epp:phrase id="edit_permissions_typename_UserLookup">Selected Users</epp:phrase>
-	<epp:phrase id="edit_permissions_typename_Creators">Listed Creators</epp:phrase>
+	<epp:phrase id="permissions_typename_private">Only Me</epp:phrase>
+	<epp:phrase id="permissions_typename_public">Public</epp:phrase>
+	<epp:phrase id="permissions_typename_restricted">Registered Users</epp:phrase>
+	<epp:phrase id="permissions_typename_custom">Custom</epp:phrase>
+	<epp:phrase id="permissions_typename_unknown">Unknown</epp:phrase>
+	<epp:phrase id="permissions_typename_UserLookup">Selected Users</epp:phrase>
+	<epp:phrase id="permissions_typename_Creators">Listed Creators</epp:phrase>
 
 	<epp:phrase id="Plugin/PermissionType/Creators:render_value">Listed Creators</epp:phrase>
 	

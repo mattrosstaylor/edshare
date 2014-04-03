@@ -127,6 +127,7 @@ sub get_permitted_items_for_user
 		dataset => $ds,
 		session => $session,
 		satisfy_all => 1,
+		order => "-lastmod",
 	);
 
 	$search->add_field( $ds->get_field( $self->{fieldname}."_type" ), "UserLookup", "EX" );
