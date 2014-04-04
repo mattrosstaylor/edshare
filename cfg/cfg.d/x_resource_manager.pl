@@ -8,3 +8,5 @@ $c->{resource_manager_filter_fields} = [
 	'view_permissions_type',
 	'validation_status',
 ];
+
+$c->{resource_manager_default_show} = 'mine';

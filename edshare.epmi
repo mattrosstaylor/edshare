@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <epm xmlns='http://eprints.org/ep2/data/2.0' id='http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/edshare'>
   <epmid>edshare</epmid>
-  <uri>http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/edshare</uri>
+  <uri>http://lslvm-mrt5b.ecs.soton.ac.uk/id/epm/edshare</uri>
   <documents>
     <document>
       <files>
@@ -92,9 +92,9 @@
         <file>
           <filename>epm/edshare/cfg/cfg.d/x_resource_manager.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>963f40e273db7b81217294ca4815f157</hash>
+          <hash>af62ff69375fdd037e24a4a67bacd44c</hash>
           <hash_type>MD5</hash_type>
-          <filesize>329</filesize>
+          <filesize>376</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/citations/document/preview_selector.xml</filename>
@@ -526,9 +526,9 @@
         <file>
           <filename>epm/edshare/cfg/static/style/auto/resource_manager.css</filename>
           <mime_type>text/x-c</mime_type>
-          <hash>8bb8251bc3c3af20fd7663e40cd1b439</hash>
+          <hash>171c343b19007b79e99ae3194368e91e</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1708</filesize>
+          <filesize>1794</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/static/style/auto/taglite.css</filename>
@@ -615,13 +615,6 @@
           <filesize>3644</filesize>
         </file>
         <file>
-          <filename>epm/edshare/cgi/users/resource_manager</filename>
-          <mime_type>text/x-c++</mime_type>
-          <hash>9861702522e7839e592afe38aeb05635</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>2802</filesize>
-        </file>
-        <file>
           <filename>plugins/EPrints/Plugin/Convert/OfficePreview.pm</filename>
           <mime_type>inode/symlink</mime_type>
           <hash>c422468d552811beee4fb085001cf1c1</hash>
@@ -690,13 +683,6 @@
           <hash>fcadcd30bf7440ccbfbbad4ff026b0dd</hash>
           <hash_type>MD5</hash_type>
           <filesize>1489</filesize>
-        </file>
-        <file>
-          <filename>plugins/EPrints/Plugin/ResourceManagerFilter.pm</filename>
-          <mime_type>inode/symlink</mime_type>
-          <hash>cee763327365c50a2b72e5a7eb56ac5e</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>7206</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Screen/BrowseViews.pm</filename>
@@ -792,9 +778,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/Screen/ResourceManager.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>b7d8d27fc49357345cb4e1767e5cfa4b</hash>
+          <hash>4eb071b683bba0461749aace32de6d59</hash>
           <hash_type>MD5</hash_type>
-          <filesize>10653</filesize>
+          <filesize>11812</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/TagCloud.pm</filename>

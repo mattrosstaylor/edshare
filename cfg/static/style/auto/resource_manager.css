@@ -33,6 +33,11 @@
 	text-size: 120%;
 }
 
+.resource_manager_filter_count {
+	font-size: 60%;
+	color: gray;
+	padding-left: 7px;
+}
 
 /* manageable items */
 .manageable img {

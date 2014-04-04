@@ -89,7 +89,7 @@ sub _get_show_setting
 
 	if ( not scalar (@$show) ) 
 	{
-		return "mine";
+		return $self->{session}->get_repository->get_conf( 'resource_manager_default_show' );
 	}
 	return @$show[0];
 }
@@ -214,7 +214,9 @@ sub _render_filter_control
 		}
 
 		$li->appendChild( $anchor );
-		$li->appendChild( $session->make_text( " (".$count.")" ) );
+		my $count_span = $session->make_element( "span", class=>"resource_manager_filter_count" );
+		$count_span->appendChild( $session->make_text( "(".$count.")" ) );
+		$li->appendChild( $count_span );
 		$ul->appendChild( $li );
 	}
 	return $block;
@@ -259,13 +261,14 @@ sub _get_possible_filter_values
 {
 	my( $self, $fieldname, $eprint_list ) = @_;
 	my $session = $self->{session};
+	my $database = $session->get_database;
 
 	return () unless( defined $eprint_list && $eprint_list->count );
 
 	my $current_filter_values = $self->_get_current_filter_values( $fieldname );
 
-	my $Q_fieldname = $session->get_database->quote_identifier( $fieldname );
-	my $Q_eprintid = $session->get_database->quote_identifier( 'eprintid' );
+	my $Q_fieldname = $database->quote_identifier( $fieldname );
+	my $Q_eprintid = $database->quote_identifier( 'eprintid' );
 	my $Q_eprint_fieldname_table;
 
 	my $ds = $session->get_dataset( 'eprint' );
@@ -273,34 +276,60 @@ sub _get_possible_filter_values
 
 	if ( $metafield->get_property( 'multiple' ) )
 	{
-		$Q_eprint_fieldname_table = $session->get_database->quote_identifier( 'eprint_'.$fieldname );
+		$Q_eprint_fieldname_table = $database->quote_identifier( 'eprint_'.$fieldname );
 	}
 	else
 	{
-		$Q_eprint_fieldname_table = $session->get_database->quote_identifier( 'eprint' );
+		$Q_eprint_fieldname_table = $database->quote_identifier( 'eprint' );
 	}
 
 	my $sql = "SELECT $Q_fieldname, count(*) FROM $Q_eprint_fieldname_table WHERE ";
 
-	$sql .= " $Q_eprintid IN (".join( ",", map { $session->get_database->quote_int( $_ ) } @{$eprint_list->get_ids} ).")";
+	$sql .= " $Q_eprintid IN (".join( ",", map { $database->quote_int( $_ ) } @{$eprint_list->get_ids} ).")";
 
 	if( scalar @{$current_filter_values} )
 	{
-		$sql .= " AND $Q_fieldname NOT IN (".join( ",", map { $session->get_database->quote_value( $_ ) } @{$current_filter_values} ).")";
+		$sql .= " AND $Q_fieldname NOT IN (".join( ",", map { $database->quote_value( $_ ) } @{$current_filter_values} ).")";
 	}
 
 	$sql .= " GROUP BY $Q_fieldname ORDER BY $Q_fieldname";
 
 	my @possible_filter_values;
 
-	my $sth = $session->get_database->prepare( $sql );
-	$session->get_database->execute( $sth, $sql );
+	my $sth = $database->prepare( $sql );
+	$database->execute( $sth, $sql );
 	while( my @r = $sth->fetchrow_array )
 	{
 		push @possible_filter_values, [@r];
 	}	
 
 	return \@possible_filter_values;
+}
+
+sub _get_filtered_item_list
+{
+	my( $self ) = @_;
+	my $session = $self->{session};
+	my $ds = $session->get_dataset( 'eprint' );
+
+	my $search = EPrints::Search->new(
+		dataset => $ds,
+		session => $session,
+	);
+
+	my $at_least_one_filter_active = 0;
+	foreach my $field ( @{$session->get_repository->get_conf( 'resource_manager_filter_fields' )} )
+	{
+		my @values = @{$self->_get_current_filter_values( $field )};
+		if( scalar @values )
+		{
+			$at_least_one_filter_active = 1;
+			$search->add_field( $ds->get_field( $field ), join( ' ', @values ), "IN", "ALL");
+		}
+	}
+
+	return if not $at_least_one_filter_active;
+	return $search->perform_search;
 }
 
 sub _render_item_list
@@ -363,13 +392,9 @@ sub _generate_item_list
 	my $user = $session->current_user;
         my $ds = $session->get_dataset( 'eprint' );
 
-	my $all_items = EPrints::List->new(
-		dataset => $ds,
-		session => $session,
-		ids => [],
-	);
-
 	my $show = $self->_get_show_setting;
+
+	my $my_items;
 
 	if ( $show eq "mine" or $show eq "both" )
 	{
@@ -381,20 +406,43 @@ sub _generate_item_list
 
 		$search->add_field( $ds->get_field("userid"), $user->id);
 
-		$all_items = $search->perform_search;
+		$my_items = $search->perform_search;
 	}
+	else
+	{
+		$my_items = EPrints::List->new(
+			dataset => $ds,
+			session => $session,
+			ids => [],
+		);
+	}
+
+	my $shared_items = EPrints::List->new(
+		dataset => $ds,
+		session => $session,
+		ids => [],
+	);
 
 	if ( $show eq "shared" or $show eq "both" )
 	{
+	
 		my @permission_types = qw/ Creators UserLookup/; 
 		foreach my $type (@permission_types)
 		{
 			my $plugin = $session->plugin( "PermissionType::".$type, fieldname=>"edit_permissions" );
 			next if (not defined $plugin);
-			my $items = $plugin->get_permitted_items_for_user( $user );
 			
-			$all_items = $all_items->union( $items );	
+			$shared_items = $shared_items->union( $plugin->get_permitted_items_for_user( $user ) );	
 		}
+
+		$shared_items = $shared_items->remainder( $my_items );
+	}
+	my $all_items = $my_items->union( $shared_items );
+
+	my $filtered_items = $self->_get_filtered_item_list;
+	if ( defined $filtered_items )
+	{
+		$all_items = $all_items->intersect( $filtered_items );
 	}
 
 	return $all_items->reorder( "-lastmod" );
