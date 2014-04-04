@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <epm xmlns='http://eprints.org/ep2/data/2.0' id='http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/edshare'>
   <epmid>edshare</epmid>
-  <uri>http://lslvm-mrt5b.ecs.soton.ac.uk/id/epm/edshare</uri>
+  <uri>http://lslvm-mrt5.ecs.soton.ac.uk/id/epm/edshare</uri>
   <documents>
     <document>
       <files>
@@ -169,9 +169,9 @@
         <file>
           <filename>epm/edshare/cfg/lang/en/phrases/resource_manager.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>1ed65b2273b2433ad1fbc9abb225d851</hash>
+          <hash>cc2b4137cf5608c47fe4b865e77a2715</hash>
           <hash_type>MD5</hash_type>
-          <filesize>3347</filesize>
+          <filesize>2039</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/lang/en/phrases/x_edshare.xml</filename>
@@ -526,9 +526,9 @@
         <file>
           <filename>epm/edshare/cfg/static/style/auto/resource_manager.css</filename>
           <mime_type>text/x-c</mime_type>
-          <hash>171c343b19007b79e99ae3194368e91e</hash>
+          <hash>67e15b28add7edc4ce2b409b28b0071c</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1794</filesize>
+          <filesize>2328</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/static/style/auto/taglite.css</filename>
@@ -778,9 +778,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/Screen/ResourceManager.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>4eb071b683bba0461749aace32de6d59</hash>
+          <hash>b146c8e2f673b0198b1b662cb79db699</hash>
           <hash_type>MD5</hash_type>
-          <filesize>11812</filesize>
+          <filesize>12280</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/TagCloud.pm</filename>

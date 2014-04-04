@@ -3,41 +3,79 @@
 	float: left;
 }
 
+#resource_manager_left h1 {
+	text-align: left;
+}
+
+
 #resource_manager_right {
 	width: 75%;
 	float: right;
 }
 
 /* controls */
-.resource_manager_control_title {
-	font-weight: bold;
-	font-size: 110%;
-	margin-top: 10px;
+.resource_manager_control {
+	padding-bottom: 5px;
+	margin-right: 10px;
 }
 
-.resource_manager_control_block ul {
+.resource_manager_control_title {
+	font-weight: bold;
+	font-size: 13px;
+}
+
+.resource_manager_control ul {
 	list-style: none;
 	margin: 5px;
 	padding: 0;
+	font-size: 12px;
 }
 
-.resource_manager_control_block li {
-	padding-bottom: 3px;
+.resource_manager_control li {
+	padding-bottom: 2px;
 }
 
-.resource_manager_control_block img {
+.resource_manager_control img {
 	vertical-align: middle;
-}
-
-.resource_manager_show_control {
-	text-size: 120%;
+	height: 12px;
 }
 
 .resource_manager_filter_count {
-	font-size: 60%;
+	font-size: 10px;
 	color: gray;
 	padding-left: 7px;
 }
+
+.resource_manager_top_controls {
+	margin: 15px 0;
+}
+
+.resource_manager_show_control ul {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	text-align: left;
+	float: left;
+}
+
+.resource_manager_show_control li {
+	display: inline;
+	padding: 0 15px 0 0;
+	margin: 0;
+}
+
+.resource_manager_show_control a {
+	color: black;
+}
+
+#resource_manager_right .ep_form_action_button, #resource_manager_right .ep_block {
+	margin: 0;
+}
+
+#resource_manager_right .ep_block {
+	float: right;
+}
+
 
 /* manageable items */
 .manageable img {

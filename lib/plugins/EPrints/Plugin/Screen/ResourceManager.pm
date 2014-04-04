@@ -47,8 +47,6 @@ sub render
 	my $session = $self->{session};
 
 	my $frag = $session->make_doc_fragment;
-
-	$frag->appendChild( $self->render_action_list_bar( "item_tools" ) );
 	
 	my $container = $session->make_element ( "div", id=>"resource_manager_container" );
 	my $controls = $session->make_element ( "div" , id=>"resource_manager_left" );
@@ -62,7 +60,8 @@ sub render
 	$list->appendChild( $self->_render_item_list( $items ) );
 
 	$container->appendChild( $session->make_element( "div", class=>"clearer" ) );
-
+	
+	$frag->appendChild( $session->make_javascript( "edshare_suppress_page_title();" ) );
 	return $frag;
 }
 
@@ -99,18 +98,19 @@ sub _render_controls
 	my( $self, $eprint_list ) = @_;
 	my $session = $self->{session};
 
-	my $controls = $session->make_doc_fragment;
-
-	$controls->appendChild( $self->_render_show_control );
+	my $frag = $session->make_doc_fragment;
+	my $title = $session->make_element( "h2" );
+	$title->appendChild( $self->render_title );
+	$frag->appendChild( $title );
 
 	my @filter_fields = @{$self->{session}->get_repository->get_conf( 'resource_manager_filter_fields' )};
 
 	foreach my $fieldname (@filter_fields)
 	{
-		$controls->appendChild( $self->_render_filter_control( $fieldname, $eprint_list ) );
+		$frag->appendChild( $self->_render_filter_control( $fieldname, $eprint_list ) );
 	}
 
-	return $controls;
+	return $frag;
 }
 
 sub _render_show_control
@@ -118,11 +118,7 @@ sub _render_show_control
 	my( $self) = @_;
 	my $session = $self->{session};
 
-	my $block = $session->make_element( "div", class=>"resource_manager_control_block" );
-
-	my $title = $session->make_element( "div", class=>"resource_manager_control_title" );
-	$title->appendChild( $self->html_phrase( "show_title" ) );
-	$block->appendChild( $title );
+	my $block = $session->make_element( "div", class=>"resource_manager_show_control" );
 
 	my $ul = $session->make_element( "ul" );
 	$block->appendChild( $ul );
@@ -132,22 +128,21 @@ sub _render_show_control
 
 	foreach my $show ( @show_options )
 	{
-		if ( not $show eq $current_show )
+		my $li = $session->make_element( "li" );
+
+		if ( $show eq $current_show )
 		{
-			my $li = $session->make_element( "li" );
-			my $url = $self->_make_filter_query_string( "show", $show, 0 );
-			my $anchor = $session->make_element( "a", href=>$url );
-			$li->appendChild( $anchor );
-			$anchor->appendChild( $self->html_phrase( "show_".$show ) );
-			$ul->appendChild( $li );
+			my $span = $session->make_element( "span", style=>"font-weight:bold" );
+			$span->appendChild( $self->html_phrase( "show_$show" ) );
+			$li->appendChild( $span );
 		}
 		else
 		{
-			my $li = $session->make_element( "li" );
-			$li->appendChild( $self->html_phrase( "show_".$show ) );
-			$ul->appendChild( $li );
-
+			my $anchor = $session->make_element( "a", href=>$self->_make_filter_query_string( "show", $show, 0 ) );
+			$anchor->appendChild( $self->html_phrase( "show_$show" ) );
+			$li->appendChild( $anchor );
 		}
+		$ul->appendChild( $li );
 	}
 	return $block;
 }
@@ -161,7 +156,7 @@ sub _render_filter_control
 	my $metafield = $ds->get_field( $fieldname );
 	my $field_isa_set =  ( $metafield->get_type eq 'set' || $metafield->get_type eq 'namedset' );
 
-	my $block = $session->make_element( "div", class=>"resource_manager_control_block" );
+	my $block = $session->make_element( "div", class=>"resource_manager_control" );
 
 	my $title = $session->make_element( "div", class=>"resource_manager_control_title" );
 	$title->appendChild( $metafield->render_name );
@@ -177,7 +172,7 @@ sub _render_filter_control
 	{
 		my $li = $session->make_element( "li" );
 		my $url = $self->_make_filter_query_string( $fieldname, $filter, -1 );
-		my $anchor = $session->make_element( "a", href=>$url );
+		my $anchor = $session->make_element( "a", href=>$url, style=>"font-weight: bold" );
 		$anchor->appendChild( $session->make_element('img', src => '/images/resource_manager/checkbox_yes.png') );
 
 		if ( $field_isa_set )
@@ -217,6 +212,13 @@ sub _render_filter_control
 		my $count_span = $session->make_element( "span", class=>"resource_manager_filter_count" );
 		$count_span->appendChild( $session->make_text( "(".$count.")" ) );
 		$li->appendChild( $count_span );
+		$ul->appendChild( $li );
+	}
+
+	if ( not ( scalar @$current_filter_values or scalar @$filter_counts ) )
+	{
+		my $li = $session->make_element( "li" );
+		$li->appendChild( $self->html_phrase( "no_filter_values" ) );
 		$ul->appendChild( $li );
 	}
 	return $block;
@@ -338,6 +340,12 @@ sub _render_item_list
 	my $session = $self->{session};
 
 	my $item_list = $session->make_doc_fragment;
+
+	my $controls = $session->make_element( "div", class=>"resource_manager_top_controls" );
+	$item_list->appendChild( $controls );
+	$controls->appendChild( $self->_render_show_control );
+	$controls->appendChild( $self->render_action_list_bar( "item_tools" ) );
+	$controls->appendChild( $session->make_element( "div", class=>"clearer" ) );
 
 	if( !$eprint_list->count )
 	{
