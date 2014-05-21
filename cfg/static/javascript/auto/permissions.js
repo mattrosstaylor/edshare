@@ -116,7 +116,7 @@ function ep_autocompleter_user_lookup( element, target, url, searchType, varName
 
 		onShow: function(element, update) {
 			update.style.position = 'absolute';
-			Position.clone(element, update, {
+			Element.clonePosition(element, update, {
 				setWidth: false,
 				setHeight: false,
 				setLeft: element.offsetLeft,

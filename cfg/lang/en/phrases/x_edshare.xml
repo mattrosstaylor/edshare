@@ -145,4 +145,7 @@
 	<epp:phrase id="ordername_eprint_byyearoldest">oldest first</epp:phrase>
 
 	<epp:phrase id="viewname_eprint_keywords">Keywords</epp:phrase>
+	<epp:phrase id="viewname_eprint_creators">Creators</epp:phrase>
+	<epp:phrase id="viewtitle_eprint_creators_menu_1">Browse by Creator</epp:phrase>
+	<epp:phrase id="viewtitle_eprint_creators_list">Resources where Creator is "<epc:pin name="value1" />"</epp:phrase>
 </epp:phrases>

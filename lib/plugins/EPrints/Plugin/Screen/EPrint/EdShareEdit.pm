@@ -23,12 +23,11 @@ sub workflow_id
 
 	my $repo = $self->{repository};
 
-	if ( $repo->can_call("edshare_choose_workflow") )
-	{
-		return $repo->call("edshare_choose_workflow", $self->{processor}->{eprint} );
-	}
-
-	return "default";
+	my $resource_type = $self->{processor}->{eprint}->get_type;
+	
+	return "default" if $resource_type eq "resource";
+	
+	return $resource_type;
 }
 
 sub render_blister 

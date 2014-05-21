@@ -1,4 +1,4 @@
-$c->{summary_page_metadata} = [qw/
+$c->{default_summary_metadata} = [qw/
 	userid
 	lastmod
 	creators
@@ -51,10 +51,19 @@ $c->{eprint_render} = sub
 
 	my $preview_dimensions = $repository->call( "preview_dimensions" );
 
+	my $metadata = $repository->config( "default_summary_metadata" );
+	
+	if ( $eprint->get_type ne "resource" )
+	{
+		$metadata = $repository->config( $eprint->get_type."_summary_metadata");
+	}
+
+
 	my $flags = { 
 		has_multiple_versions => $eprint->in_thread( $succeeds_field ),
 		in_commentary_thread => $eprint->in_thread( $commentary_field ),
 		preview_width => $preview_dimensions->{width},
+		metadata_list => $metadata,
 	};
 	my %fragments = ();
 	$repository->call("render_fragments", $eprint, $repository, $preview, \%fragments);

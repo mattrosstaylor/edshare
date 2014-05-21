@@ -20,7 +20,7 @@
 		</div>
 		<div class="ep_block">
 			<table class="edshare_summary_table" style="margin-bottom: 1em; margin-top: 1em;" cellpadding="3">
-				<epc:foreach expr="$config{summary_page_metadata}" iterator="fieldname">
+				<epc:foreach expr="$flags{metadata_list}" iterator="fieldname">
 					<epc:if test="is_set($item.property($fieldname))">
 						<tr>
 							<th align="right"><epc:phrase ref="eprint_fieldname_{$fieldname}" />:</th>

@@ -5,6 +5,51 @@ package EPrints::Plugin::EdShareUtils;
 use strict;
 use warnings;
 
+sub render_name_list
+{
+        my ( $session , $field , $value, $alllangs, $nolink, $object ) = @_;
+
+        if( scalar(@$value) == 0)
+        {
+                return $session->make_doc_fragment;
+        }
+
+        # let's not rendered a list for only a single name
+        if(scalar(@$value) == 1)
+        {
+                my $first = $$value[0];
+                if(!defined $first || (!defined $first->{given} && !defined $first->{family}))
+                {
+                        print STDERR "\nFound name with no given_name or no family_name, eprintid is ".$object->get_id;
+                        return $session->make_doc_fragment;
+                }
+
+                return _render_single_name( $session, $first, $field->name );
+        }
+
+        my $ul = $session->make_element( "ul", "class" => "ed_creatorsname" );
+
+        foreach my $name ( @$value )
+        {
+                if(!defined $name || (!defined $name->{given} && !defined $name->{family}))
+                {
+                        if(defined $object){
+                                print STDERR "\nFound name with no given_name or no family_name, eprintid is ".$object->get_id;
+                        }
+                        next;
+                }
+
+                my $li = $session->make_element( "li" );
+                $ul->appendChild( $li );
+                $li->appendChild( _render_single_name( $session, $name, $field->name ) );
+        }
+
+        return $ul;
+}
+
+
+
+
 sub render_creators_name
 {
         my ( $session , $field , $value, $alllangs, $nolink, $object ) = @_;
@@ -24,7 +69,7 @@ sub render_creators_name
                         return $session->make_doc_fragment;
                 }
 
-                return _render_single_name( $session, $creator );
+                return _render_single_name( $session, $creator->{name}, "creators_name" );
         }
 
         my $ul = $session->make_element( "ul", "class" => "ed_creatorsname" );
@@ -41,7 +86,7 @@ sub render_creators_name
 
                 my $li = $session->make_element( "li" );
                 $ul->appendChild( $li );
-                $li->appendChild( _render_single_name( $session, $creator) );
+                $li->appendChild( _render_single_name( $session, $creator->{name}, "creators_name" ) );
         }
 
         return $ul;
@@ -49,39 +94,59 @@ sub render_creators_name
 
 sub _render_single_name
 {
-        my ($session, $creator) = @_;
+	my ( $session, $name, $fieldname ) = @_;
 
-        my $name = $creator->{name};
-        my $email = $creator->{id};
+	my $given = $name->{given};
+	my $family = $name->{family};
+	my $honourific = $name->{honourific};
+	my $rendered = "";
 
-        my $given = $name->{given};
-        my $family = $name->{family};
-        my $honourific = $name->{honourific};
-        my $rendered = "";
+	#might need extra sanity test
+	$rendered .= $honourific." " if( defined $honourific && $honourific ne "" );
+	$rendered .= $given." " if(defined $given && $given ne "");
+	$rendered .= $family if(defined $family && $family ne "");
 
-        #might need extra sanity test
-        $rendered .= $honourific." " if( defined $honourific && $honourific ne "" );
-        $rendered .= $given." " if(defined $given && $given ne "");
-        $rendered .= $family if(defined $family && $family ne "");
+	my $span = $session->make_element( "span", "class" => "person_name" );
 
-        my $span = $session->make_element( "span", "class" => "person_name" );
+	my $perl_url = $session->get_repository->get_conf( "perl_url" );
 
-        my $perl_url = $session->get_repository->get_conf( "perl_url" );
+	if ( defined( $fieldname ) )
+	{
+		my $link = $session->make_element( "a", "target" => "_blank",
+"href" => $perl_url."/search/advanced?screen=Public%3A%3AEPrintSearch&_action_search=Search&title_merge=ALL&title=&".$fieldname."_merge=ALL&".$fieldname."=".$family."&satisfyall=ALL&order=-date%2F".$fieldname."%2Ftitle" );
 
-        my $link = $session->make_element( "a", "target" => "_blank",
-                                                "href" => $perl_url."/search/advanced?screen=Public%3A%3AEPrintSearch&_action_search=Search&title_merge=ALL&title=&creators_name_merge=ALL&creators_name=".$family."&satisfyall=ALL&order=-date%2Fcreators_name%2Ftitle" );
+		$span->appendChild( $link );
+		$link->appendChild( $session->make_text( $rendered ) );
+	}
+	else
+	{
+		$span->appendChild( $session->make_text( $rendered) );
+	}
 
-        $span->appendChild( $link );
 
-        $link->appendChild( $session->make_text( $rendered ) );
+#if( defined $email && $email ne "" )
+#{
+#        $span->appendChild( $session->make_text( " ($email) " ) );
+#}
 
-        #if( defined $email && $email ne "" )
-        #{
-        #        $span->appendChild( $session->make_text( " ($email) " ) );
-        #}
-
-        return $span;
+	return $span;
 }
+
+sub render_name
+{
+        my ( $session , $field , $value, $alllangs, $nolink, $object ) = @_;
+
+	return _render_single_name( $session, $value, $field->name );
+}
+
+sub render_name_no_link
+{
+        my ( $session , $field , $value, $alllangs, $nolink, $object ) = @_;
+
+	return _render_single_name( $session, $value );
+}
+
+
 
 sub render_single_keyword                                                                           
 {                                                                                                   
