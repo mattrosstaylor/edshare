@@ -139,7 +139,31 @@ elsif ($media_type eq "image")
 EOF
 
 }
+else
+{
+	print <<EOF;
+	<html>
+	<head>
+	<style type="text/css">
 
+	body { 
+	    border:0 !important;
+	    margin:0 !important;
+	    padding:0 !important;
+	}
+
+	</style>
+	</head>
+
+	<body>
+	  <div style="text-align:center;padding-top:$error_padding_top;width=$error_width;"><h1><img style="vertical-align:middle;" src="/images/pr
+eview/unavailable.png">Preview Unavailable</h1><p>This file type cannot be viewed.</p></div>
+	</body>
+
+	</html>
+EOF
+
+}
 
 sub _get_related_item_url
 {
