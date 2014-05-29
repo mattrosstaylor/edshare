@@ -16,3 +16,17 @@ function setPreview(docid) {
 	$('preview_document_info').update( $('preview_document_hidden_info_'+docid).innerHTML);
 	$('preview_document_button').update( $('preview_document_hidden_button_'+docid).innerHTML);
 }
+
+function autoResizePreviewArea(){
+	var newheight;
+	var newwidth;
+
+	var preview_area = document.getElementById("preview_area");
+
+	newheight = preview_area.contentWindow.document.body.scrollHeight;
+	newwidth = preview_area.contentWindow.document.body.scrollWidth;
+
+	preview_area.height = (newheight) + "px";
+	preview_area.width = (newwidth) + "px";
+}
+

@@ -39,7 +39,8 @@ if ( $repository->call("can_user_view_document", $first_document, $user) eq "ALL
 	$div->appendChild( $eprint->render_citation("preview_document_list") );
 	my $preview_dimensions = $repository->call( "preview_dimensions" );
 
-	print '<iframe id="preview_area" scrolling="no" src="" style="height:'.$preview_dimensions->{height}.'px;"> </iframe>';
+#	print '<iframe id="preview_area" scrolling="no" src="" style="height:'.$preview_dimensions->{height}.'px;"> </iframe>';
+	print '<iframe id="preview_area" style="width:'.$preview_dimensions->{width}.'px;height:'.$preview_dimensions->{height}.'px;" scrolling="no" marginheight="0" frameborder="0" src="" onLoad="autoResizePreviewArea()"> </iframe>';
 	print $xml->to_string( $div );
 }
 else

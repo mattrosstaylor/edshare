@@ -14,47 +14,124 @@ my $doc = EPrints::DataObj::Document->new($repository, $docid);
 
 exit( 0 ) unless( defined $doc );
 
-# check for pdf preview
-my $related = $doc->search_related("ispdfThumbnailVersionOf");
-my $pdf = $related->item(0);
-if (defined $pdf)
-{
-	$doc = $pdf;
-} 
+my $media_type = $doc->get_type;
 
 $repository->send_http_header( content_type=>"text/html; charset=UTF-8" );
+my $base_url = $repository->get_conf("base_url");
 
-#get the url components
-my $http_root = $repository->get_conf("base_url");
+if ($media_type eq "text" or $media_type eq "slideshow")
+{
+	my $url = $base_url. "/" .$doc->file_path;
+	my $pdf_url = _get_related_item_url( $doc, "ispdfThumbnailVersionOf", $base_url );
 
-my $url = "$http_root/" .$doc->file_path;
+	if ( defined $pdf_url )
+	{
+		$url = $pdf_url;
+	}
 
-print <<EOF;
-<html>
-<head>
-<style type="text/css">
+	print <<EOF;
+	<html>
+	<head>
+	<style type="text/css">
 
-body, iframe { 
-    border:0 !important;
-    margin:0 !important;
-    padding:0 !important;
+	body, iframe { 
+	    border:0 !important;
+	    margin:0 !important;
+	    padding:0 !important;
+	}
+
+	</style>
+	<script type="text/javascript" src="$base_url/javascript/jquery.min.js"></script> 
+	<script type="text/javascript" src="$base_url/javascript/jquery.media.0.92.js"></script> 
+
+	<script type="text/javascript">
+		\$(document).ready(function () {
+			\$('.media').media({width:$width, height:$height});
+		});
+
+	 </script>
+	</head>
+
+	<body>
+	  <a class="media" href="$url"/>
+	</body>
+
+	</html>
+EOF
+
+}
+elsif ($media_type eq "video")
+{
+	my $main_url = "$base_url/" .$doc->file_path;
+	my $main_mime = $doc->mime_type;
+
+	my $image_url = _get_related_item_url( $doc, "islightboxThumbnailVersionOf", $base_url );
+	my $mp4_url = _get_related_item_url( $doc, "isvideo_mp4ThumbnailVersionOf", $base_url );
+	my $ogg_url = _get_related_item_url( $doc, "isvideo_oggThumbnailVersionOf", $base_url );
+
+	print <<EOF;
+	<html>
+	<head>
+	<style type="text/css">
+
+	body { 
+	    border:0 !important;
+	    margin:0 !important;
+	    padding:0 !important;
+	}
+
+	</style>
+	</head>
+
+	<body>
+	  <video width="$width" height="$height" controls poster="$image_url">
+	    <source src="$mp4_url" type="video/mp4" />
+	    <source src="$ogg_url" type="video/ogg" />
+	    <source src="$main_url" type="$main_mime" />
+	  </video>
+	</body>
+
+	</html>
+EOF
+
+}
+elsif ($media_type eq "image")
+{
+	my $image_url = _get_related_item_url( $doc, "islightboxThumbnailVersionOf", $base_url );
+
+	print <<EOF;
+	<html>
+	<head>
+	<style type="text/css">
+
+	body { 
+	    border:0 !important;
+	    margin:0 !important;
+	    padding:0 !important;
+	}
+
+	</style>
+	</head>
+
+	<body>
+	  <img style="position:absolute; margin:auto; top:0; bottom:0; left:0; right:0;" src="$image_url" />
+	</body>
+
+	</html>
+EOF
+
 }
 
-</style>
-<script type="text/javascript" src="$http_root/javascript/jquery.min.js"></script> 
-<script type="text/javascript" src="$http_root/javascript/jquery.media.0.92.js"></script> 
 
-<script type="text/javascript">
-	\$(document).ready(function () {
-		\$('.media').media({width:$width, height:$height});
-	});
+sub _get_related_item_url
+{
+	my( $doc, $relation, $base_url ) = @_;
 
- </script>
-</head>
-
-<body>
-  <a class="media" href="$url"/>
-</body>
-
-</html>
-EOF
+	my $related = $doc->search_related( $relation );
+	my $item = $related->item(0);
+	if (defined $item)
+	{	
+		return $base_url ."/" .$item->file_path;
+	}
+	return;
+}

@@ -461,6 +461,13 @@
           <filesize>827</filesize>
         </file>
         <file>
+          <filename>epm/edshare/cfg/static/javascript/auto/pdfobject.js</filename>
+          <mime_type>text/plain</mime_type>
+          <hash>bb9828d2b78215f97a0988f19e3a668a</hash>
+          <hash_type>MD5</hash_type>
+          <filesize>1896</filesize>
+        </file>
+        <file>
           <filename>epm/edshare/cfg/static/javascript/auto/permissions.js</filename>
           <mime_type>text/x-c++</mime_type>
           <hash>880756071544b10681e238722d2517d8</hash>
@@ -470,9 +477,9 @@
         <file>
           <filename>epm/edshare/cfg/static/javascript/auto/preview.js</filename>
           <mime_type>text/plain</mime_type>
-          <hash>58b1b2df3d9b2d2ef2aaac8fcb5a1a6f</hash>
+          <hash>5ec3363812c9f81460bdbd04a449a1dc</hash>
           <hash_type>MD5</hash_type>
-          <filesize>710</filesize>
+          <filesize>1061</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/static/javascript/auto/resource_manager.js</filename>
@@ -519,9 +526,9 @@
         <file>
           <filename>epm/edshare/cfg/static/style/auto/preview.css</filename>
           <mime_type>text/x-c</mime_type>
-          <hash>0a813a5f6e0774450fc99b4037d791cb</hash>
+          <hash>95f80ad01e48997977578ba572c79330</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2050</filesize>
+          <filesize>2055</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/static/style/auto/resource_manager.css</filename>
@@ -582,16 +589,16 @@
         <file>
           <filename>epm/edshare/cgi/preview</filename>
           <mime_type>text/plain</mime_type>
-          <hash>81d08294eff18c4a56fa82b08132cec6</hash>
+          <hash>010cd818cb9382a57823c4cea1f848bf</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1293</filesize>
+          <filesize>2847</filesize>
         </file>
         <file>
           <filename>epm/edshare/cgi/preview_init</filename>
           <mime_type>text/plain</mime_type>
-          <hash>47f1fd1d756fa217956e4308a0789bb2</hash>
+          <hash>60523c019d48a62e51fa085bbb19bda6</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1408</filesize>
+          <filesize>1637</filesize>
         </file>
         <file>
           <filename>epm/edshare/cgi/users/lookup/edshare_taglite_suggestions</filename>
