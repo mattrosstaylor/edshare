@@ -461,13 +461,6 @@
           <filesize>827</filesize>
         </file>
         <file>
-          <filename>epm/edshare/cfg/static/javascript/auto/pdfobject.js</filename>
-          <mime_type>text/plain</mime_type>
-          <hash>bb9828d2b78215f97a0988f19e3a668a</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>1896</filesize>
-        </file>
-        <file>
           <filename>epm/edshare/cfg/static/javascript/auto/permissions.js</filename>
           <mime_type>text/x-c++</mime_type>
           <hash>880756071544b10681e238722d2517d8</hash>
@@ -503,18 +496,11 @@
           <filesize>466</filesize>
         </file>
         <file>
-          <filename>epm/edshare/cfg/static/javascript/jquery.media.0.92.js</filename>
-          <mime_type>text/plain</mime_type>
-          <hash>139460cebb3baba703412964834c6365</hash>
+          <filename>epm/edshare/cfg/static/javascript/independent_preview.js</filename>
+          <mime_type>text/x-c++</mime_type>
+          <hash>7946e2fdb4f61b0c89d12b46c20851f5</hash>
           <hash_type>MD5</hash_type>
-          <filesize>19138</filesize>
-        </file>
-        <file>
-          <filename>epm/edshare/cfg/static/javascript/jquery.min.js</filename>
-          <mime_type>text/html</mime_type>
-          <hash>b8d64d0bc142b3f670cc0611b0aebcae</hash>
-          <hash_type>MD5</hash_type>
-          <filesize>94840</filesize>
+          <filesize>2211</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/static/style/auto/permissions.css</filename>
@@ -589,9 +575,9 @@
         <file>
           <filename>epm/edshare/cgi/preview</filename>
           <mime_type>text/plain</mime_type>
-          <hash>010cd818cb9382a57823c4cea1f848bf</hash>
+          <hash>13f2317e0e0cbf862b5579d5c9a2aba7</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2847</filesize>
+          <filesize>3658</filesize>
         </file>
         <file>
           <filename>epm/edshare/cgi/preview_init</filename>

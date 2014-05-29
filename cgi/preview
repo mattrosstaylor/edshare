@@ -8,6 +8,9 @@ exit( 0 ) unless( defined $repository );
 my $dimensions = $repository->call( "preview_dimensions" );
 my $width = $dimensions->{width};
 my $height = $dimensions->{height};
+my $error_padding_top = $height*0.3 ."px";
+my $error_width = $width ."px";
+
 my $docid = $repository->param("doc");
 
 my $doc = EPrints::DataObj::Document->new($repository, $docid);
@@ -41,19 +44,32 @@ if ($media_type eq "text" or $media_type eq "slideshow")
 	}
 
 	</style>
-	<script type="text/javascript" src="$base_url/javascript/jquery.min.js"></script> 
-	<script type="text/javascript" src="$base_url/javascript/jquery.media.0.92.js"></script> 
+	<script type="text/javascript" src="$base_url/javascript/independent_preview.js"></script>
 
 	<script type="text/javascript">
-		\$(document).ready(function () {
-			\$('.media').media({width:$width, height:$height});
-		});
+		window.onload = function() {
+			var error = document.getElementById("error");
+			// mrt - detect misery!
+			var info = getAcrobatInfo();
+			if(info.acrobat){
+				var iframe;
+				iframe = document.createElement("iframe");
+				iframe.src= "$url";
+				iframe.width = $width;
+				iframe.height = $height;
+				error.parentNode.replaceChild(iframe, error);
+			}
+			else {
+				error.style.display = "block";
+			}
+		}
+	</script>
 
-	 </script>
 	</head>
 
 	<body>
-	  <a class="media" href="$url"/>
+		<div id="error" style="display:none;text-align:center;padding-top:$error_padding_top;width=$error_width;"><h1><img style="vertical-align:middle;" src="/images/pr
+eview/unavailable.png">Preview Unavailable</h1><p>No compatible PDF reader plugin could be found on this device.</p></div>
 	</body>
 
 	</html>
@@ -88,6 +104,8 @@ elsif ($media_type eq "video")
 	    <source src="$mp4_url" type="video/mp4" />
 	    <source src="$ogg_url" type="video/ogg" />
 	    <source src="$main_url" type="$main_mime" />
+	    <div style="text-align:center;padding-top:$error_padding_top;width=$error_width;"><h1><img style="vertical-align:middle;" src="/images/pr
+eview/unavailable.png">Preview Unavailable</h1><p>This video could not be played on this device.</p></div>
 	  </video>
 	</body>
 
