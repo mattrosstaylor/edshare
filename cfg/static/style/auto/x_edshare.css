@@ -100,13 +100,6 @@
         overflow: hidden;
 }
 
-/* Workflow styling */
-.ed_creatorsname {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
  /* not sure why the drop downs aren't ordered - but I will do it explicitly just to make sure  */
 .ep_drop_target {
 	z-index: 5;

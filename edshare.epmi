@@ -50,9 +50,9 @@
         <file>
           <filename>epm/edshare/cfg/cfg.d/x_edshare_fields.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>c8257dfab64fba23c81372513c8813de</hash>
+          <hash>505f41dbb8b98d7f1c2f7c46339c2dd0</hash>
           <hash_type>MD5</hash_type>
-          <filesize>3098</filesize>
+          <filesize>2983</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/cfg.d/x_edshare_permissions.pl</filename>
@@ -148,9 +148,9 @@
         <file>
           <filename>epm/edshare/cfg/citations/eprint/result.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>91957cc5bb7f4e65acd554f5c46207b3</hash>
+          <hash>1128fb191f3b66648d8d05cb4b52df69</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1108</filesize>
+          <filesize>1109</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/lang/en/phrases/bulk_actions.xml</filename>
@@ -176,9 +176,9 @@
         <file>
           <filename>epm/edshare/cfg/lang/en/phrases/x_edshare.xml</filename>
           <mime_type>application/xml</mime_type>
-          <hash>0dca1fb1bbd6a33844bf2b88ed5ed3bd</hash>
+          <hash>b6c12d2e2a3ce5f5820746e8f04318f7</hash>
           <hash_type>MD5</hash_type>
-          <filesize>12722</filesize>
+          <filesize>12779</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/lang/en/static/index.xpage</filename>
@@ -540,9 +540,9 @@
         <file>
           <filename>epm/edshare/cfg/static/style/auto/x_edshare.css</filename>
           <mime_type>text/x-c</mime_type>
-          <hash>dffa0c11acd2b623f2fb169fdc6ec40b</hash>
+          <hash>494018e50296f9e30f8077c8ca2c073e</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2197</filesize>
+          <filesize>2108</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/workflows/eprint/default.xml</filename>
@@ -624,9 +624,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/EdShareUtils.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>80bb887b4cefd808aecda8df976b0bbb</hash>
+          <hash>401f09dd70e13782bf47452dca1d50dc</hash>
           <hash_type>MD5</hash_type>
-          <filesize>7029</filesize>
+          <filesize>5571</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Export/Zip.pm</filename>

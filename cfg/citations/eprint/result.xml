@@ -10,7 +10,7 @@
 			<strong>Added By:</strong> <epc:print expr="userid" /><br />
 			<strong>Date:</strong> <epc:print expr="lastmod" /><br />
 			<epc:if test="length(creators) gt 0">
-				<strong>Creators:</strong> <epc:print expr="creators" /><br />
+				<strong>Creators:</strong> <epc:print expr="creators" /> <br />
 			</epc:if>
 
 			<epc:if test="length(keywords) gt 0">

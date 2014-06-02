@@ -5,51 +5,6 @@ package EPrints::Plugin::EdShareUtils;
 use strict;
 use warnings;
 
-sub render_name_list
-{
-        my ( $session , $field , $value, $alllangs, $nolink, $object ) = @_;
-
-        if( scalar(@$value) == 0)
-        {
-                return $session->make_doc_fragment;
-        }
-
-        # let's not rendered a list for only a single name
-        if(scalar(@$value) == 1)
-        {
-                my $first = $$value[0];
-                if(!defined $first || (!defined $first->{given} && !defined $first->{family}))
-                {
-                        print STDERR "\nFound name with no given_name or no family_name, eprintid is ".$object->get_id;
-                        return $session->make_doc_fragment;
-                }
-
-                return _render_single_name( $session, $first, $field->name );
-        }
-
-        my $ul = $session->make_element( "ul", "class" => "ed_creatorsname" );
-
-        foreach my $name ( @$value )
-        {
-                if(!defined $name || (!defined $name->{given} && !defined $name->{family}))
-                {
-                        if(defined $object){
-                                print STDERR "\nFound name with no given_name or no family_name, eprintid is ".$object->get_id;
-                        }
-                        next;
-                }
-
-                my $li = $session->make_element( "li" );
-                $ul->appendChild( $li );
-                $li->appendChild( _render_single_name( $session, $name, $field->name ) );
-        }
-
-        return $ul;
-}
-
-
-
-
 sub render_creators_name
 {
         my ( $session , $field , $value, $alllangs, $nolink, $object ) = @_;
@@ -72,8 +27,9 @@ sub render_creators_name
                 return _render_single_name( $session, $creator->{name}, "creators_name" );
         }
 
-        my $ul = $session->make_element( "ul", "class" => "ed_creatorsname" );
+	my $frag = $session->make_doc_fragment;
 
+	my $is_first_name = 1;
         foreach my $creator ( @$value )
         {
                 if(!defined $creator->{name} || (!defined $creator->{name}->{given} && !defined $creator->{name}->{family}))
@@ -83,13 +39,19 @@ sub render_creators_name
                         }
                         next;
                 }
+		if ($is_first_name)
+		{
+			$is_first_name = 0;
+		}
+		else
+		{
+			$frag->appendChild( $session->make_text( ", " ) );
+		}
 
-                my $li = $session->make_element( "li" );
-                $ul->appendChild( $li );
-                $li->appendChild( _render_single_name( $session, $creator->{name}, "creators_name" ) );
+                $frag->appendChild( _render_single_name( $session, $creator->{name}, "creators_name" ) );
         }
 
-        return $ul;
+        return $frag;
 }
 
 sub _render_single_name
@@ -146,9 +108,7 @@ sub render_name_no_link
 	return _render_single_name( $session, $value );
 }
 
-
-
-sub render_single_keyword                                                                           
+sub render_keyword                                                                           
 {                                                                                                   
         my( $session , $field , $value, $alllangs, $nolink, $object ) = @_;                         
                                                                                                     
@@ -190,7 +150,5 @@ sub normalise_keyword
 
         return $nk;
 }
-
-
 
 1;

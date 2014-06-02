@@ -41,7 +41,7 @@
 	<epp:phrase id="Plugin/Screen/EPrint/Staff/ChangeOwner:title">Change Resource Owner</epp:phrase>
 	<epp:phrase id="Plugin/Screen/EPrint/Staff/ChangeOwner:changedowner">Transferred ownership of this resource to <epc:pin name="user"/>.</epp:phrase>
 	<epp:phrase id="user_fieldhelp_username">Username must be a combination of letters and numbers.</epp:phrase>
-
+	<epp:phrase id="lib/metafield:join_name">, </epp:phrase>
 <!-- workflow phrases -->
 
 	<epp:phrase id="eprint_fieldhelp_title">Try to make your title concise, but also helpful and explanatory to other users. Avoid being too vague or too general. The title will be the first impression you give other users about your resource.</epp:phrase>
