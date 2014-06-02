@@ -3,7 +3,7 @@ $c->{browse_views} = [
 	id => "year",
 	menus => [
 	{
-		fields => [ "datestamp;res=year" ],
+		fields => [ "lastmod;res=month" ],
 		reverse_order => 1,
 		allow_null => 1,
 		new_column_at => [10,10],

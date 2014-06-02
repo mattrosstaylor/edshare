@@ -78,9 +78,9 @@
         <file>
           <filename>epm/edshare/cfg/cfg.d/x_edshare_views.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>ac06b0ee17c9000d4e3d23bcd60c4191</hash>
+          <hash>d93adb61f5f93f74c85d8676c06cc532</hash>
           <hash_type>MD5</hash_type>
-          <filesize>1226</filesize>
+          <filesize>1225</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/cfg.d/x_preview.pl</filename>

@@ -285,7 +285,7 @@ sub _get_possible_filter_values
 		$Q_eprint_fieldname_table = $database->quote_identifier( 'eprint' );
 	}
 
-	my $sql = "SELECT $Q_fieldname, count(*) FROM $Q_eprint_fieldname_table WHERE ";
+	my $sql = "SELECT $Q_fieldname, count(*) FROM $Q_eprint_fieldname_table WHERE $Q_fieldname is not null AND";
 
 	$sql .= " $Q_eprintid IN (".join( ",", map { $database->quote_int( $_ ) } @{$eprint_list->get_ids} ).")";
 
