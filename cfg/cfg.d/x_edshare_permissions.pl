@@ -11,7 +11,7 @@ $c->{collate_permission_values_by_type} = sub
 		{
 			$values_by_type->{$type} = [];
 		}
-		push ( $values_by_type->{$type}, $value );
+		push ( @{$values_by_type->{$type}}, $value );
 	}
 	return $values_by_type;
 };
@@ -32,7 +32,7 @@ $c->{is_user_permitted} = sub
 	if ( not defined $user ) { return "DENY"; }
 	if ( exists $values_by_type->{restricted} ) { return "ALLOW"; }
 
-	foreach my $type ( keys $values_by_type )
+	foreach my $type ( keys %$values_by_type )
 	{
 		my $plugin = $repository->plugin( "PermissionType::".$type );
 		next if (not defined $plugin);

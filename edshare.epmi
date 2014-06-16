@@ -57,9 +57,9 @@
         <file>
           <filename>epm/edshare/cfg/cfg.d/x_edshare_permissions.pl</filename>
           <mime_type>text/plain</mime_type>
-          <hash>4e816bc13dd1b8425488ad183e8b990f</hash>
+          <hash>afbad67cc239c7703866fe8d7fb16c1a</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2120</filesize>
+          <filesize>2124</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/cfg.d/x_edshare_plugins.pl</filename>
@@ -771,9 +771,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/Screen/ResourceManager.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>b146c8e2f673b0198b1b662cb79db699</hash>
+          <hash>f4df6665136109c758edf92f179a6585</hash>
           <hash_type>MD5</hash_type>
-          <filesize>12280</filesize>
+          <filesize>12308</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/TagCloud.pm</filename>
