@@ -84,7 +84,7 @@ sub export
 
 	my $soffice = "/usr/lib/libreoffice/program/soffice";
 	my $filepath = $doc->stored_file($doc->get_main)->get_local_copy;
-	my @args = ("--headless", "--invisible", "--nosplash", "--nofirststartwizard", "--convert-to", "pdf", "--outdir", $dir , $filepath);
+	my @args = ("--headless", "--invisible", "--nofirststartwizard", "--convert-to", "pdf", "--outdir", $dir , $filepath);
 
 	system($soffice, @args);
 	my $command = $soffice." ".join(" ", @args);
