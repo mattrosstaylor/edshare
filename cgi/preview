@@ -32,49 +32,78 @@ if ($media_type eq "text" or $media_type eq "slideshow")
 		$url = $pdf_url;
 	}
 
-	print <<EOF;
-	<html>
-	<head>
-	<style type="text/css">
+	use File::Basename;
+	my ( $who_cares, $whatever, $extension) = fileparse( $url, qr/\.[^.]*/);
 
-	body, iframe { 
-	    border:0 !important;
-	    margin:0 !important;
-	    padding:0 !important;
-	}
+	if ( $extension eq ".pdf" )
+	{
+		print <<EOF;
+		<html>
+		<head>
+		<style type="text/css">
 
-	</style>
-	<script type="text/javascript" src="$base_url/javascript/independent_preview.js"></script>
-
-	<script type="text/javascript">
-		window.onload = function() {
-			var error = document.getElementById("error");
-			// mrt - detect misery!
-			var info = getAcrobatInfo();
-			if(info.acrobat){
-				var iframe;
-				iframe = document.createElement("iframe");
-				iframe.src= "$url";
-				iframe.width = $width;
-				iframe.height = $height;
-				error.parentNode.replaceChild(iframe, error);
-			}
-			else {
-				error.style.display = "block";
-			}
+		body, iframe { 
+		    border:0 !important;
+		    margin:0 !important;
+		    padding:0 !important;
 		}
-	</script>
 
-	</head>
+		</style>
+		<script type="text/javascript" src="$base_url/javascript/independent_preview.js"></script>
 
-	<body>
-		<div id="error" style="display:none;text-align:center;padding-top:$error_padding_top;width=$error_width;"><h1><img style="vertical-align:middle;" src="/images/pr
-eview/unavailable.png">Preview Unavailable</h1><p>No compatible PDF reader plugin could be found on this device.</p></div>
-	</body>
+		<script type="text/javascript">
+			window.onload = function() {
+				var error = document.getElementById("error");
+				// mrt - detect misery!
+				var info = getAcrobatInfo();
+				if(info.acrobat){
+					var iframe;
+					iframe = document.createElement("iframe");
+					iframe.src= "$url";
+					iframe.width = $width;
+					iframe.height = $height;
+					error.parentNode.replaceChild(iframe, error);
+				}
+				else {
+					error.style.display = "block";
+				}
+			}
+		</script>
 
-	</html>
+		</head>
+
+		<body>
+			<div id="error" style="display:none;text-align:center;padding-top:$error_padding_top;width=$error_width;"><h1><img style="vertical-align:middle;" src="/images/preview/unavailable.png">Preview Unavailable</h1><p>No compatible PDF reader plugin could be found on this device.</p></div>
+		</body>
+
+		</html>
 EOF
 
+	}
+	else
+	{
+		print <<EOF;
+		<html>
+		<head>
+		<style type="text/css">
+
+		body { 
+		    border:0 !important;
+		    margin:0 !important;
+		    padding:0 !important;
+		}
+
+		</style>
+		</head>
+
+		<body>
+		  <div style="text-align:center;padding-top:$error_padding_top;width=$error_width;"><h1><img style="vertical-align:middle;" src="/images/preview/unavailable.png">Preview Unavailable</h1><p>This document could not be previewed or is awaiting conversion.</p></div>
+		</body>
+
+		</html>
+EOF
+
+	}
 }
 elsif ($media_type eq "video")
 {
@@ -104,8 +133,7 @@ elsif ($media_type eq "video")
 	    <source src="$mp4_url" type="video/mp4" />
 	    <source src="$ogg_url" type="video/ogg" />
 	    <source src="$main_url" type="$main_mime" />
-	    <div style="text-align:center;padding-top:$error_padding_top;width=$error_width;"><h1><img style="vertical-align:middle;" src="/images/pr
-eview/unavailable.png">Preview Unavailable</h1><p>This video could not be played on this device.</p></div>
+	    <div style="text-align:center;padding-top:$error_padding_top;width=$error_width;"><h1><img style="vertical-align:middle;" src="/images/preview/unavailable.png">Preview Unavailable</h1><p>This video could not be played on this device.</p></div>
 	  </video>
 	</body>
 
@@ -156,8 +184,7 @@ else
 	</head>
 
 	<body>
-	  <div style="text-align:center;padding-top:$error_padding_top;width=$error_width;"><h1><img style="vertical-align:middle;" src="/images/pr
-eview/unavailable.png">Preview Unavailable</h1><p>This file type cannot be viewed.</p></div>
+	  <div style="text-align:center;padding-top:$error_padding_top;width=$error_width;"><h1><img style="vertical-align:middle;" src="/images/preview/unavailable.png">Preview Unavailable</h1><p>This file type cannot be viewed.</p></div>
 	</body>
 
 	</html>
