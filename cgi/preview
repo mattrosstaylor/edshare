@@ -132,7 +132,6 @@ elsif ($media_type eq "video")
 	  <video width="$width" height="$height" controls poster="$image_url">
 	    <source src="$mp4_url" type="video/mp4" />
 	    <source src="$ogg_url" type="video/ogg" />
-	    <source src="$main_url" type="$main_mime" />
 	    <div style="text-align:center;padding-top:$error_padding_top;width=$error_width;"><h1><img style="vertical-align:middle;" src="/images/preview/unavailable.png">Preview Unavailable</h1><p>This video could not be played on this device.</p></div>
 	  </video>
 	</body>
