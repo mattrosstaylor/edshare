@@ -115,40 +115,14 @@ sub render_keyword
         return $session->make_doc_fragment unless(EPrints::Utils::is_set( $value ) );               
                                                                                                     
         my $base_url = $session->get_repository->get_conf( "base_url" );                            
-                                                                                                    
-        my $norm_value = normalise_keyword( $value );                              
-                                                                                                    
+
+	my $norm_value = EPrints::Utils::escape_filename( $value ); 
         my $target = "$norm_value.html";                                                            
 
-        if( $field->get_name eq 'courses' )                                                         
-        {                                                                                           
-                $target = $value."/";                                                               
-        }                                                                                           
-                                                                                                    
         my $link = $session->make_element( "a", href=>"$base_url/view/".$field->get_name."/$target" );
         $link->appendChild( $session->make_text( "$value" ) );                                      
                                                                                                     
         return $link;                                                                               
 }                 
-
-sub normalise_keyword
-{
-        my( $k ) = @_;
-
-        my $nk = lc( $k );
-
-        # e-learning => elearning
-        $nk =~ s/^(e|on)-/$1/g;
-        # evidence-based => evidence based
-        $nk =~ s/-/ /g;
-        # one two => one_two
-        #$nk =~ s/ /_/g;
-        # "blaf" => blaf
-        $nk =~ s/"//g;
-        $nk =~ s/^\s+//g;
-        $nk =~ s/\s+$//g;
-
-        return $nk;
-}
 
 1;

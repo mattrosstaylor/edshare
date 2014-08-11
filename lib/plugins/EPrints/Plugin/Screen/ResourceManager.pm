@@ -337,7 +337,7 @@ sub _get_filtered_item_list
 		}
 		elsif ( scalar ( @value_conditions ) == 1 )
 		{
-			push @field_conditions, @value_conditions[0];
+			push @field_conditions, $value_conditions[0];
 		}
 	}
 
@@ -348,7 +348,7 @@ sub _get_filtered_item_list
 	}
 	elsif ( scalar ( @field_conditions ) == 1 )
 	{
-		$condition = @field_conditions[0];
+		$condition = $field_conditions[0];
 	}
 
 	return if not $condition;
