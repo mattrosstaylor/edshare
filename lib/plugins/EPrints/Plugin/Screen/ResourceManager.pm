@@ -253,10 +253,16 @@ sub _make_filter_query_string
 				push @current_filter_values, $value;
 			}
 		}
-		$query_string .= '&'.$filter.'='.join( ',', @current_filter_values ) if scalar @current_filter_values;
+		# uri encode each element in the array
+		my @escaped_filter_values;
+		foreach my $s (@current_filter_values)
+		{
+			push @escaped_filter_values, EPrints::Utils::uri_escape_utf8( $s );
+		}
+		$query_string .= '&'.$filter.'='.join( '%2C', @escaped_filter_values ) if scalar @current_filter_values;
 	}
 
-	return $self->get_repository->get_conf( 'rel_path' ).'/cgi/users/home?screen=ResourceManager'.EPrints::Utils::url_escape( $query_string );
+	return $self->get_repository->get_conf( 'rel_path' ).'/cgi/users/home?screen=ResourceManager'. $query_string;
 }
 
 sub _get_possible_filter_values
@@ -329,6 +335,8 @@ sub _get_filtered_item_list
 			$search->add_field( $ds->get_field( $field ), join( ' ', @values ), "IN", "ALL");
 		}
 	}
+
+#print STDERR "\n\n" . $search->get_conditions->describe(1);
 
 	return if not $at_least_one_filter_active;
 	return $search->perform_search;
