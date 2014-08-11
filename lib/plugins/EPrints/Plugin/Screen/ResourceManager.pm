@@ -320,26 +320,46 @@ sub _get_filtered_item_list
 	my $session = $self->{session};
 	my $ds = $session->get_dataset( 'eprint' );
 
-	my $search = EPrints::Search->new(
-		dataset => $ds,
-		session => $session,
-	);
-
-	my $at_least_one_filter_active = 0;
+	my @field_conditions;
+	
 	foreach my $field ( @{$session->get_repository->get_conf( 'resource_manager_filter_fields' )} )
 	{
 		my @values = @{$self->_get_current_filter_values( $field )};
-		if( scalar @values )
+		my @value_conditions;
+		foreach my $value (@values)
 		{
-			$at_least_one_filter_active = 1;
-			$search->add_field( $ds->get_field( $field ), join( ' ', @values ), "IN", "ALL");
+			push @value_conditions, EPrints::Search::Condition->new( "=", $ds, $ds->get_field( $field ), $value );
+		}
+
+		if ( scalar ( @value_conditions ) > 1 )
+		{
+			push @field_conditions, EPrints::Search::Condition::AndSubQuery->new( "AND", @value_conditions );
+		}
+		elsif ( scalar ( @value_conditions ) == 1 )
+		{
+			push @field_conditions, @value_conditions[0];
 		}
 	}
 
-#print STDERR "\n\n" . $search->get_conditions->describe(1);
+	my $condition;
+	if ( scalar ( @field_conditions ) > 1 )
+	{
+		$condition = EPrints::Search::Condition->new( "AND", @field_conditions );
+	}
+	elsif ( scalar ( @field_conditions ) == 1 )
+	{
+		$condition = @field_conditions[0];
+	}
 
-	return if not $at_least_one_filter_active;
-	return $search->perform_search;
+	return if not $condition;
+	return EPrints::List->new(
+		session => $session, 
+		dataset => $ds, 
+		ids => $condition->process(
+				session => $session,
+				dataset => $ds 
+		) 
+	);
 }
 
 sub _render_item_list
