@@ -1,0 +1,9 @@
+#edshare_slideshow {
+	position: relative;
+}
+
+#edshare_slideshow img {
+	position: absolute;
+	width: 100%;
+	height: inherit;
+}
