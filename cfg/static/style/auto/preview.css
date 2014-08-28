@@ -15,10 +15,10 @@
 
 #edshare_summary_left {
 	float:left;
-	padding-right: 12px;
 }
 
 #edshare_summary_right {
+	padding-left: 12px;
 }
 
 .preview_ajax {

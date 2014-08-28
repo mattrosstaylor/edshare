@@ -512,9 +512,9 @@
         <file>
           <filename>epm/edshare/cfg/static/style/auto/preview.css</filename>
           <mime_type>text/x-c</mime_type>
-          <hash>95f80ad01e48997977578ba572c79330</hash>
+          <hash>bc6b91fb27e95c383fc71f6f29e9b3d5</hash>
           <hash_type>MD5</hash_type>
-          <filesize>2055</filesize>
+          <filesize>2054</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/static/style/auto/resource_manager.css</filename>
@@ -533,9 +533,9 @@
         <file>
           <filename>epm/edshare/cfg/static/style/auto/toolbox.css</filename>
           <mime_type>text/plain</mime_type>
-          <hash>c9dd0c295d236480a48b1407f02c115b</hash>
+          <hash>f606a65ba6448fbd7c5b239796690fdf</hash>
           <hash_type>MD5</hash_type>
-          <filesize>185</filesize>
+          <filesize>170</filesize>
         </file>
         <file>
           <filename>epm/edshare/cfg/static/style/auto/x_edshare.css</filename>
@@ -624,9 +624,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/EdShareUtils.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>401f09dd70e13782bf47452dca1d50dc</hash>
+          <hash>7ab215a09a052fb229b090c8068690d8</hash>
           <hash_type>MD5</hash_type>
-          <filesize>5571</filesize>
+          <filesize>4753</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/Export/Zip.pm</filename>
@@ -771,9 +771,9 @@
         <file>
           <filename>plugins/EPrints/Plugin/Screen/ResourceManager.pm</filename>
           <mime_type>inode/symlink</mime_type>
-          <hash>4b86a2c27f6d47165a19ee361055ab87</hash>
+          <hash>d92907f8a9d12ff98ffd323a17b00962</hash>
           <hash_type>MD5</hash_type>
-          <filesize>12308</filesize>
+          <filesize>12981</filesize>
         </file>
         <file>
           <filename>plugins/EPrints/Plugin/TagCloud.pm</filename>

@@ -125,4 +125,25 @@ sub render_keyword
         return $link;                                                                               
 }                 
 
+sub normalise_keyword
+{
+	my( $k ) = @_;
+
+	my $nk = lc( $k );
+
+	# e-learning => elearning
+	$nk =~ s/^(e|on)-/$1/g;
+	# evidence-based => evidence based
+	$nk =~ s/-/ /g;
+	# one two => one_two
+	#$nk =~ s/ /_/g;
+	# "blaf" => blaf
+	$nk =~ s/"//g;
+	$nk =~ s/^\s+//g;
+	$nk =~ s/\s+$//g;
+
+	return $nk;
+}
+
+
 1;
